@@ -9,6 +9,8 @@ import StoryPictures from '../components/StoryPictures'
 import Gallery from '../components/Gallery'
 import Footer from '../components/Footer'
 import Homes from '../components/Homes'
+import SubHeader from '../components/SubHeader'
+
 import Back from '../images/back.jpg'
 import Hero from '../images/hero.jpeg'
 
@@ -23,9 +25,9 @@ const headerStyle = {
 function App() {
     return (
         <div className='app'>
-            {/* <div className='section-sidebar'>
-                <Sidebar />
-            </div> */}
+            <div className='section-subHeader'>
+                <SubHeader />
+            </div>
             <div className='section-header' style={headerStyle}>
                 <Header />
             </div>

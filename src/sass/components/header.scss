@@ -24,14 +24,17 @@
     &__list{
         list-style: none;
         display: grid;
-        grid-template-columns: repeat(autofit, minmax(5rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
         color: #fff;
         justify-self: end;
+        font-size: 1.2rem;
+        text-transform: uppercase;
 
         &--item:link,
         &--item:visited{
             text-decoration: none;
             transition: all .2s;
+            color: #fff;
 
             &:hover{
                 background: rgba(black, 0.3);
