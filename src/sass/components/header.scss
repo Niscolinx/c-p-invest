@@ -1,0 +1,53 @@
+.header {
+
+    &__text {
+        font-size: 1.4rem;
+        font-weight: 400;
+        font-family: $font-display;
+
+        color: $color-primary;
+        text-transform: uppercase;
+    }
+
+    &__logo {
+        height: 3rem;
+        justify-self: center;
+    }
+
+    &__seen-on {
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        align-items: center;
+        column-gap: .5rem;
+        font-size: 1.2rem;
+        color: $color-grey-light-2;
+
+        &::before,
+        &::after{
+            content: "";
+            background-color: currentColor;
+            height: 2px;
+        }
+
+    }
+
+    &__logos {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(2rem, 1fr));
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    &__item {
+        height: 1.5rem;
+        width: 100%;
+        object-fit: contain;
+        justify-self: center;
+        filter: brightness(70%);
+    }
+
+    &__btn {
+        align-self: start;
+        justify-self: start;
+    }
+}
