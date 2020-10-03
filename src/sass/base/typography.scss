@@ -43,11 +43,11 @@
     grid-column: 1 / -1;
 
     display: grid;
-    grid-template-columns: minmax(min-content, max-content);
+    //grid-template-columns: minmax(min-content, max-content);
     grid-template-rows: 2fr min-content minmax(4rem, min-content) 2fr;
     row-gap: 1rem;
     background-size: cover;
-    justify-content: center;
+    //justify-content: center;
     padding: 2rem 6rem;
 
     @media only screen and (max-width: 62.5em) {

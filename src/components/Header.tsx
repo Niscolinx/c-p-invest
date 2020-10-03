@@ -16,19 +16,33 @@ function Header() {
     return (
         <>
             <div className='header__submenu'>
-                <div className='header__submenu--1'>
-                    <CgCalendarDates  className='header__submenu--logo'/>
+                <CgCalendarDates className='header__submenu--logo' />
+                <div className='header__submenu--text'>
                     <GetCurrentDate />
                 </div>
-                <div className='header__submenu--2'>
-                    <AiFillPhone  className='header__submenu--logo'/>
-                    <p>+32352342422</p>
-                </div>
-                <div className='header__submenu--3'>
-                    <MdEmail className='header__submenu--logo'/>
-                    <p>Support@coinperfectinvest.com</p>
-                </div>
+
+                <AiFillPhone className='header__submenu--logo' />
+                <p className='header__submenu--text'>+32352342422</p>
+
+                <MdEmail className='header__submenu--logo' />
+                <p className='header__submenu--text'>
+                    Support@coinperfectinvest.com
+                </p>
             </div>
+
+            <nav className="header__nav">
+                <ul className='header__list'>
+                    <li className="header__list--item">home</li>
+                    <li className="header__list--item">home</li>
+                    <li className="header__list--item">home</li>
+                    <li className="header__list--item">home</li>
+                    <li className="header__list--item">home</li>
+                    <li className="header__list--item">home</li>
+                    <li className="header__list--item">home</li>
+                    <li className="header__list--item">home</li>
+                    <li className="header__list--item">home</li>
+                </ul>
+            </nav>
             <img src={Logo} alt='' className='header__logo' />
             <h3 className='header__text'>Your own home</h3>
             <h1 className='heading-1'>The Ultimate personal freedom</h1>
