@@ -19,7 +19,7 @@ const storyStyle = {
     width: '100%',
 }
 const headerStyle = {
-    backgroundImage: `linear-gradient(rgba(16, 29, 44, .90), rgba(16, 29, 44, .90)), url(${Hero})`,
+    backgroundImage: `linear-gradient(rgba(16, 29, 44, .8), rgba(16, 29, 44, .8)), url(${Hero})`,
 }
 
 function App() {

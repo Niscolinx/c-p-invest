@@ -38,6 +38,11 @@
           }
     }
 
+    &__header{
+        color: $color-primary-dark;
+        font-size: 2rem;
+    }
+
     &__text {
         margin-bottom: 4rem;
         font-size: 1.7rem;

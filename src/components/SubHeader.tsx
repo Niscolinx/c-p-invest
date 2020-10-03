@@ -10,40 +10,43 @@ import GetCurrentDate from '../util/getCurrentDate'
 function SubHeader() {
     return (
         <>
-            <div className='header__submenu'>
-                <CgCalendarDates className='header__submenu--logo' />
-                <div className='header__submenu--text'>
+            <div className='subHeader__contact'>
+                <CgCalendarDates className='subHeader__contact--logo' />
+                <div className='subHeader__contact--text'>
                     <GetCurrentDate />
                 </div>
 
-                <AiFillPhone className='header__submenu--logo' />
-                <p className='header__submenu--text'>+32352342422</p>
+                <AiFillPhone className='subHeader__contact--logo' />
+                <p className='subHeader__contact--text'>+32352342422</p>
 
-                <MdEmail className='header__submenu--logo' />
-                <p className='header__submenu--text'>
+                <MdEmail className='subHeader__contact--logo' />
+                <p className='subHeader__contact--text'>
                     Support@coinperfectinvest.com
                 </p>
             </div>
 
-            <nav className='header__nav'>
-                <ul className='header__list'>
-                    <a href='' className='header__list--item'>
+            <nav className='subHeader__nav'>
+                <div className="logo">
+                    <h2>COINPERFECTINVESTMENT</h2>
+                </div>
+                <ul className='subHeader__list'>
+                    <a href='' className='subHeader__list--item'>
                         <li>home</li>
                     </a>
-                    <a href='' className='header__list--item'>
-                        <li>home</li>
+                    <a href='' className='subHeader__list--item'>
+                        <li>services</li>
                     </a>
-                    <a href='' className='header__list--item'>
-                        <li>home</li>
+                    <a href='' className='subHeader__list--item'>
+                        <li>plans</li>
                     </a>
-                    <a href='' className='header__list--item'>
-                        <li>home</li>
+                    <a href='' className='subHeader__list--item'>
+                        <li>About Us</li>
                     </a>
-                    <a href='' className='header__list--item'>
-                        <li>home</li>
+                    <a href='' className='subHeader__list--item'>
+                        <li>login</li>
                     </a>
-                    <a href='' className='header__list--item'>
-                        <li>home</li>
+                    <a href='' className='subHeader__list--item'>
+                        <li>signup</li>
                     </a>
                 </ul>
             </nav>

@@ -10,9 +10,13 @@ function Header() {
     return (
         <>
             <img src={Logo} alt='' className='header__logo' />
-            <h3 className='header__text'>Your own home</h3>
-            <h1 className='heading-1'>The Ultimate personal freedom</h1>
-            <button className='btn header__btn'>View our properties</button>
+            <h3 className='heading-3 header__text'>Large auctions. Huge profit</h3>
+            <h1 className='heading-1'>Welcome to coinperfectinvestment.com</h1>
+
+            <div className='header__cta'>
+                <button className='btn header__btn'>Sign In</button>
+                <button className='btn header__btn'>Open an account</button>
+            </div>
             <div className='header__seen-on'>As seen on</div>
             <div className='header__logos'>
                 <img src={BBC} alt='' className='header__item' />
