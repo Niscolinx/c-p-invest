@@ -23,16 +23,16 @@ const headerStyle = {
 function App() {
     return (
         <div className='app'>
-            <div className='section-sidebar'>
+            {/* <div className='section-sidebar'>
                 <Sidebar />
-            </div>
+            </div> */}
             <div className='section-header' style={headerStyle}>
                 <Header />
             </div>
 
-            <div className='section-realtors'>
+            {/* <div className='section-realtors'>
                 <Realtors />
-            </div>
+            </div> */}
             <div className='section-features'>
                 <Features />
             </div>

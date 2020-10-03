@@ -1,5 +1,15 @@
 .header {
 
+    &__submenu{
+        display: grid;
+        color: #fff;
+        font-size: 1.4rem;
+
+        &--logo{
+            font-size: 2rem;
+        }
+    }
+
     &__text {
         font-size: 1.4rem;
         font-weight: 400;
