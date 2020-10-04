@@ -38,9 +38,9 @@
     }
 }
 
-.section-subHeader{
-     background-color: $color-secondary;
-     grid-column: 1 / -1;
+.section-subHeader {
+    background-color: $color-secondary;
+    grid-column: 1 / -1;
 }
 
 .section-header {
@@ -143,14 +143,10 @@
 
 
 .section-activities {
-    background-color: $color-grey-light-2;
-    grid-column: full-start / full-end;
+    background-color: $color-secondary;
+    grid-column: sidebar-start / full-end;
 
-    display: grid;
-    gap: 1rem;
-    padding: 1rem;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(7, 5vw);
+    margin: 6rem 0;
 
 }
 
@@ -199,13 +195,16 @@
 .heading-4 {
     @extend %heading;
     font-size: 1.8rem;
+    font-weight: bold;
 
     &__light {
+        text-transform: uppercase;
         color: $color-grey-light-1;
     }
 
     &__dark {
-        color: $color-grey-dark-1;
+        text-transform: uppercase;
+        color: $color-grey-light-2;
     }
 }
 

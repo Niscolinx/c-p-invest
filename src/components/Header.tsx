@@ -1,10 +1,13 @@
 import React from 'react'
 
 import Logo from '../images/logo.png'
-import BBC from '../images/logo-bbc.png'
-import Forbes from '../images/logo-forbes.png'
-import Techcrunch from '../images/logo-techcrunch.png'
-import BusinessInsider from '../images/logo-bi.png'
+import Bitcoin from '../images/bitcoin.png'
+import Dash from '../images/dash.png'
+import Dogecoin from '../images/dogecoin.png'
+import Ethereum from '../images/ethereum.png'
+import Litecoin from '../images/litecoin.png'
+import Payeer from '../images/payeer.png'
+import PerfectMoney from '../images/perfectMoney.png'
 
 function Header() {
     return (
@@ -19,10 +22,13 @@ function Header() {
             </div>
             <div className='header__seen-on'>As seen on</div>
             <div className='header__logos'>
-                <img src={BBC} alt='' className='header__item' />
-                <img src={Forbes} alt='' className='header__item' />
-                <img src={Techcrunch} alt='' className='header__item' />
-                <img src={BusinessInsider} alt='' className='header__item' />
+                <img src={Bitcoin} alt='' className='header__item' />
+                <img src={Ethereum} alt='' className='header__item' />
+                <img src={Dogecoin} alt='' className='header__item' />
+                <img src={Dash} alt='' className='header__item' />
+                <img src={Payeer} alt='' className='header__item' />
+                <img src={PerfectMoney} alt='' className='header__item' />
+                <img src={Litecoin} alt='' className='header__item' />
             </div>
         </>
     )
