@@ -28,8 +28,6 @@ function StoryContent() {
                     strict and our complete support is given passion and energy.
                 </p>
             </div>
-
-            <button className='btn'>Find your own home</button>
         </>
     )
 }

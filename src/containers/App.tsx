@@ -3,10 +3,9 @@ import React from 'react'
 import Sidebar from '../components/Sidebar'
 import Header from '../components/Header'
 import Features from '../components/Features'
-import Realtors from '../components/Realtors'
+import Activities from '../components/Activities'
 import StoryContent from '../components/StoryContent'
 import StoryPictures from '../components/StoryPictures'
-import Gallery from '../components/Gallery'
 import Footer from '../components/Footer'
 import Homes from '../components/Homes'
 import SubHeader from '../components/SubHeader'
@@ -47,8 +46,8 @@ function App() {
             <div className='section-homes'>
                 <Homes />
             </div>
-            <div className='section-gallery'>
-                <Gallery />
+            <div className='section-activities'>
+                <Activities />
             </div>
             <div className='section-footer'>
                 <Footer />

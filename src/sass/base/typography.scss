@@ -91,7 +91,7 @@
     &__pictures {
         display: grid;
         background-color: $color-primary-dark;
-        grid-column: full-start / col-end 4;
+        grid-column: full-start / col-end 3;
 
         align-items: center;
         background-position: center;
@@ -111,7 +111,7 @@
     &__content {
         display: grid;
         background-color: $color-grey-light-1;
-        grid-column: col-start 5 / full-end;
+        grid-column: col-start 4 / full-end;
         align-content: center;
         justify-items: start;
 
@@ -142,7 +142,7 @@
 }
 
 
-.section-gallery {
+.section-activities {
     background-color: $color-grey-light-2;
     grid-column: full-start / full-end;
 
