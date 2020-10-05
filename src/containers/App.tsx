@@ -7,7 +7,7 @@ import Activities from '../components/Activities'
 import StoryContent from '../components/StoryContent'
 import StoryPictures from '../components/StoryPictures'
 import Footer from '../components/Footer'
-import Homes from '../components/Homes'
+import Homes from '../components/Transactions'
 import SubHeader from '../components/SubHeader'
 
 import Back from '../images/back.jpg'
