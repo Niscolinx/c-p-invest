@@ -7,7 +7,7 @@ import Activities from '../components/Activities'
 import StoryContent from '../components/StoryContent'
 import StoryPictures from '../components/StoryPictures'
 import Footer from '../components/Footer'
-import Homes from '../components/Transactions'
+import Transactions from '../components/Transactions'
 import SubHeader from '../components/SubHeader'
 
 import Back from '../images/back.jpg'
@@ -43,8 +43,8 @@ function App() {
             <div className='section-story__content'>
                 <StoryContent />
             </div>
-            <div className='section-homes'>
-                <Homes />
+            <div className='section-transactions'>
+                <Transactions />
             </div>
             <div className='section-activities'>
                 <Activities />
