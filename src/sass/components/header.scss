@@ -1,21 +1,32 @@
 .header {
 
     &__text {
-        font-size: clamp(1rem, 3vw, 5vw);
+        font-size: clamp(.8rem, 1.5rem, 2rem);
         font-weight: 400;
         font-family: $font-display;
         color: #fff;
         text-transform: uppercase;
+
+
+         @media only screen and (max-width: 37em) {
+             justify-self: center;
+         }
     }
 
     &__title {
         justify-self: center;
-        font-size: clamp(1.6rem, 3vw, 5vw);
+        font-size: clamp(1.3rem, 3vw, 5vw);
+
+        @media only screen and (max-width: 37em) {
+            justify-self: center;
+            text-align: center;
+        }
     }
 
     &__logo {
         height: 3rem;
         justify-self: center;
+
     }
 
     &__cta {
@@ -49,6 +60,10 @@
         grid-template-columns: repeat(auto-fit, minmax(2rem, 1fr));
         gap: 1rem;
         justify-content: center;
+
+       @media only screen and (max-width: 28em) {
+           grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+       }
     }
 
     &__item {
@@ -56,7 +71,10 @@
         width: 100%;
         object-fit: contain;
         justify-self: center;
-        // filter: brightness(70%);
+
+        @media only screen and (max-width: 28em) {
+            height: 3rem;
+        }
     }
 
     &__btn {

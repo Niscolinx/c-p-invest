@@ -1,23 +1,14 @@
-// .layout{
-//     display: grid;
-//     grid-template-columns: minmax(6rem, 1fr) [full-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [full-end] minmax(6rem, 1fr);
-//     grid-template-rows: 100vh min-content 50vw repeat(6, min-content)
-// }
-
 .app {
     display: grid;
     grid-template-rows: min-content 76vh min-content 50vw repeat(4, min-content);
-    grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    grid-template-columns: [sidebar-start] 6rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
 
-    // @media only screen and (max-width: 62.5em) {
-    //     grid-template-rows: 6rem 80vh min-content 50vw repeat(3, min-content);
-    //     grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
-    // }
+    @media only screen and (max-width: 22em) {
+        
+         grid-template-columns: [sidebar-start] [sidebar-end full-start] minmax(1rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(1rem, 1fr) [full-end];
+    }
 
-    // @media only screen and (max-width: 62.5em) {
-    //     grid-template-rows: 6rem calc(100vh - 6rem);
-
-    // }
+    
 
 }
 
@@ -216,6 +207,10 @@
 
     &:hover {
         background-color: darken($color-primary-dark, 30%);
+    }
+
+    @media only screen and (max-width: 28em) {
+        padding: 1rem 2rem;
     }
 }
 

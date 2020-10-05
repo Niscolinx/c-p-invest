@@ -9,7 +9,7 @@
 html,
 body {
   @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;1,400&family=Nunito:ital,wght@0,300;1,300&display=swap");
-  width: 100%;
+
   line-height: 1.6;
   color: $color-grey-dark-2;
   font-weight: 300;
@@ -35,6 +35,7 @@ body {
 //1200px / 16 = 75em
 //1000px / 16 = 62.5em
 //600px / 16 =  37.5em
+//450px/16 = 28em
 
 
 html {
@@ -43,10 +44,6 @@ html {
 
   @media only screen and (max-width: 75em) {
     font-size: 62.5%;
-  }
-
-  @media only screen and (max-width: 37em) {
-    font-size: 50.5%;
   }
 
 
