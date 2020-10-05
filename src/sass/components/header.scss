@@ -1,17 +1,16 @@
-.header {   
+.header {
 
     &__text {
-        font-size: 1.6rem;
+        font-size: clamp(1rem, 3vw, 5vw);
         font-weight: 400;
         font-family: $font-display;
-
         color: #fff;
         text-transform: uppercase;
     }
 
-    &__title{
+    &__title {
         justify-self: center;
-        font-size: clamp(2rem, 3vw, 5vw);
+        font-size: clamp(1.6rem, 3vw, 5vw);
     }
 
     &__logo {
@@ -19,7 +18,7 @@
         justify-self: center;
     }
 
-    &__cta{
+    &__cta {
         display: grid;
         grid-template-columns: max-content max-content;
         column-gap: 2rem;
@@ -37,7 +36,7 @@
         color: $color-grey-light-2;
 
         &::before,
-        &::after{
+        &::after {
             content: "";
             background-color: currentColor;
             height: 2px;
@@ -57,7 +56,7 @@
         width: 100%;
         object-fit: contain;
         justify-self: center;
-       // filter: brightness(70%);
+        // filter: brightness(70%);
     }
 
     &__btn {
