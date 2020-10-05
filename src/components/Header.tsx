@@ -14,7 +14,7 @@ function Header() {
         <>
             <img src={Logo} alt='' className='header__logo' />
             <h3 className='heading-3 header__text'>Large auctions. Huge profit</h3>
-            <h1 className='heading-1'>Welcome to coinperfectinvestment.com</h1>
+            <h1 className='heading-1 header__title'>Welcome to coinperfectinvestment.com</h1>
 
             <div className='header__cta'>
                 <button className='btn header__btn'>Sign In</button>

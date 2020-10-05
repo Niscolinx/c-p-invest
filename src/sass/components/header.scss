@@ -9,6 +9,11 @@
         text-transform: uppercase;
     }
 
+    &__title{
+        justify-self: center;
+        font-size: clamp(2rem, 3vw, 5vw);
+    }
+
     &__logo {
         height: 3rem;
         justify-self: center;

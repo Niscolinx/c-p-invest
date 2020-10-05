@@ -39,7 +39,9 @@
 }
 
 .section-subHeader {
+    display: grid;
     background-color: $color-secondary;
+   // grid-template-columns: subgrid;
     grid-column: 1 / -1;
 }
 
@@ -52,8 +54,8 @@
     grid-template-rows: 2fr min-content minmax(4rem, min-content) 2fr;
     row-gap: 1rem;
     background-size: cover;
-    justify-content: center;
     padding: 2rem 6rem;
+    justify-content: center;
 
     @media only screen and (max-width: 62.5em) {
         grid-column: 1 / -1;
@@ -117,8 +119,8 @@
 
 .section-transactions {
     background-color: $color-grey-light-1;
-    grid-column: center-start / center-end;
-    margin: 10rem 0;
+    grid-column: sidebar-end / center-end;
+    margin: 5rem 0;
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
@@ -137,6 +139,7 @@
 
 .section-whyChooseUs{
     display: grid;
+    background-color: $color-grey-light-2;
     grid-column: 1 / -1;
 }
 

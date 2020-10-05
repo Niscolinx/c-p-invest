@@ -2,7 +2,7 @@
 
      &__contact {
          display: grid;
-         grid-template-columns: repeat(3, min-content max-content);
+        grid-template-columns: repeat(auto-fit, min-content max-content);
          column-gap: .2rem;
          justify-self: start;
          grid-column: 1 / -1;
@@ -23,19 +23,25 @@
      }
 
      &__nav{
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
+        // justify-content: end;
+        align-items: center;
          padding: 1rem 3rem;
          
      }
 
+     &__logo{
+         //grid-column: 1 / 2;
+     }
+
      &__list {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+         justify-items: center;
          font-family: $font-display;
          font-weight: 400;
-         display: flex;
-         justify-content: space-evenly;
-         align-items: center;
+        align-items: center;
          list-style: none;
          color: #fff;
          font-size: 1.3rem;
@@ -46,7 +52,7 @@
              text-decoration: none;
              transition: all .2s;
              color: #fff;
-             padding: 1rem 2rem;
+             padding: .5rem 1rem;
 
              &:hover {
                  background: rgba(black, 0.3);

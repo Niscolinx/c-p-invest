@@ -26,7 +26,7 @@ function SubHeader() {
             </div>
 
             <nav className='subHeader__nav'>
-                <div className="logo">
+                <div className="subHeader__logo">
                     <h2>COINPERFECTINVESTMENT</h2>
                 </div>
                 <ul className='subHeader__list'>

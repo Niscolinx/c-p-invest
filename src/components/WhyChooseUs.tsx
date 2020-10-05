@@ -23,7 +23,7 @@ function WhyChooseUs() {
                 </div>
                 <div className='whyChooseUs__box'>
                     <AiOutlineAreaChart className='whyChooseUs__icon' />
-                    <h2 className='whyChooseUs__title'>Profitable Admin</h2>
+                    <h2 className='whyChooseUs__title'>Profitable Plan</h2>
                     <h3 className='whyChooseUs__text'>
                         Reliable daily earning with our advance profitable
                         investment plan. Join and start earning !
