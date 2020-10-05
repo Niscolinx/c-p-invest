@@ -5,7 +5,16 @@ function Transactions() {
     return (
         <>
             <div className='transactions'>
-                <h4 className='heading-4'>Latest Deposits</h4>
+                <h4 className='heading-4 transactions__heading mb-sm'>Latest Deposits</h4>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>Richard</h4>
+                </div>
                 <div className='transactions__col'>
                     <img
                         src={BitcoinGif}
@@ -15,8 +24,173 @@ function Transactions() {
                     <p className='transactions__amount'>$85392.00</p>
                     <h4 className='transactions__name'>Henry</h4>
                 </div>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>JOhn</h4>
+                </div>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>JOhn</h4>
+                </div>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>JOhn</h4>
+                </div>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>JOhn</h4>
+                </div>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>JOhn</h4>
+                </div>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>JOhn</h4>
+                </div>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>JOhn</h4>
+                </div>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>JOhn</h4>
+                </div>
             </div>
-            <div className='trasactions'>withdrawals</div>
+            <div className='transactions'>
+                <h4 className='heading-4 transactions__heading mb-sm'>Latest Withdrawals</h4>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>kelvin</h4>
+                </div>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>Fish</h4>
+                </div>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>Fish</h4>
+                </div>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>Fish</h4>
+                </div>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>Fish</h4>
+                </div>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>Fish</h4>
+                </div>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>Fish</h4>
+                </div>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>Fish</h4>
+                </div>
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>Fish</h4>
+                </div>
+             
+                <div className='transactions__col'>
+                    <img
+                        src={BitcoinGif}
+                        alt=''
+                        className='transactions__currency'
+                    />
+                    <p className='transactions__amount'>$85392.00</p>
+                    <h4 className='transactions__name'>Timothy</h4>
+                </div>
+            </div>
         </>
     )
 }

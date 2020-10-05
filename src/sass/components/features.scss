@@ -2,14 +2,14 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
     gap: 4rem;
-    padding: 2rem;
+    padding: 2rem 0;
     color: $color-primary;
     align-items: start;
 }
 
 .feature {
      display: grid;
-     justify-content: center;
+     //justify-content: center;
      justify-items: center;
      box-shadow: 5px 2px 14px 3px $color-secondary;
      border-radius: 5px;

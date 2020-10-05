@@ -1,14 +1,15 @@
 import React from 'react'
 
 import Sidebar from '../components/Sidebar'
+import SubHeader from '../components/SubHeader'
 import Header from '../components/Header'
 import Features from '../components/Features'
 import Activities from '../components/Activities'
 import StoryContent from '../components/StoryContent'
 import StoryPictures from '../components/StoryPictures'
-import Footer from '../components/Footer'
 import Transactions from '../components/Transactions'
-import SubHeader from '../components/SubHeader'
+import WhyChooseUs from '../components/WhyChooseUs'
+import Footer from '../components/Footer'
 
 import Back from '../images/back.jpg'
 import Hero from '../images/hero.jpeg'
@@ -43,11 +44,14 @@ function App() {
             <div className='section-story__content'>
                 <StoryContent />
             </div>
+            <div className='section-activities'>
+                <Activities />
+            </div>
             <div className='section-transactions'>
                 <Transactions />
             </div>
-            <div className='section-activities'>
-                <Activities />
+            <div className="section-whyChooseUs">
+                <WhyChooseUs/>
             </div>
             <div className='section-footer'>
                 <Footer />

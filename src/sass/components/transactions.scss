@@ -1,5 +1,32 @@
-.transactions{
+.transactions {
+   // background-color: red;
+    font-family: $font-display;
+    font-weight: 400;
 
-    display: grid;
-    
+    &__heading {
+        text-transform: uppercase;
+        color: $color-secondary;
+        text-align: center;
+    }
+
+    &__col {
+        display: grid;
+        column-gap: 1rem;
+        justify-items: center;
+        align-items: center;
+       // align-content: center;
+        grid-template-columns: repeat(8, 1fr);
+        color: $color-primary-dark;
+    }
+
+    &__amount {
+        font-size: 2rem;
+    }
+
+    &__name {
+        font-size: 1.8rem;
+        justify-self: start;
+        text-transform: uppercase;
+        grid-column: 4 / span 2;
+    }
 }
