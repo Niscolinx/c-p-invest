@@ -3,41 +3,55 @@ import React from 'react'
 function Footer() {
     return (
         <>
-        <ul className='nav'>
-            <li className='nav__item'>
-                <a href='#' className='nav__link'>
-                    Find your dream home
-                </a>
-            </li>
-            <li className='nav__item'>
-                <a href='#' className='nav__link'>
-                    Request proposal
-                </a>
-            </li>
-            <li className='nav__item'>
-                <a href='#' className='nav__link'>
-                    Download home planner
-                </a>
-            </li>
-            <li className='nav__item'>
-                <a href='#' className='nav__link'>
-                    Submit your property{' '}
-                </a>
-            </li>
-            <li className='nav__item'>
-                <a href='#' className='nav__link'>
-                    Contact us
-                </a>
-            </li>
-            <li className='nav__item'>
-                <a href='#' className='nav__link'>
-                    Come work with us
-                </a>
-            </li>
-        </ul>
-        <p className="nav__copyright">
-                &copy; 2020 Wesycle Bringing about a more conductive environment
-        </p>
+            <div className='footer'>
+                <div className='footer__col'>
+                    <h4 className='heading-4__light'>Hello</h4>
+                    <ul className='heading__list'>
+                        <a href='' className='heading__link'>
+                            {' '}
+                            <li>Home</li>
+                        </a>
+                        <a href='' className='heading__link'>
+                            {' '}
+                            <li>Home</li>
+                        </a>
+                    </ul>
+                </div>
+                <div className='footer__col'>
+                    <h4 className='heading-4__light'>Hello</h4>
+                    <ul className='heading__list'>
+                        <a href='' className='heading__link'>
+                            <li>Home</li>
+                        </a>
+                        <a href='' className='heading__link'>
+                            {' '}
+                            <li>Home</li>
+                        </a>
+                        <li className='heading__list-item'>About Us</li>
+                    </ul>
+                </div>
+                <div className='footer__col'>
+                    <h4 className='heading-4__light'>Hello</h4>
+                    <ul className='heading__list'>
+                        <a href='' className='heading__link'>
+                            {' '}
+                            <li>Home</li>
+                        </a>
+                        <a href='' className='heading__link'>
+                            {' '}
+                            <li>Home</li>
+                        </a>
+                        <li className='heading__list-item'>About Us</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div className='footer__copy'>
+                <p className='footer__copyright'>
+                    &copy; 2020 Wesycle Bringing about a more conductive
+                    environment
+                </p>
+            </div>
         </>
     )
 }

@@ -20,7 +20,7 @@ function Header() {
                 <button className='btn header__btn'>Sign In</button>
                 <button className='btn header__btn'>Open an account</button>
             </div>
-            <div className='header__seen-on'>As seen on</div>
+            <div className='header__seen-on'>We Accept</div>
             <div className='header__logos'>
                 <img src={Bitcoin} alt='' className='header__item' />
                 <img src={Ethereum} alt='' className='header__item' />

@@ -152,7 +152,9 @@
 
 .section-footer {
     background-color: $color-secondary;
-    grid-column: full-start / full-end;
+    grid-column: sidebar-start / full-end;
+
+    padding: 4rem;
 
 }
 
