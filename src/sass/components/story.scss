@@ -40,7 +40,11 @@
 
     &__header{
         color: $color-primary-dark;
-        font-size: clamp(1.3rem, 2.5vw, 3vw)
+        font-size: clamp(1.6rem, 2vw, 2.5vw)
+    }
+
+    &__header-2{
+        font-size: clamp(3rem, 3vw, 5vw);
     }
 
     &__text {

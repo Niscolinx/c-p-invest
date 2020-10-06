@@ -5,7 +5,7 @@ import { CgCalendarDates } from 'react-icons/cg'
 import { MdEmail } from 'react-icons/md'
 import { AiFillPhone } from 'react-icons/ai'
 
-import GetCurrentDate from '../util/getCurrentDate'
+import GetCurrentDate from '../../util/getCurrentDate'
 
 function SubHeader() {
     return (
@@ -23,29 +23,29 @@ function SubHeader() {
                 <nav className='navigation__nav'>
                     <ul className='navigation__list'>
                         <li className='navigation__item'>
-                            <a href='#blank' className='navigation__link'>
+                            <Link to='#blank' className='navigation__link'>
                                 Login
-                            </a>
+                            </Link>
                         </li>
                         <li className='navigation__item'>
-                            <a href='#blank' className='navigation__link'>
+                            <Link to='#blank' className='navigation__link'>
                                 Logout
-                            </a>
+                            </Link>
                         </li>
                         <li className='navigation__item'>
-                            <a href='#blank' className='navigation__link'>
+                            <Link to='#blank' className='navigation__link'>
                                 About Us
-                            </a>
+                            </Link>
                         </li>
                         <li className='navigation__item'>
-                            <a href='#blank' className='navigation__link'>
+                            <Link to='#blank' className='navigation__link'>
                                 FAQ
-                            </a>
+                            </Link>
                         </li>
                         <li className='navigation__item'>
-                            <a href='#blank' className='navigation__link'>
+                            <Link to='#blank' className='navigation__link'>
                                 Services
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </nav>
@@ -71,18 +71,18 @@ function SubHeader() {
                     <h2>COINPERFECTINVESTMENT</h2>
                 </div>
                 <ul className='subHeader__list'>
-                    <a href='/' className='subHeader__list--item'>
+                    <Link to='/' className='subHeader__list--item'>
                         <li>home</li>
-                    </a>
-                    <a href='/' className='subHeader__list--item'>
+                    </Link>
+                    <Link to='/' className='subHeader__list--item'>
                         <li>services</li>
-                    </a>
-                    <a href='/' className='subHeader__list--item'>
+                    </Link>
+                    <Link to='/' className='subHeader__list--item'>
                         <li>FAQ</li>
-                    </a>
-                    <a href='/' className='subHeader__list--item'>
+                    </Link>
+                    <Link to='/' className='subHeader__list--item'>
                         <li>About Us</li>
-                    </a>
+                    </Link>
                     <Link to='/Auth/login' className='subHeader__list--item'>
                         <li>login</li>
                     </Link>

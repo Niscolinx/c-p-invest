@@ -1,13 +1,13 @@
 import React from 'react'
 
-import Logo from '../images/logo.png'
-import Bitcoin from '../images/bitcoin.png'
-import Dash from '../images/dash.png'
-import Dogecoin from '../images/dogecoin.png'
-import Ethereum from '../images/ethereum.png'
-import Litecoin from '../images/litecoin.png'
-import Payeer from '../images/payeer.png'
-import PerfectMoney from '../images/perfectMoney.png'
+import Logo from '../../../images/logo.png'
+import Bitcoin from '../../../images/bitcoin.png'
+import Dash from '../../../images/dash.png'
+import Dogecoin from '../../../images/dogecoin.png'
+import Ethereum from '../../../images/ethereum.png'
+import Litecoin from '../../../images/litecoin.png'
+import Payeer from '../../../images/payeer.png'
+import PerfectMoney from '../../../images/perfectMoney.png'
 
 function Header() {
     return (

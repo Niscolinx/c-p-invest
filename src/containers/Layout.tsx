@@ -1,7 +1,7 @@
 import React from 'react'
 
-import SubHeader from '../components/SubHeader'
-import Footer from '../components/Footer'
+import SubHeader from '../components/layout/SubHeader'
+import Footer from '../components/layout/Footer'
 
 function Layout(props:any) {
     return (

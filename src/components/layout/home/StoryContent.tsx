@@ -16,7 +16,7 @@ function StoryContent() {
                 coast of the Norwegian Sea to the shores of Western Europe.
             </p>
             <div className='vision'>
-                <h2 className='heading-2'>
+                <h2 className='heading-2 story__header-2'>
                     &ldquo;Our Vision&rdquo;
                 </h2>
                 <p className='story__text'>

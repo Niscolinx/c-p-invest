@@ -1,5 +1,5 @@
 import React from 'react'
-import BitcoinGif from '../images/bitcoin-gif.gif'
+import BitcoinGif from '../../../images/bitcoin-gif.gif'
 
 function Transactions() {
     return (
