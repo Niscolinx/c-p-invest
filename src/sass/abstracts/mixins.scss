@@ -17,8 +17,15 @@
  //1000px / 16 = 62.5em
 //600px / 16 =  37.5em
 //450px/16 = 28em
+//350px/16 = 21.8
 
 @mixin respond($breakpoint) {
+    @if $breakpoint==smallest-phone {
+        @media only screen and (max-width: 21.8em) {
+            // 400px/16px
+            @content;
+        }
+    }
     @if $breakpoint==smaller-phone {
         @media only screen and (max-width: 28em) {
             // 400px/16px
@@ -60,10 +67,5 @@
         }
     }
 
-    @if $breakpoint==big-desktop {
-        @media (max-width: 113.5em) {
-            //1800/16px
-            @content;
-        }
-    }
+   
 }

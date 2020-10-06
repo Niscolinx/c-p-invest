@@ -113,7 +113,7 @@
         top: 4.5rem;
         right: 4.5rem;
         background-image: radial-gradient($color-primary, $color-primary-dark);
-        transition: all .6s cubic-bezier(0.86, 0, 0.7, 1);
+        transition: all .4s cubic-bezier(0.86, 0, 0.7, 1);
 
         @include respond(tab-port) {
             top: 2.5rem;
@@ -132,7 +132,7 @@
         z-index: 1500;
         left: 0;
         visibility: hidden;
-        transition: all .6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     }
 
@@ -163,11 +163,12 @@
 
         &:link,
         &:visited {
+            font-family: $font-display;
             display: inline-block;
             color: white;
-            font-size: 3rem;
+            font-size: 2.5rem;
             padding: 1rem 2rem;
-            font-weight: 300;
+            font-weight: 400;
             text-decoration: none;
             text-transform: uppercase;
             background-image: linear-gradient(160deg, transparent 0%, transparent 50%, $color-grey-light-1 50%);
@@ -180,22 +181,12 @@
                 display: block;
             }
 
-            span {
-                margin-right: 1rem;
-                display: inline-block;
-
-                @include respond(phone) {
-                    display: block;
-                    margin: 0;
-                }
-            }
-
 
             &:hover,
             &:active {
                 background-position: 100%;
                 color: $color-primary-dark;
-                transform: translateX(2rem);
+                transform: translateX(1rem);
             }
         }
     }

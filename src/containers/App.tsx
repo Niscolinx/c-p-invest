@@ -1,67 +1,48 @@
 import React from 'react'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
-//import Sidebar from '../components/Sidebar'
-import SubHeader from '../components/SubHeader'
-import Header from '../components/Header'
-import Features from '../components/Features'
-import Activities from '../components/Activities'
-import StoryContent from '../components/StoryContent'
-import StoryPictures from '../components/StoryPictures'
-import Transactions from '../components/Transactions'
-import WhyChooseUs from '../components/WhyChooseUs'
-import Footer from '../components/Footer'
+import asyncComponent from '../components/hoc/asyncComponent'
+import Layout from './Layout'
+import Home from './Home'
 
-import Back from '../images/back.jpg'
-import Hero from '../images/hero.jpg'
-import WhyUs from '../images/whyChooseUs.jpg'
+function App(props:any) {
+    // const asyncOrders = asyncComponent(() => {
+    //     return import('./Orders')
+    // })
 
-const storyStyle = {
-    backgroundImage: `linear-gradient(rgba(198, 153, 99, .7), rgba(198, 153, 99, .7)), url(${Back})`,
-    width: '100%',
-}
-const headerStyle = {
-    backgroundImage: `linear-gradient(rgba(16, 29, 44, .6), rgba(16, 29, 44, .6)), url(${Hero})`,
-}
-const whyChooseUsStyle = {
-    backgroundImage: `linear-gradient(rgba(16, 29, 44, .8), rgba(16, 29, 44, .7)), url(${WhyUs})`,
-    backgroundPosition: 'cover'
-}
-
-function App() {
+    // const asyncBurgerBuilder = asyncComponent(() => {
+    //     return import('./BurgerBuilder')
+    // })
+    // const asyncCheckout = asyncComponent(() => {
+    //     return import('../containers/Checkout')
+    // })
+    const asyncAuth = asyncComponent(() => {
+        //return import('../containers/Auth')
+    })
+    let AuthGuard = (
+        <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/Auth/login' component={asyncAuth} />
+            <Route path='/Auth/register' component={asyncAuth} />
+            <Redirect to='/' />
+        </Switch>
+    )
+    if (props.auth) {
+        AuthGuard = (
+            <Switch>
+                <Route path='/Auth/login' component={asyncAuth} />
+                <Route path='/Auth/register' component={asyncAuth} />
+                {/* <Route path='/' exact component={BurgerBuilder} />
+                <Route path='/Checkout' component={asyncCheckout} />
+                <Route path='/Orders' component={asyncOrders} /> */}
+                <Redirect to='/' />
+            </Switch>
+        )
+    }
     return (
-        <div className='app'>
-            <div className='section-subHeader'>
-                <SubHeader />
-            </div>
-            <div className='section-header' style={headerStyle}>
-                <Header />
-            </div>
-
-            {/* <div className='section-realtors'>
-                <Realtors />
-            </div> */}
-            <div className='section-features'>
-                <Features />
-            </div>
-            <div className='section-story__pictures' style={storyStyle}>
-                <StoryPictures />
-            </div>
-            <div className='section-story__content'>
-                <StoryContent />
-            </div>
-            <div className='section-activities'>
-                <Activities />
-            </div>
-            <div className='section-transactions'>
-                <Transactions />
-            </div>
-            <div className="section-whyChooseUs" style={whyChooseUsStyle}>
-                <WhyChooseUs/>
-            </div>
-            <div className='section-footer'>
-                <Footer />
-            </div>
-        </div>
+        <>
+            <Layout>{AuthGuard}</Layout>
+        </>
     )
 }
 

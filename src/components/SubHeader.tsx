@@ -23,27 +23,27 @@ function SubHeader() {
                     <ul className='navigation__list'>
                         <li className='navigation__item'>
                             <a href='#blank' className='navigation__link'>
-                                <span>01</span>About Natours
+                                Login
                             </a>
                         </li>
                         <li className='navigation__item'>
                             <a href='#blank' className='navigation__link'>
-                                <span>02</span>Your benefits
+                                Logout
                             </a>
                         </li>
                         <li className='navigation__item'>
                             <a href='#blank' className='navigation__link'>
-                                <span>03</span>Popular tours
+                                About Us
                             </a>
                         </li>
                         <li className='navigation__item'>
                             <a href='#blank' className='navigation__link'>
-                                <span>04</span>Stories
+                                FAQ
                             </a>
                         </li>
                         <li className='navigation__item'>
                             <a href='#blank' className='navigation__link'>
-                                <span>05</span>Book now
+                                Services
                             </a>
                         </li>
                     </ul>
@@ -77,7 +77,7 @@ function SubHeader() {
                         <li>services</li>
                     </a>
                     <a href='/' className='subHeader__list--item'>
-                        <li>plans</li>
+                        <li>FAQ</li>
                     </a>
                     <a href='/' className='subHeader__list--item'>
                         <li>About Us</li>
