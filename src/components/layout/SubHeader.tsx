@@ -33,7 +33,7 @@ function SubHeader() {
                             </Link>
                         </li>
                         <li className='navigation__item'>
-                            <Link to='#blank' className='navigation__link'>
+                            <Link to='/about-us' className='navigation__link'>
                                 About Us
                             </Link>
                         </li>
@@ -80,7 +80,7 @@ function SubHeader() {
                     <Link to='/' className='subHeader__list--item'>
                         <li>FAQ</li>
                     </Link>
-                    <Link to='/' className='subHeader__list--item'>
+                    <Link to='/about-us' className='subHeader__list--item'>
                         <li>About Us</li>
                     </Link>
                     <Link to='/Auth/login' className='subHeader__list--item'>

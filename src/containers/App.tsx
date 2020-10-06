@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import asyncComponent from '../components/hoc/asyncComponent'
 import Layout from './Layout'
 import Home from './Home'
+import AboutUs from './AboutUs'
 
 function App(props:any) {
     // const asyncOrders = asyncComponent(() => {
@@ -28,12 +29,17 @@ function App(props:any) {
         return import('../components/auth/Register')
     })
 
+    const asyncAboutUs = asyncComponent(() => {
+        return import('./AboutUs')
+    })
+
     
     let AuthGuard = (
         <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/Auth/login' component={asyncLogin} />
             <Route path='/Auth/register' component={asyncRegister} />
+            <Route path='/about-us' component={asyncAboutUs} />
             <Redirect to='/' />
         </Switch>
     )
