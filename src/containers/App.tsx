@@ -12,14 +12,17 @@ import WhyChooseUs from '../components/WhyChooseUs'
 import Footer from '../components/Footer'
 
 import Back from '../images/back.jpg'
-import Hero from '../images/hero.jpeg'
+import Hero from '../images/hero.jpg'
 
 const storyStyle = {
-    backgroundImage: `linear-gradient(rgba(198, 153, 99, .7), rgba(198, 153, 99, .5)), url(${Back})`,
+    backgroundImage: `linear-gradient(rgba(198, 153, 99, .7), rgba(198, 153, 99, .7)), url(${Back})`,
     width: '100%',
 }
 const headerStyle = {
-    backgroundImage: `linear-gradient(rgba(16, 29, 44, .8), rgba(16, 29, 44, .8)), url(${Hero})`,
+    backgroundImage: `linear-gradient(rgba(16, 29, 44, .6), rgba(16, 29, 44, .6)), url(${Hero})`,
+}
+const whyChooseUsStyle = {
+    backgroundImage: `linear-gradient(rgba(16, 29, 44, .6), rgba(16, 29, 44, .6)), url(${Hero})`,
 }
 
 function App() {
@@ -50,7 +53,7 @@ function App() {
             <div className='section-transactions'>
                 <Transactions />
             </div>
-            <div className="section-whyChooseUs">
+            <div className="section-whyChooseUs" style={whyChooseUsStyle}>
                 <WhyChooseUs/>
             </div>
             <div className='section-footer'>

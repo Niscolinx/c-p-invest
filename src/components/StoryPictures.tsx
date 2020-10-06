@@ -1,6 +1,6 @@
 import React from 'react'
-import Image1 from '../images/story-1.jpeg'
-import Image2 from '../images/story-2.jpeg'
+import Image1 from '../images/story-1.jpg'
+import Image2 from '../images/story-22.jpg'
 
 function StoryPictures() {
     return (
