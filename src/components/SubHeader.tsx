@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 import { CgCalendarDates } from 'react-icons/cg'
 import { MdEmail } from 'react-icons/md'
@@ -82,12 +83,12 @@ function SubHeader() {
                     <a href='/' className='subHeader__list--item'>
                         <li>About Us</li>
                     </a>
-                    <a href='/' className='subHeader__list--item'>
+                    <Link to='/Auth/login' className='subHeader__list--item'>
                         <li>login</li>
-                    </a>
-                    <a href='/' className='subHeader__list--item'>
+                    </Link>
+                    <Link to='/Auth/register' className='subHeader__list--item'>
                         <li>signup</li>
-                    </a>
+                    </Link>
                 </ul>
             </nav>
         </>
