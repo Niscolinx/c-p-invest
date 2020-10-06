@@ -1,10 +1,10 @@
 .whyChooseUs {
     padding: 2rem clamp(1rem, 3vw, 5vw);
+    color: $color-grey-light-1;
 
     &__heading{
         text-align: center;
         font-size: clamp(1.8rem, 2vw, 3vw);
-        color: $color-primary-dark;
         font-family: $font-display;
         font-weight: 400;
         text-transform: uppercase;
@@ -23,7 +23,7 @@
         justify-content: center;
         justify-items: center;
         align-content: start;
-        color: $color-primary-dark;
+       // color: $color-primary-dark;
         font-size: clamp(1.4rem, 1vw, 4vw)
     }
 

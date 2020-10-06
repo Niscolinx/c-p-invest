@@ -13,6 +13,7 @@ import Footer from '../components/Footer'
 
 import Back from '../images/back.jpg'
 import Hero from '../images/hero.jpg'
+import WhyUs from '../images/whyChooseUs.jpg'
 
 const storyStyle = {
     backgroundImage: `linear-gradient(rgba(198, 153, 99, .7), rgba(198, 153, 99, .7)), url(${Back})`,
@@ -22,7 +23,8 @@ const headerStyle = {
     backgroundImage: `linear-gradient(rgba(16, 29, 44, .6), rgba(16, 29, 44, .6)), url(${Hero})`,
 }
 const whyChooseUsStyle = {
-    backgroundImage: `linear-gradient(rgba(16, 29, 44, .6), rgba(16, 29, 44, .6)), url(${Hero})`,
+    backgroundImage: `linear-gradient(rgba(16, 29, 44, .2), rgba(16, 29, 44, .1)), url(${WhyUs})`,
+    backgroundPosition: 'cover'
 }
 
 function App() {
