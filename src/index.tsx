@@ -1,15 +1,33 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
+
+
 import './sass/main.scss'
 import App from './containers/App'
 import * as serviceWorker from './serviceWorker'
+import authReducer from './store/reducers/auth'
+
+const rootReducer = {
+    auth: authReducer
+}
+
+const store = createStore(
+    combineReducers(rootReducer),
+    composeWithDevTools(applyMiddleware(thunk))
+)
 
 const app = (
     <React.StrictMode>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
+        <Provider store={store}>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </Provider>
     </React.StrictMode>
 )
 

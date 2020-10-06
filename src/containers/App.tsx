@@ -19,11 +19,21 @@ function App(props:any) {
     const asyncAuth = asyncComponent(() => {
         //return import('../containers/Auth')
     })
+
+    const asyncLogin = asyncComponent(() => {
+        return import('../components/auth/Login')
+    })
+    
+    const asyncRegister = asyncComponent(() => {
+        return import('../components/auth/Register')
+    })
+
+    
     let AuthGuard = (
         <Switch>
             <Route path='/' exact component={Home} />
-            <Route path='/Auth/login' component={asyncAuth} />
-            <Route path='/Auth/register' component={asyncAuth} />
+            <Route path='/Auth/login' component={asyncLogin} />
+            <Route path='/Auth/register' component={asyncRegister} />
             <Redirect to='/' />
         </Switch>
     )
