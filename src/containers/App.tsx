@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Sidebar from '../components/Sidebar'
+//import Sidebar from '../components/Sidebar'
 import SubHeader from '../components/SubHeader'
 import Header from '../components/Header'
 import Features from '../components/Features'
@@ -23,7 +23,7 @@ const headerStyle = {
     backgroundImage: `linear-gradient(rgba(16, 29, 44, .6), rgba(16, 29, 44, .6)), url(${Hero})`,
 }
 const whyChooseUsStyle = {
-    backgroundImage: `linear-gradient(rgba(16, 29, 44, .2), rgba(16, 29, 44, .1)), url(${WhyUs})`,
+    backgroundImage: `linear-gradient(rgba(16, 29, 44, .8), rgba(16, 29, 44, .7)), url(${WhyUs})`,
     backgroundPosition: 'cover'
 }
 

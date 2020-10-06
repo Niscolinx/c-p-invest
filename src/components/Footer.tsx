@@ -12,15 +12,15 @@ function Footer() {
                         Useful Links
                     </h4>
                     <ul className='footer__list'>
-                        <a href='' className='footer__link'>
+                        <a href='/' className='footer__link'>
                             {' '}
                             <li>Terms and Conditions</li>
                         </a>
-                        <a href='' className='footer__link'>
+                        <a href='/' className='footer__link'>
                             {' '}
                             <li>About Us</li>
                         </a>
-                        <a href='' className='footer__link'>
+                        <a href='/' className='footer__link'>
                             {' '}
                             <li>Contact Us</li>
                         </a>

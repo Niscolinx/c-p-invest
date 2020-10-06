@@ -1,14 +1,15 @@
 .app {
     display: grid;
+    position: relative;
     grid-template-rows: min-content 78vh min-content 50vw repeat(4, min-content);
     grid-template-columns: [sidebar-start] 6rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
 
     @media only screen and (max-width: 22em) {
-        
-         grid-template-columns: [sidebar-start] [sidebar-end full-start] minmax(1rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(1rem, 1fr) [full-end];
+
+        grid-template-columns: [sidebar-start] [sidebar-end full-start] minmax(1rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(1rem, 1fr) [full-end];
     }
 
-    
+
 
 }
 
@@ -32,7 +33,7 @@
 .section-subHeader {
     display: grid;
     background-color: $color-secondary;
-   // grid-template-columns: subgrid;
+    // grid-template-columns: subgrid;
     grid-column: 1 / -1;
 }
 
@@ -128,10 +129,13 @@
 
 }
 
-.section-whyChooseUs{
+.section-whyChooseUs {
     display: grid;
     background-color: $color-grey-light-2;
     grid-column: 1 / -1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .section-footer {
@@ -205,7 +209,10 @@
     transition: all .2s;
     font-family: $font-display;
 
-    &:hover {
+    &:hover,
+    &:active {
+        border: none;
+        outline: none;
         background-color: darken($color-primary-dark, 30%);
     }
 
@@ -225,3 +232,4 @@
 .mb-lg {
     margin-bottom: 7.5rem;
 }
+
