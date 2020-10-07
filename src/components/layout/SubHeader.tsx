@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 
 import { CgCalendarDates } from 'react-icons/cg'
@@ -8,10 +8,17 @@ import { AiFillPhone } from 'react-icons/ai'
 import GetCurrentDate from '../../util/getCurrentDate'
 
 function SubHeader() {
+    const [checked, setChecked] = useState(true)
+
+    const collapseMenu = () => {
+        setChecked((old:boolean) => !old)
+    }
+
     return (
         <>
             <div className='navigation'>
                 <input
+                    checked={checked}
                     type='checkbox'
                     className='navigation__checkbox'
                     id='navi-toggle'
@@ -33,7 +40,13 @@ function SubHeader() {
                             </Link>
                         </li>
                         <li className='navigation__item'>
-                            <Link to='/about-us' className='navigation__link'>
+                            <Link
+                                to='/about-us'
+                                className='navigation__link'
+                                onClick={() => {
+                                    collapseMenu()
+                                }}
+                            >
                                 About Us
                             </Link>
                         </li>
