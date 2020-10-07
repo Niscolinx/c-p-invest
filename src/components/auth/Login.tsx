@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 
-import withErrorHandler from '../hoc/withErrorHandler'
-import axios from '../../axios'
 import Button from '../../components/Button'
 import Input from '../../components/Input'
 
@@ -52,7 +50,7 @@ const Login = (props:any) => {
         })
     }
 
-    const inputBlurHandler = (input) => {
+    const inputBlurHandler = (input:any) => {
         setState((prevState) => {
             return {
                 loginForm: {
@@ -111,4 +109,4 @@ const Login = (props:any) => {
 }
 
 
-export default withErrorHandler(Login, axios)
+export default Login

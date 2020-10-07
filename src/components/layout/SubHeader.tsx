@@ -86,7 +86,7 @@ function SubHeader() {
                     <Link to='/Auth/login' className='subHeader__list--item'>
                         <li>login</li>
                     </Link>
-                    <Link to='/Auth/register' className='subHeader__list--item'>
+                    <Link to='/Auth/signup' className='subHeader__list--item'>
                         <li>signup</li>
                     </Link>
                 </ul>

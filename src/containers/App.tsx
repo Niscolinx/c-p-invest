@@ -24,7 +24,7 @@ function App(props:any) {
         return import('../components/auth/Login')
     })
     
-    const asyncRegister = asyncComponent(() => {
+    const asyncSignup = asyncComponent(() => {
         return import('../components/auth/Signup')
     })
 
@@ -37,7 +37,7 @@ function App(props:any) {
         <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/Auth/login' component={asyncLogin} />
-            <Route path='/Auth/register' component={asyncRegister} />
+            <Route path='/Auth/signup' component={asyncSignup} />
             <Route path='/about-us' component={asyncAboutUs} />
             <Redirect to='/' />
         </Switch>
@@ -46,7 +46,7 @@ function App(props:any) {
         AuthGuard = (
             <Switch>
                 <Route path='/Auth/login' component={asyncAuth} />
-                <Route path='/Auth/register' component={asyncAuth} />
+                <Route path='/Auth/signup' component={asyncAuth} />
                 {/* <Route path='/' exact component={BurgerBuilder} />
                 <Route path='/Checkout' component={asyncCheckout} />
                 <Route path='/Orders' component={asyncOrders} /> */}
