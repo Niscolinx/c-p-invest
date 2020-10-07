@@ -233,47 +233,51 @@
     margin-bottom: 7.5rem;
 }
 
+//To be changed later
 
-.lds-dual-ring {
-    display: inline-block;
-    width: 64px;
-    height: 64px;
+.auth-form {
+    width: 90%;
+    margin: auto;
+    padding: 1rem;
+    border: 1px solid #3b0062;
+    border-radius: 5px;
 }
 
-.lds-dual-ring:after {
-    content: " ";
+@media (min-width: 768px) {
+    .auth-form {
+        width: 40rem;
+    }
+}
+
+.input {
+    margin: 1rem 0;
+    width: 100%;
+}
+
+.input label {
     display: block;
-    width: 46px;
-    height: 46px;
-    margin: 1px;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    border: 5px solid $color-secondary;
-    border-color: $color-primary transparent $color-primary-dark transparent;
-    -webkit-animation: lds-dual-ring 1.2s linear infinite;
-    animation: lds-dual-ring 1.2s linear infinite;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
 }
 
-@-webkit-keyframes lds-dual-ring {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
+.input input,
+.input textarea {
+    display: block;
+    font: inherit;
+    padding: 0.25rem 0.5rem;
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #ccc;
 }
 
-@keyframes lds-dual-ring {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
+.input .touched.invalid {
+    border-color: red;
+    background: #ffc2c2;
+}
 
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
+.input input:focus,
+.input textarea:focus {
+    outline: none;
+    border-color: #3b0062;
+    color: #3b0062;
 }

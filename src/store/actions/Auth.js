@@ -1,5 +1,4 @@
 import * as actions from './actionTypes'
-import fire from '../../firebase/firebase'
 
 
 export const authStart = () => {
@@ -8,29 +7,29 @@ export const authStart = () => {
     }
 }
 
-export const authSuccessCheck = (auth) => {
-    return dispatch => {
+// export const authSuccessCheck = (auth) => {
+//     return dispatch => {
 
-        let user = fire.auth().currentUser;
-        let token = user.getIdToken()
-        token.then((res) => {
-            localStorage.setItem('userId', auth)
-            localStorage.setItem('token', res)
-            dispatch(authSuccess(auth, res))
-            dispatch(fire.analytics())
+//         let user = fire.auth().currentUser;
+//         let token = user.getIdToken()
+//         token.then((res) => {
+//             localStorage.setItem('userId', auth)
+//             localStorage.setItem('token', res)
+//             dispatch(authSuccess(auth, res))
+//             dispatch(fire.analytics())
 
-            console.log('This is the firebase analytics', fire.analytics())
-            console.log('The auth was successful')
+//             console.log('This is the firebase analytics', fire.analytics())
+//             console.log('The auth was successful')
 
-            setTimeout(() => {
-                dispatch(logOut())
-            }, 3600 * 1000);
-        })
-            .catch((err) => {
-                dispatch(authFailed(err))
-            })
-    }
-}
+//             setTimeout(() => {
+//                 dispatch(logOut())
+//             }, 3600 * 1000);
+//         })
+//             .catch((err) => {
+//                 dispatch(authFailed(err))
+//             })
+//     }
+// }
 
 export const authSuccess = (auth, res) => {
     return {
@@ -64,24 +63,24 @@ export const clearError = () => {
     }
 }
 
-export const initAuth = (email, password, isLogin) => {
+// export const initAuth = (email, password, isLogin) => {
 
 
-    return dispatch => {
-        dispatch(authStart())
+//     return dispatch => {
+//         dispatch(authStart())
 
 
-        let url = fire.auth().signInWithEmailAndPassword(email, password)
-        if (!isLogin) {
-            url = fire.auth().createUserWithEmailAndPassword(email, password)
-        }
-        url.then(res => {
-            window.confirmationResult.confirm(password);
+//         let url = fire.auth().signInWithEmailAndPassword(email, password)
+//         if (!isLogin) {
+//             url = fire.auth().createUserWithEmailAndPassword(email, password)
+//         }
+//         url.then(res => {
+//             window.confirmationResult.confirm(password);
 
-            dispatch(authSuccessCheck(res.user.uid))
-        })
-            .catch(err => {
-                dispatch(authFailed(err.message))
-            })
-    }
-}
+//             dispatch(authSuccessCheck(res.user.uid))
+//         })
+//             .catch(err => {
+//                 dispatch(authFailed(err.message))
+//             })
+//     }
+// }

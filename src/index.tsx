@@ -10,10 +10,14 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import './sass/main.scss'
 import App from './containers/App'
 import * as serviceWorker from './serviceWorker'
+import burgerBuilder from './store/reducers/burgerBuilder'
+import orderReducer from './store/reducers/order'
 import authReducer from './store/reducers/auth'
 
 const rootReducer = {
-    auth: authReducer
+    order: orderReducer,
+    burger: burgerBuilder,
+    auth: authReducer,
 }
 
 const store = createStore(

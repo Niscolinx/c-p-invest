@@ -17,7 +17,7 @@ export {
 } from './order'
 
 export {
-    initAuth,
+   // initAuth,
     logOut,
     clearError,
     authSuccess
