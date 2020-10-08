@@ -1,7 +1,7 @@
 .content {
     display: grid;
     position: relative;
-    grid-template-rows: 78vh;
+    grid-template-rows: min-content;
     grid-template-columns: [sidebar-start] 6rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
 
     @media only screen and (max-width: 22em) {
@@ -40,6 +40,7 @@
 .section-header {
     background-color: $color-secondary;
     grid-column: 1 / -1;
+    height: 78vh;
 
     display: grid;
     grid-template-columns: minmax(min-content, max-content);
@@ -240,16 +241,18 @@
     font-size: 1.4rem;
     display: grid;
     grid-template-columns: subgrid;
-    grid-column: col-start 3 / col-start 7;
+    grid-column: col-start 2 / col-start 6;
     //justify-content: center;
     align-content: center;
     margin: auto;
+    margin: 5rem;
     padding: 2rem;
     border: 1px solid $color-secondary;
     border-radius: 5px;
 
     @include respond(phone){
-
+        justify-content: center;
+        grid-column: sidebar-start / col-end 7;
     }
 }
 
@@ -262,6 +265,16 @@
 .form {
     margin: 1rem 0;
     width: 100%;
+
+    &__box{
+        display: grid;
+        column-gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+
+        @include respond(phone){
+            column-gap: 1rem;
+        }
+    }
 
     &__label {
         display: block;

@@ -1,8 +1,6 @@
 import React from 'react'
 
 const input = (props: any) => {
-    console.log('the inputs', props)
-
     return (
         <>
             <div className='form'>

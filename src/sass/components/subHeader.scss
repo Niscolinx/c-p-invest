@@ -87,8 +87,8 @@
 
     &__button {
         background-color: $color-grey-light-1;
-        height: 5rem;
-        width: 5rem;
+        height: 7rem;
+        width: 7rem;
         position: fixed;
         top: 4rem;
         right: 4rem;
@@ -114,8 +114,8 @@
         position: fixed;
         top: 4.5rem;
         right: 4.5rem;
-        background-image: radial-gradient($color-primary, $color-primary-dark);
-        transition: all .4s cubic-bezier(0.86, 0, 0.7, 1);
+        background-image: radial-gradient(rgba(16, 29, 44, .9), rgba(16, 29, 44, .9));
+        transition: all .2s cubic-bezier(0.86, 0, 0.7, 1);
 
         @include respond(tab-port) {
             top: 2.5rem;
@@ -134,13 +134,13 @@
         z-index: 1500;
         left: 0;
         visibility: hidden;
-        transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition: all .2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     }
 
     &__list {
         position: absolute;
-        top: 50%;
+        top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
         list-style: none;
@@ -168,12 +168,12 @@
             font-family: $font-display;
             display: inline-block;
             color: white;
-            font-size: 2.5rem;
+            font-size: 3rem;
             padding: 1rem 2rem;
             font-weight: 400;
             text-decoration: none;
             text-transform: uppercase;
-            background-image: linear-gradient(160deg, transparent 0%, transparent 50%, $color-grey-light-1 50%);
+            background-image: linear-gradient(145deg, transparent 0%, transparent 50%, $color-grey-light-1 50%);
             background-size: 300%;
             transition: all .2s;
 
@@ -216,13 +216,13 @@
         &::before,
         &::after {
             position: absolute;
-            height: 2px;
+            height: 3px;
             width: 2rem;
             background-color: $color-grey-dark-2;
             transition: all .2s;
 
             @include respond(tab-port) {
-                width: 1.5rem;
+                width: 1.6rem;
             }
         }
 

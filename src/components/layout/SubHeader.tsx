@@ -8,7 +8,7 @@ import { AiFillPhone } from 'react-icons/ai'
 import GetCurrentDate from '../../util/getCurrentDate'
 
 function SubHeader() {
-    const [checked, setChecked] = useState(true)
+    const [checked, setChecked] = useState(false)
 
     const collapseMenu = () => {
         setChecked((old:boolean) => !old)
@@ -18,6 +18,9 @@ function SubHeader() {
         <>
             <div className='navigation'>
                 <input
+                    onClick={() => {
+                        collapseMenu()
+                    }}
                     checked={checked}
                     type='checkbox'
                     className='navigation__checkbox'
@@ -30,13 +33,25 @@ function SubHeader() {
                 <nav className='navigation__nav'>
                     <ul className='navigation__list'>
                         <li className='navigation__item'>
-                            <Link to='#blank' className='navigation__link'>
+                            <Link
+                                to='/Auth/login'
+                                className='navigation__link'
+                                onClick={() => {
+                                    collapseMenu()
+                                }}
+                            >
                                 Login
                             </Link>
                         </li>
                         <li className='navigation__item'>
-                            <Link to='#blank' className='navigation__link'>
-                                Logout
+                            <Link
+                                to='/Auth/signup'
+                                className='navigation__link'
+                                onClick={() => {
+                                    collapseMenu()
+                                }}
+                            >
+                                Signup
                             </Link>
                         </li>
                         <li className='navigation__item'>
@@ -51,12 +66,24 @@ function SubHeader() {
                             </Link>
                         </li>
                         <li className='navigation__item'>
-                            <Link to='#blank' className='navigation__link'>
+                            <Link
+                                to='#blank'
+                                className='navigation__link'
+                                onClick={() => {
+                                    collapseMenu()
+                                }}
+                            >
                                 FAQ
                             </Link>
                         </li>
                         <li className='navigation__item'>
-                            <Link to='#blank' className='navigation__link'>
+                            <Link
+                                to='#blank'
+                                className='navigation__link'
+                                onClick={() => {
+                                    collapseMenu()
+                                }}
+                            >
                                 Services
                             </Link>
                         </li>
