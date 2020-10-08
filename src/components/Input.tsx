@@ -1,12 +1,26 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const input = (props: any) => {
+    // <Link to='/' className='form__link'>Terms and Conditions</Link>
+
+    const formLink = (
+        <>
+            <p className='form__linkText'>
+                I agree with the {' '}
+                <Link to='/' className='form__link'>
+                    Terms and Conditions
+                </Link>
+            </p>
+        </>
+    )
+
     return (
         <>
             <div className='form'>
                 {props.label && (
                     <label className='form__label' htmlFor={props.id}>
-                        {props.label}
+                        {props.label !== 'checkbox' ? props.label : null}
                     </label>
                 )}
                 {props.control === 'input' && (
@@ -47,6 +61,21 @@ const input = (props: any) => {
                         }
                         onBlur={props.onBlur}
                     />
+                )}
+                {props.control === 'checkbox' && (
+                    <input
+                        className={['form__checkbox'].join(' ')}
+                        id={props.id}
+                        type={props.type}
+                        onChange={(e) => {
+                            props.onChange(props.id, e.target.checked)
+                        }}
+                    />
+                )}
+                {props.label && (
+                    <label className='form__checkboxLabel' htmlFor={props.id}>
+                        {props.label === 'checkbox' ? formLink : null}
+                    </label>
                 )}
             </div>
         </>
