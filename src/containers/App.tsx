@@ -200,6 +200,10 @@ function App(props: any) {
         return import('./AboutUs')
     })
 
+    const AsyncAccount = asyncComponent(() => {
+        return import('./Account')
+    })
+
     let AuthGuard = (
         <Switch>
             <Route path='/' exact component={Home} />
@@ -216,6 +220,9 @@ function App(props: any) {
                     onSignup={signupHandler}
                     loading={state.authLoading}
                 />
+            )} />
+            <Route path='/Auth/account' render={(props:any) => (
+                <AsyncAccount {...props}/>
             )} />
             <Route path='/about-us' component={AsyncAboutUs} />
             <Redirect to='/' />

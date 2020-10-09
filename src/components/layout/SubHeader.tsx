@@ -67,7 +67,7 @@ function SubHeader() {
                         </li>
                         <li className='navigation__item'>
                             <Link
-                                to='#blank'
+                                to='/Auth/account'
                                 className='navigation__link'
                                 onClick={() => {
                                     collapseMenu()
@@ -117,7 +117,7 @@ function SubHeader() {
                     <Link to='/' className='subHeader__list--item'>
                         <li>services</li>
                     </Link>
-                    <Link to='/' className='subHeader__list--item'>
+                    <Link to='/Auth/account' className='subHeader__list--item'>
                         <li>FAQ</li>
                     </Link>
                     <Link to='/about-us' className='subHeader__list--item'>
