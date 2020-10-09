@@ -65,7 +65,7 @@ const Login = (props:any) => {
     }
 
         return (
-            <Auth>
+            <Auth login>
                 <form
                     onSubmit={(e) =>
                         props.onLogin(e, {
@@ -96,6 +96,8 @@ const Login = (props:any) => {
                         valid={state.loginForm['password'].valid}
                         touched={state.loginForm['password'].touched}
                     />
+                    <div className="form-btn">
+
                     <Button
                         design='raised'
                         type='submit'
@@ -103,6 +105,7 @@ const Login = (props:any) => {
                     >
                         Login
                     </Button>
+                    </div>
                 </form>
             </Auth>
         )

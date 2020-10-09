@@ -1,5 +1,6 @@
 .content {
     display: grid;
+    background: $color-background;
     position: relative;
     grid-template-rows: min-content;
     grid-template-columns: [sidebar-start] 6rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
@@ -61,7 +62,7 @@
 }
 
 .section-features {
-    background: $color-grey-light-1;
+    background: $color-background;
     grid-column: sidebar-end / center-end;
     margin: 10rem 0;
 }
@@ -91,7 +92,7 @@
 
     &__content {
         display: grid;
-        background-color: $color-grey-light-1;
+    background: $color-background;
         grid-column: col-start 4 / full-end;
         align-content: center;
         justify-items: start;
@@ -111,7 +112,7 @@
 }
 
 .section-transactions {
-    background-color: $color-grey-light-1;
+    background: $color-background;
     grid-column: sidebar-end / center-end;
     margin: 5rem 0;
 
@@ -233,4 +234,3 @@
 .mb-lg {
     margin-bottom: 7.5rem;
 }
-
