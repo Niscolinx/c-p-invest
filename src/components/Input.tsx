@@ -7,7 +7,7 @@ const input = (props: any) => {
     const formLink = (
         <>
             <p className='form__linkText'>
-                I agree with the {' '}
+                I agree with the{' '}
                 <Link to='/' className='form__link'>
                     Terms and Conditions
                 </Link>
@@ -62,7 +62,7 @@ const input = (props: any) => {
                         onBlur={props.onBlur}
                     />
                 )}
-                {props.control === 'checkbox' && (
+                {/* {props.control === 'checkbox' && (
                     <input
                         className={['form__checkbox'].join(' ')}
                         id={props.id}
@@ -71,9 +71,17 @@ const input = (props: any) => {
                             props.onChange(props.id, e.target.checked)
                         }}
                     />
-                )}
-                {props.label && (
+                )} */}
+                {props.label && props.control === 'checkbox' && (
                     <label className='form__checkboxLabel' htmlFor={props.id}>
+                        <input
+                            className={['form__checkbox'].join(' ')}
+                            id={props.id}
+                            type={props.type}
+                            onChange={(e) => {
+                                props.onChange(props.id, e.target.checked)
+                            }}
+                        />
                         {props.label === 'checkbox' ? formLink : null}
                     </label>
                 )}

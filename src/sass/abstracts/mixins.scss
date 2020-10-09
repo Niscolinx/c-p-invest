@@ -23,14 +23,14 @@
 @mixin respond($breakpoint) {
     @if $breakpoint==smallest-phone {
         @media only screen and (max-width: 21.8em) {
-            // 400px/16px
+            // 350px/16px
             @content;
         }
     }
 
     @if $breakpoint==smaller-phone {
         @media only screen and (max-width: 28em) {
-            // 400px/16px
+            // 450px/16px
             @content;
         }
     }
