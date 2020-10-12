@@ -238,21 +238,7 @@ function App(props) {
             </Switch>
         )
     }
-    // let AuthGuard = (
-    //     <Switch>
-    //         <Route
-    //             path='/admin'
-    //             render={(props) => <AdminLayout {...props} />}
-    //         />
-    //         <Route path='/main'>
-    //             <h1>
-    //                 Hello my man, keep working hard... your reward is not
-    //                 far-fetched
-    //             </h1>
-    //         </Route>
-    //         <Redirect from='/' to='/main' />
-    //     </Switch>
-    // )
+ 
     return (
         <>
             <ErrorHandler error={state.error} onHandle={errorHandler} />
