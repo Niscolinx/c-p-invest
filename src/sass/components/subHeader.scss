@@ -36,6 +36,15 @@
      }
 
 
+    //  &__logo{
+    //      width: 50px;
+    //      background-color: red;
+
+    //      h2{
+    //          color: orange;
+    //          width: 50px;
+    //      }
+    //  }
 
      &__list {
          display: grid;
@@ -46,7 +55,7 @@
          align-items: center;
          list-style: none;
          color: #fff;
-         font-size: 1.3rem;
+         font-size: 1.4rem;
          text-transform: uppercase;
          transition: all .2s;
 

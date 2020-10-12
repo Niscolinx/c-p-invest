@@ -1,4 +1,4 @@
-.content {
+.main {
     display: grid;
     background: $color-background;
     position: relative;
@@ -9,8 +9,6 @@
 
         grid-template-columns: [sidebar-start] [sidebar-end full-start] minmax(1rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(1rem, 1fr) [full-end];
     }
-
-
 
 }
 
@@ -200,8 +198,9 @@
     }
 }
 
-.btn {
+.button {
     background-color: $color-primary-dark;
+    background-color: red;
     text-transform: uppercase;
     border-radius: none;
     padding: 1.5rem 3.5rem;

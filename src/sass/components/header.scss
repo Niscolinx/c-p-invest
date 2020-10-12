@@ -1,4 +1,4 @@
-.header {
+.main-header {
 
     &__text {
         font-size: clamp(.8rem, 1.5rem, 2rem);
@@ -77,7 +77,7 @@
         }
     }
 
-    &__btn {
+    &__button {
         align-self: start;
         justify-self: start;
         font-size: 1.4rem;
