@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import * as orderAction from '../../store/actions/burgerIndex'
 
 import Input from '../Input'
 import Button from '../Button'
@@ -105,6 +107,7 @@ const Signup = (props) => {
                     ...prevState.signupForm[input],
                     valid: isValid,
                     value: value,
+                    touched: true
                 },
             }
             let formIsValid = true
@@ -126,31 +129,27 @@ const Signup = (props) => {
     }
 
     const inputBlurHandler = (input) => {
-        setState((prevState) => {
-            return {
-                signupForm: {
-                    ...prevState.signupForm,
-                    [input]: {
-                        ...prevState.signupForm[input],
-                        touched: true,
-                    },
-                },
-            }
-        })
+       console.log('input', input)
+
+        //console.log('state', state.signupForm)
+
     }
 
+    
     const checkboxHandler = (id, isChecked) => {
         setChecked(isChecked)
     }
 
-    console.log('checked', checked)
+    const handleSignup = (e) => {
+        e.preventDefault()
+        props.onInitSignup(state)
+    }
 
+
+    console.log('state', state.signupForm)
     return (
         <Auth>
-            <form
-                onSubmit={(e) => props.onSignup(e, state)}
-                className='form__box'
-            >
+            <form onSubmit={handleSignup} className='form__box'>
                 <div className='form-1'>
                     <h3 className='heading-3 form__heading'>
                         Personal Information
@@ -301,4 +300,20 @@ const Signup = (props) => {
     )
 }
 
-export default Signup
+const mapStateToProps = (state) => {
+    return {
+        ingredients: state.burger.ingredients,
+        totalPrice: state.burger.totalPrice,
+        loading: state.order.loading,
+        tokenId: state.auth.tokenId,
+        userId: state.auth.userId,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onInitSignup: (state) =>
+            dispatch(orderAction.initSignup(state)),
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)

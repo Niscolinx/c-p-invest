@@ -5,7 +5,7 @@ export {
     selectedCity,
     selectedArea,
     clearedSelectedCity,
-    addAreas
+    addAreas,
 } from './burgerBuilder'
 
 export {
@@ -13,14 +13,7 @@ export {
     orderRedirect,
     fetchedOrdersInit,
     fetchedOrderDelete,
-    deleteAllOrders
+    deleteAllOrders,
 } from './order'
 
-export {
-   // initAuth,
-    initLogin,
-    logOut,
-    clearError,
-    authSuccess
-} from './Auth'
-
+export { initSignup, initLogin, logOut, clearError, authSuccess } from './Auth'

@@ -69,7 +69,7 @@ export const initLogin = (email, password) => {
          `,
         }
 
-        fetch('https://mynode-blog.herokuapp.com/graphql', {
+        fetch('http://localhost:3030/graphql', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -117,22 +117,54 @@ export const initLogin = (email, password) => {
     }
 }
 
-// export const initAuth = (email, password, isLogin) => {
+export const initSignup = (authData) => {
 
-//     return dispatch => {
-//         dispatch(authStart())
+    return dispatch => {
+        console.log('the auth data', authData)
+    }
+    // console.log('the signup handler', authData)
+    // e.preventDefault()
+    // setState({ ...state, authLoading: true })
 
-//         let url = fire.auth().signInWithEmailAndPassword(email, password)
-//         if (!isLogin) {
-//             url = fire.auth().createUserWithEmailAndPassword(email, password)
-//         }
-//         url.then(res => {
-//             window.confirmationResult.confirm(password);
+    // const graphqlQuery = {
+    //     query: ` mutation { createUser(userData: {
+    //         username: "${authData.signupForm.username.value}",
+    //         email: "${authData.signupForm.email.value}",
+    //         password: "${authData.signupForm.password.value}"
+    //        }) {  email }
+    //      }`,
+    // }
 
-//             dispatch(authSuccessCheck(res.user.uid))
-//         })
-//             .catch(err => {
-//                 dispatch(authFailed(err.message))
-//             })
-//     }
-// }
+    // fetch('https://mynode-blog.herokuapp.com/graphql', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(graphqlQuery),
+    // })
+    //     .then((res) => {
+    //         console.log('the res signup', res)
+    //         return res.json()
+    //     })
+    //     .then((resData) => {
+    //         console.log('new user', resData)
+    //         if (resData.errors && resData.errors[0].statusCode === 422) {
+    //             throw new Error(
+    //                 'Validation failed. Please make sure your input values are correct'
+    //             )
+    //         }
+    //         if (resData.errors) {
+    //             throw new Error('Creating a user failed!')
+    //         }
+    //         setState({ ...state, isAuth: false, authLoading: false })
+    //         props.history.replace('/')
+    //     })
+    //     .catch((err) => {
+    //         console.log(err)
+    //         setState({
+    //             ...state,
+    //             isAuth: false,
+    //             authLoading: false,
+    //             error: err,
+    //         })
+    //     })
+}
+

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 const input = (props) => {
     // <Link to='/' className='form__link'>Terms and Conditions</Link>
 
+    console.log('props', props.touched)
     const formLink = (
         <>
             <p className='form__linkText'>
@@ -27,8 +28,8 @@ const input = (props) => {
                     <input
                         className={[
                             'form__input',
-                            !props.valid ? 'invalid' : 'valid',
-                            props.touched ? 'touched' : 'untouched',
+                            !props.valid && props.touched ? 'invalid' : 'valid',
+                          
                         ].join(' ')}
                         type={props.type}
                         id={props.id}
@@ -62,20 +63,11 @@ const input = (props) => {
                         onBlur={props.onBlur}
                     />
                 )}
-                {/* {props.control === 'checkbox' && (
-                    <input
-                        className={['form__checkbox'].join(' ')}
-                        id={props.id}
-                        type={props.type}
-                        onChange={(e) => {
-                            props.onChange(props.id, e.target.checked)
-                        }}
-                    />
-                )} */}
+            
                 {props.label && props.control === 'checkbox' && (
                     <label className='form__checkboxLabel' htmlFor={props.id}>
                         <input
-                            className={['form__checkbox'].join(' ')}
+                            className={'form__checkbox'}
                             id={props.id}
                             type={props.type}
                             onChange={(e) => {

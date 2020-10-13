@@ -66,116 +66,9 @@ function App(props) {
         setAutoLogout(remainingMilliseconds)
     }, [state, setAutoLogout, logoutHandler])
 
-    const loginHandler = (e, authData) => {
-        e.preventDefault()
-        console.log('the login handler', authData)
-        setState({ ...state, authLoading: true })
-        const graphqlQuery = {
-            query: `{
-                login(email: "${authData.email}", password: "${authData.password}"){
-                userId
-                token
-            }
-          }
-         `,
-        }
+ 
 
-        fetch('https://mynode-blog.herokuapp.com/graphql', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(graphqlQuery),
-        })
-            .then((res) => {
-                return res.json()
-            })
-            .then((resData) => {
-                if (resData.errors && resData.errors[0].statusCode === 422) {
-                    throw new Error(
-                        'Validation failed. Please make sure your input values are correct'
-                    )
-                }
-                if (resData.errors) {
-                    throw new Error('Login failed!')
-                }
-                setState({
-                    ...state,
-                    isAuth: true,
-                    token: resData.data.login.token,
-                    authLoading: false,
-                    userId: resData.data.login.userId,
-                })
-                localStorage.setItem('token', resData.data.login.token)
-                localStorage.setItem('userId', resData.data.login.userId)
-                const remainingMilliseconds = 60 * 60 * 1000
-                const expiryDate = new Date(
-                    new Date().getTime() + remainingMilliseconds
-                )
-                localStorage.setItem('expiryDate', expiryDate.toISOString())
-                setAutoLogout(remainingMilliseconds)
-            })
-            .catch((err) => {
-                console.log(err)
-                setState({
-                    ...state,
-                    isAuth: false,
-                    authLoading: false,
-                    error: err,
-                })
-            })
-    }
-
-    const signupHandler = (
-        e,
-        authData
-    ) => {
-        console.log('the signup handler', authData)
-        e.preventDefault()
-        setState({ ...state, authLoading: true })
-
-        const graphqlQuery = {
-            query: ` mutation { createUser(userData: {
-            username: "${authData.signupForm.username.value}",
-            email: "${authData.signupForm.email.value}",
-            password: "${authData.signupForm.password.value}"
-           }) {  email }
-         }`,
-        }
-
-        fetch('https://mynode-blog.herokuapp.com/graphql', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(graphqlQuery),
-        })
-            .then((res) => {
-                console.log('the res signup', res)
-                return res.json()
-            })
-            .then((resData) => {
-                console.log('new user', resData)
-                if (resData.errors && resData.errors[0].statusCode === 422) {
-                    throw new Error(
-                        'Validation failed. Please make sure your input values are correct'
-                    )
-                }
-                if (resData.errors) {
-                    throw new Error('Creating a user failed!')
-                }
-                setState({ ...state, isAuth: false, authLoading: false })
-                props.history.replace('/')
-            })
-            .catch((err) => {
-                console.log(err)
-                setState({
-                    ...state,
-                    isAuth: false,
-                    authLoading: false,
-                    error: err,
-                })
-            })
-    }
-
+    
     const errorHandler = () => {
         setState({ ...state, error: null })
     }
@@ -206,7 +99,6 @@ function App(props) {
                 render={(props) => (
                     <AsyncLogin
                         {...props}
-                        onLogin={loginHandler}
                         loading={state.authLoading}
                     />
                 )}
@@ -216,7 +108,6 @@ function App(props) {
                 render={(props) => (
                     <AsyncSignup
                         {...props}
-                        onSignup={signupHandler}
                         loading={state.authLoading}
                     />
                 )}

@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import * as orderAction from '../../store/actions/burgerIndex'
 
-
 import Button from '../Button'
 import Input from '../Input'
 

@@ -63,6 +63,10 @@
              display: none;
          }
 
+         &--item{
+             width: max-content;
+         }
+
          &--item:link,
          &--item:visited {
              text-decoration: none;
