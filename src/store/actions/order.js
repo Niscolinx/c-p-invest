@@ -1,5 +1,5 @@
 import * as orderActions from './actionTypes'
-import axios from '../../axios'
+//import axios from '../../axios'
 
 export const orderBurgerStart = (id, orderData) => {
     return {
@@ -31,14 +31,14 @@ export const initBurgerStart = (token, data) => {
 
     return dispatch => {
         dispatch(orderBurgerSuccess())
-        axios
-            .post("/orders.json?auth=" + token, data)
-            .then(response => {
-                dispatch(orderBurgerStart(response.data.name, data))
-            })
-            .catch(error => {
-                dispatch(orderBurgerFailed(error))
-            });
+        // axios
+        //     .post("/orders.json?auth=" + token, data)
+        //     .then(response => {
+        //         dispatch(orderBurgerStart(response.data.name, data))
+        //     })
+        //     .catch(error => {
+        //         dispatch(orderBurgerFailed(error))
+        //     });
     }
 }
 
@@ -80,24 +80,24 @@ export const fetchedOrderSuccess = (order) => {
 export const fetchedOrdersInit = (token, userId) => {
     return dispatch => {
         dispatch(fetchedOrderStart())
-        axios.get('/orders.json?auth=' + token)
-            .then(res => {
-                const fetchedOrders = []
-                for (let key in res.data) {
-                    if(res.data[key].userId === userId){
-                        fetchedOrders.push({
-                            ...res.data[key],
-                            id: key,
-                        })
+    //     axios.get('/orders.json?auth=' + token)
+    //         .then(res => {
+    //             const fetchedOrders = []
+    //             for (let key in res.data) {
+    //                 if(res.data[key].userId === userId){
+    //                     fetchedOrders.push({
+    //                         ...res.data[key],
+    //                         id: key,
+    //                     })
 
-                    }
-                }
+    //                 }
+    //             }
                
-                dispatch(fetchedOrderSuccess(fetchedOrders))
-            })
-            .catch(err => {
-                dispatch(fetchedOrdersFailed(err))
-            })
-    }
+    //             dispatch(fetchedOrderSuccess(fetchedOrders))
+    //         })
+    //         .catch(err => {
+    //             dispatch(fetchedOrdersFailed(err))
+    //         })
+     }
 
 }

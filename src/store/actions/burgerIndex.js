@@ -18,6 +18,7 @@ export {
 
 export {
    // initAuth,
+    initLogin,
     logOut,
     clearError,
     authSuccess

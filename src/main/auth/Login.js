@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import * as orderAction from '../../store/actions/burgerIndex'
+
 
 import Button from '../Button'
 import Input from '../Input'
@@ -64,15 +67,16 @@ const Login = (props) => {
         })
     }
 
+    const handleLogin = e => {
+        e.preventDefault()
+        props.onInitLogin(state.loginForm.email.value, state.loginForm.password.value)
+        
+    }
+
     return (
         <Auth login>
             <form
-                onSubmit={(e) =>
-                    props.onLogin(e, {
-                        email: state.loginForm.email.value,
-                        password: state.loginForm.password.value,
-                    })
-                }
+                onSubmit={handleLogin}
             >
                 <Input
                     id='email'
@@ -110,4 +114,24 @@ const Login = (props) => {
     )
 }
 
-export default Login
+const mapStateToProps = (state) => {
+    return {
+        ingredients: state.burger.ingredients,
+        totalPrice: state.burger.totalPrice,
+        loading: state.order.loading,
+        tokenId: state.auth.tokenId,
+        userId: state.auth.userId,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onInitLogin: (email, password) =>
+            dispatch(orderAction.initLogin(email, password)),
+    }
+}
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Login)
+

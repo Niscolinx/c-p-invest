@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes'
-import axios from '../../axios'
+//import axios from '../../axios'
 //import { areas } from '../../components/Layout/DeliveringForm/Locations'
 
 export const addIngredient = (name) => {
@@ -30,14 +30,14 @@ export const loadIngFailed = (error) => {
 }
 export const setIngredients = () => {
     return dispatch => {
-        axios
-            .get("/ingredients.json")
-            .then(res => {
-                dispatch(initIngredients(res.data))
-            })
-            .catch(error => {
-                dispatch(loadIngFailed(error))
-            })
+        // axios
+        //     .get("/ingredients.json")
+        //     .then(res => {
+        //         dispatch(initIngredients(res.data))
+        //     })
+        //     .catch(error => {
+        //         dispatch(loadIngFailed(error))
+        //     })
     }
 }
 
