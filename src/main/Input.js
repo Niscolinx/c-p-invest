@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 
 const input = (props) => {
     // <Link to='/' className='form__link'>Terms and Conditions</Link>
-
-    console.log('props', props.touched)
     const formLink = (
         <>
             <p className='form__linkText'>

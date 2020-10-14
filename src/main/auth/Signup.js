@@ -76,6 +76,7 @@ const Signup = (props) => {
     })
 
     const [checked, setChecked] = useState(false)
+    const [message, setMessage] = useState(null)
 
     const inputChangeHandler = (input, value) => {
         setState((prevState) => {
@@ -129,7 +130,7 @@ const Signup = (props) => {
     }
 
     const inputBlurHandler = (input) => {
-       console.log('input', input)
+       //console.log('input', input)
 
         //console.log('state', state.signupForm)
 
@@ -142,13 +143,23 @@ const Signup = (props) => {
 
     const handleSignup = (e) => {
         e.preventDefault()
-        props.onInitSignup(state)
+        console.log('validation', state.formValid, checked)
+        if(state.formValid && checked){
+            setMessage({
+                success: 'Success',
+            })
+            props.onInitSignup(state)
+        }
+        else{
+            console.log('invalid form')
+            setMessage({error: 'Wrong Input, please check your entries'})
+        }
     }
 
+    console.log('message', message)
 
-    console.log('state', state.signupForm)
     return (
-        <Auth>
+        <Auth message={message}>
             <form onSubmit={handleSignup} className='form__box'>
                 <div className='form-1'>
                     <h3 className='heading-3 form__heading'>

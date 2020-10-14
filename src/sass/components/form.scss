@@ -1,26 +1,48 @@
-.auth-form {
-    display: grid;
-    justify-self: center;
-    width: 100%;
-    font-size: 1.4rem;
-    grid-column: col-start 2 / col-end 6;
-    align-content: center;
-    // margin: auto;
-    margin: 10rem 5rem;
-    padding: 2rem;
-    border: 1px solid $color-secondary;
-    border-radius: 5px;
+.auth {
+    &-form {
+        display: grid;
+        justify-self: center;
+        width: 100%;
+        font-size: 1.4rem;
+        grid-column: col-start 2 / col-end 6;
+        align-content: center;
+        // margin: auto;
+        margin: 10rem 5rem;
+        padding: 2rem;
+        border: 1px solid $color-secondary;
+        border-radius: 5px;
 
-    @include respond(tab-port) {
-        grid-column: 2 / col-end 8;
+        @include respond(tab-port) {
+            grid-column: 2 / col-end 8;
+        }
+
+        @include respond(bigger-phone) {
+            grid-column: 2 / col-end 8;
+        }
+
+        @include respond(smaller-phone) {
+            font-size: 1.3rem;
+        }
     }
 
-    @include respond(bigger-phone) {
-        grid-column: 2 / col-end 8;
-    }
+    &__message {
+        font-family: $font-display;
+        font-weight: 400;
+        text-align: center;
+        padding: 1rem 3rem;
+        margin: 1rem;
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+        background-color: black;
+        color: white;
 
-    @include respond(smaller-phone) {
-        font-size: 1.3rem;
+        &--success {
+            background: $color-primary;
+        }
+
+        &--error {
+            background-color: $color-error;
+        }
     }
 }
 
@@ -72,7 +94,7 @@
         font-size: clamp(1.4rem, 1.3vw, 1.8vw);
     }
 
-    &__checkbox{
+    &__checkbox {
         display: flex;
         align-items: baseline;
         justify-content: center;
@@ -109,16 +131,13 @@
         border-radius: 3px;
         border: 2px solid #ccc;
         background: #f3f3f3;
-
-        
-        
     }
 
     &__input:focus,
     &__textarea:focus {
         outline: none;
         color: $color-primary-dark;
-        box-shadow: 1px 0px 8px 2px $color-grey-dark-2
+        box-shadow: 1px 0px 8px 2px $color-grey-dark-2;
     }
 
     &-btn {
@@ -132,6 +151,5 @@
 
 .invalid {
     border: 1px solid red;
-   // background: #ffc2c2;
+    // background: #ffc2c2;
 }
-
