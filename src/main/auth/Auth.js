@@ -1,22 +1,18 @@
-import React, {useState} from 'react'
+import React from 'react'
 
-const Auth = (props) => {
-    console.log('the props', props.message)
-    
-    const [time, setTime] = useState(false)
+const Auth = (props) => {    
     let messageToDisplay = props.message ? Object.values(props.message) : null
     
-const timeOut = () => {
-    setTime({ text: 'Loading...' }, () => {
-        setTimeout(() => {
-            setTime({ text: 'view cart', showParagraph: true })
-        }, 2000)
-    })
-}
+// const timeOut = () => {
+//     setTime({ text: 'Loading...' }, () => {
+//         setTimeout(() => {
+//             setTime({ text: 'view cart', showParagraph: true })
+//         }, 2000)
+//     })
+// }
    // const timeOut = () => setTimeout(() => localStorage.setItem('clearError', 'true'), 2000)
     
    // console.log('the time', messageToDisplay)
-    console.log('the state', time)
     const messageStyle = {
         display: messageToDisplay ? 'block' : 'none',
     }
@@ -27,17 +23,14 @@ const timeOut = () => {
         authMessage.length > 1
             ? authMessage.pop() && authMessage.push('auth__message--error')
             : authMessage.push('auth__message--error')
-            timeOut('hello')
     }
 
     if (messageToDisplay && props.message.success) {
         authMessage.length > 1
             ? authMessage.pop() && authMessage.push('auth__message--success')
             : authMessage.push('auth__message--success')
-            timeOut()
     }
 
-    console.log('message display', messageToDisplay)
 
     return (
         <section

@@ -95,76 +95,66 @@ export const initLogin = (email, password) => {
                         resData.data.login.token
                     )
                 )
-
-                // setState({
-                //     ...state,
-                //     isAuth: true,
-                //     token: resData.data.login.token,
-                //     authLoading: false,
-                //     userId: resData.data.login.userId,
-                // })
-            })
             .catch((err) => {
                 console.log('Error occurred in login',err)
                 dispatch(authFailed(err))
-                // setState({
-                //     ...state,
-                //     isAuth: false,
-                //     authLoading: false,
-                //     error: err,
-                // })
-            })
     }
 }
 
 export const initSignup = (authData) => {
 
     return dispatch => {
+        dispatch(authStart())
         console.log('the auth data', authData)
+
+        console.log('the values of auth data')
+        const data = authData.signupForm
+    
+    console.log('the signup handler', authData)
+    const graphqlQuery = {
+        query: ` mutation { createUser(userData: {
+            username: "${data.username.value}",
+            email: "${data.confirmEmail.value}",
+            password: "${data.confirmPassword.value}",
+            fullName: "${data.fullName.value}",
+            secretQuestion: "${data.secretQuestion.value}",
+            secretAnswer: "${data.secretAnswer.value}",
+            bitcoinAccount: "${data.bitcoinAccount.value}",
+            perfectMoney: "${data.perfectMoney.value}"
+           }) {  email username }
+         }`,
     }
-    // console.log('the signup handler', authData)
-    // e.preventDefault()
-    // setState({ ...state, authLoading: true })
 
-    // const graphqlQuery = {
-    //     query: ` mutation { createUser(userData: {
-    //         username: "${authData.signupForm.username.value}",
-    //         email: "${authData.signupForm.email.value}",
-    //         password: "${authData.signupForm.password.value}"
-    //        }) {  email }
-    //      }`,
-    // }
-
-    // fetch('https://mynode-blog.herokuapp.com/graphql', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify(graphqlQuery),
-    // })
-    //     .then((res) => {
-    //         console.log('the res signup', res)
-    //         return res.json()
-    //     })
-    //     .then((resData) => {
-    //         console.log('new user', resData)
-    //         if (resData.errors && resData.errors[0].statusCode === 422) {
-    //             throw new Error(
-    //                 'Validation failed. Please make sure your input values are correct'
-    //             )
-    //         }
-    //         if (resData.errors) {
-    //             throw new Error('Creating a user failed!')
-    //         }
-    //         setState({ ...state, isAuth: false, authLoading: false })
-    //         props.history.replace('/')
-    //     })
-    //     .catch((err) => {
-    //         console.log(err)
-    //         setState({
-    //             ...state,
-    //             isAuth: false,
-    //             authLoading: false,
-    //             error: err,
-    //         })
-    //     })
+    fetch('https://mynode-blog.herokuapp.com/graphql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(graphqlQuery),
+    })
+        .then((res) => {
+            console.log('the res signup', res)
+            return res.json()
+        })
+        .then((resData) => {
+            console.log('new user', resData)
+            if (resData.errors && resData.errors[0].statusCode === 422) {
+                throw new Error(
+                    'Validation failed. Please make sure your input values are correct'
+                )
+            }
+            if (resData.errors) {
+                throw new Error('Creating a user failed!')
+            }
+            setState({ ...state, isAuth: false, authLoading: false })
+            props.history.replace('/')
+        })
+        .catch((err) => {
+            console.log(err)
+            setState({
+                ...state,
+                isAuth: false,
+                authLoading: false,
+                error: err,
+            })
+      }  })
 }
 
