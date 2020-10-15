@@ -15,6 +15,8 @@ function SubHeader(props) {
         setChecked((old) => !old)
     }
 
+    const auth = 'sjfsfsfsfdssf'
+
     let nav = (
         <>
             <li className='navigation__item'>
@@ -42,7 +44,18 @@ function SubHeader(props) {
         </>
     )
 
-    if (props.auth) {
+    let mobileNav = (
+        <>
+            <Link to='/Auth/login' className='subHeader__list--item'>
+                <li>login</li>
+            </Link>
+            <Link to='/Auth/signup' className='subHeader__list--item'>
+                <li>signup</li>
+            </Link>
+        </>
+    )
+
+    if (auth) {
         nav = (
             <>
                 <li className='navigation__item'>
@@ -58,8 +71,20 @@ function SubHeader(props) {
                 </li>
             </>
         )
+
+        mobileNav = (
+            <>
+                <Link
+                    to='/admin/dashboard'
+                    className='subHeader__list--item subHeader__list-item--dashboard'
+                >
+                    <li>Dashboard</li>
+                </Link>
+            </>
+        )
     }
 
+    console.log('the auth nav', auth)
     return (
         <>
             <div className='navigation'>
@@ -148,13 +173,8 @@ function SubHeader(props) {
                     <Link to='/about-us' className='subHeader__list--item'>
                         <li>About Us</li>
                     </Link>
-                    <Link to='/Auth/login' className='subHeader__list--item'>
-                        <li>login</li>
-                    </Link>
-                    <Link to='/Auth/signup' className='subHeader__list--item'>
-                        <li>signup</li>
-                    </Link>
                 </ul>
+                <ul className='subHeader__list'>{mobileNav}</ul>
             </nav>
         </>
     )
