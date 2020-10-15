@@ -5,7 +5,7 @@ const Auth = (props) => {
     
 
     const messageStyle = {
-        width: messageToDisplay ? 'translateX(0)' : 'translateX(100%)',
+        display: messageToDisplay ?  'block': 'none',
     }
 
 
@@ -31,7 +31,6 @@ const Auth = (props) => {
             <p className={authMessage.join(' ')} style={messageStyle}>
                 {messageToDisplay}
             </p>
-            {props.children}
             {props.children}
         </section>
     )

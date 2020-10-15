@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 const input = (props) => {
     // <Link to='/' className='form__link'>Terms and Conditions</Link>
+    console.log('the props', props)
     const formLink = (
         <>
             <p className='form__linkText'>
@@ -29,6 +30,7 @@ const input = (props) => {
                             !props.valid && props.touched ? 'invalid' : 'valid',
                           
                         ].join(' ')}
+                        minLength={props.minLength}
                         type={props.type}
                         id={props.id}
                         required={props.required}

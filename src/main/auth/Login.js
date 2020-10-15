@@ -27,6 +27,9 @@ const Login = (props) => {
         },
     })
 
+    const [message, setMessage] = useState(null)
+
+
     const inputChangeHandler = (input, value) => {
         setState((prevState) => {
             let isValid = true
@@ -39,6 +42,7 @@ const Login = (props) => {
                     ...prevState.loginForm[input],
                     valid: isValid,
                     value: value,
+                    touched: true
                 },
             }
             let formIsValid = true
@@ -53,30 +57,27 @@ const Login = (props) => {
     }
 
     const inputBlurHandler = (input) => {
-        setState((prevState) => {
-            return {
-                loginForm: {
-                    ...prevState.loginForm,
-                    [input]: {
-                        ...prevState.loginForm[input],
-                        touched: true,
-                    },
-                },
-            }
-        })
+        
     }
 
     const handleLogin = e => {
         e.preventDefault()
-        props.onInitLogin(state.loginForm.email.value, state.loginForm.password.value)
+         if (state.formValid) {
+             console.log('Valid form')
+             setMessage({
+                 success: 'Success',
+             })
+             props.onInitLogin(state.loginForm.email.value, state.loginForm.password.value)
+         } else {
+             console.log('invalid form')
+             setMessage({ error: 'Wrong Input, please check your entries' })
+         }
         
     }
 
     return (
-        <Auth login>
-            <form
-                onSubmit={handleLogin}
-            >
+        <Auth login message={message}>
+            <form onSubmit={handleLogin}>
                 <Input
                     id='email'
                     label='E-Mail'
@@ -93,6 +94,7 @@ const Login = (props) => {
                     label='Password'
                     type='password'
                     control='input'
+                    minLength={6}
                     onChange={inputChangeHandler}
                     onBlur={inputBlurHandler.bind('password')}
                     value={state.loginForm['password'].value}

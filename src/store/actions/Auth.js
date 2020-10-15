@@ -49,6 +49,12 @@ export const logOut = () => {
     }
 }
 
+export const redirect = () => {
+    return {
+        type: actions.AUTH_SIGNUP_SUCCESS
+    }
+}
+
 export const clearError = () => {
     return {
         type: actions.AUTH_CLEAR_ERROR,
@@ -145,6 +151,8 @@ export const initSignup = (authData) => {
                 if (resData.errors) {
                     throw new Error('Creating a user failed!')
                 }
+
+                //dispatch(redirect('/'))
                 // setState({ ...state, isAuth: false, authLoading: false })
                 // props.history.replace('/')
             })

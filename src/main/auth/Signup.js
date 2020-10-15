@@ -14,7 +14,7 @@ const Signup = (props) => {
                 value: '',
                 valid: false,
                 touched: false,
-                validators: [required, length({ min: 5 })],
+                validators: [required, length({ min: 6 })],
             },
             username: {
                 value: '',
@@ -50,7 +50,7 @@ const Signup = (props) => {
                 value: '',
                 valid: false,
                 touched: false,
-                validators: [required, length({ min: 8 })],
+                validators: [required, length({ min: 6 })],
             },
             secretAnswer: {
                 value: '',
@@ -62,13 +62,13 @@ const Signup = (props) => {
                 value: '',
                 valid: false,
                 touched: false,
-                validators: [length({ min: 6 })],
+                validators: [length({ min: 26 })],
             },
             ethereumAccount: {
                 value: '',
                 valid: false,
                 touched: false,
-                validators: [length({ min: 6 })],
+                validators: [length({ min: 40 })],
             },
 
             formValid: false,
@@ -108,7 +108,7 @@ const Signup = (props) => {
                     ...prevState.signupForm[input],
                     valid: isValid,
                     value: value,
-                    touched: true
+                    touched: true,
                 },
             }
             let formIsValid = true
@@ -129,14 +129,8 @@ const Signup = (props) => {
         })
     }
 
-    const inputBlurHandler = (input) => {
-       //console.log('input', input)
+    const inputBlurHandler = (input) => {}
 
-        //console.log('state', state.signupForm)
-
-    }
-
-    
     const checkboxHandler = (id, isChecked) => {
         setChecked(isChecked)
     }
@@ -144,15 +138,14 @@ const Signup = (props) => {
     const handleSignup = (e) => {
         e.preventDefault()
         console.log('validation', state.formValid, checked)
-        if(state.formValid && checked){
+        if (state.formValid && checked) {
             setMessage({
                 success: 'Success',
             })
             props.onInitSignup(state)
-        }
-        else{
+        } else {
             console.log('invalid form')
-            setMessage({error: 'Wrong Input, please check your entries'})
+            setMessage({ error: 'Wrong Input, please check your entries' })
         }
     }
 
@@ -170,6 +163,7 @@ const Signup = (props) => {
                         label='Fullname'
                         type='text'
                         control='input'
+                        minLength={6}
                         onChange={inputChangeHandler}
                         onBlur={inputBlurHandler.bind('fullname')}
                         value={state.signupForm['fullname'].value}
@@ -181,6 +175,7 @@ const Signup = (props) => {
                         label='Username'
                         type='text'
                         control='input'
+                        minLength={3}
                         onChange={inputChangeHandler}
                         onBlur={inputBlurHandler.bind('username')}
                         value={state.signupForm['username'].value}
@@ -221,6 +216,7 @@ const Signup = (props) => {
                         label='Password'
                         type='password'
                         control='input'
+                        minLength={6}
                         onChange={inputChangeHandler}
                         onBlur={inputBlurHandler.bind('password')}
                         value={state.signupForm['password'].value}
@@ -232,6 +228,7 @@ const Signup = (props) => {
                         label='confirm Password'
                         type='password'
                         control='input'
+                        minLength={6}
                         onChange={inputChangeHandler}
                         onBlur={inputBlurHandler.bind('confirmPassword')}
                         value={state.signupForm['confirmPassword'].value}
@@ -243,6 +240,7 @@ const Signup = (props) => {
                         label='Secret Question'
                         type='text'
                         control='input'
+                        minLength={6}
                         onChange={inputChangeHandler}
                         onBlur={inputBlurHandler.bind('secretQuestion')}
                         value={state.signupForm['secretQuestion'].value}
@@ -254,6 +252,7 @@ const Signup = (props) => {
                         label='Secret Answer'
                         type='text'
                         control='input'
+                        minLength={6}
                         onChange={inputChangeHandler}
                         onBlur={inputBlurHandler.bind('secretAnswer')}
                         value={state.signupForm['secretAnswer'].value}
@@ -271,6 +270,8 @@ const Signup = (props) => {
                         label='Bitcoin Account'
                         type='text'
                         control='input'
+                        minLength={26}
+                        placeholder='optional'
                         onChange={inputChangeHandler}
                         onBlur={inputBlurHandler.bind('bitcoinAccount')}
                         value={state.signupForm['bitcoinAccount'].value}
@@ -282,6 +283,8 @@ const Signup = (props) => {
                         label='Ethereum Account'
                         type='ethereumAccount'
                         control='input'
+                        placeholder='optional'
+                        minLength={40}
                         onChange={inputChangeHandler}
                         onBlur={inputBlurHandler.bind('ethereumAccount')}
                         value={state.signupForm['ethereumAccount'].value}
@@ -323,8 +326,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onInitSignup: (state) =>
-            dispatch(orderAction.initSignup(state)),
+        onInitSignup: (state) => dispatch(orderAction.initSignup(state)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Signup)
