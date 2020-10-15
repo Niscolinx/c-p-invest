@@ -1,4 +1,5 @@
 import React from 'react'
+import FlashMessage from 'react-flash-message'
 
 const Auth = (props) => {    
     let messageToDisplay = props.message ? Object.values(props.message) : null
@@ -36,7 +37,12 @@ const Auth = (props) => {
         <section
             className={props.login ? 'auth-form auth-form__login' : 'auth-form'}
         >
-            <p className={authMessage.join(' ')} style={messageStyle}>{messageToDisplay}</p>
+            <FlashMessage duration={5000} persistOnHover={true}>
+                <p className={authMessage.join(' ')} style={messageStyle}>
+                    {messageToDisplay}
+                </p>{' '}
+            </FlashMessage>
+
             {props.children}
         </section>
     )
