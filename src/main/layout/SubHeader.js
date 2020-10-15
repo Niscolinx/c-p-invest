@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
-import {connect} from 'react-redux'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import { CgCalendarDates } from 'react-icons/cg'
 import { MdEmail } from 'react-icons/md'
@@ -8,11 +8,56 @@ import { AiFillPhone } from 'react-icons/ai'
 
 import GetCurrentDate from '../../util/getCurrentDate'
 
-function SubHeader() {
+function SubHeader(props) {
     const [checked, setChecked] = useState(false)
 
     const collapseMenu = () => {
         setChecked((old) => !old)
+    }
+
+    let nav = (
+        <>
+            <li className='navigation__item'>
+                <Link
+                    to='/Auth/login'
+                    className='navigation__link'
+                    onClick={() => {
+                        collapseMenu()
+                    }}
+                >
+                    Login
+                </Link>
+            </li>
+            <li className='navigation__item'>
+                <Link
+                    to='/Auth/signup'
+                    className='navigation__link'
+                    onClick={() => {
+                        collapseMenu()
+                    }}
+                >
+                    Signup
+                </Link>
+            </li>
+        </>
+    )
+
+    if (props.auth) {
+        nav = (
+            <>
+                <li className='navigation__item'>
+                    <Link
+                        to='/admin/dashboard'
+                        className='navigation__link'
+                        onClick={() => {
+                            collapseMenu()
+                        }}
+                    >
+                        Dashboard
+                    </Link>
+                </li>
+            </>
+        )
     }
 
     return (
@@ -33,28 +78,7 @@ function SubHeader() {
                 <div className='navigation__background'>&nbsp;</div>
                 <nav className='navigation__nav'>
                     <ul className='navigation__list'>
-                        <li className='navigation__item'>
-                            <Link
-                                to='/Auth/login'
-                                className='navigation__link'
-                                onClick={() => {
-                                    collapseMenu()
-                                }}
-                            >
-                                Login
-                            </Link>
-                        </li>
-                        <li className='navigation__item'>
-                            <Link
-                                to='/Auth/signup'
-                                className='navigation__link'
-                                onClick={() => {
-                                    collapseMenu()
-                                }}
-                            >
-                                Signup
-                            </Link>
-                        </li>
+                        {nav}
                         <li className='navigation__item'>
                             <Link
                                 to='/about-us'
@@ -136,13 +160,10 @@ function SubHeader() {
     )
 }
 
-
-
 const mapStateToProps = (state) => {
     return {
         auth: state.auth.tokenId,
     }
 }
-
 
 export default connect(mapStateToProps)(SubHeader)
