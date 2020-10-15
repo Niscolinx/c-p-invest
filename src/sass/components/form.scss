@@ -33,9 +33,10 @@
         margin: 1rem;
         margin-bottom: 2rem;
         font-size: 1.8rem;
-        background-color: black;
-        color: white;
-
+        background-color: $color-primary;
+        color: #fff;
+        transition: all .2s;
+        
         &--success {
             background: $color-primary;
         }
@@ -44,6 +45,7 @@
             background-color: $color-error;
         }
     }
+
 }
 
 .auth-form__login {
