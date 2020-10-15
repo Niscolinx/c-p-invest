@@ -49,9 +49,10 @@ export const logOut = () => {
     }
 }
 
-export const redirect = () => {
+export const redirect = (to) => {
     return {
-        type: actions.AUTH_SIGNUP_SUCCESS
+        type: actions.AUTH_REDIRECT,
+        to
     }
 }
 
@@ -101,6 +102,8 @@ export const initLogin = (email, password) => {
                         resData.data.login.token
                     )
                 )
+
+                dispatch(redirect('/admin/dashboard'))
             })
             .catch((err) => {
                 console.log('Error occurred in login', err)
@@ -152,9 +155,7 @@ export const initSignup = (authData) => {
                     throw new Error('Creating a user failed!')
                 }
 
-                //dispatch(redirect('/'))
-                // setState({ ...state, isAuth: false, authLoading: false })
-                // props.history.replace('/')
+                dispatch(redirect('/Auth/login'))
             })
             .catch((err) => {
                 console.log(err)

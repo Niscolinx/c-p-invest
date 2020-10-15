@@ -7,7 +7,7 @@ const initialState = {
     userId: null,
     tokenId: null
 }
-const authState = (state, action) => {
+const authStart = (state, action) => {
     return update(state, {
         loading: true
     })
@@ -30,6 +30,12 @@ const authFailed = (state, action) => {
     })
 }
 
+const redirect = (state, action) => {
+    return update(state, {
+        loading: false,
+        redirect: action.to
+    })
+}
 const clearError = (state, action) => {
     return update(state, {
         ...action,
@@ -49,8 +55,9 @@ const authLogOut = (state, action) => {
 
 const auth = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.AUTH_START: return authState(state, action)
+        case actionTypes.AUTH_START: return authStart(state, action)
         case actionTypes.AUTH_SUCCESS: return authSuccess(state, action)
+        case actionTypes.AUTH_REDIRECT: return redirect(state, action)
         case actionTypes.AUTH_FAILED: return authFailed(state, action)
         case actionTypes.AUTH_LOGOUT: return authLogOut(state, action)
         case actionTypes.AUTH_CLEAR_ERROR: return clearError(state, action)

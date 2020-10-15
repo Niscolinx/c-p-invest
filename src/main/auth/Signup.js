@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import * as orderAction from '../../store/actions/burgerIndex'
 
+import * as orderAction from '../../store/actions/burgerIndex'
 import Input from '../Input'
 import Button from '../Button'
 import { required, length, email } from '../../util/validators'
@@ -150,167 +150,180 @@ const Signup = (props) => {
     }
 
     console.log('message', message)
+    console.log('redirect', props.signupRedirect)
+
+    if (props.redirectToLoginPage) {
+        props.history.replace(props.redirectToLoginPage)
+    }
+
+    console.log('props', props)
 
     return (
-        <Auth message={message}>
-            <form onSubmit={handleSignup} className='form__box'>
-                <div className='form-1'>
-                    <h3 className='heading-3 form__heading'>
-                        Personal Information
-                    </h3>
-                    <Input
-                        id='fullname'
-                        label='Fullname'
-                        type='text'
-                        control='input'
-                        minLength={6}
-                        onChange={inputChangeHandler}
-                        onBlur={inputBlurHandler.bind('fullname')}
-                        value={state.signupForm['fullname'].value}
-                        valid={state.signupForm['fullname'].valid}
-                        touched={state.signupForm['fullname'].touched}
-                    />
-                    <Input
-                        id='username'
-                        label='Username'
-                        type='text'
-                        control='input'
-                        minLength={3}
-                        onChange={inputChangeHandler}
-                        onBlur={inputBlurHandler.bind('username')}
-                        value={state.signupForm['username'].value}
-                        valid={state.signupForm['username'].valid}
-                        touched={state.signupForm['username'].touched}
-                    />
+        <>
+            <Auth message={message}>
+                <form onSubmit={handleSignup} className='form__box'>
+                    <div className='form-1'>
+                        <h3 className='heading-3 form__heading'>
+                            Personal Information
+                        </h3>
+                        <Input
+                            id='fullname'
+                            label='Fullname'
+                            type='text'
+                            control='input'
+                            minLength={6}
+                            onChange={inputChangeHandler}
+                            onBlur={inputBlurHandler.bind('fullname')}
+                            value={state.signupForm['fullname'].value}
+                            valid={state.signupForm['fullname'].valid}
+                            touched={state.signupForm['fullname'].touched}
+                        />
+                        <Input
+                            id='username'
+                            label='Username'
+                            type='text'
+                            control='input'
+                            minLength={3}
+                            onChange={inputChangeHandler}
+                            onBlur={inputBlurHandler.bind('username')}
+                            value={state.signupForm['username'].value}
+                            valid={state.signupForm['username'].valid}
+                            touched={state.signupForm['username'].touched}
+                        />
 
-                    <Input
-                        id='email'
-                        label='E-Mail'
-                        type='email'
-                        control='input'
-                        onChange={inputChangeHandler}
-                        onBlur={inputBlurHandler.bind('email')}
-                        value={state.signupForm['email'].value}
-                        valid={state.signupForm['email'].valid}
-                        touched={state.signupForm['email'].touched}
-                    />
-                    <Input
-                        id='confirmEmail'
-                        label='Confirm E-Mail'
-                        type='email'
-                        control='input'
-                        onChange={inputChangeHandler}
-                        onBlur={inputBlurHandler.bind('confirmEmail')}
-                        value={state.signupForm['confirmEmail'].value}
-                        valid={state.signupForm['confirmEmail'].valid}
-                        touched={state.signupForm['confirmEmail'].touched}
-                    />
-                </div>
-                <div className='form-2'>
-                    <h3 className='heading-3 form__heading'>
-                        Account Information
-                    </h3>
+                        <Input
+                            id='email'
+                            label='E-Mail'
+                            type='email'
+                            control='input'
+                            onChange={inputChangeHandler}
+                            onBlur={inputBlurHandler.bind('email')}
+                            value={state.signupForm['email'].value}
+                            valid={state.signupForm['email'].valid}
+                            touched={state.signupForm['email'].touched}
+                        />
+                        <Input
+                            id='confirmEmail'
+                            label='Confirm E-Mail'
+                            type='email'
+                            control='input'
+                            onChange={inputChangeHandler}
+                            onBlur={inputBlurHandler.bind('confirmEmail')}
+                            value={state.signupForm['confirmEmail'].value}
+                            valid={state.signupForm['confirmEmail'].valid}
+                            touched={state.signupForm['confirmEmail'].touched}
+                        />
+                    </div>
+                    <div className='form-2'>
+                        <h3 className='heading-3 form__heading'>
+                            Account Information
+                        </h3>
 
-                    <Input
-                        id='password'
-                        label='Password'
-                        type='password'
-                        control='input'
-                        minLength={6}
-                        onChange={inputChangeHandler}
-                        onBlur={inputBlurHandler.bind('password')}
-                        value={state.signupForm['password'].value}
-                        valid={state.signupForm['password'].valid}
-                        touched={state.signupForm['password'].touched}
-                    />
-                    <Input
-                        id='confirmPassword'
-                        label='confirm Password'
-                        type='password'
-                        control='input'
-                        minLength={6}
-                        onChange={inputChangeHandler}
-                        onBlur={inputBlurHandler.bind('confirmPassword')}
-                        value={state.signupForm['confirmPassword'].value}
-                        valid={state.signupForm['confirmPassword'].valid}
-                        touched={state.signupForm['confirmPassword'].touched}
-                    />
-                    <Input
-                        id='secretQuestion'
-                        label='Secret Question'
-                        type='text'
-                        control='input'
-                        minLength={6}
-                        onChange={inputChangeHandler}
-                        onBlur={inputBlurHandler.bind('secretQuestion')}
-                        value={state.signupForm['secretQuestion'].value}
-                        valid={state.signupForm['secretQuestion'].valid}
-                        touched={state.signupForm['secretQuestion'].touched}
-                    />
-                    <Input
-                        id='secretAnswer'
-                        label='Secret Answer'
-                        type='text'
-                        control='input'
-                        minLength={6}
-                        onChange={inputChangeHandler}
-                        onBlur={inputBlurHandler.bind('secretAnswer')}
-                        value={state.signupForm['secretAnswer'].value}
-                        valid={state.signupForm['secretAnswer'].valid}
-                        touched={state.signupForm['secretAnswer'].touched}
-                    />
-                </div>
-                <div className='form-3'>
-                    <h3 className='heading-3 form__heading'>
-                        Currency Information
-                    </h3>
+                        <Input
+                            id='password'
+                            label='Password'
+                            type='password'
+                            control='input'
+                            minLength={6}
+                            onChange={inputChangeHandler}
+                            onBlur={inputBlurHandler.bind('password')}
+                            value={state.signupForm['password'].value}
+                            valid={state.signupForm['password'].valid}
+                            touched={state.signupForm['password'].touched}
+                        />
+                        <Input
+                            id='confirmPassword'
+                            label='confirm Password'
+                            type='password'
+                            control='input'
+                            minLength={6}
+                            onChange={inputChangeHandler}
+                            onBlur={inputBlurHandler.bind('confirmPassword')}
+                            value={state.signupForm['confirmPassword'].value}
+                            valid={state.signupForm['confirmPassword'].valid}
+                            touched={
+                                state.signupForm['confirmPassword'].touched
+                            }
+                        />
+                        <Input
+                            id='secretQuestion'
+                            label='Secret Question'
+                            type='text'
+                            control='input'
+                            minLength={6}
+                            onChange={inputChangeHandler}
+                            onBlur={inputBlurHandler.bind('secretQuestion')}
+                            value={state.signupForm['secretQuestion'].value}
+                            valid={state.signupForm['secretQuestion'].valid}
+                            touched={state.signupForm['secretQuestion'].touched}
+                        />
+                        <Input
+                            id='secretAnswer'
+                            label='Secret Answer'
+                            type='text'
+                            control='input'
+                            minLength={6}
+                            onChange={inputChangeHandler}
+                            onBlur={inputBlurHandler.bind('secretAnswer')}
+                            value={state.signupForm['secretAnswer'].value}
+                            valid={state.signupForm['secretAnswer'].valid}
+                            touched={state.signupForm['secretAnswer'].touched}
+                        />
+                    </div>
+                    <div className='form-3'>
+                        <h3 className='heading-3 form__heading'>
+                            Currency Information
+                        </h3>
 
-                    <Input
-                        id='bitcoinAccount'
-                        label='Bitcoin Account'
-                        type='text'
-                        control='input'
-                        minLength={26}
-                        placeholder='optional'
-                        onChange={inputChangeHandler}
-                        onBlur={inputBlurHandler.bind('bitcoinAccount')}
-                        value={state.signupForm['bitcoinAccount'].value}
-                        valid={state.signupForm['bitcoinAccount'].valid}
-                        touched={state.signupForm['bitcoinAccount'].touched}
-                    />
-                    <Input
-                        id='ethereumAccount'
-                        label='Ethereum Account'
-                        type='ethereumAccount'
-                        control='input'
-                        placeholder='optional'
-                        minLength={40}
-                        onChange={inputChangeHandler}
-                        onBlur={inputBlurHandler.bind('ethereumAccount')}
-                        value={state.signupForm['ethereumAccount'].value}
-                        valid={state.signupForm['ethereumAccount'].valid}
-                        touched={state.signupForm['ethereumAccount'].touched}
-                    />
-                </div>
+                        <Input
+                            id='bitcoinAccount'
+                            label='Bitcoin Account'
+                            type='text'
+                            control='input'
+                            minLength={26}
+                            placeholder='optional'
+                            onChange={inputChangeHandler}
+                            onBlur={inputBlurHandler.bind('bitcoinAccount')}
+                            value={state.signupForm['bitcoinAccount'].value}
+                            valid={state.signupForm['bitcoinAccount'].valid}
+                            touched={state.signupForm['bitcoinAccount'].touched}
+                        />
+                        <Input
+                            id='ethereumAccount'
+                            label='Ethereum Account'
+                            type='ethereumAccount'
+                            control='input'
+                            placeholder='optional'
+                            minLength={40}
+                            onChange={inputChangeHandler}
+                            onBlur={inputBlurHandler.bind('ethereumAccount')}
+                            value={state.signupForm['ethereumAccount'].value}
+                            valid={state.signupForm['ethereumAccount'].valid}
+                            touched={
+                                state.signupForm['ethereumAccount'].touched
+                            }
+                        />
+                    </div>
 
-                <div className='form-btn'>
-                    <Input
-                        id='signupCheckbox'
-                        label='checkbox'
-                        type='checkbox'
-                        control='checkbox'
-                        onChange={checkboxHandler}
-                    />
-                    <Button
-                        design='raised'
-                        type='submit'
-                        loading={props.loading}
-                    >
-                        Signup
-                    </Button>
-                </div>
-            </form>
-        </Auth>
+                    <div className='form-btn'>
+                        <Input
+                            id='signupCheckbox'
+                            label='checkbox'
+                            type='checkbox'
+                            control='checkbox'
+                            onChange={checkboxHandler}
+                        />
+                        <Button
+                            design='raised'
+                            type='submit'
+                            loading={props.loading}
+                        >
+                            Signup
+                        </Button>
+                    </div>
+                </form>
+            </Auth>
+        </>
     )
 }
 
@@ -319,6 +332,7 @@ const mapStateToProps = (state) => {
         ingredients: state.burger.ingredients,
         totalPrice: state.burger.totalPrice,
         loading: state.order.loading,
+        redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
     }

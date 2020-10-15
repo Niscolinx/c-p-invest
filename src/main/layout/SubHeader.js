@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 import { CgCalendarDates } from 'react-icons/cg'
 import { MdEmail } from 'react-icons/md'
@@ -135,4 +136,13 @@ function SubHeader() {
     )
 }
 
-export default SubHeader
+
+
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth.tokenId,
+    }
+}
+
+
+export default connect(mapStateToProps)(SubHeader)
