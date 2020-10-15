@@ -10,7 +10,7 @@ import Auth from './Auth'
 const Signup = (props) => {
     const [state, setState] = useState({
         signupForm: {
-            fullName: {
+            fullname: {
                 value: '',
                 valid: false,
                 touched: false,
@@ -64,7 +64,7 @@ const Signup = (props) => {
                 touched: false,
                 validators: [length({ min: 6 })],
             },
-            perfectMoney: {
+            ethereumAccount: {
                 value: '',
                 valid: false,
                 touched: false,
@@ -117,7 +117,7 @@ const Signup = (props) => {
                     inputName !== 'formValid' &&
                     inputName !== '[object Object]' &&
                     inputName !== 'bitcoinAccount' &&
-                    inputName !== 'perfectMoney'
+                    inputName !== 'ethereumAccount'
                 ) {
                     formIsValid = formIsValid && updatedForm[inputName].valid
                 }
@@ -166,15 +166,15 @@ const Signup = (props) => {
                         Personal Information
                     </h3>
                     <Input
-                        id='fullName'
+                        id='fullname'
                         label='Fullname'
                         type='text'
                         control='input'
                         onChange={inputChangeHandler}
-                        onBlur={inputBlurHandler.bind('fullName')}
-                        value={state.signupForm['fullName'].value}
-                        valid={state.signupForm['fullName'].valid}
-                        touched={state.signupForm['fullName'].touched}
+                        onBlur={inputBlurHandler.bind('fullname')}
+                        value={state.signupForm['fullname'].value}
+                        valid={state.signupForm['fullname'].valid}
+                        touched={state.signupForm['fullname'].touched}
                     />
                     <Input
                         id='username'
@@ -278,15 +278,15 @@ const Signup = (props) => {
                         touched={state.signupForm['bitcoinAccount'].touched}
                     />
                     <Input
-                        id='perfectMoney'
-                        label='Perfect Money'
-                        type='perfectMoney'
+                        id='ethereumAccount'
+                        label='Ethereum Account'
+                        type='ethereumAccount'
                         control='input'
                         onChange={inputChangeHandler}
-                        onBlur={inputBlurHandler.bind('perfectMoney')}
-                        value={state.signupForm['perfectMoney'].value}
-                        valid={state.signupForm['perfectMoney'].valid}
-                        touched={state.signupForm['perfectMoney'].touched}
+                        onBlur={inputBlurHandler.bind('ethereumAccount')}
+                        value={state.signupForm['ethereumAccount'].value}
+                        valid={state.signupForm['ethereumAccount'].valid}
+                        touched={state.signupForm['ethereumAccount'].touched}
                     />
                 </div>
 
