@@ -1,40 +1,37 @@
- .subHeader {
+.subHeader {
+    &__contact {
+        display: grid;
+        grid-template-columns: repeat(3, min-content max-content);
+        column-gap: 0.2rem;
+        justify-self: start;
+        grid-column: 1 / -1;
 
-     &__contact {
-         display: grid;
-         grid-template-columns: repeat(3, min-content max-content);
-         column-gap: .2rem;
-         justify-self: start;
-         grid-column: 1 / -1;
+        padding: 3rem;
+        color: #fff;
+        font-size: 1.27rem;
+        font-weight: 400;
 
-         padding: 3rem;
-         color: #fff;
-         font-size: 1.27rem;
-         font-weight: 400;
+        &--text {
+            margin-right: 2rem;
+        }
 
-         &--text {
-             margin-right: 2rem;
-         }
+        &--logo {
+            font-size: 2rem;
+            color: $color-primary;
+        }
 
-         &--logo {
-             font-size: 2rem;
-             color: $color-primary;
-         }
+        @media only screen and (max-width: 37.5em) {
+            grid-template-columns: min-content max-content;
+            font-size: 1.5rem;
+        }
+    }
 
-         @media only screen and (max-width: 37.5em) {
-             grid-template-columns: min-content max-content;
-             font-size: 1.5rem;
-         }
-     }
-
-     &__nav {
-         display: grid;
-         grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
-         align-items: center;
-         padding: 1rem 3rem;
-
-     }
-
+    &__nav {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
+        align-items: center;
+        padding: 1rem 3rem;
+    }
 
     //  &__logo{
     //      width: 50px;
@@ -46,51 +43,64 @@
     //      }
     //  }
 
-     &__list {
-         display: grid;
-         grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
-         justify-items: center;
-         font-family: $font-display;
-         font-weight: 400;
-         align-items: center;
-         list-style: none;
-         color: #fff;
-         font-size: 1.4rem;
-         text-transform: uppercase;
-         transition: all .2s;
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+        justify-items: center;
+        font-family: $font-display;
+        font-weight: 400;
+        align-items: center;
+        list-style: none;
+        color: #fff;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        transition: all 0.2s;
 
-         @include respond(tab-port){
-             display: none;
-         }
+        @include respond(tab-port) {
+            display: none;
+        }
 
-         &--item{
-             width: max-content;
-         }
+        &--item {
+            width: max-content;
+        }
 
-         &--item:link,
-         &--item:visited {
-             text-decoration: none;
-             transition: all .2s;
-             color: #fff;
-             padding: .5rem 1rem;
+        &--item:link,
+        &--item:visited {
+            text-decoration: none;
+            transition: all 0.2s;
+            color: #fff;
+            padding: 0.5rem 1rem;
 
-             @media only screen and (max-width: 62.5em) {
-                 padding: 0;
-             }
+            @media only screen and (max-width: 62.5em) {
+                padding: 0;
+            }
 
-             &:hover {
-                 background: rgba(black, 0.3);
-                 transform: translateY(-3px);
-             }
-         }
-     }
- }
+            &:hover {
+                background: rgba(black, 0.3);
+                transform: translateY(-3px);
+            }
+        }
+    }
 
- //Mobile view
+    &__list--auth {
+        display: flex;
+        background-color: red;
+        font-family: $font-display;
+        font-weight: 400;
+        align-items: center;
+        list-style: none;
+        color: #fff;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        transition: all 0.2s;
+        justify-self: end;
+    }
+}
 
- .navigation {
+//Mobile view
 
-    @include respond(tab-port-min){
+.navigation {
+    @include respond(tab-port-min) {
         display: none;
     }
 
@@ -108,7 +118,7 @@
         border-radius: 50%;
         z-index: 2000;
         text-align: center;
-        box-shadow: 0 1rem 3rem rgba(black, .2);
+        box-shadow: 0 1rem 3rem rgba(black, 0.2);
 
         @include respond(tab-port) {
             top: 2rem;
@@ -116,7 +126,6 @@
             height: 4rem;
             width: 4rem;
         }
-
     }
 
     &__background {
@@ -127,8 +136,9 @@
         position: fixed;
         top: 4.5rem;
         right: 4.5rem;
-        background-image: radial-gradient(rgba(16, 29, 44, .9), rgba(16, 29, 44, .9));
-        transition: all .2s cubic-bezier(0.86, 0, 0.7, 1);
+        background-image: radial-gradient(rgba(16, 29, 44, 0.9),
+                rgba(16, 29, 44, 0.9));
+        transition: all 0.2s cubic-bezier(0.86, 0, 0.7, 1);
 
         @include respond(tab-port) {
             top: 2.5rem;
@@ -147,8 +157,7 @@
         z-index: 1500;
         left: 0;
         visibility: hidden;
-        transition: all .2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
+        transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
 
     &__list {
@@ -163,7 +172,6 @@
         @include respond(phone) {
             width: 100%;
         }
-
     }
 
     &__item {
@@ -186,16 +194,18 @@
             font-weight: 400;
             text-decoration: none;
             text-transform: uppercase;
-            background-image: linear-gradient(145deg, transparent 0%, transparent 50%, $color-grey-light-1 50%);
+            background-image: linear-gradient(145deg,
+                    transparent 0%,
+                    transparent 50%,
+                    $color-grey-light-1 50%);
             background-size: 300%;
-            transition: all .2s;
+            transition: all 0.2s;
 
             @include respond(phone) {
                 background-size: 500%;
                 width: 100%;
                 display: block;
             }
-
 
             &:hover,
             &:active {
@@ -207,7 +217,7 @@
     }
 
     &__checkbox:checked~&__background {
-        transform: scale(100)
+        transform: scale(100);
     }
 
     &__checkbox:checked~&__nav {
@@ -232,7 +242,7 @@
             height: 3px;
             width: 2rem;
             background-color: $color-grey-dark-2;
-            transition: all .2s;
+            transition: all 0.2s;
 
             @include respond(tab-port) {
                 width: 1.6rem;
@@ -241,7 +251,7 @@
 
         &::before,
         &::after {
-            content: "";
+            content: '';
             left: 0;
         }
 
@@ -250,7 +260,7 @@
         }
 
         &::after {
-            top: 0.8rem
+            top: 0.8rem;
         }
     }
 
@@ -268,12 +278,11 @@
 
     &__checkbox:checked+&__button &__icon::after {
         top: 0;
-        transform: rotate(135deg)
+        transform: rotate(135deg);
     }
 
     &__checkbox:checked+&__button &__icon::before {
         top: 0;
-        transform: rotate(-135deg)
+        transform: rotate(-135deg);
     }
-
 }
