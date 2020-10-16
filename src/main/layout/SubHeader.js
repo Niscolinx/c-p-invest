@@ -15,14 +15,14 @@ function SubHeader(props) {
         setChecked((old) => !old)
     }
 
-    const auth = null
+    const auth = 'ksdfs'
 
     let mobileNav = (
         <>
             <li className='navigation__item'>
                 <Link
                     to='/Auth/login'
-                    className='navigation__link'
+                    className='navigation__link navigation__link--auth'
                     onClick={() => {
                         collapseMenu()
                     }}
@@ -33,7 +33,7 @@ function SubHeader(props) {
             <li className='navigation__item'>
                 <Link
                     to='/Auth/signup'
-                    className='navigation__link'
+                    className='navigation__link navigation__link--auth'
                     onClick={() => {
                         collapseMenu()
                     }}
@@ -46,10 +46,16 @@ function SubHeader(props) {
 
     let nav = (
         <>
-            <Link to='/Auth/login' className='subHeader__list--item subHeader__list-item--auth'>
+            <Link
+                to='/Auth/login'
+                className='subHeader__list--item subHeader__list-item--auth'
+            >
                 <li>login</li>
             </Link>
-            <Link to='/Auth/signup' className='subHeader__list--item subHeader__list-item--auth'>
+            <Link
+                to='/Auth/signup'
+                className='subHeader__list--item subHeader__list-item--auth'
+            >
                 <li>signup</li>
             </Link>
         </>
@@ -61,7 +67,7 @@ function SubHeader(props) {
                 <li className='navigation__item'>
                     <Link
                         to='/admin/dashboard'
-                        className='navigation__link'
+                        className='navigation__link navigation__link--auth'
                         onClick={() => {
                             collapseMenu()
                         }}
@@ -76,7 +82,7 @@ function SubHeader(props) {
             <>
                 <Link
                     to='/admin/dashboard'
-                    className='subHeader__list--item subHeader__list-item--dashboard'
+                    className='subHeader__list--item subHeader__list-item--auth'
                 >
                     <li>Dashboard</li>
                 </Link>
@@ -103,7 +109,6 @@ function SubHeader(props) {
                 <div className='navigation__background'>&nbsp;</div>
                 <nav className='navigation__nav'>
                     <ul className='navigation__list'>
-                        {mobileNav}
                         <li className='navigation__item'>
                             <Link
                                 to='/about-us'
@@ -138,6 +143,8 @@ function SubHeader(props) {
                             </Link>
                         </li>
                     </ul>
+
+                    <ul className='navigation__list navigation__list--auth'>{mobileNav}</ul>
                 </nav>
             </div>
 
