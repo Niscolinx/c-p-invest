@@ -95,6 +95,7 @@ function SubHeader(props) {
         <>
             <div className='navigation'>
                 <input
+                    onChange={() => console.log('changed')}
                     onClick={() => {
                         collapseMenu()
                     }}

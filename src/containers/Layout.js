@@ -1,17 +1,26 @@
-import React from 'react'
-
+import React, { useEffect } from 'react'
+import { useLastLocation } from 'react-router-last-location'
+import { useHistory } from 'react-router'
 
 import SubHeader from '../main/layout/SubHeader'
 import Footer from '../main/layout/Footer'
 
-
 function Layout(props) {
+    const lastLocation = useLastLocation()
+    const history = useHistory()
+    console.log('the last location', lastLocation)
+    console.log('the history', history)
+    useEffect(() => {
+        console.log('mounted the layout', lastLocation)
+        console.log('the history', history)
+    })
 
-
-    let toRender;
+    let toRender
 
     let isAdmin = props.isAdmin.includes('/admin')
-    if(isAdmin){
+
+    console.log('admin check', isAdmin)
+    if (isAdmin) {
         console.log('Is the admin', props.isAdmin)
 
         localStorage.setItem('cssLoaded', false)
@@ -21,43 +30,39 @@ function Layout(props) {
         import('../assets/css/animate.min.css').then((Baz) => {
             console.log('the import2', Baz)
         })
-        import('../assets/sass/light-bootstrap-dashboard-react.scss?v=1.3.0').then((Baz) => {
+        import(
+            '../assets/sass/light-bootstrap-dashboard-react.scss?v=1.3.0'
+        ).then((Baz) => {
             console.log('the import3', Baz)
         })
         import('../assets/css/demo.css').then((Baz) => {
             console.log('the import4', Baz)
         })
-       const all =  import('../assets/css/pe-icon-7-stroke.css').then(Baz => {
+        const all = import('../assets/css/pe-icon-7-stroke.css').then((Baz) => {
             console.log('the import5', Baz)
-       
         })
-        all.finally(result => {
+        all.finally((result) => {
             localStorage.setItem('cssLoaded', true)
-
         })
-     
-      
+
         toRender = props.children
-        
-    }
-    else{
+    } else {
         console.log('Not the admin', props.isAdmin)
         localStorage.clear('loaded', 'cssLoaded')
-        toRender = <><div className='section-subHeader'>
-                <SubHeader />
-            </div>
-            <main className='main'>{props.children}</main>
-            <div className='section-footer'>
-                <Footer />
-            </div> </>
+        toRender = (
+            <>
+                <div className='section-subHeader'>
+                    <SubHeader />
+                </div>
+                <main className='main'>{props.children}</main>
+                <div className='section-footer'>
+                    <Footer />
+                </div>{' '}
+            </>
+        )
     }
 
-    
-    return (
-        <>
-            {toRender}
-        </>
-    )
+    return <>{toRender}</>
 }
 
 export default Layout
