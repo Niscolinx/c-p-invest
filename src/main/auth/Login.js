@@ -21,7 +21,7 @@ const Login = (props) => {
                 value: '',
                 valid: false,
                 touched: false,
-                validators: [required, length({ min: 5 })],
+                validators: [required, length({ min: 6 })],
             },
             formIsValid: false,
         },
@@ -36,6 +36,7 @@ const Login = (props) => {
             for (const validator of prevState.loginForm[input].validators) {
                 isValid = isValid && validator(value)
             }
+
             const updatedForm = {
                 ...prevState.loginForm,
                 [input]: {
@@ -47,8 +48,15 @@ const Login = (props) => {
             }
             let formIsValid = true
             for (const inputName in updatedForm) {
-                formIsValid = formIsValid && updatedForm[inputName].valid
-            }
+
+            console.log('loop formvalid', inputName)
+                if (
+                    inputName !== 'formIsValid' &&
+                    inputName !== '[object Object]'
+                    ) {
+                 
+                }        
+               }
             return {
                 loginForm: updatedForm,
                 formIsValid: formIsValid,
@@ -62,7 +70,7 @@ const Login = (props) => {
 
     const handleLogin = e => {
         e.preventDefault()
-         if (state.formValid) {
+         if (state.formIsValid) {
              console.log('Valid form')
              setMessage({
                  success: 'Success',

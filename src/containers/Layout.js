@@ -1,11 +1,13 @@
 import React from 'react'
 import { useLastLocation } from 'react-router-last-location'
+import {useHistory} from 'react-router-dom'
 
 import SubHeader from '../main/layout/SubHeader'
 import Footer from '../main/layout/Footer'
 
 function Layout(props) {
     const lastLocation = useLastLocation()
+    const history = useHistory()
 
     let fromlocationPath = ''
     for (let i in lastLocation) {
@@ -20,10 +22,15 @@ function Layout(props) {
     //Check how this can be added to redux and called from there
     let toRender
 
-    let isAdmin = props.isAdmin.includes('/admin')
+    const adminPath = props.isAdmin.pathname
+    let isAdmin = adminPath.includes('/admin')
 
     if (isAdmin) {
-        console.log('Is the admin', props.isAdmin)
+        console.log('Is the admin', history)
+
+        if(adminPath === '/admin' || adminPath === '/admin/'){
+            history.push('/admin/dashboard')
+        }
 
         localStorage.setItem('cssLoaded', false)
         import('bootstrap/dist/css/bootstrap.min.css').then((Baz) => {
@@ -49,7 +56,7 @@ function Layout(props) {
 
         toRender = props.children
     } else {
-        console.log('Not the admin', props.isAdmin)
+        console.log('Not the admin', adminPath)
         if (fromLocationSplit[0].includes('admin')) {
             console.log('reload now')
            // console.log('performance', window.Performance())

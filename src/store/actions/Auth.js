@@ -8,6 +8,9 @@ export const authStart = () => {
 
 export const authSuccessCheck = (auth, token) => {
     return (dispatch) => {
+        console.log('the auth', auth, token)
+        console.log('logged in successfully')
+        
         localStorage.setItem('userId', auth)
         localStorage.setItem('token', token)
 

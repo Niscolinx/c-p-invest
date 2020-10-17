@@ -15,7 +15,8 @@ function SubHeader(props) {
         setChecked((old) => !old)
     }
 
-    const auth = 'ksdfs'
+    const auth = props.auth
+    console.log('the auth from subHeader', auth)
 
     let mobileNav = (
         <>

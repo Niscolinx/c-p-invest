@@ -38,7 +38,6 @@ function App(props) {
         return import('./AboutUs')
     })
 
-    let auth = 'csfsdf'
 
     let AuthGuard = (
         <Switch>
@@ -60,8 +59,9 @@ function App(props) {
             <Redirect to='/' />
         </Switch>
     )
-    if (auth) {
+    if (props.auth) {
         console.log('successful authentication')
+        localStorage.setItem('auth', props.auth)
         AuthGuard = (
             <Switch>
                 <Route path='/' exact component={Home} />
@@ -78,7 +78,7 @@ function App(props) {
 
     return (
         <>
-            <Layout isAdmin={location.pathname}>{AuthGuard}</Layout>
+            <Layout isAdmin={location}>{AuthGuard}</Layout>
         </>
     )
 }

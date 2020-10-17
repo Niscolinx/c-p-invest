@@ -1,25 +1,4 @@
-/*!
 
-=========================================================
-* Light Bootstrap Dashboard React - v1.3.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-//
-// //
-// // // For notifications
-// //
-//
 let defaultWidth =  window.screen.width > 768
     ? (window.screen.width * 1) / 3
     : window.screen.width;
@@ -492,8 +471,8 @@ const iconsArray = [
 //
 // Data for Pie Chart
 let dataPie = {
-  labels: ["40%", "20%", "40%"],
-  series: [40, 20, 40]
+  labels: ["10%", "70%", "20%"],
+  series: [10, 70, 20]
 };
 let legendPie = {
   names: ["Open", "Bounce", "Unsubscribe"],
