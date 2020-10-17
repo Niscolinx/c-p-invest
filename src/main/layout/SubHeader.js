@@ -16,7 +16,6 @@ function SubHeader(props) {
     }
 
     const auth = props.auth
-    console.log('the auth from subHeader', auth)
 
     let mobileNav = (
         <>
@@ -91,7 +90,6 @@ function SubHeader(props) {
         )
     }
 
-    console.log('the auth nav', auth)
     return (
         <>
             <div className='navigation'>

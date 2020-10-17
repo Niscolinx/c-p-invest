@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import * as orderAction from '../../store/actions/burgerIndex'
@@ -78,6 +78,20 @@ const Signup = (props) => {
     const [checked, setChecked] = useState(false)
     const [message, setMessage] = useState(null)
 
+    useEffect(() => {
+        if (props.err) {
+            setMessage({
+                error: props.err[0].message,
+            })
+        }
+        else if(props.noAuthError) {
+         setMessage({
+                success: "Success"
+            })
+
+    }
+    }, [props])
+
     const inputChangeHandler = (input, value) => {
         setState((prevState) => {
             let isValid = true
@@ -139,9 +153,6 @@ const Signup = (props) => {
         e.preventDefault()
         console.log('validation', state.formValid, checked)
         if (state.formValid && checked) {
-            setMessage({
-                success: 'Success',
-            })
             props.onInitSignup(state)
         } else {
             console.log('invalid form')
@@ -329,8 +340,8 @@ const Signup = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        ingredients: state.burger.ingredients,
-        totalPrice: state.burger.totalPrice,
+        err: state.auth.error,
+        noAuthError: state.auth.noAuthError,
         loading: state.order.loading,
         redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 import { connect } from 'react-redux'
 import * as orderAction from '../../store/actions/burgerIndex'
 
@@ -29,6 +29,20 @@ const Login = (props) => {
 
     const [message, setMessage] = useState(null)
 
+    useEffect(() => {
+        if(props.err){
+            setMessage({
+                error: props.err[0].message
+            })
+        }
+        else if(props.noAuthError){
+        console.log('no auth err', props.noAuthError)
+             setMessage({
+                success: 'Success'
+            })
+    
+        }
+    }, [props])
 
     const inputChangeHandler = (input, value) => {
         setState((prevState) => {
@@ -43,20 +57,17 @@ const Login = (props) => {
                     ...prevState.loginForm[input],
                     valid: isValid,
                     value: value,
-                    touched: true
+                    touched: true,
                 },
             }
             let formIsValid = true
             for (const inputName in updatedForm) {
-
-            console.log('loop formvalid', inputName)
                 if (
                     inputName !== 'formIsValid' &&
                     inputName !== '[object Object]'
-                    ) {
-                 
-                }        
-               }
+                ) {
+                }
+            }
             return {
                 loginForm: updatedForm,
                 formIsValid: formIsValid,
@@ -64,24 +75,23 @@ const Login = (props) => {
         })
     }
 
-    const inputBlurHandler = (input) => {
-        
+    const inputBlurHandler = (input) => {}
+
+    const handleLogin = (e) => {
+        e.preventDefault()
+        if (state.formIsValid) {
+            props.onInitLogin(
+                state.loginForm.email.value,
+                state.loginForm.password.value
+            )
+
+  
+        } else {
+            console.log('invalid form')
+            setMessage({ error: 'Wrong Input, please check your entries' })
+        }
     }
 
-    const handleLogin = e => {
-        e.preventDefault()
-         if (state.formIsValid) {
-             console.log('Valid form')
-             setMessage({
-                 success: 'Success',
-             })
-             props.onInitLogin(state.loginForm.email.value, state.loginForm.password.value)
-         } else {
-             console.log('invalid form')
-             setMessage({ error: 'Wrong Input, please check your entries' })
-         }
-        
-    }
 
     return (
         <Auth login message={message}>
@@ -125,9 +135,9 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        ingredients: state.burger.ingredients,
-        totalPrice: state.burger.totalPrice,
+        noAuthError: state.auth.noAuthError,
         loading: state.order.loading,
+        err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
     }
@@ -139,8 +149,4 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(orderAction.initLogin(email, password)),
     }
 }
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Login)
-
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

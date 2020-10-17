@@ -13,6 +13,12 @@ const authStart = (state, action) => {
     })
 }
 
+const noAuthError = (state, action) => {
+    return update(state, {
+        noAuthError: action.data
+    })
+}
+
 const authSuccess = (state, action) => {
     return update(state, {
         ...action,
@@ -56,6 +62,7 @@ const authLogOut = (state, action) => {
 const auth = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.AUTH_START: return authStart(state, action)
+        case actionTypes.NO_AUTH_ERROR: return noAuthError(state, action)
         case actionTypes.AUTH_SUCCESS: return authSuccess(state, action)
         case actionTypes.AUTH_REDIRECT: return redirect(state, action)
         case actionTypes.AUTH_FAILED: return authFailed(state, action)

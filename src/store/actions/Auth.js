@@ -10,20 +10,20 @@ export const authSuccessCheck = (auth, token) => {
     return (dispatch) => {
         console.log('the auth', auth, token)
         console.log('logged in successfully')
-        
-        localStorage.setItem('userId', auth)
+
+        window.localStorage.setItem('userId', auth)
         localStorage.setItem('token', token)
 
-        const remainingMilliseconds = 3600 * 1000
-        const expiryDate = new Date(
-            new Date().getTime() + remainingMilliseconds
-        )
-        localStorage.setItem('expiryDate', expiryDate.toISOString())
-        dispatch(authSuccess(auth, token))
+        // const remainingMilliseconds = 3600 * 1000
+        // const expiryDate = new Date(
+        //     new Date().getTime() + remainingMilliseconds
+        // )
+        // localStorage.setItem('expiryDate', expiryDate.toISOString())
+        // dispatch(authSuccess(auth, token))
 
-        setTimeout(() => {
-            dispatch(logOut())
-        }, remainingMilliseconds)
+        // setTimeout(() => {
+        //     dispatch(logOut())
+        // }, remainingMilliseconds)
     }
 }
 
@@ -42,10 +42,18 @@ export const authFailed = (error) => {
     }
 }
 
+export const noAuthError = (data) => {
+
+    return {
+        type: actions.NO_AUTH_ERROR,
+        data
+    }
+}
+
 export const logOut = () => {
-    localStorage.removeItem('token')
-    localStorage.removeItem('userId')
-    localStorage.removeItem('expiryDate')
+    // localStorage.removeItem('token')
+    // localStorage.removeItem('userId')
+    // localStorage.removeItem('expiryDate')
 
     return {
         type: actions.AUTH_LOGOUT,
@@ -55,7 +63,7 @@ export const logOut = () => {
 export const redirect = (to) => {
     return {
         type: actions.AUTH_REDIRECT,
-        to
+        to,
     }
 }
 
@@ -97,8 +105,11 @@ export const initLogin = (email, password) => {
                     )
                 }
                 if (resData.errors) {
+                    dispatch(authFailed(resData.errors))
                     throw new Error('Login failed!')
                 }
+
+                dispatch(noAuthError(resData.data))
                 dispatch(
                     authSuccessCheck(
                         resData.data.login.userId,
@@ -110,7 +121,6 @@ export const initLogin = (email, password) => {
             })
             .catch((err) => {
                 console.log('Error occurred in login', err)
-                dispatch(authFailed(err))
             })
     }
 }
@@ -118,12 +128,9 @@ export const initLogin = (email, password) => {
 export const initSignup = (authData) => {
     return (dispatch) => {
         dispatch(authStart())
-        console.log('the auth data', authData)
-
-        console.log('the values of auth data')
+    
         const data = authData.signupForm
 
-        console.log('the signup handler', authData)
         const graphqlQuery = {
             query: ` mutation { createUser(userData: {
             username: "${data.username.value}",
@@ -144,7 +151,6 @@ export const initSignup = (authData) => {
             body: JSON.stringify(graphqlQuery),
         })
             .then((res) => {
-                console.log('the res signup', res)
                 return res.json()
             })
             .then((resData) => {
