@@ -30,13 +30,19 @@ const Login = (props) => {
     const [message, setMessage] = useState(null)
 
     useEffect(() => {
+        console.log('props toId', props.tokenId)
+        if(props.tokenId){
+        console.log('token id local storage', props.tokenId)
+
+        localStorage.setItem("tokId", props.tokenId)
+    }
         if(props.err){
             setMessage({
                 error: props.err[0].message
             })
         }
-        else if(props.noAuthError){
-        console.log('no auth err', props.noAuthError)
+        else if(props.tokenId){
+        console.log('no auth err')
              setMessage({
                 success: 'Success'
             })
@@ -134,8 +140,8 @@ const Login = (props) => {
 }
 
 const mapStateToProps = (state) => {
+console.log('the state', state)
     return {
-        noAuthError: state.auth.noAuthError,
         loading: state.order.loading,
         err: state.auth.error,
         tokenId: state.auth.tokenId,

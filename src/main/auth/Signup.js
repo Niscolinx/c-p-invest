@@ -84,7 +84,7 @@ const Signup = (props) => {
                 error: props.err[0].message,
             })
         }
-        else if(props.noAuthError) {
+        else if(props.tokenId) {
          setMessage({
                 success: "Success"
             })
@@ -341,7 +341,6 @@ const Signup = (props) => {
 const mapStateToProps = (state) => {
     return {
         err: state.auth.error,
-        noAuthError: state.auth.noAuthError,
         loading: state.order.loading,
         redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,

@@ -6,12 +6,12 @@ export const authStart = () => {
     }
 }
 
-export const authSuccessCheck = (auth, token) => {
+export const authSuccessCheck = (data, auth, token) => {
     return (dispatch) => {
         console.log('the auth', auth, token)
         console.log('logged in successfully')
 
-        window.localStorage.setItem('userId', auth)
+        localStorage.setItem('userId', auth)
         localStorage.setItem('token', token)
 
         // const remainingMilliseconds = 3600 * 1000
@@ -19,7 +19,7 @@ export const authSuccessCheck = (auth, token) => {
         //     new Date().getTime() + remainingMilliseconds
         // )
         // localStorage.setItem('expiryDate', expiryDate.toISOString())
-        // dispatch(authSuccess(auth, token))
+        dispatch(authSuccess(data, auth, token))
 
         // setTimeout(() => {
         //     dispatch(logOut())
@@ -27,11 +27,12 @@ export const authSuccessCheck = (auth, token) => {
     }
 }
 
-export const authSuccess = (auth, token) => {
+export const authSuccess = (data, auth, token) => {
     return {
         type: actions.AUTH_SUCCESS,
         userId: auth,
         tokenId: token,
+        noAuthError: data,
     }
 }
 
@@ -42,13 +43,6 @@ export const authFailed = (error) => {
     }
 }
 
-export const noAuthError = (data) => {
-
-    return {
-        type: actions.NO_AUTH_ERROR,
-        data
-    }
-}
 
 export const logOut = () => {
     // localStorage.removeItem('token')
@@ -60,12 +54,6 @@ export const logOut = () => {
     }
 }
 
-export const redirect = (to) => {
-    return {
-        type: actions.AUTH_REDIRECT,
-        to,
-    }
-}
 
 export const clearError = () => {
     return {
@@ -109,15 +97,14 @@ export const initLogin = (email, password) => {
                     throw new Error('Login failed!')
                 }
 
-                dispatch(noAuthError(resData.data))
                 dispatch(
                     authSuccessCheck(
+                        resData.data,
                         resData.data.login.userId,
                         resData.data.login.token
                     )
                 )
 
-                dispatch(redirect('/admin/dashboard'))
             })
             .catch((err) => {
                 console.log('Error occurred in login', err)
@@ -128,7 +115,7 @@ export const initLogin = (email, password) => {
 export const initSignup = (authData) => {
     return (dispatch) => {
         dispatch(authStart())
-    
+
         const data = authData.signupForm
 
         const graphqlQuery = {
