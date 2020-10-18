@@ -160,6 +160,7 @@ const Signup = (props) => {
         }
     }
 
+    console.log('history', props.history)
     if (props.redirectToLoginPage) {
         console.log('redirect is true', props.redirectToLoginPage)
         props.history.replace(props.redirectToLoginPage)

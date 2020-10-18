@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import * as orderAction from '../../store/actions/burgerIndex'
 
@@ -30,23 +30,20 @@ const Login = (props) => {
     const [message, setMessage] = useState(null)
 
     useEffect(() => {
-        console.log('props toId', props.tokenId)
-        if(props.tokenId){
-        console.log('token id local storage', props.tokenId)
-
-        localStorage.setItem("tokId", props.tokenId)
-    }
-        if(props.err){
+        if (props.err) {
             setMessage({
-                error: props.err[0].message
+                error: props.err[0].message,
             })
-        }
-        else if(props.tokenId){
-        console.log('no auth err')
-             setMessage({
-                success: 'Success'
+        } else if (props.tokenId) {
+            console.log('no auth err')
+
+            console.log('token id local storage', props.tokenId)
+
+            //window.sessionStorage.setItem('tokId', props.tokenId)
+            props.history.push('/admin/dashboard')
+            setMessage({
+                success: 'Success',
             })
-    
         }
     }, [props])
 
@@ -90,14 +87,11 @@ const Login = (props) => {
                 state.loginForm.email.value,
                 state.loginForm.password.value
             )
-
-  
         } else {
             console.log('invalid form')
             setMessage({ error: 'Wrong Input, please check your entries' })
         }
     }
-
 
     return (
         <Auth login message={message}>
@@ -140,7 +134,7 @@ const Login = (props) => {
 }
 
 const mapStateToProps = (state) => {
-console.log('the state', state)
+    console.log('the state', state)
     return {
         loading: state.order.loading,
         err: state.auth.error,

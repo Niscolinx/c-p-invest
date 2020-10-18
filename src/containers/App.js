@@ -88,6 +88,7 @@ function App(props) {
 }
 
 const mapStateToProps = (state) => {
+    console.log('state', state)
     return {
         auth: state.auth.tokenId,
     }

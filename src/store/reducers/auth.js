@@ -4,8 +4,8 @@ import update from '../utility'
 const initialState = {
     error: null,
     loading: false,
-    userId: null,
-    tokenId: null,
+    userId: sessionStorage.getItem('userId') || null,
+    tokenId: sessionStorage.getItem('token') || null,
 }
 const authStart = (state, action) => {
     return update(state, {
@@ -21,7 +21,6 @@ const authSuccess = (state, action) => {
         userId: action.userId,
         tokenId: action.tokenId,
         error: null,
-        redirect: '/admin/dashboard',
     })
 }
 

@@ -6,33 +6,32 @@ export const authStart = () => {
     }
 }
 
-export const authSuccessCheck = (data, auth, token) => {
+export const authSuccessCheck = (auth, token) => {
     return (dispatch) => {
         console.log('the auth', auth, token)
         console.log('logged in successfully')
 
-        localStorage.setItem('userId', auth)
-        localStorage.setItem('token', token)
+        sessionStorage.setItem('userId', auth)
+        sessionStorage.setItem('token', token)
 
-        // const remainingMilliseconds = 3600 * 1000
-        // const expiryDate = new Date(
-        //     new Date().getTime() + remainingMilliseconds
-        // )
-        // localStorage.setItem('expiryDate', expiryDate.toISOString())
-        dispatch(authSuccess(data, auth, token))
+        const remainingMilliseconds = 3600 * 1000
+        const expiryDate = new Date(
+            new Date().getTime() + remainingMilliseconds
+        )
+        sessionStorage.setItem('expiryDate', expiryDate.toISOString())
+        dispatch(authSuccess(auth, token))
 
-        // setTimeout(() => {
-        //     dispatch(logOut())
-        // }, remainingMilliseconds)
+        setTimeout(() => {
+            dispatch(logOut())
+        }, remainingMilliseconds)
     }
 }
 
-export const authSuccess = (data, auth, token) => {
+export const authSuccess = (auth, token) => {
     return {
         type: actions.AUTH_SUCCESS,
         userId: auth,
         tokenId: token,
-        noAuthError: data,
     }
 }
 
@@ -45,9 +44,9 @@ export const authFailed = (error) => {
 
 
 export const logOut = () => {
-    // localStorage.removeItem('token')
-    // localStorage.removeItem('userId')
-    // localStorage.removeItem('expiryDate')
+    sessionStorage.removeItem('token')
+    sessionStorage.removeItem('userId')
+    sessionStorage.removeItem('expiryDate')
 
     return {
         type: actions.AUTH_LOGOUT,
@@ -99,7 +98,6 @@ export const initLogin = (email, password) => {
 
                 dispatch(
                     authSuccessCheck(
-                        resData.data,
                         resData.data.login.userId,
                         resData.data.login.token
                     )
@@ -107,7 +105,7 @@ export const initLogin = (email, password) => {
 
             })
             .catch((err) => {
-                console.log('Error occurred in login', err)
+                dispatch(authFailed(err))
             })
     }
 }
@@ -141,7 +139,6 @@ export const initSignup = (authData) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('new user', resData)
                 if (resData.errors && resData.errors[0].statusCode === 422) {
                     throw new Error(
                         'Validation failed. Please make sure your input values are correct'
@@ -153,7 +150,6 @@ export const initSignup = (authData) => {
 
             })
             .catch((err) => {
-                console.log(err)
                 dispatch(authFailed(err))
             })
     }
