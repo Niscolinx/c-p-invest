@@ -31,6 +31,13 @@ const authFailed = (state, action) => {
     })
 }
 
+const authRedirect = (state, action) => {
+    return update(state, {
+        loading: false,
+        redirect: action.to
+    })
+}
+
 const clearError = (state, action) => {
     return update(state, {
         ...action,
@@ -52,6 +59,8 @@ const auth = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.AUTH_START:
             return authStart(state, action)
+        case actionTypes.AUTH_REDIRECT:
+            return authRedirect(state, action)
         case actionTypes.AUTH_SUCCESS:
             return authSuccess(state, action)
         case actionTypes.AUTH_FAILED:

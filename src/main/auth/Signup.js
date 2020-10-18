@@ -341,7 +341,6 @@ const mapStateToProps = (state) => {
     return {
         err: state.auth.error,
         loading: state.order.loading,
-        redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
     }

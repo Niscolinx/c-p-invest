@@ -42,6 +42,12 @@ export const authFailed = (error) => {
     }
 }
 
+export const redirect = (to) => {
+    return {
+        type: actions.AUTH_REDIRECT,
+        to
+    }
+}
 
 export const logOut = () => {
     sessionStorage.removeItem('token')
@@ -147,6 +153,8 @@ export const initSignup = (authData) => {
                 if (resData.errors) {
                     throw new Error('Creating a user failed!')
                 }
+
+                dispatch(redirect('/Auth/login'))
 
             })
             .catch((err) => {

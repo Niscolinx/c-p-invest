@@ -40,7 +40,7 @@ class Dashboard extends Component {
                 statsText="Account Balance"
                 statsValue="$2,242"
                 statsIcon={<i className="fa fa-refresh" />}
-               // statsIconText="Updated now"
+               statsIconText="Updated now"
               />
             </Col>
             <Col lg={3} sm={6}>
@@ -56,7 +56,7 @@ class Dashboard extends Component {
               <StatsCard
                 bigIcon={<i className="pe-7s-graph1 text-danger" />}
                 statsText="Total Deposit"
-                statsValue="23"
+                statsValue="$2,632"
                 statsIcon={<i className="fa fa-clock-o" />}
                 statsIconText="In the last hour"
               />
@@ -65,7 +65,7 @@ class Dashboard extends Component {
               <StatsCard
                 bigIcon={<i className="fa fa-twitter text-info" />}
                 statsText="Total Earnings"
-                statsValue="+45"
+                statsValue="$4,632"
                 statsIcon={<i className="fa fa-refresh" />}
                 statsIconText="Updated now"
               />
