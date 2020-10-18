@@ -32,7 +32,7 @@ const Login = (props) => {
     useEffect(() => {
         if (props.err) {
             setMessage({
-                error: props.err[0].message,
+                error: props.err.page === 'login' ? props.err.error[0].message : null,
             })
         } else if (props.tokenId) {
             console.log('no auth err')
@@ -94,7 +94,7 @@ const Login = (props) => {
     }
 
     return (
-        <Auth login message={message}>
+        <Auth login message={props.err ? message : null}>
             <form onSubmit={handleLogin}>
                 <Input
                     id='email'

@@ -13,7 +13,6 @@ const authStart = (state, action) => {
     })
 }
 
-
 const authSuccess = (state, action) => {
     return update(state, {
         ...action,
@@ -27,14 +26,17 @@ const authSuccess = (state, action) => {
 const authFailed = (state, action) => {
     return update(state, {
         loading: false,
-        error: action.error,
+        error: {
+            page: action.page,
+            error: action.error
+        },
     })
 }
 
 const authRedirect = (state, action) => {
     return update(state, {
         loading: false,
-        redirect: action.to
+        redirect: action.to,
     })
 }
 

@@ -1,22 +1,9 @@
-/*!
 
-=========================================================
-* Light Bootstrap Dashboard React - v1.3.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React, { Component } from "react";
+import {connect} from 'react-redux'
 import { NavItem, Nav, NavDropdown, MenuItem } from "react-bootstrap";
+
+import * as orderAction from '../../store/actions/burgerIndex'
 
 class AdminNavbarLinks extends Component {
   render() {
@@ -69,7 +56,7 @@ class AdminNavbarLinks extends Component {
             <MenuItem divider />
             <MenuItem eventKey={2.5}>Separated link</MenuItem>
           </NavDropdown>
-          <NavItem eventKey={3} href="#">
+          <NavItem eventKey={7} onClick={this.props.onLogOut}>
             Log out
           </NavItem>
         </Nav>
@@ -78,4 +65,20 @@ class AdminNavbarLinks extends Component {
   }
 }
 
-export default AdminNavbarLinks;
+const mapStateToProps = (state) => {
+  console.log('the state link', state)
+    return {
+        err: state.auth.error,
+        loading: state.order.loading,
+        redirectToLoginPage: state.auth.redirect,
+        tokenId: state.auth.tokenId,
+        userId: state.auth.userId,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onLogOut: () => dispatch(orderAction.logOut()),
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(AdminNavbarLinks)

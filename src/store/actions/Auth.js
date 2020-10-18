@@ -35,9 +35,10 @@ export const authSuccess = (auth, token) => {
     }
 }
 
-export const authFailed = (error) => {
+export const authFailed = (page, error) => {
     return {
         type: actions.AUTH_FAILED,
+        page,
         error,
     }
 }
@@ -45,7 +46,7 @@ export const authFailed = (error) => {
 export const redirect = (to) => {
     return {
         type: actions.AUTH_REDIRECT,
-        to
+        to,
     }
 }
 
@@ -58,7 +59,6 @@ export const logOut = () => {
         type: actions.AUTH_LOGOUT,
     }
 }
-
 
 export const clearError = () => {
     return {
@@ -98,7 +98,7 @@ export const initLogin = (email, password) => {
                     )
                 }
                 if (resData.errors) {
-                    dispatch(authFailed(resData.errors))
+                    dispatch(authFailed('login', resData.errors))
                     throw new Error('Login failed!')
                 }
 
@@ -108,10 +108,9 @@ export const initLogin = (email, password) => {
                         resData.data.login.token
                     )
                 )
-
             })
             .catch((err) => {
-                dispatch(authFailed(err))
+                console.log('error in login', err)
             })
     }
 }
@@ -151,14 +150,14 @@ export const initSignup = (authData) => {
                     )
                 }
                 if (resData.errors) {
+                    dispatch(authFailed('signup', resData.errors))
                     throw new Error('Creating a user failed!')
                 }
 
                 dispatch(redirect('/Auth/login'))
-
             })
             .catch((err) => {
-                dispatch(authFailed(err))
+                console.log('error in signup', err)
             })
     }
 }

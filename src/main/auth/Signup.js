@@ -81,7 +81,10 @@ const Signup = (props) => {
     useEffect(() => {
         if (props.err) {
             setMessage({
-                error: props.err[0].message,
+                error:
+                    props.err.page === 'signup'
+                        ? props.err.error[0].message
+                        : null,
             })
         }
         else if(props.tokenId) {
@@ -170,7 +173,7 @@ const Signup = (props) => {
 
     return (
         <>
-            <Auth message={message}>
+            <Auth message={props.err ? message : null}>
                 <form onSubmit={handleSignup} className='form__box'>
                     <div className='form-1'>
                         <h3 className='heading-3 form__heading'>
@@ -341,6 +344,7 @@ const mapStateToProps = (state) => {
     return {
         err: state.auth.error,
         loading: state.order.loading,
+        redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
     }
