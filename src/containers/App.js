@@ -65,6 +65,10 @@ function App(props) {
         AuthGuard = (
             <Switch>
                 <Route path='/' exact component={Home} />
+                <Route
+                    path='/Auth/login'
+                    render={(props) => <AsyncLogin {...props} />}
+                />
                 <Route path='/about-us' component={AsyncAboutUs} />
 
                 <Route

@@ -151,7 +151,6 @@ export const initSignup = (authData) => {
                     throw new Error('Creating a user failed!')
                 }
 
-                dispatch(redirect('/Auth/login'))
             })
             .catch((err) => {
                 console.log(err)
