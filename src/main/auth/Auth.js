@@ -1,13 +1,26 @@
 import React from 'react'
 
-const Auth = (props) => {    
-    let messageToDisplay = props.message ? Object.values(props.message) : null
-    
+const Auth = (props) => {
+    let messageCheck = false
 
-    const messageStyle = {
-        display: messageToDisplay ?  'block': 'none',
+    if (props.message) {
+        if (
+            Object.keys(props.message)[0] === 'error' ||
+            Object.keys(props.message)[0] === 'success'
+        ) {
+            if (Object.values(props.message)[0] !== null) {
+                messageCheck = true
+            }
+        } else {
+            messageCheck = false
+        }
     }
 
+    let messageToDisplay = messageCheck ? Object.values(props.message) : null
+
+    const messageStyle = {
+        display: messageToDisplay ? 'block' : 'none',
+    }
 
     const authMessage = ['auth__message']
 
@@ -22,7 +35,6 @@ const Auth = (props) => {
             ? authMessage.pop() && authMessage.push('auth__message--success')
             : authMessage.push('auth__message--success')
     }
-
 
     return (
         <section

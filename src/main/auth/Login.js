@@ -39,7 +39,6 @@ const Login = (props) => {
 
             console.log('token id local storage', props.tokenId)
 
-            //window.sessionStorage.setItem('tokId', props.tokenId)
             props.history.push('/admin/dashboard')
             setMessage({
                 success: 'Success',
@@ -94,7 +93,7 @@ const Login = (props) => {
     }
 
     return (
-        <Auth login message={props.err ? message : null}>
+        <Auth login message={message}>
             <form onSubmit={handleLogin}>
                 <Input
                     id='email'

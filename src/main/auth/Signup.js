@@ -79,6 +79,7 @@ const Signup = (props) => {
     const [message, setMessage] = useState(null)
 
     useEffect(() => {
+        console.log('set message',message, props.err)
         if (props.err) {
             setMessage({
                 error:
@@ -169,11 +170,11 @@ const Signup = (props) => {
         props.history.replace(props.redirectToLoginPage)
     }
 
-    console.log('props', props)
+    console.log('props message', message)
 
     return (
         <>
-            <Auth message={props.err ? message : null}>
+            <Auth message={message}>
                 <form onSubmit={handleSignup} className='form__box'>
                     <div className='form-1'>
                         <h3 className='heading-3 form__heading'>
