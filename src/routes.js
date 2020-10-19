@@ -6,9 +6,10 @@ import Icons from './views/Icons'
 import Maps from './views/Maps'
 import Notifications from './views/Notifications'
 import Upgrade from './views/Upgrade'
-import Features from './views/Features'
+import Plans from './views/Plans'
+import planOrder from './views/PlanOrder'
 
-const dashboardRoutes = [
+export const dashboardRoutes = [
     {
         path: '/dashboard',
         name: 'Dashboard',
@@ -24,12 +25,13 @@ const dashboardRoutes = [
         layout: '/admin',
     },
     {
-        path: '/features',
+        path: '/plans',
         name: 'Invest Now',
         icon: 'pe-7s-note2',
-        component: Features,
+        component: Plans,
         layout: '/admin',
     },
+   
     {
         path: '/table',
         name: 'Investment History',
@@ -73,6 +75,15 @@ const dashboardRoutes = [
         component: Upgrade,
         layout: '/admin',
     },
+
 ]
 
-export default dashboardRoutes
+export const contentRoutes = [
+    {
+        path: '/plan/order',
+        name: 'Order plan',
+        icon: 'pe-7s-map-marker',
+        component: planOrder,
+        layout: '/admin',
+    },
+]

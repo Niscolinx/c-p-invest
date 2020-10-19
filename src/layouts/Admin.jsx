@@ -9,7 +9,8 @@ import Sidebar from "../components/Sidebar/Sidebar";
 
 import { style } from "../variables/Variables";
 
-import routes from "../routes.js";
+import {dashboardRoutes} from "../routes.js";
+import {contentRoutes} from "../routes.js";
 
 import image from "../assets/img/sidebar-3.jpg";
 
@@ -56,8 +57,8 @@ class Admin extends Component {
       autoDismiss: 15
     });
   };
-  getRoutes = routes => {
-    return routes.map((prop, key) => {
+  getdashboardRoutes = dashboardRoutes => {
+    return dashboardRoutes.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
           <Route
@@ -77,13 +78,13 @@ class Admin extends Component {
     });
   };
   getBrandText = path => {
-    for (let i = 0; i < routes.length; i++) {
+    for (let i = 0; i < dashboardRoutes.length; i++) {
       if (
         this.props.location.pathname.indexOf(
-          routes[i].layout + routes[i].path
+          dashboardRoutes[i].layout + dashboardRoutes[i].path
         ) !== -1
       ) {
-        return routes[i].name;
+        return dashboardRoutes[i].name;
       }
     }
     return "CoinperfectInvestment";
@@ -155,7 +156,7 @@ class Admin extends Component {
     return (
       <div className="wrapper">
         <NotificationSystem ref="notificationSystem" style={style} />
-        <Sidebar {...this.props} routes={routes} image={this.state.image}
+        <Sidebar {...this.props} dashboardRoutes={dashboardRoutes} image={this.state.image}
         color={this.state.color}
         hasImage={this.state.hasImage}/>
         <div id="main-panel" className="main-panel" ref="mainPanel">
@@ -163,7 +164,7 @@ class Admin extends Component {
             {...this.props}
             brandText={this.getBrandText(this.props.location.pathname)}
           />
-          <Switch>{this.getRoutes(routes)}</Switch>
+          <Switch>{this.getdashboardRoutes(dashboardRoutes)}</Switch>
           <Footer />
           {/* <FixedPlugin
             handleImageClick={this.handleImageClick}

@@ -17,7 +17,6 @@ function Layout(props) {
     }
     const fromLocationSplit = fromlocationPath.split(' ')
 
-    console.log('frompath', fromLocationSplit)
 
     //Check how this can be added to redux and called from there
     let toRender
@@ -26,7 +25,6 @@ function Layout(props) {
     let isAdmin = adminPath.includes('/admin')
 
     if (isAdmin) {
-        console.log('Is the admin', history)
 
         if(adminPath === '/admin' || adminPath === '/admin/'){
             history.push('/admin/dashboard')
@@ -34,21 +32,16 @@ function Layout(props) {
 
         localStorage.setItem('cssLoaded', false)
         import('bootstrap/dist/css/bootstrap.min.css').then((Baz) => {
-            // console.log('the import1', Baz)
         })
         import('../assets/css/animate.min.css').then((Baz) => {
-            //console.log('the import2', Baz)
         })
         import(
             '../assets/sass/light-bootstrap-dashboard-react.scss?v=1.3.0'
         ).then((Baz) => {
-            //console.log('the import3', Baz)
         })
         import('../assets/css/demo.css').then((Baz) => {
-            // console.log('the import4', Baz)
         })
         const all = import('../assets/css/pe-icon-7-stroke.css').then((Baz) => {
-            // console.log('the import5', Baz)
         })
         all.finally((result) => {
             localStorage.setItem('cssLoaded', true)
@@ -56,15 +49,9 @@ function Layout(props) {
 
         toRender = props.children
     } else {
-        console.log('Not the admin', adminPath)
         if (fromLocationSplit[0].includes('admin')) {
-            console.log('reload now')
-           // console.log('performance', window.Performance())
             window.location.reload()
-        } else {
-            console.log('dont reload')
-        }
-        localStorage.clear('loaded', 'cssLoaded')
+        } 
         toRender = (
             <>
                 <div className='section-subHeader'>

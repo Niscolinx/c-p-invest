@@ -60,8 +60,6 @@ function App(props) {
         </Switch>
     )
     if (props.auth) {
-        console.log('successful authentication')
-        localStorage.setItem('auth', props.auth)
         AuthGuard = (
             <Switch>
                 <Route path='/' exact component={Home} />
