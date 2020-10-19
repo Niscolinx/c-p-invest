@@ -5,7 +5,7 @@ import NotificationSystem from "react-notification-system";
 import AdminNavbar from "../components/Navbars/AdminNavbar";
 import Footer from "../components/Footer/Footer";
 import Sidebar from "../components/Sidebar/Sidebar";
-import FixedPlugin from "../components/FixedPlugin/FixedPlugin";
+//import FixedPlugin from "../components/FixedPlugin/FixedPlugin";
 
 import { style } from "../variables/Variables";
 
@@ -48,8 +48,7 @@ class Admin extends Component {
       title: <span data-notify="icon" className="pe-7s-gift" />,
       message: (
         <div>
-          Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for
-          every web developer.
+          Welcome to <b>Coinperfect investment Dashboard</b> - The most advanced trading platform
         </div>
       ),
       level: level,
@@ -87,7 +86,7 @@ class Admin extends Component {
         return routes[i].name;
       }
     }
-    return "Brand";
+    return "CoinperfectInvestment";
   };
   handleImageClick = image => {
     this.setState({ image: image });
@@ -130,8 +129,7 @@ class Admin extends Component {
       title: <span data-notify="icon" className="pe-7s-gift" />,
       message: (
         <div>
-          Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for
-          every web developer.
+          Welcome to <b>CoinperfectInvestment Dashboard</b> - The most advanced trading platform
         </div>
       ),
       level: level,
@@ -167,7 +165,7 @@ class Admin extends Component {
           />
           <Switch>{this.getRoutes(routes)}</Switch>
           <Footer />
-          <FixedPlugin
+          {/* <FixedPlugin
             handleImageClick={this.handleImageClick}
             handleColorClick={this.handleColorClick}
             handleHasImage={this.handleHasImage}
@@ -176,7 +174,7 @@ class Admin extends Component {
             mini={this.state["mini"]}
             handleFixedClick={this.handleFixedClick}
             fixedClasses={this.state.fixedClasses}
-          />
+          /> */}
         </div>
       </div>
     );
