@@ -90,7 +90,7 @@
 
     &__content {
         display: grid;
-    background: $color-background;
+        background: $color-background;
         grid-column: col-start 4 / full-end;
         align-content: center;
         justify-items: start;
@@ -234,6 +234,22 @@
     margin-bottom: 7.5rem;
 }
 
-.logo-2{
-    width: 39rem;
+.adminNav {
+
+    &__fundAccount {
+        font-family: $font-display;
+        font-weight: 400;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        border: 1px solid $color-primary-dark;
+
+        &:link,
+        &:visited {
+            color: $color-secondary;
+        }
+
+        &:hover {
+            color: $color-primary;
+        }
+    }
 }

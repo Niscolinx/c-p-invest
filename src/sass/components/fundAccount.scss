@@ -1,0 +1,65 @@
+.fundAccount{
+    display: grid;
+   grid-template-columns: repeat(12, 1fr);
+    margin: 4rem;
+    row-gap: 4rem;
+
+
+        &__balance{
+    	display: flex;
+    	justify-content: center;
+    	grid-column: 1 / -1;
+
+    	&--text{
+    		background: $color-secondary;
+    		color: white;
+    		text-align: center;
+    		padding: 2rem 4rem;
+    		font-weight: 400;
+    		border-radius: 1rem;
+    		font-size: 2rem;
+    		font-family: $font-display;
+
+    		span{
+    			margin-left: 1rem;
+    			font-weight: bolder;
+    		}
+    	}
+
+    }
+
+    &__form{
+    	grid-column: 4 / 10;
+
+
+    	@include respond(phone){
+    		grid-column: 1 / -1;
+    	}
+
+    	&--contact{
+    		margin: 3rem 0;
+    		background: $color-primary;
+    		color: white;
+    		padding: .5rem 1rem;
+    		border-radius: 1rem;
+    		font-family: $font-display;
+    		font-weight: 300;
+    	}
+    	&--input{
+
+    		&:placeholder{
+    			background: red imp !important;
+    		font-weight: bold;
+    		color: black;
+
+    		}
+    		    	}
+    }
+
+
+    &__upload{
+    	grid-column: 1 / -1;
+    }
+
+
+}
