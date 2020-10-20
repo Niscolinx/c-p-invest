@@ -5,12 +5,13 @@ import NotificationSystem from "react-notification-system";
 import AdminNavbar from "../components/Navbars/AdminNavbar";
 import Footer from "../components/Footer/Footer";
 import Sidebar from "../components/Sidebar/Sidebar";
+import PlanOrder from '../views/PlanOrder'
+import FundAccount from '../views/FundAccount'
 //import FixedPlugin from "../components/FixedPlugin/FixedPlugin";
 
 import { style } from "../variables/Variables";
 
 import {dashboardRoutes} from "../routes.js";
-import {contentRoutes} from "../routes.js";
 
 import image from "../assets/img/sidebar-3.jpg";
 
@@ -87,7 +88,8 @@ class Admin extends Component {
         return dashboardRoutes[i].name;
       }
     }
-    return "CoinperfectInvestment";
+    const pathRoute = path.slice(7)
+    return  pathRoute ? pathRoute : "CoinperfectInvestment";
   };
   handleImageClick = image => {
     this.setState({ image: image });
@@ -164,7 +166,10 @@ class Admin extends Component {
             {...this.props}
             brandText={this.getBrandText(this.props.location.pathname)}
           />
-          <Switch>{this.getdashboardRoutes(dashboardRoutes)}</Switch>
+          <Switch>
+            <Route path='/admin/plan-order' component={PlanOrder}/>
+            <Route path='/admin/fund-account' component={FundAccount}/>
+            {this.getdashboardRoutes(dashboardRoutes)}</Switch>
           <Footer />
           {/* <FixedPlugin
             handleImageClick={this.handleImageClick}

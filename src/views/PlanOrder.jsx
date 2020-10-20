@@ -3,7 +3,7 @@ import React from 'react'
 function planOrder() {
     console.log('the plan order')
     return (
-        <div style={{background:'blue'}}>
+        <div>
             This is the investment order
         </div>
     )

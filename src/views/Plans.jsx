@@ -1,13 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import { contentRoutes } from '../routes'
 
 function Features() {
-    useEffect(() => {
-        const routeContent = contentRoutes.map((item, i) => {
-            return console.log('the route', item)
-        })
-    }, [])
+
 
     return (
         <>

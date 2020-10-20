@@ -7,7 +7,6 @@ import Maps from './views/Maps'
 import Notifications from './views/Notifications'
 import Upgrade from './views/Upgrade'
 import Plans from './views/Plans'
-import planOrder from './views/PlanOrder'
 
 export const dashboardRoutes = [
     {
@@ -17,6 +16,7 @@ export const dashboardRoutes = [
         component: Dashboard,
         layout: '/admin',
     },
+
     {
         path: '/user',
         name: 'User Profile',
@@ -76,14 +76,4 @@ export const dashboardRoutes = [
         layout: '/admin',
     },
 
-]
-
-export const contentRoutes = [
-    {
-        path: '/plan/order',
-        name: 'Order plan',
-        icon: 'pe-7s-map-marker',
-        component: planOrder,
-        layout: '/admin',
-    },
 ]
