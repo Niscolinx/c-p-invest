@@ -1,21 +1,41 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {
-    Checkbox,
-    Radio,
+    ControlLabel,
     FormGroup,
     FormControl,
     Button,
-    HelpBlock,
 } from 'react-bootstrap'
 
+
 function FundAccount() {
-    function FieldGroup({ id, label, help, ...props }) {
+
+    const [formInput, setFormInput] = useState({
+        value: ''
+    })
+
+    function FieldGroup({ id, label, upload, ...props }) {
         return (
             <FormGroup controlId={id}>
-                <FormControl {...props} className='fundAccount__form--input' />
-                {help && <HelpBlock>Hello world</HelpBlock>}
+                {upload && (
+                    <ControlLabel className='fundAccount__controlLabel'>
+                        {upload}
+                    </ControlLabel>
+                )}
+
+                <FormControl
+                    {...props}
+                    className='fundAccount__form--input'
+                    onChange={handleChange}
+                />
             </FormGroup>
         )
+    }
+
+    const handleChange = e => {
+        setFormInput({
+            value: e.target.value
+        })
+        console.log('changedggg', e.target.value)
     }
 
     return (
@@ -31,41 +51,47 @@ function FundAccount() {
                     type='number'
                     label='Text'
                     placeholder='Enter amount - USD'
+                    value={formInput.value}
                 />
 
                 <FormGroup controlId='formControlsSelect'>
-                    <FormControl componentClass='select' placeholder='select'>
+                    <FormControl
+                        componentClass='select'
+                        placeholder='select'
+                        onChange={handleChange}
+                    >
                         <option value='Bitcoin'>Bitcoin</option>
                         <option value='Ethereum'>Ethereum</option>
                     </FormControl>
                 </FormGroup>
+                <FormGroup className='fundAccount__form--instruction'>
+                    <FormControl.Static>
+                        INSTRUCTIONS: Transfer the equivalent amount in bitcoin
+                        or ethereum(depending on your selection) to the above
+                        wallet address. After payment upload the payment proof
+                        below.
+                    </FormControl.Static>
+                </FormGroup>
             </form>
 
-            <div className='fundAccount__upload'>
+            <div className='fundAccount__form'>
                 <form>
                     <FieldGroup
                         id='formControlsFile'
                         type='file'
                         label='File'
-                        help='Example block-level help text here.'
+                        upload='Proof of payment (image or PDF)'
                     />
 
-                    <Checkbox checked readOnly>
-                        Checkbox
-                    </Checkbox>
-                    <Radio checked readOnly>
-                        Radio
-                    </Radio>
-
-                    <FormGroup className='fundAccount__form--contact'>
-                        <FormControl.Static>
-                            Contact management at
-                            support@coinperfectinvestment.com for other payment
-                            methods
-                        </FormControl.Static>
-                    </FormGroup>
                     <Button type='submit'>Submit</Button>
                 </form>
+
+                <FormGroup className='fundAccount__form--contact'>
+                    <FormControl.Static>
+                        Contact management at support@coinperfectinvestment.com
+                        for other payment methods
+                    </FormControl.Static>
+                </FormGroup>
             </div>
         </div>
     )

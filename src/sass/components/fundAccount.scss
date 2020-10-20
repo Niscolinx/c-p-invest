@@ -1,9 +1,12 @@
+.fundAccount__controlLabel{
+	color: $color-secondary-light;
+}
+
 .fundAccount{
     display: grid;
    grid-template-columns: repeat(12, 1fr);
     margin: 4rem;
     row-gap: 4rem;
-
 
         &__balance{
     	display: flex;
@@ -44,7 +47,17 @@
     		border-radius: 1rem;
     		font-family: $font-display;
     		font-weight: 300;
-    	}
+		}
+		
+		&--instruction{
+			margin: 3rem 0;
+			background: $color-secondary;
+			color: white;
+			padding: .5rem 1rem;
+			border-radius: 1rem;
+			font-family: $font-display;
+			font-weight: 400;
+		}
     	&--input{
 
     		&:placeholder{
