@@ -1,12 +1,6 @@
 export {
-    removeIngredient,
-    addIngredient,
-    setIngredients,
-    selectedCity,
-    selectedArea,
-    clearedSelectedCity,
-    addAreas,
-} from './burgerBuilder'
+   initFundAccount
+} from './Dashboard'
 
 export {
     initBurgerStart,

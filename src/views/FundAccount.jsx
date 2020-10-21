@@ -1,42 +1,70 @@
-import React, {useState} from 'react'
-import {
-    ControlLabel,
-    FormGroup,
-    FormControl,
-    Button,
-} from 'react-bootstrap'
+import React, { useState } from 'react'
+import { FormGroup, FormControl } from 'react-bootstrap'
+import {connect} from 'react-redux'
+
+import { generateBase64FromImage } from '../util/image'
+import * as orderAction from '../../store/actions/burgerIndex'
 
 
 function FundAccount() {
+    const [amount, setAmount] = useState('')
+    const [select, setSelect] = useState('')
+    const [file, setFile] = useState('')
 
-    const [formInput, setFormInput] = useState({
-        value: ''
-    })
-
-    function FieldGroup({ id, label, upload, ...props }) {
-        return (
-            <FormGroup controlId={id}>
-                {upload && (
-                    <ControlLabel className='fundAccount__controlLabel'>
-                        {upload}
-                    </ControlLabel>
-                )}
-
-                <FormControl
-                    {...props}
-                    className='fundAccount__form--input'
-                    onChange={handleChange}
-                />
-            </FormGroup>
-        )
+    const handleAmountChange = (e) => {
+        setAmount(e.target.value)
+    }
+    const handleSelectChange = (e) => {
+        setSelect(e.target.value)
+    }
+    const handleFileChange = (e) => {
+        const files = e.target.files
+        if (files) {
+            console.log('the files', files)
+            generateBase64FromImage(files[0])
+                .then((b64) => {
+                    //this.setState({ imagePreview: b64 })
+                })
+                .catch((e) => {
+                    //  this.setState({ imagePreview: null })
+                })
+        }
+        setFile(e.target.files)
     }
 
-    const handleChange = e => {
-        setFormInput({
-            value: e.target.value
-        })
-        console.log('changedggg', e.target.value)
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log('the values', amount, select, file)
     }
+
+    // const handleChange = (value, input, files) => {
+    //     if (files) {
+    //         console.log('the files', files)
+    //         generateBase64FromImage(files[0])
+    //             .then((b64) => {
+    //                 //this.setState({ imagePreview: b64 })
+    //             })
+    //             .catch((e) => {
+    //                 //  this.setState({ imagePreview: null })
+    //             })
+    //     }
+    //     setPostForm((prevState) => {
+    //         console.log('prevState', prevState, input)
+    //         const updatedForm = {
+    //             ...prevState,
+    //             [input]: {
+    //                 ...prevState[input],
+    //                 value: files ? files[0] : value,
+    //             },
+    //         }
+
+    //         console.log('updatedform', updatedForm)
+
+    //         return {
+    //             postForm: updatedForm,
+    //         }
+    //     })
+    // }
 
     return (
         <div className='fundAccount'>
@@ -45,25 +73,28 @@ function FundAccount() {
                     Available Balance: <span>$2321</span>
                 </h3>
             </div>
-            <form className='fundAccount__form'>
-                <FieldGroup
-                    id='formControlsText'
+            <form className='fundAccount__form' onSubmit={handleSubmit}>
+                <input
                     type='number'
-                    label='Text'
+                    className='fundAccount__form--input'
                     placeholder='Enter amount - USD'
-                    value={formInput.value}
+                    name='amount'
+                    id='amount'
+                    onChange={handleAmountChange}
+                    value={amount}
                 />
 
-                <FormGroup controlId='formControlsSelect'>
-                    <FormControl
-                        componentClass='select'
-                        placeholder='select'
-                        onChange={handleChange}
-                    >
-                        <option value='Bitcoin'>Bitcoin</option>
-                        <option value='Ethereum'>Ethereum</option>
-                    </FormControl>
-                </FormGroup>
+                <select
+                    name='select'
+                    id='select'
+                    onChange={handleSelectChange}
+                    value={select}
+                    className='fundAccount__form--select'
+                >
+                    <option value='Bitcoin'>Bitcoin</option>
+                    <option value='Ethereum'>Ethereum</option>
+                </select>
+
                 <FormGroup className='fundAccount__form--instruction'>
                     <FormControl.Static>
                         INSTRUCTIONS: Transfer the equivalent amount in bitcoin
@@ -72,20 +103,31 @@ function FundAccount() {
                         below.
                     </FormControl.Static>
                 </FormGroup>
+
+                <div>
+                    <label className='fundAccount__controlLabel'>
+                        Proof of Payment (Image or PDF)
+                    </label>
+                    <input
+                        type='file'
+                        id='file'
+                        name='file'
+                        onChange={handleFileChange}
+                        className='fundAccount__form--file'
+                    />
+                </div>
+
+                <div className='fundAccount__form--btn'>
+                    <button
+                        type='submit'
+                        className='fundAccount__form--btn-item'
+                    >
+                        Submit
+                    </button>
+                </div>
             </form>
 
             <div className='fundAccount__form'>
-                <form>
-                    <FieldGroup
-                        id='formControlsFile'
-                        type='file'
-                        label='File'
-                        upload='Proof of payment (image or PDF)'
-                    />
-
-                    <Button type='submit'>Submit</Button>
-                </form>
-
                 <FormGroup className='fundAccount__form--contact'>
                     <FormControl.Static>
                         Contact management at support@coinperfectinvestment.com
@@ -97,4 +139,20 @@ function FundAccount() {
     )
 }
 
-export default FundAccount
+const mapStateToProps = (state) => {
+    console.log('the state', state)
+    return {
+        loading: state.order.loading,
+        err: state.auth.error,
+        tokenId: state.auth.tokenId,
+        userId: state.auth.userId,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onInitLogin: (email, password) =>
+            dispatch(orderAction.initLogin(email, password)),
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(FundAccount)

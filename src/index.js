@@ -8,7 +8,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { LastLocationProvider } from 'react-router-last-location'
 
 import App from './containers/App'
-import burgerBuilder from './store/reducers/burgerBuilder'
+import dashboard from './store/reducers/dashboard'
 import orderReducer from './store/reducers/order'
 import authReducer from './store/reducers/auth'
 
@@ -52,7 +52,7 @@ import './sass/main.scss'
 
 const rootReducer = {
     order: orderReducer,
-    burger: burgerBuilder,
+    dashboard: dashboard,
     auth: authReducer,
 }
 

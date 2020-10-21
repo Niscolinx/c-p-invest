@@ -32,7 +32,10 @@ const Login = (props) => {
     useEffect(() => {
         if (props.err) {
             setMessage({
-                error: props.err.page === 'login' ? props.err.error[0].message : null,
+                error:
+                    props.err.page === 'login'
+                        ? props.err.error[0].message
+                        : null,
             })
         } else if (props.tokenId) {
             console.log('no auth err')
@@ -68,6 +71,7 @@ const Login = (props) => {
                     inputName !== 'formIsValid' &&
                     inputName !== '[object Object]'
                 ) {
+                    formIsValid = formIsValid && updatedForm[inputName].valid
                 }
             }
             return {
