@@ -3,10 +3,10 @@ import { FormGroup, FormControl } from 'react-bootstrap'
 import {connect} from 'react-redux'
 
 import { generateBase64FromImage } from '../util/image'
-import * as orderAction from '../../store/actions/burgerIndex'
+import * as orderAction from '../store/actions/burgerIndex'
 
 
-function FundAccount() {
+function FundAccount(props) {
     const [amount, setAmount] = useState('')
     const [select, setSelect] = useState('')
     const [file, setFile] = useState('')
@@ -34,6 +34,11 @@ function FundAccount() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        const formData = {
+            amount, select, file
+        }
+
+        props.onInitFundAccount(formData, props.tokenId, props.userId)
         console.log('the values', amount, select, file)
     }
 
@@ -140,7 +145,6 @@ function FundAccount() {
 }
 
 const mapStateToProps = (state) => {
-    console.log('the state', state)
     return {
         loading: state.order.loading,
         err: state.auth.error,
@@ -151,8 +155,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onInitLogin: (email, password) =>
-            dispatch(orderAction.initLogin(email, password)),
+        onInitFundAccount: (data, token, userId) =>
+            dispatch(orderAction.initFundAccount(data, token, userId)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(FundAccount)
