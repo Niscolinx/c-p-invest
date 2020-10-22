@@ -1,51 +1,102 @@
-/*!
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import * as orderAction from '../../store/actions/burgerIndex'
+import { generateBase64FromImage } from '../../util/image'
 
-=========================================================
-* Light Bootstrap Dashboard React - v1.3.0
-=========================================================
+const UserCard = (props) => {
+    const [file, setFile] = useState('')
+    const [imagePreview, setImagePreview] = useState(null)
 
-* Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md)
+    const handleFileChange = (e) => {
+        const files = e.target.files
+        if (files) {
+            console.log('the files', files)
+            if (files) {
+                generateBase64FromImage(files[0])
+                    .then((b64) => {
+                        setImagePreview(b64)
+                    })
+                    .catch((e) => {
+                        setImagePreview(null)
+                    })
+            }
+        }
+        setFile(e.target.files)
+    }
 
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-import React, { Component } from "react";
-
-export class UserCard extends Component {
-  render() {
+    console.log('the files', file)
     return (
-      <div className="card card-user">
-        <div className="image">
-          <img src={this.props.bgImage} alt="..." />
+        <div className='card card-user'>
+            <div className='image'>
+                <img src={props.bgImage} alt='...' />
+            </div>
+            <div className='content'>
+                <div className='author'>
+                    <a href='#pablo'>
+                        <img
+                            className='avatar border-gray'
+                            src={props.avatar}
+                            alt='...'
+                        />
+                        <h4 className='title'>
+                            {props.name}
+                            <br />
+                            <small>{props.userName}</small>
+                        </h4>
+                    </a>
+                </div>
+                {/* <p className="description text-center">{props.description}</p> */}
+                <form
+                    style={{
+                        display: 'grid',
+                        justifyContent: 'center',
+                        justifyItems: 'center',
+                        marginTop: '2rem',
+                    }}
+                >
+                    <input
+                        onChange={handleFileChange}
+                        type='file'
+                        id='file'
+                        name='file'
+                        className='custom-file-input'
+                    />
+                    {imagePreview && (
+                        <>
+                            <div className='image'>
+                                <img src={imagePreview} alt='...' />
+                            </div>
+
+                            <button
+                                className='button'
+                                style={{ marginTop: '1rem' }}
+                                type='submit'
+                            >
+                                Select
+                            </button>
+                        </>
+                    )}
+                </form>
+            </div>
+            <hr />
+            {/* <div className="text-center">{props.socials}</div> */}
         </div>
-        <div className="content">
-          <div className="author">
-            <a href="#pablo">
-              <img
-                className="avatar border-gray"
-                src={this.props.avatar}
-                alt="..."
-              />
-              <h4 className="title">
-                {this.props.name}
-                <br />
-                <small>{this.props.userName}</small>
-              </h4>
-            </a>
-          </div>
-          <p className="description text-center">{this.props.description}</p>
-        </div>
-        <hr />
-        <div className="text-center">{this.props.socials}</div>
-      </div>
-    );
-  }
+    )
 }
 
-export default UserCard;
+const mapStateToProps = (state) => {
+    return {
+        loading: state.order.loading,
+        err: state.auth.error,
+        tokenId: state.auth.tokenId,
+        userId: state.auth.userId,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onInitFundAccount: (data, token, userId) =>
+            dispatch(orderAction.initFundAccount(data, token, userId)),
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(UserCard)

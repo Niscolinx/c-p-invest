@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { FormGroup, FormControl } from 'react-bootstrap'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 import { generateBase64FromImage } from '../util/image'
 import * as orderAction from '../store/actions/burgerIndex'
-
 
 function FundAccount(props) {
     const [amount, setAmount] = useState('')
     const [currency, setCurrency] = useState('Bitcoin')
     const [file, setFile] = useState('')
+    const [imagePreview, setImagePreview] = useState(null)
 
     const handleAmountChange = (e) => {
         setAmount(e.target.value)
@@ -20,13 +20,13 @@ function FundAccount(props) {
     const handleFileChange = (e) => {
         const files = e.target.files
         if (files) {
-            console.log('the files', files)
+            generateBase64FromImage(files[0])
             generateBase64FromImage(files[0])
                 .then((b64) => {
-                    //this.setState({ imagePreview: b64 })
+                    setImagePreview(b64)
                 })
                 .catch((e) => {
-                    //  this.setState({ imagePreview: null })
+                    setImagePreview(null)
                 })
         }
         setFile(e.target.files)
@@ -35,13 +35,13 @@ function FundAccount(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         const formData = {
-            amount, currency, file
+            amount,
+            currency,
+            file,
         }
 
         props.onInitFundAccount(formData, props.tokenId, props.userId)
-        console.log('the values', amount, currency, file)
     }
-
 
     return (
         <div className='fundAccount'>
@@ -92,8 +92,14 @@ function FundAccount(props) {
                         onChange={handleFileChange}
                         className='fundAccount__form--file'
                     />
+                {imagePreview && (
+                    <>
+                        <div className='image'>
+                            <img src={imagePreview} alt='...' style={{width:'100%'}}/>
+                        </div>
+                    </>
+                )}
                 </div>
-
                 <div className='fundAccount__form--btn'>
                     <button
                         type='submit'

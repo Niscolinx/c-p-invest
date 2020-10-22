@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
-import { Grid, Row, Col } from 'react-bootstrap'
+import {
+    Grid,
+    Row,
+    Col,
+    ControlLabel,
+    FormControl,
+    FormGroup,
+} from 'react-bootstrap'
 
 import { Card } from '../components/Card/Card'
-import { FormInputs } from '../components/FormInputs/FormInputs'
-import { UserCard } from '../components/UserCard/UserCard'
-import Button from '../components/CustomButton/CustomButton'
+import UserCard from '../components/UserCard/UserCard'
 import { connect } from 'react-redux'
 
 import { generateBase64FromImage } from '../util/image'
@@ -13,47 +18,76 @@ import * as orderAction from '../store/actions/burgerIndex'
 import avatar from '../assets/img/faces/face-3.jpg'
 
 const UserProfile = (props) => {
-    const [amount, setAmount] = useState('')
-    const [currency, setCurrency] = useState('Bitcoin')
-    const [file, setFile] = useState('')
+    const [fullname, setFullname] = useState('')
+    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
+    const [bitcoin, setBitcoin] = useState('')
+    const [ethereum, setEthereum] = useState('')
+    const [phone, setPhone] = useState('')
+    const [country, setCountry] = useState('')
+    const [city, setCity] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmNewPassword] = useState('')
 
-
-    const handleAmountChange = (e) => {
-        setAmount(e.target.value)
-    }
-    const handleSelectChange = (e) => {
-        setCurrency(e.target.value)
-    }
     const handleChange = (e) => {
-        console.log('changed the input', e.target.value)
-    }
-    const handleFileChange = (e) => {
-        const files = e.target.files
-        if (files) {
-            console.log('the files', files)
-            generateBase64FromImage(files[0])
-                .then((b64) => {
-                    //this.setState({ imagePreview: b64 })
-                })
-                .catch((e) => {
-                    //  this.setState({ imagePreview: null })
-                })
+        const name = e.target.name
+        const value = e.target.value
+
+        console.log('the name', name, 'value', value)
+
+        if (name === 'fullname') {
+            setFullname(value)
         }
-        setFile(e.target.files)
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        const formData = {
-            amount,
-            currency,
-            file,
+        if (name === 'username') {
+            setUsername(value)
         }
-
-        props.onInitFundAccount(formData, props.tokenId, props.userId)
-        console.log('the values', amount, currency, file)
+        if (name === 'email') {
+            setEmail(value)
+        }
+        if (name === 'bitcoin') {
+            setBitcoin(value)
+        }
+        if (name === 'ethereum') {
+            setEthereum(value)
+        }
+        if (name === 'phone') {
+            setPhone(value)
+        }
+        if (name === 'country') {
+            setCountry(value)
+        }
+        if (name === 'city') {
+            setCity(value)
+        }
+        if (name === 'password') {
+            setPassword(value)
+        }
+        if (name === 'confirmNewPassword') {
+            setConfirmNewPassword(value)
+        }
     }
 
+   
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     const formData = {
+    //         amount,
+    //         currency,
+    //         file,
+    //     }
+
+    //     props.onInitFundAccount(formData, props.tokenId, props.userId)
+    // }
+    console.log(
+        'the values',
+        fullname,
+        username,
+        password,
+        email,
+        phone,
+        bitcoin
+    )
 
     return (
         <div className='content'>
@@ -72,119 +106,119 @@ const UserProfile = (props) => {
                             title='Edit Profile'
                             content={
                                 <form>
-                                    <FormInputs
-                                        onChange={handleChange}
-                                        ncols={['col-md-6', 'col-md-6']}
-                                        properties={[
-                                            {
-                                                label: 'Username',
-                                                type: 'text',
-                                                bsClass: 'form-control',
-                                                placeholder: 'Username',
-                                                defaultValue: 'michael23'
-                                            },
-                                            {
-                                                label: 'Email address',
-                                                type: 'email',
-                                                bsClass: 'form-control',
-                                                placeholder: 'Email'
-                                            },
-                                        ]}
-                                    />
-                                    <FormInputs
-                                        ncols={['col-md-6', 'col-md-6']}
-                                        properties={[
-                                            {
-                                                label: 'First name',
-                                                type: 'text',
-                                                bsClass: 'form-control',
-                                                placeholder: 'First name',
-                                                defaultValue: 'Mike',
-                                            },
-                                            {
-                                                label: 'Last name',
-                                                type: 'text',
-                                                bsClass: 'form-control',
-                                                placeholder: 'Last name',
-                                                defaultValue: 'Andrew',
-                                            },
-                                        ]}
-                                    />
-                                    <FormInputs
-                                        ncols={['col-md-12', 'col-md-12']}
-                                        properties={[
-                                            {
-                                                label: 'Bitcoin Address',
-                                                type: 'text',
-                                                bsClass: 'form-control',
-                                                placeholder: 'Bitcoin Address',
-                                                defaultValue:
-                                                    'Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09',
-                                            },
-                                            {
-                                                label: 'Ethereum Address',
-                                                type: 'text',
-                                                bsClass: 'form-control',
-                                                placeholder: 'Ethereum Address',
-                                                defaultValue:
-                                                    'Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09',
-                                            },
-                                        ]}
-                                    />
-                                    <FormInputs
-                                        ncols={[
-                                            'col-md-4',
-                                            'col-md-4',
-                                            'col-md-4',
-                                        ]}
-                                        properties={[
-                                            {
-                                                label: 'Phone Number',
-                                                type: 'number',
-                                                bsClass: 'form-control',
-                                            },
-                                            {
-                                                label: 'Country',
-                                                type: 'text',
-                                                bsClass: 'form-control',
-                                            },
-                                            {
-                                                label: 'Postal Code',
-                                                type: 'number',
-                                                bsClass: 'form-control',
-                                            },
-                                        ]}
-                                    />
+                                    <Row>
+                                        <FormGroup className='col-md-12 col-sm-12 col-xs-12'>
+                                            <ControlLabel>
+                                                Full Name
+                                            </ControlLabel>
+                                            <FormControl
+                                                type='text'
+                                                name='fullname'
+                                                onChange={handleChange}
+                                            />
+                                        </FormGroup>
+                                    </Row>
+                                    <Row>
+                                        <FormGroup className='col-md-6 col-sm-12 col-xs-12'>
+                                            <ControlLabel>
+                                                Username
+                                            </ControlLabel>
+                                            <FormControl
+                                                name='username'
+                                                type='text'
+                                                onChange={handleChange}
+                                            />
+                                        </FormGroup>
+                                        <FormGroup className='col-md-6 col-sm-12 col-xs-12'>
+                                            <ControlLabel>Email</ControlLabel>
+                                            <FormControl
+                                                type='text'
+                                                name='email'
+                                                onChange={handleChange}
+                                            />
+                                        </FormGroup>
+                                    </Row>
+                                    <Row>
+                                        <FormGroup className='col-md-6 col-sm-12 col-xs-12'>
+                                            <ControlLabel>
+                                                Phone Number
+                                            </ControlLabel>
+                                            <FormControl
+                                                type='number'
+                                                name='phone'
+                                                onChange={handleChange}
+                                            />
+                                        </FormGroup>
+                                        <FormGroup className='col-md-6 col-sm-12 col-xs-12'>
+                                            <ControlLabel>City</ControlLabel>
+                                            <FormControl
+                                                type='text'
+                                                name='city'
+                                                onChange={handleChange}
+                                            />
+                                        </FormGroup>
+
+                                        <FormGroup className='col-md-6 col-sm-12 col-xs-12'>
+                                            <ControlLabel>Country</ControlLabel>
+                                            <FormControl
+                                                type='text'
+                                                name='country'
+                                                onChange={handleChange}
+                                            />
+                                        </FormGroup>
+                                    </Row>
+                                    <Row>
+                                        <FormGroup className='col-md-12 col-sm-12 col-xs-12'>
+                                            <ControlLabel>
+                                                Bitcoin Address
+                                            </ControlLabel>
+                                            <FormControl
+                                                type='text'
+                                                name='bitcoin'
+                                                onChange={handleChange}
+                                            />
+                                        </FormGroup>
+                                        <FormGroup className='col-md-12 col-sm-12 col-xs-12'>
+                                            <ControlLabel>
+                                                Ethereum Address
+                                            </ControlLabel>
+                                            <FormControl
+                                                type='text'
+                                                name='ethereum'
+                                                onChange={handleChange}
+                                            />
+                                        </FormGroup>
+                                    </Row>
                                     <div>
                                         <h4>Change Password</h4>
                                     </div>
-                                    <FormInputs
-                                        ncols={['col-md-12', 'col-md-12']}
-                                        properties={[
-                                            {
-                                                label: 'New Password',
-                                                type: 'text',
-                                                bsClass: 'form-control',
-                                                placeholder: 'password',
-                                            },
-                                            {
-                                                label: 'Retype Password',
-                                                type: 'text',
-                                                bsClass: 'form-control',
-                                                placeholder: 'password',
-                                            },
-                                        ]}
-                                    />
+                                    <Row>
+                                        <FormGroup className='col-md-12 col-sm-12 col-xs-12'>
+                                            <ControlLabel>
+                                                New Password
+                                            </ControlLabel>
+                                            <FormControl
+                                                type='text'
+                                                name='newPassword'
+                                                onChange={handleChange}
+                                            />
+                                        </FormGroup>
 
-                                    <Button
-                                        bsStyle='info'
-                                        pullRight
-                                        fill
-                                        type='submit'
-                                    >
+                                        <FormGroup className='col-md-12 col-sm-12 col-xs-12'>
+                                            <ControlLabel>
+                                                Retype Password
+                                            </ControlLabel>
+                                            <FormControl
+                                                type='text'
+                                                name='confirmNewPassword'
+                                                onChange={handleChange}
+                                            />
+                                        </FormGroup>
+                                    </Row>
+                                    <button className='button' type='submit'>
                                         Update Profile
-                                    </Button>
-                                    <div className='clearfix' />
+                                    </button>
+                                    {/* <div className='clearfix' /> */}
                                 </form>
                             }
                         />
