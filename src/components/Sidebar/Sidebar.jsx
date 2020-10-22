@@ -50,12 +50,12 @@ class Sidebar extends Component {
                             <img src={logo} alt='logo_image' className='logo-2'/>
                         </div>
                     </a> */}
-                     <a
+                    <a
                         href='/admin/dashboard'
                         className='simple-text logo-normal'
                     >
                         Coinperfectinvestment
-                    </a> 
+                    </a>
                 </div>
                 <div className='sidebar-wrapper'>
                     <ul className='nav'>
@@ -64,13 +64,9 @@ class Sidebar extends Component {
                             if (!prop.redirect)
                                 return (
                                     <li
-                                        className={
-                                            prop.upgrade
-                                                ? 'active active-pro'
-                                                : this.activeRoute(
-                                                      prop.layout + prop.path
-                                                  )
-                                        }
+                                        className={this.activeRoute(
+                                            prop.layout + prop.path
+                                        )}
                                         key={key}
                                     >
                                         <NavLink

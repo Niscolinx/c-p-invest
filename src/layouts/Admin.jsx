@@ -7,6 +7,7 @@ import Footer from "../components/Footer/Footer";
 import Sidebar from "../components/Sidebar/Sidebar";
 import PlanOrder from '../views/PlanOrder'
 import FundAccount from '../views/FundAccount'
+import PlanConfirmation from '../views/PlanConfirmation'
 //import FixedPlugin from "../components/FixedPlugin/FixedPlugin";
 
 import { style } from "../variables/Variables";
@@ -167,7 +168,8 @@ class Admin extends Component {
             brandText={this.getBrandText(this.props.location.pathname)}
           />
           <Switch>
-            <Route path='/admin/plan-order' component={PlanOrder}/>
+            <Route path='/admin/plan-order/:id' component={PlanOrder}/>
+            <Route path='/admin/plan-confirmation/:id' component={PlanConfirmation}/>
             <Route path='/admin/fund-account' component={FundAccount}/>
             {this.getdashboardRoutes(dashboardRoutes)}</Switch>
           <Footer />

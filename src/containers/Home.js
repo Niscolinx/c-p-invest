@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Header from '../main/layout/home/Header'
-import Features from '../main/layout/home/Features'
+import Plans from '../main/layout/home/Plans'
 import Activities from '../main/layout/home/Activities'
 import StoryContent from '../main/layout/home/StoryContent'
 import StoryPictures from '../main/layout/home/StoryPictures'
@@ -31,8 +31,8 @@ function Layout() {
                 <Header />
             </div>
 
-            <div className='section-features'>
-                <Features />
+            <div className='section-plans'>
+                <Plans />
             </div>
             <div className='section-story__pictures' style={storyStyle}>
                 <StoryPictures />

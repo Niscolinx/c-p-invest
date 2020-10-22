@@ -1,4 +1,4 @@
-.features {
+.plans {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
     gap: 4rem;
@@ -7,7 +7,7 @@
     align-items: start;
 }
 
-.feature {
+.plan {
      display: grid;
      //justify-content: center;
      justify-items: center;

@@ -10,7 +10,15 @@
 	margin: 4rem;
 	row-gap: 4rem;
 
-	&__balance {
+	&__balance{
+		grid-column: 4 / 10;
+
+		@include respond(phone){
+			grid-column: 1 / -1;
+		}
+	}
+
+	&__package {
 		display: flex;
 		justify-content: center;
 		grid-column: 1 / -1;

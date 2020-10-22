@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { FormGroup, FormControl } from 'react-bootstrap'
 import { connect } from 'react-redux'
+import { FormGroup, FormControl, Row, Col } from 'react-bootstrap'
+import { StatsCard } from '../components/StatsCard/StatsCard'
 
 import { generateBase64FromImage } from '../util/image'
 import * as orderAction from '../store/actions/burgerIndex'
@@ -45,11 +46,17 @@ function FundAccount(props) {
 
     return (
         <div className='fundAccount'>
-            <div className='fundAccount__balance'>
-                <h3 className='fundAccount__balance--text'>
-                    Available Balance: <span>$2321</span>
-                </h3>
-            </div>
+            <Row className='fundAccount__balance'>
+                <Col lg={12} sm={12}>
+                    <StatsCard
+                        bigIcon={<i className='pe-7s-server text-warning' />}
+                        statsText='Account Balance'
+                        statsValue='$2,242'
+                        statsIcon={<i className='fa fa-refresh' />}
+                        statsIconText='Updated now'
+                    />
+                </Col>
+            </Row>
             <form className='fundAccount__form' onSubmit={handleSubmit}>
                 <input
                     type='number'
@@ -92,13 +99,17 @@ function FundAccount(props) {
                         onChange={handleFileChange}
                         className='fundAccount__form--file'
                     />
-                {imagePreview && (
-                    <>
-                        <div className='image'>
-                            <img src={imagePreview} alt='...' style={{width:'100%'}}/>
-                        </div>
-                    </>
-                )}
+                    {imagePreview && (
+                        <>
+                            <div className='image'>
+                                <img
+                                    src={imagePreview}
+                                    alt='...'
+                                    style={{ width: '100%' }}
+                                />
+                            </div>
+                        </>
+                    )}
                 </div>
                 <div className='fundAccount__form--btn'>
                     <button

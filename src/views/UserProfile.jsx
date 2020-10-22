@@ -12,7 +12,6 @@ import { Card } from '../components/Card/Card'
 import UserCard from '../components/UserCard/UserCard'
 import { connect } from 'react-redux'
 
-import { generateBase64FromImage } from '../util/image'
 import * as orderAction from '../store/actions/burgerIndex'
 
 import avatar from '../assets/img/faces/face-3.jpg'

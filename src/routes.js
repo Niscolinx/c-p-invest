@@ -6,7 +6,7 @@ import Icons from './views/Icons'
 import Maps from './views/Maps'
 import Notifications from './views/Notifications'
 import Upgrade from './views/Upgrade'
-import Plans from './views/Plans'
+import PlansDashboard from './views/PlansDashboard'
 
 export const dashboardRoutes = [
     {
@@ -25,10 +25,10 @@ export const dashboardRoutes = [
         layout: '/admin',
     },
     {
-        path: '/plans',
+        path: '/plansDashboard',
         name: 'Invest Now',
         icon: 'pe-7s-note2',
-        component: Plans,
+        component: PlansDashboard,
         layout: '/admin',
     },
    

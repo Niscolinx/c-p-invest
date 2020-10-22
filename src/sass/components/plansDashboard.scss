@@ -1,4 +1,4 @@
-.features{
+.plans{
 
 &__header{
     background: $color-primary-dark;
@@ -38,7 +38,7 @@
 
 
 
-.feature-dashboard {
+.plan-dashboard {
     display: grid;
     //justify-content: center;
     justify-items: center;
@@ -73,12 +73,19 @@
 
     &__list {
         list-style: none;
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         color: $color-primary-dark;
         font-weight: bold;
+        display: grid;
+        justify-items: center;
 
         &-item {
             text-decoration: none;
+
+            &--span{
+                font-family: $font-display;
+                font-size: 2rem;
+            }
         }
     }
 }
