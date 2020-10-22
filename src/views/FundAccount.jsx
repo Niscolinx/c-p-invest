@@ -8,14 +8,14 @@ import * as orderAction from '../store/actions/burgerIndex'
 
 function FundAccount(props) {
     const [amount, setAmount] = useState('')
-    const [select, setSelect] = useState('')
+    const [currency, setCurrency] = useState('Bitcoin')
     const [file, setFile] = useState('')
 
     const handleAmountChange = (e) => {
         setAmount(e.target.value)
     }
     const handleSelectChange = (e) => {
-        setSelect(e.target.value)
+        setCurrency(e.target.value)
     }
     const handleFileChange = (e) => {
         const files = e.target.files
@@ -35,41 +35,13 @@ function FundAccount(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         const formData = {
-            amount, select, file
+            amount, currency, file
         }
 
         props.onInitFundAccount(formData, props.tokenId, props.userId)
-        console.log('the values', amount, select, file)
+        console.log('the values', amount, currency, file)
     }
 
-    // const handleChange = (value, input, files) => {
-    //     if (files) {
-    //         console.log('the files', files)
-    //         generateBase64FromImage(files[0])
-    //             .then((b64) => {
-    //                 //this.setState({ imagePreview: b64 })
-    //             })
-    //             .catch((e) => {
-    //                 //  this.setState({ imagePreview: null })
-    //             })
-    //     }
-    //     setPostForm((prevState) => {
-    //         console.log('prevState', prevState, input)
-    //         const updatedForm = {
-    //             ...prevState,
-    //             [input]: {
-    //                 ...prevState[input],
-    //                 value: files ? files[0] : value,
-    //             },
-    //         }
-
-    //         console.log('updatedform', updatedForm)
-
-    //         return {
-    //             postForm: updatedForm,
-    //         }
-    //     })
-    // }
 
     return (
         <div className='fundAccount'>
@@ -93,7 +65,7 @@ function FundAccount(props) {
                     name='select'
                     id='select'
                     onChange={handleSelectChange}
-                    value={select}
+                    value={currency}
                     className='fundAccount__form--select'
                 >
                     <option value='Bitcoin'>Bitcoin</option>

@@ -67,7 +67,6 @@ class AdminNavbarLinks extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('the state link', state)
     return {
         err: state.auth.error,
         loading: state.order.loading,

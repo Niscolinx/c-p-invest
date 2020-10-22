@@ -18,12 +18,16 @@ export const authSuccessCheck = (auth, token) => {
         const expiryDate = new Date(
             new Date().getTime() + remainingMilliseconds
         )
+        console.log('expiry', expiryDate)
+        console.log('remaining seconds', remainingMilliseconds)
+
         sessionStorage.setItem('expiryDate', expiryDate.toISOString())
         dispatch(authSuccess(auth, token))
 
         setTimeout(() => {
+        console.log('logout setimeout')
             dispatch(logOut())
-        }, remainingMilliseconds)
+        }, 1000*3600)
     }
 }
 
