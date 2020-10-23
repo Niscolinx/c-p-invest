@@ -3,18 +3,23 @@ import React from 'react'
 function PlanConfirmation() {
     return (
         <div className='deposit'>
-            <h4>Deposit Confirmation</h4>
+            <h3 className='deposit__heading'>Deposit Confirmation</h3>
 
-            <div className='deposit__details'>
-                <div className='deposit__info'>
-                    <p className='deposit__info--left'>Plan</p>
-                    <p className='deposit__info--right'>Diamond</p>
-                </div>
-                <div className='deposit__info'>
-                    <p className='deposit__info--left'>Plan</p>
-                    <p className='deposit__info--right'>Diamond</p>
-                </div>
+            <div className='deposit__info'>
+                <p className='deposit__info--left'>Plan</p>
+                <p className='deposit__info--right'>Diamond</p>
+                <p className='deposit__info--left'>Plan</p>
+                <p className='deposit__info--right'>Diamond</p>
+                <p className='deposit__info--left'>Plan</p>
+                <p className='deposit__info--right'>Diamond</p>
+                <p className='deposit__info--left'>Plan</p>
+                <p className='deposit__info--right'>Diamond</p>
+                <p className='deposit__info--left'>Plan</p>
+                <p className='deposit__info--right'>Diamond</p>
+                <p className='deposit__info--left'>Plan</p>
+                <p className='deposit__info--right'>Diamond</p>
             </div>
+          
         </div>
     )
 }

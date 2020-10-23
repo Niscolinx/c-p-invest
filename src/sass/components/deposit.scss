@@ -1,0 +1,21 @@
+.deposit{
+    height: 80vh;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    gap: 2rem;
+    grid-template-rows: min-content max-content;
+
+    &__heading{
+        align-self: center;
+        font-weight: $font-display;
+        font-weight: 400;
+    }
+
+    &__info{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-self: start;
+        grid-template-rows: min-content;
+    }
+}
