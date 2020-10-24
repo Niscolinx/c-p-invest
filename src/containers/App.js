@@ -13,6 +13,9 @@ import asyncComponent from '../main/hoc/asyncComponent'
 import Layout from './Layout'
 import Home from './Home'
 import AdminLayout from '../layouts/Admin'
+import AboutUs from './AboutUs'
+import LoginPage from '../main/auth/Login'
+import SignupPage from '../main/auth/Signup'
 
 function App(props) {
     const location = useLocation()
@@ -44,17 +47,17 @@ function App(props) {
             <Route
                 path='/Auth/login'
                 render={(props) => (
-                    <AsyncLogin {...props}  />
+                    <LoginPage {...props}  />
                 )}
             />
             <Route
                 path='/Auth/signup'
                 render={(props) => (
-                    <AsyncSignup {...props} />
+                    <SignupPage {...props} />
                 )}
             />
 
-            <Route path='/about-us' component={AsyncAboutUs} />
+            <Route path='/about-us' component={AboutUs} />
             <Redirect to='/' />
         </Switch>
     )
