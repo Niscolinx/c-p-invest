@@ -1,6 +1,5 @@
 import * as actions from './actionTypes'
 
-
 export const fundAccountStart = () => {
     return {
         type: actions.FUND_ACCOUNT_START,
@@ -9,16 +8,15 @@ export const fundAccountStart = () => {
 export const fundAccountSuccess = (data) => {
     return {
         type: actions.FUND_ACCOUNT__SUCCESS,
-        data
-    }   
+        data,
+    }
 }
 export const fundAccountFailed = (err) => {
     return {
         type: actions.FUND_ACCOUNT__FAILED,
-        err
+        err,
     }
 }
-
 
 export const initFundAccount = (fundData, token, userId) => {
     return (dispatch) => {
@@ -28,7 +26,7 @@ export const initFundAccount = (fundData, token, userId) => {
 
         formData.append('image', fundData.file['0'])
 
-        fetch('http://localhost:3030/post-image', {
+        fetch('http://localhost:3030/api/post-image', {
             method: 'PUT',
             headers: {
                 Authorization: 'Bearer ' + token,
@@ -62,7 +60,7 @@ export const initFundAccount = (fundData, token, userId) => {
             `,
                 }
 
-                return fetch('http://localhost:3030/graphql', {
+                return fetch('http://localhost:3030/api/graphql', {
                     method: 'POST',
                     body: JSON.stringify(graphqlQuery),
                     headers: {
@@ -77,7 +75,7 @@ export const initFundAccount = (fundData, token, userId) => {
             })
             .then((resData) => {
                 console.log('the fund Account', resData)
-                
+
                 if (resData.errors && resData.errors[0].status === 422) {
                     throw new Error(
                         "Validation failed. Make sure the email address isn't used yet!"
@@ -89,8 +87,6 @@ export const initFundAccount = (fundData, token, userId) => {
                 }
 
                 dispatch(fundAccountSuccess(resData.data))
-             
-
             })
             .catch((err) => {
                 console.log(err)
