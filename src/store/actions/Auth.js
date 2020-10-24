@@ -20,16 +20,16 @@ export const authSuccessCheck = (auth, token) => {
         )
         console.log('expiry', expiryDate)
         console.log('remaining seconds', remainingMilliseconds)
-        
+
         //After set this to calculate the expiration based on the sessionStorage
         sessionStorage.setItem('expiryTime', remainingMilliseconds)
         sessionStorage.setItem('expiryDate', expiryDate.toISOString())
         dispatch(authSuccess(auth, token))
 
         setTimeout(() => {
-        console.log('logout setimeout')
+            console.log('logout setimeout')
             dispatch(logOut())
-        },remainingMilliseconds)
+        }, remainingMilliseconds)
     }
 }
 
@@ -86,7 +86,7 @@ export const initLogin = (email, password) => {
          `,
         }
 
-        fetch('http://localhost:3030/graphql', {
+        fetch('http://localhost:3030/api/graphql', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -141,7 +141,7 @@ export const initSignup = (authData) => {
          }`,
         }
 
-        fetch('http://localhost:3030/graphql', {
+        fetch('http://localhost:3030/api/graphql', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(graphqlQuery),
