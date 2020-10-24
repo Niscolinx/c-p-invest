@@ -25,7 +25,6 @@ function App(props) {
         }
     }, [props])
 
-
     const AsyncLogin = asyncComponent(() => {
         return import('../main/auth/Login')
     })
