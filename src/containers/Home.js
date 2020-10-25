@@ -7,6 +7,7 @@ import StoryContent from '../main/layout/home/StoryContent'
 import StoryPictures from '../main/layout/home/StoryPictures'
 import Transactions from '../main/layout/home/Transactions'
 import WhyChooseUs from '../main/layout/home/WhyChooseUs'
+import LiveChart from '../tradeviewWidgets/LiveTicker'
 
 import Back from '../images/back.jpg'
 import Hero from '../images/hero.jpg'
@@ -27,6 +28,10 @@ const whyChooseUsStyle = {
 function Layout() {
     return (
         <>
+            
+            <div className='section-liveChart'>
+                <LiveChart />
+            </div>
             <div className='section-header' style={headerStyle}>
                 <Header />
             </div>

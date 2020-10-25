@@ -1,5 +1,5 @@
 import React from 'react'
-import Widget from '../../../tradeviewWidgets/LightweightChart'
+import Widget from '../../../tradeviewWidgets/LiveTicker'
 
 function Plans() {
     return (
