@@ -1,9 +1,10 @@
 import React from 'react'
+import Widget from '../../../tradeviewWidgets/LightweightChart'
 
 function Plans() {
-    
     return (
         <div className='plans'>
+            <Widget />
             <div className='plan'>
                 <div className='plan__icon'>
                     <h1 className='heading-1 plan__icon-percent'>20%</h1>
@@ -89,8 +90,6 @@ function Plans() {
                 </ul>
                 <button className='button plan__button'>Deposit Now</button>
             </div>
-
-            
         </div>
     )
 }
