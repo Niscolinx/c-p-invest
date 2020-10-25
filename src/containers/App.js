@@ -47,17 +47,17 @@ function App(props) {
             <Route
                 path='/Auth/login'
                 render={(props) => (
-                    <LoginPage {...props}  />
+                    <AsyncLogin {...props}  />
                 )}
             />
             <Route
                 path='/Auth/signup'
                 render={(props) => (
-                    <SignupPage {...props} />
+                    <AsyncSignup {...props} />
                 )}
             />
 
-            <Route path='/about-us' component={AboutUs} />
+            <Route path='/about-us' component={AsyncAboutUs} />
             <Redirect to='/' />
         </Switch>
     )

@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Plans() {
+    
     return (
         <div className='plans'>
             <div className='plan'>
@@ -88,6 +89,8 @@ function Plans() {
                 </ul>
                 <button className='button plan__button'>Deposit Now</button>
             </div>
+
+            
         </div>
     )
 }
