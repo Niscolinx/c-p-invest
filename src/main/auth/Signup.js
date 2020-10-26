@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+import Particles from 'react-particles-js'
 
 import * as orderAction from '../../store/actions/burgerIndex'
 import Input from '../Input'
 import Button from '../Button'
 import { required, length, email } from '../../util/validators'
 import Auth from './Auth'
+import { authParams } from '../../components/ParticlesParams'
+
 
 const Signup = (props) => {
     const [state, setState] = useState({
@@ -174,6 +177,20 @@ const Signup = (props) => {
 
     return (
         <>
+            <Particles
+                className='particles'
+                // style={{
+                //     background: 'red',
+                //     zIndex: -1,
+                //     width: '100%',
+                //     position: 'absolute',
+                //     // left: 0,
+                //     // top: 0,
+                //     // right: 0,
+                //     // bottom: 0,
+                // }}
+                params={{ authParams }}
+            />
             <Auth message={message}>
                 <form onSubmit={handleSignup} className='form__box'>
                     <div className='form-1'>

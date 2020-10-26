@@ -11,7 +11,8 @@
      display: grid;
      //justify-content: center;
      justify-items: center;
-     box-shadow: 5px 2px 14px 3px $color-secondary;
+    // box-shadow: 5px 2px 14px 3px $color-secondary;
+    box-shadow: $box-shadow;
      border-radius: 5px;
      padding: 3rem 0;
      transition: all .5s;

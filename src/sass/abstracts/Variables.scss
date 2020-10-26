@@ -1,7 +1,8 @@
 // COLOR VARIABLES
-$color-background: #e6e7e7;
+$color-background: #101d2cda;
 $color-primary: #805422;
-$color-primary-dark: #24180b;
+//$color-primary-dark: #24180b;
+$color-primary-dark: #ffad4f;
 
 $color-secondary-light: #244163;
 $color-secondary: #101d2c;
@@ -13,6 +14,8 @@ $color-grey-dark-1: #54483A;
 $color-grey-dark-2: #6D5D4B;
 
 $color-error: #582424;
+
+$box-shadow: 3px 3px 10px 8px $color-primary-dark;
 
 // FONT VARIABLES
 $font-primary: 'Nunito',

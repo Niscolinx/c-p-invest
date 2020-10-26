@@ -1,5 +1,7 @@
 .auth {
+
     &-form {
+        z-index: 9999;
         display: grid;
         justify-self: center;
         width: 100%;
@@ -11,6 +13,7 @@
         padding: 2rem;
         border: 1px solid $color-secondary;
         border-radius: 5px;
+        box-shadow: $box-shadow;
 
         @include respond(tab-port) {
             grid-column: 2 / col-end 8;
@@ -36,7 +39,7 @@
         background-color: $color-primary;
         color: #fff;
         transition: all .2s;
-        
+
         &--success {
             background: $color-primary;
         }
@@ -127,12 +130,14 @@
     &__input,
     &__textarea {
         display: block;
+        color: $color-secondary !important;
+
         font-size: 1.6rem;
         padding: 1rem 2rem;
         width: 100%;
         border-radius: 3px;
         border: 2px solid #ccc;
-        background: #f3f3f3;
+        background: #f3f3f3d5;
     }
 
     &__input:focus,

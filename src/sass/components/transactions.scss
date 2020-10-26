@@ -1,15 +1,17 @@
 .transactions {
+    background-color: $color-secondary;
+    z-index: 9999;
     display: grid;
     justify-content: center;
     justify-items: center;
     font-family: $font-display;
     font-weight: 400;
     padding: 3rem;
-    box-shadow: 3px 3px 9px 4px $color-primary;
+    box-shadow: $box-shadow;
 
     &__heading {
         text-transform: uppercase;
-        color: $color-secondary;
+        color: $color-primary;
     }
 
     &__col {

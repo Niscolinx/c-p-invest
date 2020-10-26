@@ -1,10 +1,9 @@
 import React from 'react'
-import Widget from '../../../tradeviewWidgets/LiveTicker'
 
 function Plans() {
     return (
         <div className='plans'>
-            <Widget />
+            
             <div className='plan'>
                 <div className='plan__icon'>
                     <h1 className='heading-1 plan__icon-percent'>20%</h1>
@@ -17,7 +16,7 @@ function Plans() {
                     <li className='plan__list-item'>minimum - 3500</li>
                     <li className='plan__list-item'>minimum - 4500</li>
                 </ul>
-                <button className='button plan__button'>Deposit Now</button>
+                
             </div>
             <div className='plan'>
                 <div className='plan__icon'>
@@ -31,7 +30,7 @@ function Plans() {
                     <li className='plan__list-item'>minimum - 3500</li>
                     <li className='plan__list-item'>minimum - 4500</li>
                 </ul>
-                <button className='button plan__button'>Deposit Now</button>
+                
             </div>
 
             <div className='plan'>
@@ -46,7 +45,7 @@ function Plans() {
                     <li className='plan__list-item'>minimum - 3500</li>
                     <li className='plan__list-item'>minimum - 4500</li>
                 </ul>
-                <button className='button plan__button'>Deposit Now</button>
+                
             </div>
             <div className='plan'>
                 <div className='plan__icon'>
@@ -60,7 +59,7 @@ function Plans() {
                     <li className='plan__list-item'>minimum - 3500</li>
                     <li className='plan__list-item'>minimum - 4500</li>
                 </ul>
-                <button className='button plan__button'>Deposit Now</button>
+                
             </div>
             <div className='plan'>
                 <div className='plan__icon'>
@@ -74,7 +73,7 @@ function Plans() {
                     <li className='plan__list-item'>minimum - 3500</li>
                     <li className='plan__list-item'>minimum - 4500</li>
                 </ul>
-                <button className='button plan__button'>Deposit Now</button>
+                
             </div>
             <div className='plan'>
                 <div className='plan__icon'>
@@ -88,7 +87,7 @@ function Plans() {
                     <li className='plan__list-item'>minimum - 3500</li>
                     <li className='plan__list-item'>minimum - 4500</li>
                 </ul>
-                <button className='button plan__button'>Deposit Now</button>
+                
             </div>
         </div>
     )

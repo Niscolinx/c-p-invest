@@ -16,6 +16,7 @@ import AdminLayout from '../layouts/Admin'
 import AboutUs from './AboutUs'
 import LoginPage from '../main/auth/Login'
 import SignupPage from '../main/auth/Signup'
+import Particles from 'react-particles-js'
 
 function App(props) {
     const location = useLocation()
@@ -67,6 +68,7 @@ function App(props) {
                 <Route path='/' exact component={Home} />
                 <Route
                     path='/Auth/login'
+        
                     render={(props) => <AsyncLogin {...props} />}
                 />
                 <Route path='/about-us' component={AsyncAboutUs} />
@@ -82,6 +84,7 @@ function App(props) {
 
     return (
         <>
+
             <Layout isAdmin={location}>{AuthGuard}</Layout>
         </>
     )

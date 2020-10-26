@@ -118,6 +118,7 @@ export default class App extends Component {
         return (
             <Chart
                 darkTheme={true}
+                from={'2018-06-25'}
                 options={this.state.options}
                 candlestickSeries={this.state.candlestickSeries}
                 autoWidth

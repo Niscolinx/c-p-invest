@@ -8,6 +8,9 @@ import StoryPictures from '../main/layout/home/StoryPictures'
 import Transactions from '../main/layout/home/Transactions'
 import WhyChooseUs from '../main/layout/home/WhyChooseUs'
 import LiveChart from '../tradeviewWidgets/LiveTicker'
+import Particles from 'react-particles-js'
+import { params } from '../components/ParticlesParams'
+import Chart from '../tradeviewWidgets/AdvancedRealChart'
 
 import Back from '../images/back.jpg'
 import Hero from '../images/hero.jpg'
@@ -28,6 +31,12 @@ const whyChooseUsStyle = {
 function Layout() {
     return (
         <>
+            <Particles
+                className='particles'
+      
+                 params={{params}}
+               
+            />
             
             <div className='section-liveChart'>
                 <LiveChart />
@@ -45,6 +54,10 @@ function Layout() {
             <div className='section-story__content'>
                 <StoryContent />
             </div>
+            <div className='section-tradeviewChart'>
+                <Chart />
+            </div>
+
             <div className='section-activities'>
                 <Activities />
             </div>

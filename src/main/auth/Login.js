@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+import Particles from 'react-particles-js'
+
 import * as orderAction from '../../store/actions/burgerIndex'
 
 import Button from '../Button'
@@ -7,6 +9,7 @@ import Input from '../Input'
 
 import { required, length, email } from '../../util/validators'
 import Auth from './Auth'
+import {authParams} from '../../components/ParticlesParams'
 
 const Login = (props) => {
     const [state, setState] = useState({
@@ -97,42 +100,58 @@ const Login = (props) => {
     }
 
     return (
-        <Auth login message={message}>
-            <form onSubmit={handleLogin}>
-                <Input
-                    id='email'
-                    label='E-Mail'
-                    type='email'
-                    control='input'
-                    onChange={inputChangeHandler}
-                    onBlur={inputBlurHandler.bind('email')}
-                    value={state.loginForm['email'].value}
-                    valid={state.loginForm['email'].valid}
-                    touched={state.loginForm['email'].touched}
-                />
-                <Input
-                    id='password'
-                    label='Password'
-                    type='password'
-                    control='input'
-                    minLength={6}
-                    onChange={inputChangeHandler}
-                    onBlur={inputBlurHandler.bind('password')}
-                    value={state.loginForm['password'].value}
-                    valid={state.loginForm['password'].valid}
-                    touched={state.loginForm['password'].touched}
-                />
-                <div className='form-btn'>
-                    <Button
-                        design='raised'
-                        type='submit'
-                        loading={props.loading}
-                    >
-                        Login
-                    </Button>
-                </div>
-            </form>
-        </Auth>
+        <>
+            <Particles
+            className='particles'
+                // style={{
+                //     background: 'red',
+                //     zIndex: -1,
+                //     width: '100%',
+                //     position: 'absolute',
+                //     // left: 0,
+                //     // top: 0,
+                //     // right: 0,
+                //     // bottom: 0,
+                // }}
+                params={{ authParams }}
+            />
+            <Auth login message={message}>
+                <form onSubmit={handleLogin}>
+                    <Input
+                        id='email'
+                        label='E-Mail'
+                        type='email'
+                        control='input'
+                        onChange={inputChangeHandler}
+                        onBlur={inputBlurHandler.bind('email')}
+                        value={state.loginForm['email'].value}
+                        valid={state.loginForm['email'].valid}
+                        touched={state.loginForm['email'].touched}
+                    />
+                    <Input
+                        id='password'
+                        label='Password'
+                        type='password'
+                        control='input'
+                        minLength={6}
+                        onChange={inputChangeHandler}
+                        onBlur={inputBlurHandler.bind('password')}
+                        value={state.loginForm['password'].value}
+                        valid={state.loginForm['password'].valid}
+                        touched={state.loginForm['password'].touched}
+                    />
+                    <div className='form-btn'>
+                        <Button
+                            design='raised'
+                            type='submit'
+                            loading={props.loading}
+                        >
+                            Login
+                        </Button>
+                    </div>
+                </form>
+            </Auth>
+        </>
     )
 }
 

@@ -57,7 +57,6 @@ function Layout(props) {
                 <div className='section-subHeader'>
                     <SubHeader />
                 </div>
-                <a href='/' hidden>home</a>
                 <main className='main'>{props.children}</main>
                 <div className='section-footer'>
                     <Footer />
