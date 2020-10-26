@@ -4,7 +4,8 @@
         width: 100%;
         grid-column: 2 / 6;
         grid-row: 2 / 6;
-        box-shadow: 0 2rem 5rem black;
+        //box-shadow: 0 2rem 5rem black;
+        box-shadow: $box-shadow;
 
         transition: all ease-out .3s;
 

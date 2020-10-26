@@ -1,6 +1,16 @@
+.plans__heading {
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+
+    &--text {
+        color: $color-primary-dark;
+    }
+}
+
 .plans {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     gap: 4rem;
     padding: 2rem 0;
     color: $color-primary;
@@ -8,48 +18,52 @@
 }
 
 .plan {
-     display: grid;
-     //justify-content: center;
-     justify-items: center;
-    // box-shadow: 5px 2px 14px 3px $color-secondary;
+    display: grid;
+
+    //justify-content: center;
+    justify-items: center;
     box-shadow: $box-shadow;
-     border-radius: 5px;
-     padding: 3rem 0;
-     transition: all .5s;
+    border-radius: 5px;
+    padding: 3rem 0;
+    transition: all 0.5s;
     // grid-template-columns: min-content auto;
-     gap: 2rem;
+    gap: 2rem;
 
-
-     &:hover{
-         transform: scale(1.02);
-              box-shadow: 2px 4px 17px 3px $color-secondary;
-
-     }
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 2px 4px 17px 3px $color-secondary;
+    }
 
     &__icon {
-    
         font-size: 3.5rem;
-       border-radius: 20%;
+        border-radius: 20%;
+        box-shadow: 5px 6px 20px 17px #01070e96;
         text-align: center;
         border: 3px solid $color-primary;
         padding: 3rem;
 
         &-percent,
-        &-text{
+        &-text {
             text-align: center;
             color: $color-primary-dark;
             font-weight: 400;
         }
-
-}
+    }
     &__list {
         list-style: none;
         font-size: 1.5rem;
         color: $color-primary-dark;
         font-weight: bold;
+        display: grid;
+        justify-items: center;
 
-        &-item{
+        &-item {
             text-decoration: none;
+
+            &--span {
+                font-family: $font-display;
+                font-size: 2rem;
+            }
         }
     }
 }

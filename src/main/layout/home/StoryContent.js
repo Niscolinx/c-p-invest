@@ -8,7 +8,7 @@ function StoryContent() {
             </h3>
 
             <p className='story__text'>
-                Coinperfectinvestment is a global Bitcoin investment website dedicated to building trust by trading and growing our clients crypto assets in partnership with financial professionals and institutions worldwide. We have been operating since 2017 with an initial startup capital of $50 million.
+                Coinperfectinvestment is a global Bitcoin investment website dedicated to building trust by trading and growing our clients crypto assets in partnership with financial professionals and institutions worldwide. We have been operating since 2019 with an initial startup capital of $50 million.
             </p>
             <div className='vision'>
                 <h2 className='heading-2 story__header-2'>

@@ -7,6 +7,8 @@ import StoryContent from '../main/layout/home/StoryContent'
 import StoryPictures from '../main/layout/home/StoryPictures'
 import Transactions from '../main/layout/home/Transactions'
 import WhyChooseUs from '../main/layout/home/WhyChooseUs'
+import Testimonials from '../main/layout/home/Testimonials'
+
 import LiveChart from '../tradeviewWidgets/LiveTicker'
 import Particles from 'react-particles-js'
 import Chart from '../tradeviewWidgets/AdvancedRealChart'
@@ -32,14 +34,15 @@ function Layout() {
         <>
             <Particles
                 className='particles'
-      
-                 params={{ particles: {
-        number: {
-            value: 50
-        },
-    }, }}               
+                params={{
+                    particles: {
+                        number: {
+                            value: 50,
+                        },
+                    },
+                }}
             />
-            
+
             <div className='section-liveChart'>
                 <LiveChart />
             </div>
@@ -63,11 +66,14 @@ function Layout() {
             <div className='section-activities'>
                 <Activities />
             </div>
+            <div className='section-whyChooseUs' style={whyChooseUsStyle}>
+                <WhyChooseUs />
+            </div>
             <div className='section-transactions'>
                 <Transactions />
             </div>
-            <div className='section-whyChooseUs' style={whyChooseUsStyle}>
-                <WhyChooseUs />
+            <div className='section-testimonials'>
+                <Testimonials/>
             </div>
         </>
     )

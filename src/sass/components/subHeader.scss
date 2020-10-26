@@ -111,7 +111,7 @@
 //Mobile view
 
 .navigation {
-    z-index: 1000;
+    z-index: 9999;
     
     @include respond(tab-port-min) {
         display: none;

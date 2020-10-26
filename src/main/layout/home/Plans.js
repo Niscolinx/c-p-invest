@@ -2,14 +2,14 @@ import React from 'react'
 
 function Plans() {
 
-    //Start
-
- 
-    //End
     return (
+        <>
+          <div className='plans__heading'>
+                <h1 className='plans__heading--text heading-1'>
+                    Our Investment Plans
+                </h1>
+            </div>
         <div className='plans'>
-
-        
             
            <div className='plan'>
                         <div className='plan__icon'>
@@ -167,7 +167,9 @@ function Plans() {
                         </ul>
                         
                     </div>
-        </div>
+                    </div>
+                    </>
+    
     )
 }
 

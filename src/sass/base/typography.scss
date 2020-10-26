@@ -51,6 +51,7 @@
 }
 
 .section-header {
+    z-index: 1000;
     background-color: $color-secondary;
     grid-column: 1 / -1;
     height: 78vh;
@@ -74,8 +75,9 @@
 
 .section-plans {
     background: $color-background;
-    grid-column: sidebar-end / center-end;
+    grid-column: 1 / -1;
     margin: 10rem 0;
+    padding: 0 7rem;
 }
 
 .section-story {
@@ -139,6 +141,10 @@
     grid-column: sidebar-start / full-end;
 
     margin: 3rem 0;
+}
+
+.section-testimonials{
+    grid-column: 1 / -1;
 }
 
 .section-whyChooseUs {
