@@ -7,7 +7,6 @@ import Input from '../Input'
 import Button from '../Button'
 import { required, length, email } from '../../util/validators'
 import Auth from './Auth'
-import { authParams } from '../../components/ParticlesParams'
 
 
 const Signup = (props) => {
@@ -97,7 +96,7 @@ const Signup = (props) => {
             })
 
     }
-    }, [props])
+    }, [message, props])
 
     const inputChangeHandler = (input, value) => {
         setState((prevState) => {
@@ -189,7 +188,13 @@ const Signup = (props) => {
                 //     // right: 0,
                 //     // bottom: 0,
                 // }}
-                params={{ authParams }}
+                 params={{
+                particles: {
+        number: {
+            value: 70,
+                    },
+    },
+               }}
             />
             <Auth message={message}>
                 <form onSubmit={handleSignup} className='form__box'>

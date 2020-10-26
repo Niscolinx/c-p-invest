@@ -3,18 +3,23 @@
     background: $color-background;
     position: relative;
     grid-template-rows: min-content;
-    grid-template-columns: [sidebar-start] 6rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    grid-template-columns: [sidebar-start] 6rem [sidebar-end full-start] minmax(
+            6rem,
+            1fr
+        ) [center-start] repeat(
+            8,
+            [col-start] minmax(min-content, 14rem) [col-end]
+        ) [center-end] minmax(6rem, 1fr) [full-end];
 
     @media only screen and (max-width: 22em) {
-
-        grid-template-columns: [sidebar-start] [sidebar-end full-start] minmax(1rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(1rem, 1fr) [full-end];
+        grid-template-columns: [sidebar-start] [sidebar-end full-start] minmax(
+                1rem,
+                1fr
+            ) [center-start] repeat(
+                8,
+                [col-start] minmax(min-content, 14rem) [col-end]
+            ) [center-end] minmax(1rem, 1fr) [full-end];
     }
-
-}
-
-.section-liveChart{
-    background: transparent;
-    grid-column: 1 / -1;
 }
 
 .section-sidebar {
@@ -34,6 +39,10 @@
     }
 }
 
+.section-liveChart {
+    background: transparent;
+    grid-column: 1 / -1;
+}
 .section-subHeader {
     display: grid;
     background-color: $color-secondary;
@@ -61,7 +70,6 @@
     @media only screen and (max-width: 62.5em) {
         padding: 2rem 4rem;
     }
-
 }
 
 .section-plans {
@@ -70,9 +78,7 @@
     margin: 10rem 0;
 }
 
-
 .section-story {
-
     &__pictures {
         display: grid;
         background-color: $color-primary-dark;
@@ -89,8 +95,6 @@
         @media only screen and (max-width: 62.5em) {
             grid-column: 1 / -1;
         }
-
-
     }
 
     &__content {
@@ -106,7 +110,6 @@
             grid-column: 1 / -1;
             grid-row: 4 / 5;
         }
-
     }
 }
 
@@ -122,21 +125,20 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     gap: 2rem;
-
 }
 
-.section-tradeviewChart{
-    grid-column: 1 / -1;
-   // height: 100%;
+.section-tradeviewChart {
+    grid-column: full-start / center-end;
+    padding-top: 3rem;
+    width: 100%;
+    height: 100%;
 }
-
 
 .section-activities {
     background-color: $color-secondary;
     grid-column: sidebar-start / full-end;
 
     margin: 3rem 0;
-
 }
 
 .section-whyChooseUs {
@@ -153,7 +155,6 @@
     grid-column: sidebar-start / full-end;
 
     padding: 4rem;
-
 }
 
 %heading {
@@ -216,7 +217,7 @@
     cursor: pointer;
     color: #fff;
     border: none;
-    transition: all .2s;
+    transition: all 0.2s;
     font-family: $font-display;
 
     &:hover,
@@ -231,7 +232,6 @@
     }
 }
 
-
 .mb-sm {
     margin-bottom: 2rem;
 }
@@ -245,7 +245,6 @@
 }
 
 .adminNav {
-
     &__fundAccount {
         font-family: $font-display;
         font-weight: 400;
@@ -304,14 +303,17 @@
     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
 
-.particles{
-   //background: #151d2754;
+.particles {
+    //background: #151d2754;
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;    
-   // z-index: -1;    
+    bottom: 0;
+    // z-index: -1;
 }
 
-
+.advancedChart{
+    width: 100%;
+    height: 60vh;
+}

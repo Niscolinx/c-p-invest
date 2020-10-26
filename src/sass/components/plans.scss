@@ -27,20 +27,21 @@
      }
 
     &__icon {
+    
         font-size: 3.5rem;
-        border-radius: 50%;
+       border-radius: 20%;
         text-align: center;
-        border: 2px solid $color-primary;
-        padding: 4rem;
+        border: 3px solid $color-primary;
+        padding: 3rem;
 
         &-percent,
         &-text{
+            text-align: center;
             color: $color-primary-dark;
             font-weight: 400;
         }
 
-    }
-
+}
     &__list {
         list-style: none;
         font-size: 1.5rem;

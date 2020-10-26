@@ -9,7 +9,6 @@ import Input from '../Input'
 
 import { required, length, email } from '../../util/validators'
 import Auth from './Auth'
-import {authParams} from '../../components/ParticlesParams'
 
 const Login = (props) => {
     const [state, setState] = useState({
@@ -113,7 +112,16 @@ const Login = (props) => {
                 //     // right: 0,
                 //     // bottom: 0,
                 // }}
-                params={{ authParams }}
+               // params={{ authParams }}
+               params={{
+                particles: {
+        number: {
+            value: 50,
+                    },
+    },
+               }}
+
+
             />
             <Auth login message={message}>
                 <form onSubmit={handleLogin}>

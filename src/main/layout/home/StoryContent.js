@@ -8,12 +8,7 @@ function StoryContent() {
             </h3>
 
             <p className='story__text'>
-                The coinperfectinvestment.com is one of the largest Wood
-                processing companies, delivering the wood from Finland to
-                Europe. We have been servicing our clients since 1995 and we are
-                expanding our market share to this day. Our exclusive location
-                brings us an opportunity to work with clients anywhere from the
-                coast of the Norwegian Sea to the shores of Western Europe.
+                Coinperfectinvestment is a global Bitcoin investment website dedicated to building trust by trading and growing our clients crypto assets in partnership with financial professionals and institutions worldwide. We have been operating since 2017 with an initial startup capital of $50 million.
             </p>
             <div className='vision'>
                 <h2 className='heading-2 story__header-2'>

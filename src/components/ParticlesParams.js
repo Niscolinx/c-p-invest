@@ -1,11 +1,7 @@
 export const authParams = {
     particles: {
         number: {
-            value: 1,
-            density: {
-                enable: true,
-                value_area: 800,
-            },
+            value: 1000
         },
     },
 }

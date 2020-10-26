@@ -9,7 +9,6 @@ import Transactions from '../main/layout/home/Transactions'
 import WhyChooseUs from '../main/layout/home/WhyChooseUs'
 import LiveChart from '../tradeviewWidgets/LiveTicker'
 import Particles from 'react-particles-js'
-import { params } from '../components/ParticlesParams'
 import Chart from '../tradeviewWidgets/AdvancedRealChart'
 
 import Back from '../images/back.jpg'
@@ -34,8 +33,11 @@ function Layout() {
             <Particles
                 className='particles'
       
-                 params={{params}}
-               
+                 params={{ particles: {
+        number: {
+            value: 50
+        },
+    }, }}               
             />
             
             <div className='section-liveChart'>
