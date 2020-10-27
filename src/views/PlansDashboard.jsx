@@ -37,8 +37,8 @@ function PlansDashboard() {
                                 Principal Return - <span className='plan-dashboard__list-item--span'>YES</span>
                             </li>
                         </ul>
-                        <button className='button plan-dashboard__button'>
-                            <Link to='/admin/plan-order/:ruby'>Deposit Now</Link>
+                        <button className='button'>
+                            <Link to='/admin/plan-order/:ruby' className='plan-dashboard__button'>Deposit Now</Link>
                         </button>
                     </div>
                     <div className='plan-dashboard'>
@@ -65,8 +65,8 @@ function PlansDashboard() {
                                 Principal Return - <span className='plan-dashboard__list-item--span'>YES</span>
                             </li>
                         </ul>
-                        <button className='button plan-dashboard__button'>
-                            Deposit Now
+                       <button className='button'>
+                            <Link to='/admin/plan-order/:sapphire' className='plan-dashboard__button'>Deposit Now</Link>
                         </button>
                     </div>
 
@@ -94,8 +94,8 @@ function PlansDashboard() {
                                 Principal Return - <span className='plan-dashboard__list-item--span'>YES</span>
                             </li>
                         </ul>
-                        <button className='button plan-dashboard__button'>
-                            Deposit Now
+                       <button className='button'>
+                            <Link to='/admin/plan-order/:coral' className='plan-dashboard__button'> Deposit Now</Link>
                         </button>
                     </div>
                     <div className='plan-dashboard'>
@@ -122,8 +122,8 @@ function PlansDashboard() {
                                 Principal Return - <span className='plan-dashboard__list-item--span'>YES</span>
                             </li>
                         </ul>
-                        <button className='button plan-dashboard__button'>
-                            Deposit Now
+                       <button className='button'>
+                            <Link to='/admin/plan-order/:emerald' className='plan-dashboard__button'>Deposit Now</Link>
                         </button>
                     </div>
                     <div className='plan-dashboard'>
@@ -150,8 +150,8 @@ function PlansDashboard() {
                                 Principal Return - <span className='plan-dashboard__list-item--span'>YES</span>
                             </li>
                         </ul>
-                        <button className='button plan-dashboard__button'>
-                            Deposit Now
+                       <button className='button'>
+                            <Link to='/admin/plan-order/:gold' className='plan-dashboard__button'>Deposit Now</Link>
                         </button>
                     </div>
                     <div className='plan-dashboard'>
@@ -178,8 +178,8 @@ function PlansDashboard() {
                                 Principal Return - <span className='plan-dashboard__list-item--span'>YES</span>
                             </li>
                         </ul>
-                        <button className='button plan-dashboard__button'>
-                            Deposit Now
+                       <button className='button'>
+                            <Link to='/admin/plan-order/:diamond' className='plan-dashboard__button'>Deposit Now</Link>
                         </button>
                     </div>
                 </div>

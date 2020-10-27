@@ -1,6 +1,6 @@
 import Dashboard from './views/Dashboard'
 import UserProfile from './views/UserProfile'
-import TableList from './views/TableList'
+import InvestmentHistory from './views/InvestmentHistory'
 import Typography from './views/Typography'
 import Icons from './views/Icons'
 import Maps from './views/Maps'
@@ -36,7 +36,7 @@ export const dashboardRoutes = [
         path: '/table',
         name: 'Investment History',
         icon: 'pe-7s-note2',
-        component: TableList,
+        component: InvestmentHistory,
         layout: '/admin',
     },
     {

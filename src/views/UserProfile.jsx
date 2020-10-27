@@ -143,6 +143,7 @@ const UserProfile = (props) => {
                                                 Phone Number
                                             </ControlLabel>
                                             <FormControl
+                                                
                                                 type='number'
                                                 name='phone'
                                                 onChange={handleChange}
@@ -214,7 +215,7 @@ const UserProfile = (props) => {
                                             />
                                         </FormGroup>
                                     </Row>
-                                    <button className='button' type='submit'>
+                                    <button className='button btn__profile' type='submit'>
                                         Update Profile
                                     </button>
                                     {/* <div className='clearfix' /> */}

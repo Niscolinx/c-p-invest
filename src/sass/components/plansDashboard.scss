@@ -87,4 +87,12 @@
             }
         }
     }
+
+    &__button{
+        
+        &:link,
+        &:visited{
+            color: white
+        }
+    }
 }
