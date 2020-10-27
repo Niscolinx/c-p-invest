@@ -27,7 +27,6 @@ const input = (props) => {
                         className={[
                             'form__input',
                             !props.valid && props.touched ? 'invalid' : 'valid',
-                          
                         ].join(' ')}
                         minLength={props.minLength}
                         type={props.type}
@@ -49,8 +48,7 @@ const input = (props) => {
                     <textarea
                         className={[
                             'form__textarea',
-                            !props.valid ? 'invalid' : 'valid',
-                            props.touched ? 'touched' : 'untouched',
+                            !props.valid && props.touched ? 'invalid' : 'valid',
                         ].join(' ')}
                         id={props.id}
                         rows={props.rows}
@@ -62,7 +60,7 @@ const input = (props) => {
                         onBlur={props.onBlur}
                     />
                 )}
-            
+
                 {props.label && props.control === 'checkbox' && (
                     <label className='form__checkboxLabel' htmlFor={props.id}>
                         <input

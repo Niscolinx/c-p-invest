@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 import { AiFillPhone } from 'react-icons/ai'
 import { ImLocation2 } from 'react-icons/im'
@@ -12,18 +13,18 @@ function Footer() {
                         Useful Links
                     </h4>
                     <ul className='footer__list'>
-                        <a href='/' className='footer__link'>
+                        <Link to='/terms' className='footer__link'>
                             {' '}
                             <li>Terms and Conditions</li>
-                        </a>
-                        <a href='/' className='footer__link'>
+                        </Link>
+                        <Link to='/about-us' className='footer__link'>
                             {' '}
                             <li>About Us</li>
-                        </a>
-                        <a href='/' className='footer__link'>
+                        </Link>
+                        <Link to='/contact-us' className='footer__link'>
                             {' '}
                             <li>Contact Us</li>
-                        </a>
+                        </Link>
                     </ul>
                 </div>
                 <div className='footer__col'>

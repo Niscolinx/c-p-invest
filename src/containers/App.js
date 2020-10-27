@@ -13,10 +13,11 @@ import asyncComponent from '../main/hoc/asyncComponent'
 import Layout from './Layout'
 import Home from './Home'
 import AdminLayout from '../layouts/Admin'
+import Terms from './Terms'
+import ContactUs from './ContactUs'
 import AboutUs from './AboutUs'
 import LoginPage from '../main/auth/Login'
 import SignupPage from '../main/auth/Signup'
-import Particles from 'react-particles-js'
 
 function App(props) {
     const location = useLocation()
@@ -59,6 +60,8 @@ function App(props) {
             />
 
             <Route path='/about-us' component={AsyncAboutUs} />
+            <Route path='/contact-us' component={ContactUs} />
+            <Route path='/terms' component={Terms} />
             <Redirect to='/' />
         </Switch>
     )
