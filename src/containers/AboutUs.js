@@ -9,9 +9,9 @@ function AboutUs() {
                     Welcome to coinperfectinvestment.com
                 </h3>
                 <p className='about__text'>
-                    The coinperfectinvestment.com is one of the largest crypto investment. We
-                    have been servicing our clients since 2007 and we are
-                    expanding our market share to this day. Our exclusive
+                     coinperfectinvestment.com is one of the largest crypto investment. We
+                    have been servicing our clients since 2019 and we are
+                    expanding our market share till this day. Our exclusive
                     location brings us an opportunity to work with clients
                     anywhere from the coast of the Norwegian Sea to the shores
                     of Western Europe.
@@ -27,10 +27,10 @@ function AboutUs() {
                 </p>
                 <h3 className='about__heading heading-3'>Our Mission</h3>
                 <p className='about__text'>
-                    At The Redwood Supplier (FINNISH) Limited, our mission is to
+                    Our mission is to
                     deliver to clients wonderful services through our hard
                     working, innovatives services and full commitments to
-                    clients’ satisfactionary. We have a tendency to apply modern
+                    clients’ satisfaction. We have a tendency to apply modern
                     fast technology and use a team of extremely experienced
                     professionals to bring clients’ monetary dreams in to real
                     life. Our passion is to continually work hard to assist
