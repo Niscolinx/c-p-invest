@@ -93,7 +93,6 @@ const Login = (props) => {
                 state.loginForm.password.value
             )
         } else {
-            console.log('invalid form')
             setMessage({ error: 'Wrong Input, please check your entries' })
         }
     }
@@ -102,17 +101,6 @@ const Login = (props) => {
         <>
             <Particles
             className='particles'
-                // style={{
-                //     background: 'red',
-                //     zIndex: -1,
-                //     width: '100%',
-                //     position: 'absolute',
-                //     // left: 0,
-                //     // top: 0,
-                //     // right: 0,
-                //     // bottom: 0,
-                // }}
-               // params={{ authParams }}
                params={{
                 particles: {
         number: {

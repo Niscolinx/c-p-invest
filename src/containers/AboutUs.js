@@ -1,8 +1,21 @@
 import React from 'react'
 import CryptoMarketWatch from '../tradeviewWidgets/CryptoMarketWatch'
+import Particles from 'react-particles-js'
+
 
 function AboutUs() {
     return (
+        <>
+        <Particles
+                className='particles'
+                params={{
+                    particles: {
+                        number: {
+                            value: 30,
+                        },
+                    },
+                }}
+            />
         <div className='about'>
             <h2 className='heading-2 about__header'>At A GLANCE</h2>
             <div className='about__content'>
@@ -44,6 +57,7 @@ function AboutUs() {
             <CryptoMarketWatch />
             </div>
         </div>
+        </>
     )
 }
 

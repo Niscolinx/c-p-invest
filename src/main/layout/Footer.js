@@ -51,7 +51,7 @@ function Footer() {
                         </li>
                         <li className='footer__list--item'>
                             <AiFillPhone className='footer__list--icon' />
-                            +358407046126
+                            +12024783100
                         </li>
                     </ul>
                 </div>

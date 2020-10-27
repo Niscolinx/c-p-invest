@@ -6,7 +6,7 @@ import {
     useLocation,
     withRouter,
 } from 'react-router-dom'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 import * as actions from '../store/actions/burgerIndex'
 import asyncComponent from '../main/hoc/asyncComponent'
@@ -15,6 +15,7 @@ import Home from './Home'
 import AdminLayout from '../layouts/Admin'
 import Terms from './Terms'
 import ContactUs from './ContactUs'
+import Faq from './Faq'
 import AboutUs from './AboutUs'
 import LoginPage from '../main/auth/Login'
 import SignupPage from '../main/auth/Signup'
@@ -42,25 +43,21 @@ function App(props) {
         return import('./AboutUs')
     })
 
-
     let AuthGuard = (
         <Switch>
             <Route path='/' exact component={Home} />
             <Route
                 path='/Auth/login'
-                render={(props) => (
-                    <AsyncLogin {...props}  />
-                )}
+                render={(props) => <AsyncLogin {...props} />}
             />
             <Route
                 path='/Auth/signup'
-                render={(props) => (
-                    <AsyncSignup {...props} />
-                )}
+                render={(props) => <AsyncSignup {...props} />}
             />
 
             <Route path='/about-us' component={AsyncAboutUs} />
             <Route path='/contact-us' component={ContactUs} />
+            <Route path='/faq' component={Faq} />
             <Route path='/terms' component={Terms} />
             <Redirect to='/' />
         </Switch>
@@ -71,7 +68,6 @@ function App(props) {
                 <Route path='/' exact component={Home} />
                 <Route
                     path='/Auth/login'
-        
                     render={(props) => <AsyncLogin {...props} />}
                 />
                 <Route path='/about-us' component={AsyncAboutUs} />
@@ -87,7 +83,6 @@ function App(props) {
 
     return (
         <>
-
             <Layout isAdmin={location}>{AuthGuard}</Layout>
         </>
     )

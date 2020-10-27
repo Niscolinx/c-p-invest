@@ -1,7 +1,20 @@
 import React from 'react'
+import Particles from 'react-particles-js'
+
 
 function TermsAndConditions() {
     return (
+        <>
+        <Particles
+                className='particles'
+                params={{
+                    particles: {
+                        number: {
+                            value: 30,
+                        },
+                    },
+                }}
+            />
         <div className='terms'>
             <h1 className='terms__header'> Terms and Conditions</h1>
             <div className='terms__text'>
@@ -64,6 +77,7 @@ function TermsAndConditions() {
                 </p>
             </div>
         </div>
+        </>
     )
 }
 

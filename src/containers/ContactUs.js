@@ -45,12 +45,12 @@ const Login = (props) => {
                         ? props.err.error[0].message
                         : null,
             })
-        } else{
+        } else if (state.loginForm.formIsValid) {
             setMessage({
                 success: 'Success',
             })
         }
-    }, [props])
+    }, [props, state])
 
     const inputChangeHandler = (input, value) => {
         setState((prevState) => {
@@ -88,15 +88,14 @@ const Login = (props) => {
 
     const handleLogin = (e) => {
         e.preventDefault()
-        // if (state.formIsValid) {
-        //     props.onInitLogin(
-        //         state.loginForm.email.value,
-        //         state.loginForm.password.value
-        //     )
-        // } else {
-        //     console.log('invalid form')
-        //     setMessage({ error: 'Wrong Input, please check your entries' })
-        // }
+        if (state.formIsValid) {
+            // props.onInitLogin(
+            //     state.loginForm.email.value,
+            //     state.loginForm.password.value
+            // )
+        } else {
+            setMessage({ error: 'Wrong Input, please check your entries' })
+        }
     }
 
     return (
@@ -142,6 +141,7 @@ const Login = (props) => {
                         label='Message'
                         type='textarea'
                         control='textarea'
+                        rows={7}
                         onChange={inputChangeHandler}
                         onBlur={inputBlurHandler.bind('message')}
                         value={state.loginForm['message'].value}

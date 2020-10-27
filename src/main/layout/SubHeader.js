@@ -122,7 +122,7 @@ function SubHeader(props) {
                         </li>
                         <li className='navigation__item'>
                             <Link
-                                to='/Auth/account'
+                                to='/faq'
                                 className='navigation__link'
                                 onClick={() => {
                                     collapseMenu()
@@ -133,18 +133,20 @@ function SubHeader(props) {
                         </li>
                         <li className='navigation__item'>
                             <Link
-                                to='#blank'
+                                to='/contact-us'
                                 className='navigation__link'
                                 onClick={() => {
                                     collapseMenu()
                                 }}
                             >
-                                Services
+                                Contact Us
                             </Link>
                         </li>
                     </ul>
 
-                    <ul className='navigation__list navigation__list--auth'>{mobileNav}</ul>
+                    <ul className='navigation__list navigation__list--auth'>
+                        {mobileNav}
+                    </ul>
                 </nav>
             </div>
 
@@ -155,7 +157,7 @@ function SubHeader(props) {
                 </div>
 
                 <AiFillPhone className='subHeader__contact--logo' />
-                <p className='subHeader__contact--text'>+32352342422</p>
+                <p className='subHeader__contact--text'>+12024783100</p>
 
                 <MdEmail className='subHeader__contact--logo' />
                 <p className='subHeader__contact--text'>
@@ -171,14 +173,14 @@ function SubHeader(props) {
                     <Link to='/' className='subHeader__list--item'>
                         <li>home</li>
                     </Link>
-                    <Link to='/' className='subHeader__list--item'>
-                        <li>services</li>
+                    <Link to='/about-us' className='subHeader__list--item'>
+                        <li>About</li>
                     </Link>
-                    <Link to='#blank' className='subHeader__list--item'>
+                    <Link to='/faq' className='subHeader__list--item'>
                         <li>FAQ</li>
                     </Link>
-                    <Link to='/about-us' className='subHeader__list--item'>
-                        <li>About Us</li>
+                    <Link to='/contact-us' className='subHeader__list--item'>
+                        <li>Contact Us</li>
                     </Link>
                 </ul>
                 <ul className='subHeader__list--auth'>{nav}</ul>
