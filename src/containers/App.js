@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 import { connect } from 'react-redux'
 
+import WhatsappLivechat from '../images/whatsapp.png'
 import * as actions from '../store/actions/burgerIndex'
 import asyncComponent from '../main/hoc/asyncComponent'
 import Layout from './Layout'
@@ -82,9 +83,16 @@ function App(props) {
     }
 
     return (
-        <>
+        <div className='rootApp'>
+            <a href='https://wa.me/+12024783100' alt='' target='_blank'>
+                <img
+                    src={WhatsappLivechat}
+                    alt=''
+                    className='liveChat__whatsapp'
+                />
+            </a>
             <Layout isAdmin={location}>{AuthGuard}</Layout>
-        </>
+        </div>
     )
 }
 

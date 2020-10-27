@@ -161,7 +161,7 @@ function SubHeader(props) {
 
                 <MdEmail className='subHeader__contact--logo' />
                 <p className='subHeader__contact--text'>
-                    Support@coinperfectinvest.com
+                    support@coinperfectinvest.com
                 </p>
             </div>
 

@@ -408,10 +408,27 @@
         &--answer {
             font-size: 1.4rem;
             color: white;
+            margin-bottom: 2rem;
 
             @include respond(phone) {
                 padding: 0 1rem;
             }
         }
     }
+}
+
+.rootApp {
+    position: relative;
+}
+
+.liveChat__whatsapp {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 0;
+    left: 0;
+
+    z-index: 8888;
+    margin: 1.5rem;
+    color: #075e54;
 }
