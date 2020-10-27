@@ -4,6 +4,14 @@
 	font-family: $font-display;
 }
 
+.adminNav__fundAccount{
+
+	&:link,
+	&:visited{
+		color: white !important
+	}
+}
+
 .fundAccount {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);

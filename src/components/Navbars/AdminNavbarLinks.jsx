@@ -12,15 +12,14 @@ class AdminNavbarLinks extends Component {
       <div>
         <i className="fa fa-globe" />
         <b className="caret" />
-        <span className="notification">5</span>
+        <span className="notification">0</span>
         <p className="hidden-lg hidden-md">Notification</p>
       </div>
     );
     return (
-        <div>
+        <div className='adminNavLinks'>
             <Nav>
                 <NavItem eventKey={1} href='#'>
-                    <i className='fa fa-dashboard' />
                     <p className='hidden-lg hidden-md'>Dashboard</p>
                 </NavItem>
                 <NavDropdown
@@ -29,22 +28,18 @@ class AdminNavbarLinks extends Component {
                     noCaret
                     id='basic-nav-dropdown'
                 >
-                    <MenuItem eventKey={2.1}>Notification 1</MenuItem>
-                    <MenuItem eventKey={2.2}>Notification 2</MenuItem>
-                    <MenuItem eventKey={2.3}>Notification 3</MenuItem>
-                    <MenuItem eventKey={2.4}>Notification 4</MenuItem>
-                    <MenuItem eventKey={2.5}>Another notifications</MenuItem>
+                    <MenuItem eventKey={2.1}>No notifications</MenuItem>
                 </NavDropdown>
-                <NavItem eventKey={3} href='#'>
+                {/* <NavItem eventKey={3} href='#'>
                     <i className='fa fa-search' />
                     <p className='hidden-lg hidden-md'>Search</p>
-                </NavItem>
+                </NavItem> */}
             </Nav>
             <Nav pullRight>
                 <NavItem eventKey={1}>
                     <Link to='/admin/fund-account' className='adminNav__fundAccount'>Fund Account</Link>
                 </NavItem>
-                <NavDropdown
+                {/* <NavDropdown
                     eventKey={2}
                     title='Dropdown'
                     id='basic-nav-dropdown-right'
@@ -56,7 +51,7 @@ class AdminNavbarLinks extends Component {
                     <MenuItem eventKey={2.5}>Something</MenuItem>
                     <MenuItem divider />
                     <MenuItem eventKey={2.5}>Separated link</MenuItem>
-                </NavDropdown>
+                </NavDropdown> */}
                 <NavItem eventKey={7} onClick={this.props.onLogOut}>
                     Log out
                 </NavItem>

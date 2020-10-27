@@ -1,79 +1,78 @@
-.plans{
+.plans {
+    &__header {
+        text-align: center;
+        padding: 2rem;
+        margin-bottom: 2rem;
 
-&__header{
-    background: $color-primary-dark;
-       text-align: center;
-    padding: 2rem;
-    margin-bottom: 2rem;
 
-    &--text{
-        font-size: clamp(1.4rem, 1.5rem, 2vw);
-         color: white;
-         text-transform: uppercase;
-    font-weight: 400;
-    font-family: $font-display !important;
+        &--text {
+            font-size: clamp(1.4rem, 1.8rem, 2vw);
+            color: $color-primary-dark;
+            text-transform: uppercase;
+            font-weight: 400;
+            font-family: $font-display !important;
+        }
+    }
 
+    &-dashboard {
+        display: grid;
+        // grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
+        grid-template-columns:
+            [feature-start] minmax(6rem, 1fr) [col-start] repeat(6, 1fr)
+            [col-end] minmax(6rem, 1fr) [feature-end];
+        gap: 4rem;
+        padding: 2rem 0;
+        background-color: $color-secondary;
+        color: $color-primary;
+        align-items: start;
+
+        &__container {
+            width: 100%;
+            display: grid;
+            grid-column: col-start / col-end;
+            grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+            gap: 3rem;
+        }
     }
 }
-
-&-dashboard {
-    display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
-    grid-template-columns: [feature-start] minmax(6rem, 1fr) [col-start] repeat(6, 1fr) [col-end] minmax(6rem, 1fr)[feature-end];
-    gap: 4rem;
-    padding: 2rem 0;
-    color: $color-primary;
-    align-items: start;
-
-    &__container{
-    width: 100%;
-    display: grid;
-    grid-column: col-start / col-end;
-     grid-template-columns: repeat(auto-fit, minmax(27rem,1fr));
-     gap: 3rem;
-    }
-}
-
-}
-
-
 
 .plan-dashboard {
     display: grid;
     //justify-content: center;
     justify-items: center;
-    box-shadow: 5px 2px 14px 3px $color-secondary;
+    box-shadow: $box-shadow;
     border-radius: 5px;
+    color: $color-primary;
+
     padding: 3rem 0;
-    transition: all .5s;
+    transition: all 0.5s;
     // grid-template-columns: min-content auto;
     gap: 2rem;
-
 
     &:hover {
         transform: scale(1.02);
         box-shadow: 2px 4px 17px 3px $color-secondary;
-
     }
 
     &__icon {
         font-size: 3.5rem;
-        border-radius: 50%;
+        border-radius: 20%;
+        box-shadow: 5px 6px 20px 17px #01070e96;
         text-align: center;
         border: 2px solid $color-primary;
-        padding: 4rem;
+        padding: 3rem;
 
         &-percent,
         &-text {
             color: $color-primary-dark;
             font-weight: 400;
+            text-align: center;
         }
-
     }
 
     &__list {
         list-style: none;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         color: $color-primary-dark;
         font-weight: bold;
         display: grid;
@@ -82,7 +81,7 @@
         &-item {
             text-decoration: none;
 
-            &--span{
+            &--span {
                 font-family: $font-display;
                 font-size: 2rem;
             }

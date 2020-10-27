@@ -471,13 +471,13 @@ const iconsArray = [
 //
 // Data for Pie Chart
 let dataPie = {
-  labels: ["10%", "70%", "20%"],
-  series: [10, 70, 20]
+  labels: ["0%", "0%", "0%", "100%"],
+  series: [0, 0, 0, 100]
 };
 let legendPie = {
-  names: ["Open", "Bounce", "Unsubscribe"],
-  types: ["info", "danger", "warning"]
-};
+    names: ['Pending', 'Withdrawals', 'Deposits', 'No activity'],
+    types: ['info', 'success', 'warning', 'danger'],
+}
 
 // Data for Line Chart
 let dataSales = {

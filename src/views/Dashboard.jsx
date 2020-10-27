@@ -18,6 +18,8 @@ import {
   legendBar
 } from "../variables/Variables";
 
+import CrytoMarketWatch from '../tradeviewWidgets/CryptoMarketWatch'
+
 class Dashboard extends Component {
   createLegend(json) {
     var legend = [];
@@ -40,7 +42,7 @@ class Dashboard extends Component {
                 statsText="Account Balance"
                 statsValue="$2,242"
                 statsIcon={<i className="fa fa-refresh" />}
-               statsIconText="Updated now"
+               statsIconText="Always updated"
               />
             </Col>
             <Col lg={3} sm={6}>
@@ -49,7 +51,7 @@ class Dashboard extends Component {
                 statsText="Total Withdrawal"
                 statsValue="$1,345"
                 statsIcon={<i className="fa fa-calendar-o" />}
-                statsIconText="Last day"
+                statsIconText="Always updated"
               />
             </Col>
             <Col lg={3} sm={6}>
@@ -58,48 +60,31 @@ class Dashboard extends Component {
                 statsText="Total Deposit"
                 statsValue="$2,632"
                 statsIcon={<i className="fa fa-clock-o" />}
-                statsIconText="In the last hour"
+                statsIconText="Always updated"
               />
             </Col>
             <Col lg={3} sm={6}>
               <StatsCard
-                bigIcon={<i className="fa fa-twitter text-info" />}
+                bigIcon={<i className="pe-7s-cash text-info" />}
                 statsText="Total Earnings"
                 statsValue="$4,632"
                 statsIcon={<i className="fa fa-refresh" />}
-                statsIconText="Updated now"
+                statsIconText="Always updated"
               />
             </Col>
           </Row>
-          <Row>
+          <Row style={{marginTop: '4rem'}}>
             <Col md={8}>
-              <Card
-                statsIcon="fa fa-history"
-                id="chartHours"
-                title="Users Behavior"
-                category="24 Hours performance"
-                stats="Updated 3 minutes ago"
-                content={
-                  <div className="ct-chart">
-                    <ChartistGraph
-                      data={dataSales}
-                      type="Line"
-                      options={optionsSales}
-                      responsiveOptions={responsiveSales}
-                    />
-                  </div>
-                }
-                legend={
-                  <div className="legend">{this.createLegend(legendSales)}</div>
-                }
-              />
+              <div style={{height:'70vh'}}>
+             <CrytoMarketWatch/> 
+              </div>
             </Col>
             <Col md={4}>
-              <Card
+              <Card 
                 statsIcon="fa fa-clock-o"
-                title="Email Statistics"
-                category="Last Campaign Performance"
-                stats="Campaign sent 2 days ago"
+                title="Transactions"
+                category="investment activities"
+                stats="Always Updated"
                 content={
                   <div
                     id="chartPreferences"
@@ -110,47 +95,6 @@ class Dashboard extends Component {
                 }
                 legend={
                   <div className="legend">{this.createLegend(legendPie)}</div>
-                }
-              />
-            </Col>
-          </Row>
-
-          <Row>
-            <Col md={6}>
-              <Card
-                id="chartActivity"
-                title="2014 Sales"
-                category="All products including Taxes"
-                stats="Data information certified"
-                statsIcon="fa fa-check"
-                content={
-                  <div className="ct-chart">
-                    <ChartistGraph
-                      data={dataBar}
-                      type="Bar"
-                      options={optionsBar}
-                      responsiveOptions={responsiveBar}
-                    />
-                  </div>
-                }
-                legend={
-                  <div className="legend">{this.createLegend(legendBar)}</div>
-                }
-              />
-            </Col>
-
-            <Col md={6}>
-              <Card
-                title="Tasks"
-                category="Backend development"
-                stats="Updated 3 minutes ago"
-                statsIcon="fa fa-history"
-                content={
-                  <div className="table-full-width">
-                    <table className="table">
-                      <Tasks />
-                    </table>
-                  </div>
                 }
               />
             </Col>

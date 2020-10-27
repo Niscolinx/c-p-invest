@@ -157,12 +157,12 @@ class Admin extends Component {
   }
   render() {
     return (
-      <div className="wrapper">
+      <div className="wrapper" style={{background: '#101d2c'}}>
         <NotificationSystem ref="notificationSystem" style={style} />
         <Sidebar {...this.props} dashboardRoutes={dashboardRoutes} image={this.state.image}
         color={this.state.color}
         hasImage={this.state.hasImage}/>
-        <div id="main-panel" className="main-panel" ref="mainPanel">
+        <div id="main-panel" className="main-panel" ref="mainPanel" style={{background:'#101d2c'}}>
           <AdminNavbar
             {...this.props}
             brandText={this.getBrandText(this.props.location.pathname)}
