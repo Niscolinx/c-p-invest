@@ -376,16 +376,42 @@
 
 .faq {
     margin: 7rem 0;
-    
+    grid-column: full-start/center-end;
+    font-family: $font-display;
+    color: $color-primary-dark;
 
     &__heading {
+        font-size: 3rem;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 3rem;
     }
 
     &__content {
+        display: grid;
+        //word-break: break-all;
+        //word-wrap: break-word;
+        column-gap: 3rem;
+        justify-items: center;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+
         &--question {
+            font-size: 1.7rem;
+            font-weight: 400;
+
+            @include respond(phone) {
+                padding: 0 1rem;
+            }
         }
 
         &--answer {
+            font-size: 1.4rem;
+            color: white;
+
+            @include respond(phone) {
+                padding: 0 1rem;
+            }
         }
     }
 }

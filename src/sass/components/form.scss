@@ -99,6 +99,14 @@
         font-size: clamp(1.4rem, 1.3vw, 1.8vw);
     }
 
+    &__link{
+
+        &:link,
+        &:visited{
+            color: white;
+        }
+    }
+
     &__checkbox {
         display: flex;
         align-items: baseline;
