@@ -37,7 +37,6 @@ const authRedirect = (state, action) => {
     return update(state, {
         loading: false,
         redirect: action.to,
-        userData: action.data
     })
 }
 
@@ -45,6 +44,14 @@ const clearError = (state, action) => {
     return update(state, {
         ...action,
         error: null,
+    })
+}
+
+const getUser =(state, action) => {
+    return update(state, {
+        ...action,
+        loading: false,
+        userData: action.data
     })
 }
 
@@ -62,6 +69,7 @@ const auth = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.AUTH_START:
             return authStart(state, action)
+        case actionTypes.AUTH_GETUSER: return getUser(state, action)
         case actionTypes.AUTH_REDIRECT:
             return authRedirect(state, action)
         case actionTypes.AUTH_SUCCESS:

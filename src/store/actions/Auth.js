@@ -53,7 +53,7 @@ export const redirect = (to, data) => {
     return {
         type: actions.AUTH_REDIRECT,
         to,
-        data
+        data,
     }
 }
 
@@ -70,6 +70,49 @@ export const logOut = () => {
 export const clearError = () => {
     return {
         type: actions.AUTH_CLEAR_ERROR,
+    }
+}
+
+export const getUser = (data) => {
+    return {
+        type: actions.AUTH_GETUSER,
+        data,
+    }
+}
+
+export const initGetUser = (token) => {
+    return (dispatch) => {
+        dispatch(authStart())
+        const graphqlQuery = {
+            query: `{
+                getUser {
+                   fullname username email status
+                }
+            }`,
+        }
+        fetch('http://localhost:3030/api/graphql', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token,
+            },
+            body: JSON.stringify(graphqlQuery),
+        })
+            .then((res) => {
+                return res.json()
+            })
+            .then((resData) => {
+                console.log('the status data', resData)
+                if (resData.errors) {
+                    dispatch(authFailed('getUser', resData.errors))
+
+                    throw new Error('Failed to fetch user status.')
+                }
+                dispatch(getUser(resData.data.getUser))
+            })
+            .catch((err) => {
+                console.log('error in login', err)
+            })
     }
 }
 
@@ -98,7 +141,6 @@ export const initLogin = (email, password) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('In the res data', resData)
                 if (resData.errors && resData.errors[0].statusCode === 422) {
                     throw new Error(
                         'Validation failed. Please make sure your input values are correct'
@@ -151,7 +193,6 @@ export const initSignup = (authData) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('the resdata', resData)
                 if (resData.errors && resData.errors[0].statusCode === 422) {
                     throw new Error(
                         'Validation failed. Please make sure your input values are correct'
