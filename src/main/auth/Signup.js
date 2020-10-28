@@ -366,7 +366,7 @@ const Signup = (props) => {
 const mapStateToProps = (state) => {
     return {
         err: state.auth.error,
-        loading: state.order.loading,
+        loading: state.auth.loading,
         redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,

@@ -126,6 +126,7 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log('dashboard state', state)
     return {
         err: state.auth.error,
         loading: state.order.loading,

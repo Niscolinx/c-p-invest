@@ -32,7 +32,7 @@ const UserProfile = (props) => {
         const name = e.target.name
         const value = e.target.value
 
-        console.log('the name', name, 'value', value)
+        // console.log('the name', name, 'value', value)
 
         if (name === 'fullname') {
             setFullname(value)
@@ -66,8 +66,6 @@ const UserProfile = (props) => {
         }
     }
 
-   
-
     // const handleSubmit = (e) => {
     //     e.preventDefault()
     //     const formData = {
@@ -78,15 +76,15 @@ const UserProfile = (props) => {
 
     //     props.onInitFundAccount(formData, props.tokenId, props.userId)
     // }
-    console.log(
-        'the values',
-        fullname,
-        username,
-        password,
-        email,
-        phone,
-        bitcoin
-    )
+    // console.log(
+    //     'the values',
+    //     fullname,
+    //     username,
+    //     password,
+    //     email,
+    //     phone,
+    //     bitcoin
+    // )
 
     return (
         <div className='content'>
@@ -96,8 +94,8 @@ const UserProfile = (props) => {
                         <UserCard
                             bgImage='https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400'
                             avatar={avatar}
-                            name='Mike Andrew'
-                            userName='michael24'
+                            name={props.userData.fullname}
+                            userName={props.userData.userName}
                         />
                     </Col>
                     <Col md={8}>
@@ -143,7 +141,6 @@ const UserProfile = (props) => {
                                                 Phone Number
                                             </ControlLabel>
                                             <FormControl
-                                                
                                                 type='number'
                                                 name='phone'
                                                 onChange={handleChange}
@@ -215,7 +212,10 @@ const UserProfile = (props) => {
                                             />
                                         </FormGroup>
                                     </Row>
-                                    <button className='button btn__profile' type='submit'>
+                                    <button
+                                        className='button btn__profile'
+                                        type='submit'
+                                    >
                                         Update Profile
                                     </button>
                                     {/* <div className='clearfix' /> */}
@@ -230,13 +230,12 @@ const UserProfile = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log('userProfile', state)
     return {
-        loading: state.order.loading,
+        loading: state.auth.loading,
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
-        userData: state.auth.userData
+        userData: state.auth.userData,
     }
 }
 
