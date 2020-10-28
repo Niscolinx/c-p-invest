@@ -38,6 +38,10 @@
         position: relative;
         z-index: 4;
 
+        &-2{
+            width: 100%;
+        }
+
         p{
             float: left;
             font-size: 20px;

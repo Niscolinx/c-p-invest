@@ -3,8 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import AdminNavbarLinks from '../Navbars/AdminNavbarLinks'
 
-import logo from '../../assets/img/logo.jpg'
-
+import logo from '../../images/logo2.png'
 class Sidebar extends Component {
     constructor(props) {
         super(props)
@@ -33,7 +32,7 @@ class Sidebar extends Component {
                 id='sidebar'
                 className='sidebar'
                 data-color={this.props.color}
-                data-image={this.props.image}
+               data-image={this.props.image}
             >
                 {this.props.hasImage ? (
                     <div
@@ -42,20 +41,14 @@ class Sidebar extends Component {
                     />
                 ) : null}
                 <div className='logo'>
+                    <img src={logo} alt='logo_image' className='logo-2'/>
+                
                     {/* <a
-                        href='/admin/dashboard'
-                        className='simple-text logo-mini'
-                    >
-                        <div className='logo-img'>
-                            <img src={logo} alt='logo_image' className='logo-2'/>
-                        </div>
-                    </a> */}
-                    <a
                         href='/admin/dashboard'
                         className='simple-text logo-normal'
                     >
                         Coinperfectinvestment
-                    </a>
+                    </a> */}
                 </div>
                 <div className='sidebar-wrapper'>
                     <ul className='nav'>

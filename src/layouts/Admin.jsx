@@ -14,14 +14,14 @@ import { style } from "../variables/Variables";
 
 import {dashboardRoutes} from "../routes.js";
 
-import image from "../assets/img/sidebar-3.jpg";
-
+//import image from "../assets/img/sidebar-3.jpg";
+import sideBarImg from '../images/hero.jpg'
 class Admin extends Component {
   constructor(props) {
     super(props);
     this.state = {
       _notificationSystem: null,
-      image: image,
+      image: sideBarImg,
       color: "black",
       hasImage: true,
       fixedClasses: "dropdown show-dropdown open"
