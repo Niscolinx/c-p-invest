@@ -39,7 +39,7 @@ class Dashboard extends Component {
                                 statsText='Account Balance'
                                 statsValue='$0'
                                 statsIcon={<i className='fa fa-refresh' />}
-                                statsIconText='Always updated'
+                                statsIconText='Updated now'
                             />
                         </Col>
                         <Col lg={3} sm={6}>
@@ -50,7 +50,7 @@ class Dashboard extends Component {
                                 statsText='Total Withdrawal'
                                 statsValue='$0'
                                 statsIcon={<i className='fa fa-calendar-o' />}
-                                statsIconText='Always updated'
+                                statsIconText='Updated now'
                             />
                         </Col>
                         <Col lg={3} sm={6}>
@@ -61,7 +61,7 @@ class Dashboard extends Component {
                                 statsText='Total Deposit'
                                 statsValue='$0'
                                 statsIcon={<i className='fa fa-clock-o' />}
-                                statsIconText='Always updated'
+                                statsIconText='Updated now'
                             />
                         </Col>
                         <Col lg={3} sm={6}>
@@ -70,7 +70,7 @@ class Dashboard extends Component {
                                 statsText='Total Earnings'
                                 statsValue='$0'
                                 statsIcon={<i className='fa fa-refresh' />}
-                                statsIconText='Always updated'
+                                statsIconText='Updated now'
                             />
                         </Col>
                     </Row>
@@ -85,7 +85,7 @@ class Dashboard extends Component {
                                 statsIcon='fa fa-clock-o'
                                 title='Transactions'
                                 category='investment activities'
-                                stats='Always Updated'
+                                stats='Updated now'
                                 content={
                                     <div
                                         id='chartPreferences'

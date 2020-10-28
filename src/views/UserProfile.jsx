@@ -28,10 +28,7 @@ const UserProfile = (props) => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmNewPassword] = useState('')
 
-    const [userData, setUserData] = useState({
-        fullname: '',
-        username: '',
-    })
+   
 
     const handleChange = (e) => {
         const name = e.target.name

@@ -43,10 +43,10 @@ const PlanOrder = (props) => {
             )
             setError(false)
         }
-        const formData = {
-            amount,
-            currency,
-        }
+        // const formData = {
+        //     amount,
+        //     currency,
+        // }
 
         // props.onInitFundAccount(formData, props.tokenId, props.userId)
     }
@@ -65,7 +65,7 @@ const PlanOrder = (props) => {
                             statsText='Account Balance'
                             statsValue={'$' + accountBalance}
                             statsIcon={<i className='fa fa-refresh' />}
-                            statsIconText='Always Updated'
+                            statsIconText='Updated now'
                         />
                     </Col>
                 </Row>

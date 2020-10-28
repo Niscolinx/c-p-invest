@@ -57,7 +57,7 @@ const PlanOrder = (props) => {
                                 <i className='pe-7s-server text-warning' />
                             }
                             statsText='Account Balance'
-                            statsValue='$2,242'
+                            statsValue='$0'
                             statsIcon={<i className='fa fa-refresh' />}
                             statsIconText='Updated now'
                         />
@@ -66,7 +66,7 @@ const PlanOrder = (props) => {
 
                 <div className='fundAccount__package'>
                     <h3 className='fundAccount__package--text'>
-                        Selected Plan:{' '}
+                        SELECTED PLAN:{' '}
                         <span style={{ textTransform: 'uppercase' }}>
                             {selectedPlan}
                         </span>
@@ -133,7 +133,7 @@ const PlanOrder = (props) => {
                         >
                             Submit
                         </button> */}
-                        <Link to={'/admin/plan-confirmation/:' + selectedPlan}>
+                        <Link to={'/admin/plan-confirmation/:' + selectedPlan} className='button'>
                             Proceed
                         </Link>
                     </div>

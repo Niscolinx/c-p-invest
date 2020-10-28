@@ -7,13 +7,13 @@ import { thWithdrawalArray, tdWithdrawalArray } from '../variables/Variables'
 class TableList extends Component {
     render() {
         return (
-            <div className='content' style={{width: '70vh'}}>
+            <div className='content'>
                 <Grid fluid>
                     <Row>
                         <Col md={12}>
                             <Card
                                 plain
-                                title='Your Withdrawal'
+                                title='Your investment'
                                 category='History'
                                 ctTableFullWidth
                                 ctTableResponsive
