@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     Grid,
     Row,
@@ -27,6 +27,11 @@ const UserProfile = (props) => {
     const [city, setCity] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmNewPassword] = useState('')
+
+    const [userData, setUserData] = useState({
+        fullname: '',
+        username: '',
+    })
 
     const handleChange = (e) => {
         const name = e.target.name
@@ -86,6 +91,21 @@ const UserProfile = (props) => {
     //     bitcoin
     // )
 
+    console.log('the fetched userprofile', props.userData)
+
+    useEffect(() => {
+        if (props.tokenId) {
+            props.onInitGetUser(props.tokenId)
+        }
+        if (props.userData) {
+            setUserData({
+                ...userData,
+                fullname: props.userData.fullname,
+                username: props.userData.username,
+            })
+        }
+    }, [props, userData])
+
     return (
         <div className='content'>
             <Grid fluid>
@@ -94,8 +114,8 @@ const UserProfile = (props) => {
                         <UserCard
                             bgImage='https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400'
                             avatar={avatar}
-                            name={props.userData.fullname}
-                            userName={props.userData.userName}
+                            name={userData.fullname}
+                            userName={userData.username}
                         />
                     </Col>
                     <Col md={8}>
@@ -230,6 +250,7 @@ const UserProfile = (props) => {
 }
 
 const mapStateToProps = (state) => {
+    console.log('user state', state)
     return {
         loading: state.auth.loading,
         err: state.auth.error,
@@ -241,8 +262,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onInitFundAccount: (data, token, userId) =>
-            dispatch(orderAction.initFundAccount(data, token, userId)),
+        onInitGetUser: (token) =>
+            dispatch(orderAction.initGetUser(token))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)
