@@ -8,7 +8,6 @@ export const authStart = () => {
 
 export const authSuccessCheck = (auth, token) => {
     return (dispatch) => {
-
         sessionStorage.setItem('userId', auth)
         sessionStorage.setItem('token', token)
 
@@ -22,9 +21,7 @@ export const authSuccessCheck = (auth, token) => {
         sessionStorage.setItem('expiryDate', expiryDate.toISOString())
         dispatch(authSuccess(auth, token))
 
-        setTimeout(() => {
-            
-        }, remainingMilliseconds)
+        setTimeout(() => {}, remainingMilliseconds)
     }
 }
 
@@ -85,7 +82,7 @@ export const initGetUser = (token) => {
                 }
             }`,
         }
-        fetch('http://localhost:3030/api/graphql', {
+        fetch('https://coinperfect.herokuapp.com/api/graphql', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -124,7 +121,7 @@ export const initLogin = (email, password) => {
          `,
         }
 
-        fetch('http://localhost:3030/api/graphql', {
+        fetch('https://coinperfect.herokuapp.com/api/graphql', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -178,7 +175,7 @@ export const initSignup = (authData) => {
          }`,
         }
 
-        fetch('http://localhost:3030/api/graphql', {
+        fetch('https://coinperfect.herokuapp.com/api/graphql', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(graphqlQuery),

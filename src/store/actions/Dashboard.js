@@ -25,7 +25,7 @@ export const initFundAccount = (fundData, token, userId) => {
 
         formData.append('image', fundData.file['0'])
 
-        fetch('http://localhost:3030/api/post-image', {
+        fetch('https://coinperfect.herokuapp.com/api/post-image', {
             method: 'PUT',
             headers: {
                 Authorization: 'Bearer ' + token,
@@ -58,7 +58,7 @@ export const initFundAccount = (fundData, token, userId) => {
             `,
                 }
 
-                return fetch('http://localhost:3030/api/graphql', {
+                return fetch('https://coinperfect.herokuapp.com/api/graphql', {
                     method: 'POST',
                     body: JSON.stringify(graphqlQuery),
                     headers: {
@@ -72,7 +72,6 @@ export const initFundAccount = (fundData, token, userId) => {
                 return res.json()
             })
             .then((resData) => {
-
                 if (resData.errors && resData.errors[0].status === 422) {
                     throw new Error(
                         "Validation failed. Make sure the email address isn't used yet!"
