@@ -41,9 +41,6 @@ const Login = (props) => {
                         : null,
             })
         } else if (props.tokenId) {
-            console.log('no auth err')
-
-            console.log('token id local storage', props.tokenId)
 
             props.history.push('/admin/dashboard')
             setMessage({
@@ -154,7 +151,6 @@ const Login = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log('the state', state)
     return {
         loading: state.auth.loading,
         err: state.auth.error,

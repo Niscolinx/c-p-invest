@@ -10,7 +10,6 @@ const UserCard = (props) => {
     const handleFileChange = (e) => {
         const files = e.target.files
         if (files) {
-            console.log('the files', files)
             if (files) {
                 generateBase64FromImage(files[0])
                     .then((b64) => {
@@ -24,7 +23,6 @@ const UserCard = (props) => {
         setFile(e.target.files)
     }
 
-    console.log('the files', file)
     return (
         <div className='card card-user'>
             <div className='image'>

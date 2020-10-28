@@ -1,7 +1,6 @@
 import React from 'react'
 
 function PlanConfirmation(props) {
-    console.log('confirmation props', props)
     const { amount, currency } = props.location.state
     const {
         name,

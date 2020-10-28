@@ -20,7 +20,6 @@ export const fundAccountFailed = (err) => {
 
 export const initFundAccount = (fundData, token, userId) => {
     return (dispatch) => {
-        console.log('fund data', fundData)
         dispatch(fundAccountStart())
         const formData = new FormData()
 
@@ -37,7 +36,6 @@ export const initFundAccount = (fundData, token, userId) => {
                 return res.json()
             })
             .then((result) => {
-                console.log('result', result)
                 const proofUrl = result.filePath
 
                 let graphqlQuery = {
@@ -74,7 +72,6 @@ export const initFundAccount = (fundData, token, userId) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('the fund Account', resData)
 
                 if (resData.errors && resData.errors[0].status === 422) {
                     throw new Error(

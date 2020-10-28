@@ -81,7 +81,6 @@ const Signup = (props) => {
     const [message, setMessage] = useState(null)
 
     useEffect(() => {
-        console.log('set message',message, props.err)
         if (props.err) {
             setMessage({
                 error:
@@ -157,22 +156,17 @@ const Signup = (props) => {
 
     const handleSignup = (e) => {
         e.preventDefault()
-        console.log('validation', state.formValid, checked)
         if (state.formValid && checked) {
             props.onInitSignup(state)
         } else {
-            console.log('invalid form')
             setMessage({ error: 'Wrong Input, please check your entries' })
         }
     }
 
-    console.log('history', props.history)
     if (props.redirectToLoginPage) {
-        console.log('redirect is true', props.redirectToLoginPage)
         props.history.replace(props.redirectToLoginPage)
     }
 
-    console.log('props message', message)
 
     return (
         <>

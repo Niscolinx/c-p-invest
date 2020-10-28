@@ -30,14 +30,11 @@ const PlanOrder = (props) => {
 
         accountBalance = Number(accountBalance)
         amount = Number(amount)
-        console.log('amount balance', amount, accountBalance)
 
         if (amount < 1 || accountBalance < amount) {
-            console.log('low balance')
             setMessage('Insufficiant Balance')
             setError(true)
         } else {
-            console.log('good balance')
             setMessage(
                 'Withdrawal sent, Your withdrawal will reflect in your account after we have confirmed it, thanks!! '
             )
@@ -51,7 +48,6 @@ const PlanOrder = (props) => {
         // props.onInitFundAccount(formData, props.tokenId, props.userId)
     }
 
-    console.log('the error', error, message)
 
     return (
         <>

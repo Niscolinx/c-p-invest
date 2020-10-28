@@ -8,8 +8,6 @@ export const authStart = () => {
 
 export const authSuccessCheck = (auth, token) => {
     return (dispatch) => {
-        console.log('the auth', auth, token)
-        console.log('logged in successfully')
 
         sessionStorage.setItem('userId', auth)
         sessionStorage.setItem('token', token)
@@ -18,8 +16,6 @@ export const authSuccessCheck = (auth, token) => {
         const expiryDate = new Date(
             new Date().getTime() + remainingMilliseconds
         )
-        console.log('expiry', expiryDate)
-        console.log('remaining seconds', remainingMilliseconds)
 
         //After set this to calculate the expiration based on the sessionStorage
         sessionStorage.setItem('expiryTime', remainingMilliseconds)
@@ -27,8 +23,7 @@ export const authSuccessCheck = (auth, token) => {
         dispatch(authSuccess(auth, token))
 
         setTimeout(() => {
-            console.log('logout setimeout')
-            dispatch(logOut())
+            
         }, remainingMilliseconds)
     }
 }
@@ -102,7 +97,6 @@ export const initGetUser = (token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('the status data', resData)
                 if (resData.errors) {
                     dispatch(authFailed('getUser', resData.errors))
 

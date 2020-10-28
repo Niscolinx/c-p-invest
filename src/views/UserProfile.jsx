@@ -88,7 +88,6 @@ const UserProfile = (props) => {
     //     bitcoin
     // )
 
-console.log('props of profile',props.userData)
     return (
         <div className='content'>
             <Grid fluid>
@@ -233,7 +232,6 @@ console.log('props of profile',props.userData)
 }
 
 const mapStateToProps = (state) => {
-    console.log('user state', state)
     return {
         loading: state.auth.loading,
         err: state.auth.error,
