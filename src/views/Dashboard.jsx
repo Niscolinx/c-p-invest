@@ -2,22 +2,12 @@ import React, { Component } from 'react'
 import ChartistGraph from 'react-chartist'
 import { Grid, Row, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import * as actionTypes from '../store/actions/burgerIndex'
 
 import { Card } from '../components/Card/Card'
 import { StatsCard } from '../components/StatsCard/StatsCard'
-import { Tasks } from '../components/Tasks/Tasks'
 import {
     dataPie,
     legendPie,
-    dataSales,
-    optionsSales,
-    responsiveSales,
-    legendSales,
-    dataBar,
-    optionsBar,
-    responsiveBar,
-    legendBar,
 } from '../variables/Variables'
 
 import CrytoMarketWatch from '../tradeviewWidgets/CryptoMarketWatch'
@@ -47,7 +37,7 @@ class Dashboard extends Component {
                                     <i className='pe-7s-server text-warning' />
                                 }
                                 statsText='Account Balance'
-                                statsValue='$2,242'
+                                statsValue='$0'
                                 statsIcon={<i className='fa fa-refresh' />}
                                 statsIconText='Always updated'
                             />
@@ -58,7 +48,7 @@ class Dashboard extends Component {
                                     <i className='pe-7s-wallet text-success' />
                                 }
                                 statsText='Total Withdrawal'
-                                statsValue='$1,345'
+                                statsValue='$0'
                                 statsIcon={<i className='fa fa-calendar-o' />}
                                 statsIconText='Always updated'
                             />
@@ -69,7 +59,7 @@ class Dashboard extends Component {
                                     <i className='pe-7s-graph1 text-danger' />
                                 }
                                 statsText='Total Deposit'
-                                statsValue='$2,632'
+                                statsValue='$0'
                                 statsIcon={<i className='fa fa-clock-o' />}
                                 statsIconText='Always updated'
                             />
@@ -78,7 +68,7 @@ class Dashboard extends Component {
                             <StatsCard
                                 bigIcon={<i className='pe-7s-cash text-info' />}
                                 statsText='Total Earnings'
-                                statsValue='$4,632'
+                                statsValue='$0'
                                 statsIcon={<i className='fa fa-refresh' />}
                                 statsIconText='Always updated'
                             />

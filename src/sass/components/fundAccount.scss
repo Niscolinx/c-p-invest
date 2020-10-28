@@ -1,5 +1,5 @@
 .fundAccount__controlLabel {
-    color: $color-secondary-light;
+    color: $color-primary-dark;
     font-weight: 400;
     font-family: $font-display;
 }
@@ -103,6 +103,7 @@
 
         &--file {
             font-family: $font-display;
+            color: $color-secondary-light
 
             &:hover {
                 cursor: pointer;

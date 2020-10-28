@@ -51,7 +51,7 @@ function FundAccount(props) {
                     <StatsCard
                         bigIcon={<i className='pe-7s-server text-warning' />}
                         statsText='Account Balance'
-                        statsValue='$2,242'
+                        statsValue='$0'
                         statsIcon={<i className='fa fa-refresh' />}
                         statsIconText='Updated now'
                     />
