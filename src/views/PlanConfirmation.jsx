@@ -44,17 +44,17 @@ function PlanConfirmation(props) {
                 <p className='deposit__info--left'>Order Status</p>
                 <p className='deposit__info--right'>Pending </p>
             </div>
-            <p className='deposit__info--instruction'>
+            <h4 className='deposit__info--instruction'>
                 {amount ? (
                     `
-                
+                INSTRUCTION: Please send $${amount} worth of ${currency} to 
                 "${walletAddress}"`
                 ) : (
                     <span style={{ color: '#ff6969' }}>
                         Invalid amount, Please enter an amount
                     </span>
                 )}
-            </p>
+            </h4>
         </div>
     )
 }

@@ -27,6 +27,8 @@
 
         &--instruction{
             display: grid;
+            word-wrap: break-word;
+            word-break: break-all;
             font-size: 1rem;
             text-align: center;
             justify-content: center;
