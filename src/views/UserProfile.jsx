@@ -91,20 +91,6 @@ const UserProfile = (props) => {
     //     bitcoin
     // )
 
-    console.log('the fetched userprofile', props.userData)
-
-    useEffect(() => {
-        if (props.tokenId) {
-            props.onInitGetUser(props.tokenId)
-        }
-        if (props.userData) {
-            setUserData({
-                ...userData,
-                fullname: props.userData.fullname,
-                username: props.userData.username,
-            })
-        }
-    }, [props, userData])
 
     return (
         <div className='content'>
@@ -114,8 +100,8 @@ const UserProfile = (props) => {
                         <UserCard
                             bgImage='https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400'
                             avatar={avatar}
-                            name={userData.fullname}
-                            userName={userData.username}
+                            name={props.userData ? props.userData.fullname : ''}
+                            userName={props.userData? props.userData.username : ''}
                         />
                     </Col>
                     <Col md={8}>
@@ -262,8 +248,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onInitGetUser: (token) =>
-            dispatch(orderAction.initGetUser(token))
+        onInitGetUser: (token) => dispatch(orderAction.initGetUser(token)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)

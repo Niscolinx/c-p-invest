@@ -6,6 +6,7 @@ const initialState = {
     loading: false,
     userId: sessionStorage.getItem('userId') || null,
     tokenId: sessionStorage.getItem('token') || null,
+    userData: {}
 }
 const authStart = (state, action) => {
     return update(state, {

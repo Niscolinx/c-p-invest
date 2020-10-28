@@ -38,7 +38,7 @@ const UserCard = (props) => {
                             src={props.avatar}
                             alt='...'
                         />
-                        <h4 className='title'>
+                        <h4 className='title' style={{color: 'white'}}>
                             {props.name}
                             <br />
                             <small>{props.userName}</small>

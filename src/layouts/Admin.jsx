@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import NotificationSystem from "react-notification-system";
+import { connect } from 'react-redux'
+import * as actionTypes from '../store/actions/burgerIndex'
  
 import AdminNavbar from "../components/Navbars/AdminNavbar";
 import Footer from "../components/Footer/Footer";
@@ -140,6 +142,10 @@ class Admin extends Component {
       position: "tr",
       autoDismiss: 15
     });
+
+      if (this.props.tokenId) {
+            this.props.onInitGetUser(this.props.tokenId)
+        }
   }
   componentDidUpdate(e) {
     if (
@@ -189,4 +195,19 @@ class Admin extends Component {
   }
 }
 
-export default Admin;
+const mapStateToProps = (state) => {
+    return {
+        err: state.auth.error,
+        loading: state.order.loading,
+        redirectToLoginPage: state.auth.redirect,
+        tokenId: state.auth.tokenId,
+        userId: state.auth.userId,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onInitGetUser: (token) => dispatch(actionTypes.initGetUser(token)),
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Admin)

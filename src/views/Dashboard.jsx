@@ -34,11 +34,7 @@ class Dashboard extends Component {
         return legend
     }
 
-    componentDidMount() {
-        if (this.props.tokenId) {
-            this.props.onInitGetUser(this.props.tokenId)
-        }
-    }
+
 
     render() {
         return (
@@ -137,7 +133,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onInitGetUser: (token) => dispatch(actionTypes.initGetUser(token)),
+        //onInitGetUser: (token) => dispatch(actionTypes.initGetUser(token)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

@@ -19,9 +19,9 @@ class AdminNavbarLinks extends Component {
     return (
         <div className='adminNavLinks'>
             <Nav>
-                <NavItem eventKey={1} href='#'>
+                {/* <NavItem eventKey={1} href='#'>
                     <p className='hidden-lg hidden-md'>Dashboard</p>
-                </NavItem>
+                </NavItem> */}
                 <NavDropdown
                     eventKey={2}
                     title={notification}
