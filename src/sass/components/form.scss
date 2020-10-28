@@ -1,5 +1,4 @@
 .auth {
-
     &-form {
         z-index: 8888;
         display: grid;
@@ -38,7 +37,7 @@
         font-size: 1.3rem;
         background-color: $color-primary;
         color: #fff;
-        transition: all .2s;
+        transition: all 0.2s;
 
         &--success {
             background: $color-primary;
@@ -48,7 +47,6 @@
             background-color: $color-error;
         }
     }
-
 }
 
 .auth-form__login {
@@ -70,6 +68,13 @@
     &__heading {
         grid-column: 1 / -1;
         border-bottom: 1px solid $color-grey-dark-2;
+    }
+
+    &__heading--forgottenPassword{
+        text-align: center;
+        color: $color-primary-dark;
+        font-family: $font-display;
+        text-transform: uppercase;
     }
 
     &-1,
@@ -99,10 +104,9 @@
         font-size: clamp(1.4rem, 1.3vw, 1.8vw);
     }
 
-    &__link{
-
+    &__link {
         &:link,
-        &:visited{
+        &:visited {
             color: white;
         }
     }
@@ -161,6 +165,16 @@
         grid-column: 1 / -1;
         justify-content: center;
         justify-items: center;
+
+        &__link {
+            &:link,
+            &:visited {
+                color: white;
+                font-family: $font-display;
+                text-decoration: none;
+                padding: 1rem;
+            }
+        }
     }
 }
 

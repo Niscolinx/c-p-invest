@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import Particles from 'react-particles-js'
-import {Link } from 'react-router-dom'
 
-import * as orderAction from '../../store/actions/burgerIndex'
+import * as orderAction from '../store/actions/burgerIndex'
 
-import Button from '../Button'
-import Input from '../Input'
+import Button from '../main/Button'
+import Input from '../main/Input'
 
-import { required, length, email } from '../../util/validators'
-import Auth from './Auth'
+import { required, email } from '../util/validators'
+import Auth from '../main/auth/Auth'
 
 const Login = (props) => {
     const [state, setState] = useState({
@@ -19,12 +18,6 @@ const Login = (props) => {
                 valid: false,
                 touched: false,
                 validators: [required, email],
-            },
-            password: {
-                value: '',
-                valid: false,
-                touched: false,
-                validators: [required, length({ min: 6 })],
             },
             formIsValid: false,
         },
@@ -89,10 +82,7 @@ const Login = (props) => {
     const handleLogin = (e) => {
         e.preventDefault()
         if (state.formIsValid) {
-            props.onInitLogin(
-                state.loginForm.email.value,
-                state.loginForm.password.value
-            )
+            setMessage({ success: 'Your recovery link has been sent to your email'})
         } else {
             setMessage({ error: 'Wrong Input, please check your entries' })
         }
@@ -111,6 +101,9 @@ const Login = (props) => {
                 }}
             />
             <Auth login message={message}>
+                <h1 className='form__heading form__heading--forgottenPassword'>
+                    Retrive Password
+                </h1>
                 <form onSubmit={handleLogin}>
                     <Input
                         id='email'
@@ -123,30 +116,15 @@ const Login = (props) => {
                         valid={state.loginForm['email'].valid}
                         touched={state.loginForm['email'].touched}
                     />
-                    <Input
-                        id='password'
-                        label='Password'
-                        type='password'
-                        control='input'
-                        minLength={6}
-                        onChange={inputChangeHandler}
-                        onBlur={inputBlurHandler.bind('password')}
-                        value={state.loginForm['password'].value}
-                        valid={state.loginForm['password'].valid}
-                        touched={state.loginForm['password'].touched}
-                    />
                     <div className='form-btn'>
                         <Button
                             design='raised'
                             type='submit'
                             loading={props.loading}
                         >
-                            {props.loading ? 'Loading...' : 'Login'}
+                            {props.loading ? 'Loading...' : 'Send'}
                         </Button>
-                        <Link to='/forgot-password' className='form-btn__link'>Forgot Password?</Link>
-
                     </div>
-                  
                 </form>
             </Auth>
         </>

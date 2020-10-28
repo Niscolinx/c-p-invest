@@ -354,7 +354,7 @@ const Signup = (props) => {
                             type='submit'
                             loading={props.loading}
                         >
-                            Signup
+                            {props.loading ? 'Loading...' : 'Signup'}
                         </Button>
                     </div>
                 </form>

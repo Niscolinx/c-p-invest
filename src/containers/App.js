@@ -17,6 +17,7 @@ import AdminLayout from '../layouts/Admin'
 import Terms from './Terms'
 import ContactUs from './ContactUs'
 import Faq from './Faq'
+import ForgotPassword from './ForgotPassword'
 import AboutUs from './AboutUs'
 import LoginPage from '../main/auth/Login'
 import SignupPage from '../main/auth/Signup'
@@ -57,6 +58,7 @@ function App(props) {
             />
 
             <Route path='/about-us' component={AsyncAboutUs} />
+            <Route path='/forgot-password' component={ForgotPassword} />
             <Route path='/contact-us' component={ContactUs} />
             <Route path='/faq' component={Faq} />
             <Route path='/terms' component={Terms} />
