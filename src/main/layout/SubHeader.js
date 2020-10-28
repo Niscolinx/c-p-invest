@@ -111,6 +111,15 @@ function SubHeader(props) {
                     <ul className='navigation__list'>
                         <li className='navigation__item'>
                             <Link
+                                to='/'
+                                className='navigation__link'
+                                onClick={() => {
+                                    collapseMenu()
+                                }}
+                            >
+                                Home
+                            </Link>
+                            <Link
                                 to='/about-us'
                                 className='navigation__link'
                                 onClick={() => {
