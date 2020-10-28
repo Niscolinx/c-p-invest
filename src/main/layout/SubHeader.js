@@ -119,6 +119,8 @@ function SubHeader(props) {
                             >
                                 Home
                             </Link>
+                        </li>
+                        <li className='navigation__item'>
                             <Link
                                 to='/about-us'
                                 className='navigation__link'
