@@ -8,6 +8,8 @@ import { generateBase64FromImage } from '../util/image'
 import * as orderAction from '../store/actions/burgerIndex'
 
 const PlanOrder = (props) => {
+    console.log('plan order props', props)
+    
     const [amount, setAmount] = useState('')
     const [currency, setCurrency] = useState('Bitcoin')
     const [file, setFile] = useState('')
