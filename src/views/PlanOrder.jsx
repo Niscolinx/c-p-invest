@@ -35,7 +35,6 @@ const PlanOrder = (props) => {
     }
 
     const selectedPlan = props.match.params.id.split(':')[1]
-    console.log('selected plan', selectedPlan)
 
     useEffect(() => {
         switch (selectedPlan) {
@@ -43,7 +42,7 @@ const PlanOrder = (props) => {
                 setPlanDetails({
                     name: 'ruby',
                     percent: 20,
-                    day: 1,
+                    hours: 24,
                     minimum: 20,
                     maximum: 499,
                 })
@@ -52,7 +51,7 @@ const PlanOrder = (props) => {
                 setPlanDetails({
                     name: 'sapphire',
                     percent: 30,
-                    day: 1,
+                    hours: 24,
                     minimum: 500,
                     maximum: 999,
                 })
@@ -61,7 +60,7 @@ const PlanOrder = (props) => {
                 setPlanDetails({
                     name: 'coral',
                     percent: 50,
-                    day: 1,
+                    hours: 24,
                     minimum: 999,
                     maximum: 1000000,
                 })
@@ -70,7 +69,7 @@ const PlanOrder = (props) => {
                 setPlanDetails({
                     name: 'emerald',
                     percent: 80,
-                    day: 2,
+                    hours: 48,
                     minimum: 2000,
                     maximum: 1000000,
                 })
@@ -79,7 +78,7 @@ const PlanOrder = (props) => {
                 setPlanDetails({
                     name: 'gold',
                     percent: 150,
-                    day: 3,
+                    hours: 72,
                     minimum: 4000,
                     maximum: 1000000,
                 })
@@ -88,7 +87,7 @@ const PlanOrder = (props) => {
                 setPlanDetails({
                     name: 'diamond',
                     percent: 200,
-                    day: 4,
+                    hours: 96,
                     minimum: 6000,
                     maximum: 1000000,
                 })
