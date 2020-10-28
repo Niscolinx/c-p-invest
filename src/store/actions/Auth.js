@@ -49,10 +49,11 @@ export const authFailed = (page, error) => {
     }
 }
 
-export const redirect = (to) => {
+export const redirect = (to, data) => {
     return {
         type: actions.AUTH_REDIRECT,
         to,
+        data
     }
 }
 
@@ -137,7 +138,7 @@ export const initSignup = (authData) => {
             secretAnswer: "${data.secretAnswer.value}",
             bitcoinAccount: "${data.bitcoinAccount.value}",
             ethereumAccount: "${data.ethereumAccount.value}"
-           }) {  email username }
+           }) {  email username fullname }
          }`,
         }
 
@@ -150,6 +151,7 @@ export const initSignup = (authData) => {
                 return res.json()
             })
             .then((resData) => {
+                console.log('the resdata', resData)
                 if (resData.errors && resData.errors[0].statusCode === 422) {
                     throw new Error(
                         'Validation failed. Please make sure your input values are correct'
@@ -160,7 +162,7 @@ export const initSignup = (authData) => {
                     throw new Error('Creating a user failed!')
                 }
 
-                dispatch(redirect('/Auth/login'))
+                dispatch(redirect('/Auth/login', resData.data.createUser))
             })
             .catch((err) => {
                 console.log('error in signup', err)

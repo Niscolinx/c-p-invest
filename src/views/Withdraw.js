@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { FormGroup, FormControl, Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 import { StatsCard } from '../components/StatsCard/StatsCard'
-import Auth from '../main/auth/Auth'
 import * as orderAction from '../store/actions/burgerIndex'
 
 const PlanOrder = (props) => {
@@ -13,7 +11,7 @@ const PlanOrder = (props) => {
     const [currency, setCurrency] = useState('Bitcoin')
     const [message, setMessage] = useState('')
     const [error, setError] = useState(false)
-    let [accountBalance, setAccountBalance] = useState('0')
+    let [accountBalance] = useState('0')
 
     useEffect(() => {}, [amount])
 

@@ -37,6 +37,7 @@ const authRedirect = (state, action) => {
     return update(state, {
         loading: false,
         redirect: action.to,
+        userData: action.data
     })
 }
 
