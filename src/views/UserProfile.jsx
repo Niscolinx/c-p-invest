@@ -88,7 +88,7 @@ const UserProfile = (props) => {
     //     bitcoin
     // )
 
-
+console.log('props of profile',props.userData)
     return (
         <div className='content'>
             <Grid fluid>
