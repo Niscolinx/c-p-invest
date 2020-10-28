@@ -104,7 +104,7 @@ const Login = (props) => {
                params={{
                 particles: {
         number: {
-            value: 50,
+            value: 20,
                     },
     },
                }}

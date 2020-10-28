@@ -7,7 +7,7 @@ import { thWithdrawalArray, tdWithdrawalArray } from '../variables/Variables'
 class TableList extends Component {
     render() {
         return (
-            <div className='content'>
+            <div className='content' style={{width: '70vh'}}>
                 <Grid fluid>
                     <Row>
                         <Col md={12}>

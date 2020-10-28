@@ -32,7 +32,7 @@ export const dashboardRoutes = [
     {
         path: '/investmentHistory',
         name: 'Investment History',
-        icon: 'pe-7s-note2',
+        icon: 'pe-7s-refresh',
         component: InvestmentHistory,
         layout: '/admin',
     },
@@ -46,7 +46,7 @@ export const dashboardRoutes = [
     {
         path: '/WithdrawalHistory',
         name: 'Withdrawal History',
-        icon: 'pe-7s-science',
+        icon: 'pe-7s-refresh',
         component: WithdrawalHistory,
         layout: '/admin',
     },

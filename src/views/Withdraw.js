@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FormGroup, FormControl, Row, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -8,10 +8,14 @@ import Auth from '../main/auth/Auth'
 import * as orderAction from '../store/actions/burgerIndex'
 
 const PlanOrder = (props) => {
-    const [amount, setAmount] = useState('')
+    let [amount, setAmount] = useState('')
     const [password, setPassword] = useState('')
     const [currency, setCurrency] = useState('Bitcoin')
-    const [message, setMessage] = useState('dsfsdfsfs')
+    const [message, setMessage] = useState('')
+    const [error, setError] = useState(false)
+    let [accountBalance, setAccountBalance] = useState('0')
+
+    useEffect(() => {}, [amount])
 
     const handleAmountChange = (e) => {
         setAmount(e.target.value)
@@ -19,22 +23,37 @@ const PlanOrder = (props) => {
     const handleSelectChange = (e) => {
         setCurrency(e.target.value)
     }
-    const handlePasswordChange = e => {
+    const handlePasswordChange = (e) => {
         setPassword(e.target.value)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        alert('insufficient fund')
+
+        accountBalance = Number(accountBalance)
+        amount = Number(amount)
+        console.log('amount balance', amount, accountBalance)
+
+        if (amount < 1 || accountBalance < amount) {
+            console.log('low balance')
+            setMessage('Insufficiant Balance')
+            setError(true)
+        } else {
+            console.log('good balance')
+            setMessage(
+                'Withdrawal sent, Your withdrawal will reflect in your account after we have confirmed it, thanks!! '
+            )
+            setError(false)
+        }
         const formData = {
             amount,
             currency,
         }
 
-        props.onInitFundAccount(formData, props.tokenId, props.userId)
+        // props.onInitFundAccount(formData, props.tokenId, props.userId)
     }
 
-    const accountBalance = '0'
+    console.log('the error', error, message)
 
     return (
         <>
@@ -46,14 +65,22 @@ const PlanOrder = (props) => {
                                 <i className='pe-7s-server text-warning' />
                             }
                             statsText='Account Balance'
-                            statsValue={'$'+accountBalance}
+                            statsValue={'$' + accountBalance}
                             statsIcon={<i className='fa fa-refresh' />}
                             statsIconText='Always Updated'
                         />
                     </Col>
                 </Row>
-                <Auth message={message}>
-                <form className='fundAccount__form' onSubmit={handleSubmit} >
+                <form className='fundAccount__form' onSubmit={handleSubmit}>
+                    {message && (
+                        <p
+                            className={
+                                error ? 'message message__error' : 'message'
+                            }
+                        >
+                            {message}
+                        </p>
+                    )}
                     <input
                         type='number'
                         className='fundAccount__form--input'
@@ -65,6 +92,7 @@ const PlanOrder = (props) => {
                     />
                     <input
                         type='password'
+                        minLength='6'
                         className='fundAccount__form--input'
                         placeholder='Enter your password'
                         name='password'
@@ -86,11 +114,11 @@ const PlanOrder = (props) => {
                     </select>
 
                     <div className='fundAccount__form--btn'>
-                            
-                        <button className='button' type='submit'>Confirm</button>
+                        <button className='button' type='submit'>
+                            Confirm
+                        </button>
                     </div>
                 </form>
-                </Auth>
             </div>
         </>
     )

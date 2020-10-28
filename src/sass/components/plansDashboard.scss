@@ -4,7 +4,6 @@
         padding: 2rem;
         margin-bottom: 2rem;
 
-
         &--text {
             font-size: clamp(1.4rem, 1.8rem, 2vw);
             color: $color-primary-dark;
@@ -26,12 +25,30 @@
         color: $color-primary;
         align-items: start;
 
+        @include respond(phone) {
+            grid-template-columns:
+                [feature-start] minmax(1rem, 1fr) [col-start] repeat(6, 1fr)
+                [col-end] minmax(2rem, 1fr) [feature-end];
+        }
+        @include respond(smaller-phone) {
+            grid-template-columns:
+                [feature-start] minmax(1fr) [col-start] repeat(6, 1fr)
+                [col-end] minmax(1fr) [feature-end];
+        }
+
         &__container {
             width: 100%;
             display: grid;
             grid-column: col-start / col-end;
             grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
             gap: 3rem;
+
+            @include respond(phone){
+            grid-template-columns: repeat(auto-fit, minmax(29rem, 1fr));
+            }
+            @include respond(smaller-phone){
+            grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+            }
         }
     }
 }
@@ -88,11 +105,10 @@
         }
     }
 
-    &__button{
-        
+    &__button {
         &:link,
-        &:visited{
-            color: white
+        &:visited {
+            color: white;
         }
     }
 }
