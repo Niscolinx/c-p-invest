@@ -50,14 +50,14 @@ function App(props) {
             <Route path='/' exact component={Home} />
             <Route
                 path='/Auth/login'
-                render={(props) => <AsyncLogin {...props} />}
+                render={(props) => <LoginPage {...props} />}
             />
             <Route
                 path='/Auth/signup'
-                render={(props) => <AsyncSignup {...props} />}
+                render={(props) => <SignupPage {...props} />}
             />
 
-            <Route path='/about-us' component={AsyncAboutUs} />
+            <Route path='/about-us' component={AboutUs} />
             <Route path='/forgot-password' component={ForgotPassword} />
             <Route path='/contact-us' component={ContactUs} />
             <Route path='/faq' component={Faq} />
@@ -74,6 +74,9 @@ function App(props) {
                     render={(props) => <AsyncLogin {...props} />}
                 />
                 <Route path='/about-us' component={AsyncAboutUs} />
+                <Route path='/contact-us' component={ContactUs} />
+                <Route path='/faq' component={Faq} />
+                <Route path='/terms' component={Terms} />
 
                 <Route
                     path='/admin'
