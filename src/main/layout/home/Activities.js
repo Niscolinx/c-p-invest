@@ -47,7 +47,7 @@ const Activities = () => {
                 <div className='activity'>
                     <ImDownload className='activity__icon' />
                     <h2 className='heading-4__light'>Last Deposit</h2>
-                    <h3 className='heading-4__dark'>$679.00 (HKPJULIO1)</h3>
+                    <h3 className='heading-4__dark'>$57.00 (Francis1)</h3>
                 </div>
                 <div className='activity'>
                     <ImUpload className='activity__icon' />

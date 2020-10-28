@@ -59,7 +59,7 @@ function Footer() {
 
             <div className='footer__copyright'>
                 <p className='footer__copy'>
-                    copyright 2020 &copy; coinperfectinvestment.com all rights
+                    copyright &copy; 2020 coinperfectinvestment.com all rights
                     reserved
                 </p>
             </div>

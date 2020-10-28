@@ -107,10 +107,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$5392.00</p>
+                    <p className='transactions__amount'>$4821.00</p>
 
                     <p className='transactions__date'>Oct-28-2020</p>
-                    <h4 className='transactions__name'>Sabella80</h4>
+                    <h4 className='transactions__name'>MICHEAL12</h4>
                 </div>
                 <div className='transactions__col'>
                     <img
