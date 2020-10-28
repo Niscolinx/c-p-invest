@@ -34,8 +34,6 @@ const UserProfile = (props) => {
         const name = e.target.name
         const value = e.target.value
 
-        // console.log('the name', name, 'value', value)
-
         if (name === 'fullname') {
             setFullname(value)
         }
