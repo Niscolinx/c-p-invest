@@ -1,11 +1,8 @@
 import Dashboard from './views/Dashboard'
 import UserProfile from './views/UserProfile'
 import InvestmentHistory from './views/InvestmentHistory'
-import Typography from './views/Typography'
-import Icons from './views/Icons'
-import Maps from './views/Maps'
-import Notifications from './views/Notifications'
-import Upgrade from './views/Upgrade'
+import Withdraw from './views/Withdraw'
+import WithdrawalHistory from './views/WithdrawalHistory'
 import PlansDashboard from './views/PlansDashboard'
 
 export const dashboardRoutes = [
@@ -31,49 +28,26 @@ export const dashboardRoutes = [
         component: PlansDashboard,
         layout: '/admin',
     },
-   
+
     {
-        path: '/table',
+        path: '/investmentHistory',
         name: 'Investment History',
         icon: 'pe-7s-note2',
         component: InvestmentHistory,
         layout: '/admin',
     },
     {
-        path: '/typography',
-        name: 'Typography',
+        path: '/withdraw',
+        name: 'Withdraw',
         icon: 'pe-7s-news-paper',
-        component: Typography,
+        component: Withdraw,
         layout: '/admin',
     },
     {
-        path: '/icons',
-        name: 'Icons',
+        path: '/WithdrawalHistory',
+        name: 'Withdrawal History',
         icon: 'pe-7s-science',
-        component: Icons,
+        component: WithdrawalHistory,
         layout: '/admin',
     },
-    {
-        path: '/maps',
-        name: 'Maps',
-        icon: 'pe-7s-map-marker',
-        component: Maps,
-        layout: '/admin',
-    },
-    {
-        path: '/notifications',
-        name: 'Notifications',
-        icon: 'pe-7s-bell',
-        component: Notifications,
-        layout: '/admin',
-    },
-    {
-        upgrade: true,
-        path: '/upgrade',
-        name: 'Upgrade to PRO',
-        icon: 'pe-7s-rocket',
-        component: Upgrade,
-        layout: '/admin',
-    },
-
 ]

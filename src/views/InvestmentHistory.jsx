@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Grid, Row, Col, Table } from 'react-bootstrap'
 
 import Card from '../components/Card/Card'
-import { thArray, tdArray } from '../variables/Variables'
+import { thInvestmentArray, tdInvestmentArray } from '../variables/Variables'
 
 class TableList extends Component {
     render() {
@@ -13,61 +13,16 @@ class TableList extends Component {
                     <Row>
                         <Col md={12}>
                             <Card
-                                title='Striped Table with Hover'
-                                category='Here is a subtitle for this table'
-                                ctTableFullWidth
-                                ctTableResponsive
-                                content={
-                                    <Table striped hover>
-                                        <thead>
-                                            <tr>
-                                                {thArray.map((prop, key) => {
-                                                    return (
-                                                        <th key={key}>
-                                                            {prop}
-                                                        </th>
-                                                    )
-                                                })}
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {tdArray.map((prop, key) => {
-                                                return (
-                                                    <tr key={key}>
-                                                        {prop.map(
-                                                            (prop, key) => {
-                                                                return (
-                                                                    <td
-                                                                        key={
-                                                                            key
-                                                                        }
-                                                                    >
-                                                                        {prop}
-                                                                    </td>
-                                                                )
-                                                            }
-                                                        )}
-                                                    </tr>
-                                                )
-                                            })}
-                                        </tbody>
-                                    </Table>
-                                }
-                            />
-                        </Col>
-
-                        <Col md={12}>
-                            <Card
                                 plain
-                                title='Striped Table with Hover'
-                                category='Here is a subtitle for this table'
+                                title='Your investment'
+                                category='History'
                                 ctTableFullWidth
                                 ctTableResponsive
                                 content={
-                                    <Table hover>
+                                    <Table>
                                         <thead>
                                             <tr>
-                                                {thArray.map((prop, key) => {
+                                                {thInvestmentArray.map((prop, key) => {
                                                     return (
                                                         <th key={key}>
                                                             {prop}
@@ -77,7 +32,7 @@ class TableList extends Component {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {tdArray.map((prop, key) => {
+                                            {tdInvestmentArray.map((prop, key) => {
                                                 return (
                                                     <tr key={key}>
                                                         {prop.map(
