@@ -61,7 +61,7 @@ const Testimonial = () => (
                     alt=''
                 />
             </div>
-            <h2 className='testimonial__name'>Michael Dalton</h2>
+            <h2 className='testimonial__name'>Micheal Dalton</h2>
             <p className='testimonial__location'>United States</p>
             <p className='testimonial__text'>
                 Coinperfectinvestment is above and beyond their competitors.

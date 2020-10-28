@@ -14,10 +14,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$57.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-28-2020</p>
+                    <h4 className='transactions__name'>Francis1</h4>
                 </div>
                 <div className='transactions__col'>
                     <img
@@ -25,10 +25,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$853.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-28-2020</p>
+                    <h4 className='transactions__name'>Peter107</h4>
                 </div>
                 <div className='transactions__col'>
                     <img
@@ -36,10 +36,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$902.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-28-2020</p>
+                    <h4 className='transactions__name'>Reginald89</h4>
                 </div>
                 <div className='transactions__col'>
                     <img
@@ -47,10 +47,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$5392.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-28-2020</p>
+                    <h4 className='transactions__name'>Angelia</h4>
                 </div>
                 <div className='transactions__col'>
                     <img
@@ -58,10 +58,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$892.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-27-2020</p>
+                    <h4 className='transactions__name'>Bahk103</h4>
                 </div>
                 <div className='transactions__col'>
                     <img
@@ -69,10 +69,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$719.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-27-2020</p>
+                    <h4 className='transactions__name'>Stephen01</h4>
                 </div>
                 <div className='transactions__col'>
                     <img
@@ -80,10 +80,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$3092.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-27-2020</p>
+                    <h4 className='transactions__name'>Lee</h4>
                 </div>
                 <div className='transactions__col'>
                     <img
@@ -91,10 +91,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$112.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-26-2020</p>
+                    <h4 className='transactions__name'>AslanLion</h4>
                 </div>
             </div>
             <div className='transactions'>
@@ -107,10 +107,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$5392.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-28-2020</p>
+                    <h4 className='transactions__name'>Sabella80</h4>
                 </div>
                 <div className='transactions__col'>
                     <img
@@ -118,10 +118,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$780.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-28-2020</p>
+                    <h4 className='transactions__name'>Henry2</h4>
                 </div>
                 <div className='transactions__col'>
                     <img
@@ -129,10 +129,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$1231.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-28-2020</p>
+                    <h4 className='transactions__name'>Lion001</h4>
                 </div>
                 <div className='transactions__col'>
                     <img
@@ -140,10 +140,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$630.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-27-2020</p>
+                    <h4 className='transactions__name'>Fabio</h4>
                 </div>
                 <div className='transactions__col'>
                     <img
@@ -151,10 +151,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$28.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-27-2020</p>
+                    <h4 className='transactions__name'>Joan</h4>
                 </div>
                 <div className='transactions__col'>
                     <img
@@ -162,10 +162,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$4651.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-27-2020</p>
+                    <h4 className='transactions__name'>Loveline112</h4>
                 </div>
                 <div className='transactions__col'>
                     <img
@@ -173,10 +173,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$117.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-27-2020</p>
+                    <h4 className='transactions__name'>Lugard32</h4>
                 </div>
                 <div className='transactions__col'>
                     <img
@@ -184,10 +184,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$49.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-26-2020</p>
+                    <h4 className='transactions__name'>Timothy</h4>
                 </div>
                 <div className='transactions__col'>
                     <img
@@ -195,10 +195,10 @@ function Transactions() {
                         alt=''
                         className='transactions__currency'
                     />
-                    <p className='transactions__amount'>$85392.00</p>
+                    <p className='transactions__amount'>$312.00</p>
 
-                    <p className='transactions__date'>Oct-4-2020</p>
-                    <h4 className='transactions__name'>Richard</h4>
+                    <p className='transactions__date'>Oct-26-2020</p>
+                    <h4 className='transactions__name'>Elizabeth</h4>
                 </div>
             </div>
         </>
