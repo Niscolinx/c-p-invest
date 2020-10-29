@@ -37,10 +37,6 @@ function App(props) {
         return import('../main/auth/Login')
     })
 
-    const AsyncSignup = asyncComponent(() => {
-        return import('../main/auth/Signup')
-    })
-
     const AsyncAboutUs = asyncComponent(() => {
         return import('./AboutUs')
     })
@@ -89,7 +85,7 @@ function App(props) {
 
     return (
         <div className='rootApp'>
-            <a href='https://wa.me/+12024783100' alt='' target='_blank'>
+            <a href='https://wa.me/+12024783100' alt='' target='_blank' rel='noopener noreferrer'>
                 <img
                     src={WhatsappLivechat}
                     alt=''
