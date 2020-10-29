@@ -5,6 +5,20 @@ import Withdraw from './views/Withdraw'
 import WithdrawalHistory from './views/WithdrawalHistory'
 import PlansDashboard from './views/PlansDashboard'
 
+//siteOwner routes
+
+import siteOwnerDashboard from './views/siteOwner/Dashboard'
+import AccountSettings from './views/siteOwner/AccountSettings'
+import DepositHistory from './views/siteOwner/DepositHistory'
+import siteOwnerWithdrawalHistory from './views/siteOwner/WithdrawalHistory'
+import EarningsHistory from './views/siteOwner/EarningsHistory'
+import siteOwnerWithdrawalRequest from './views/siteOwner/WithdrawalRequests'
+import Members from './views/siteOwner/Members'
+import FundUserAccount from './views/siteOwner/FundUserAccount'
+import PendingDeposits from './views/siteOwner/PendingDeposits'
+import SendNotification from './views/siteOwner/SendNotification'
+import SendPenalty from './views/siteOwner/SendPenalty'
+
 export const dashboardRoutes = [
     {
         path: '/dashboard',
@@ -48,6 +62,94 @@ export const dashboardRoutes = [
         name: 'Withdrawal History',
         icon: 'pe-7s-refresh',
         component: WithdrawalHistory,
+        layout: '/admin',
+    },
+]
+
+export const siteOwnerDashboardRoutes = [
+    {
+        path: '/dashboard',
+        name: 'Dashboard',
+        icon: 'pe-7s-graph',
+        component: siteOwnerDashboard,
+        layout: '/admin',
+    },
+
+    {
+        path: '/settings',
+        name: 'Account Settings',
+        icon: 'pe-7s-user',
+        component: AccountSettings,
+        layout: '/admin',
+    },
+    {
+        path: '/depositHistory',
+        name: 'Deposit History',
+        icon: 'pe-7s-note2',
+        component: siteOwnerWithdrawalHistory,
+        layout: '/admin',
+    },
+    {
+        path: '/earningsHistory',
+        name: 'Earnings History',
+        icon: 'pe-7s-refresh',
+        component: EarningsHistory,
+        layout: '/admin',
+    },
+    {
+        path: '/members',
+        name: 'Members',
+        icon: 'pe-7s-news-paper',
+        component: Members,
+        layout: '/admin',
+    },
+    {
+        path: '/pendingDeposits',
+        name: 'Pending Deposits',
+        icon: 'pe-7s-refresh',
+        component: PendingDeposits,
+        layout: '/admin',
+    },
+    {
+        path: '/sendNotification',
+        name: 'Send Notification',
+        icon: 'pe-7s-refresh',
+        component: SendNotification,
+        layout: '/admin',
+    },
+    {
+        path: '/SendPenalty',
+        name: 'Send Penalty',
+        icon: 'pe-7s-refresh',
+        component: SendPenalty,
+        layout: '/admin',
+    },
+    {
+        path: '/withdrawalRequest',
+        name: 'Withdrawal Request',
+        icon: 'pe-7s-refresh',
+        component: siteOwnerWithdrawalRequest,
+        layout: '/admin',
+    },
+    {
+        path: '/WithdrawalHistory',
+        name: 'Withdrawal History',
+        icon: 'pe-7s-refresh',
+        component: WithdrawalHistory,
+        layout: '/admin',
+    },
+    {
+        path: '/depositHistory',
+        name: 'Deposit History',
+        icon: 'pe-7s-refresh',
+        component: DepositHistory,
+        layout: '/admin',
+    },
+    {
+        path: '/fundUserAccount',
+        name: 'Fund User Account',
+        icon: 'pe-7s-refresh',
+        component: FundUserAccount,
         layout: '/admin',
     },
 ]
