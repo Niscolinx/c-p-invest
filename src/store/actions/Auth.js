@@ -6,7 +6,7 @@ export const authStart = () => {
     }
 }
 
-export const authSuccessCheck = (auth, token) => {
+export const authSuccessCheck = (auth, token, role, email) => {
     return (dispatch) => {
         sessionStorage.setItem('userId', auth)
         sessionStorage.setItem('token', token)
@@ -19,17 +19,19 @@ export const authSuccessCheck = (auth, token) => {
         //After set this to calculate the expiration based on the sessionStorage
         sessionStorage.setItem('expiryTime', remainingMilliseconds)
         sessionStorage.setItem('expiryDate', expiryDate.toISOString())
-        dispatch(authSuccess(auth, token))
+        dispatch(authSuccess(auth, token, role, email))
 
         setTimeout(() => {}, remainingMilliseconds)
     }
 }
 
-export const authSuccess = (auth, token) => {
+export const authSuccess = (auth, token, role, email) => {
     return {
         type: actions.AUTH_SUCCESS,
         userId: auth,
         tokenId: token,
+        role,
+        email
     }
 }
 
@@ -78,7 +80,7 @@ export const initGetUser = (token) => {
         const graphqlQuery = {
             query: `{
                 getUser {
-                   fullname username email status
+                   fullname username email role
                 }
             }`,
         }
@@ -116,6 +118,8 @@ export const initLogin = (email, password) => {
                 login(email: "${email}", password: "${password}"){
                 userId
                 token
+                email
+                role
             }
           }
          `,
@@ -145,7 +149,9 @@ export const initLogin = (email, password) => {
                 dispatch(
                     authSuccessCheck(
                         resData.data.login.userId,
-                        resData.data.login.token
+                        resData.data.login.token,
+                        resData.data.login.role,
+                        resData.data.login.email
                     )
                 )
             })

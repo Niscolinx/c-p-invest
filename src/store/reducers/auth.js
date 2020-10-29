@@ -6,7 +6,9 @@ const initialState = {
     loading: false,
     userId: sessionStorage.getItem('userId') || null,
     tokenId: sessionStorage.getItem('token') || null,
-    userData: {}
+    userData: {},
+    role: null,
+    email: null
 }
 const authStart = (state, action) => {
     return update(state, {
@@ -20,6 +22,8 @@ const authSuccess = (state, action) => {
         loading: false,
         userId: action.userId,
         tokenId: action.tokenId,
+        role: action.role,
+        email: action.email,
         error: null,
     })
 }
