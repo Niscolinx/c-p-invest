@@ -151,6 +151,7 @@ const Login = (props) => {
 }
 
 const mapStateToProps = (state) => {
+    console.log('login state', state)
     return {
         loading: state.auth.loading,
         err: state.auth.error,
