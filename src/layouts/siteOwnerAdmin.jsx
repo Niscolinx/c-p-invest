@@ -23,7 +23,6 @@ class Admin extends Component {
         super(props)
         this.state = {
             _notificationSystem: null,
-            routes: null,
             image: sideBarImg,
             color: 'black',
             hasImage: true,
@@ -66,6 +65,7 @@ class Admin extends Component {
     }
     getsiteOwnerDashboardRoutes = (siteOwnerDashboardRoutes) => {
         return siteOwnerDashboardRoutes.map((prop, key) => {
+            console.log('owner routes', prop)
             if (prop.layout === '/admin') {
                 return (
                     <Route
@@ -171,7 +171,7 @@ class Admin extends Component {
                 <NotificationSystem ref='notificationSystem' style={style} />
                 <Sidebar
                     {...this.props}
-                    siteOwnerDashboardRoutes={siteOwnerDashboardRoutes}
+                    dashboardRoutes={siteOwnerDashboardRoutes}
                     image={this.state.image}
                     color={this.state.color}
                     hasImage={this.state.hasImage}

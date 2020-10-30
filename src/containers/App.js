@@ -14,6 +14,7 @@ import asyncComponent from '../main/hoc/asyncComponent'
 import Layout from './Layout'
 import Home from './Home'
 import AdminLayout from '../layouts/Admin'
+import SiteOwnerAdmin from '../layouts/siteOwnerAdmin'
 import Terms from './Terms'
 import ContactUs from './ContactUs'
 import Faq from './Faq'
@@ -62,6 +63,23 @@ function App(props) {
         </Switch>
     )
     if (props.auth) {
+        let admintoShow = (
+            <Route
+                path='/admin'
+                render={(props) => <AdminLayout {...props} />}
+            />
+        )
+
+        if(props.siteOwner){
+            admintoShow = (
+                <Route
+                    path='/admin'
+                    render={(props) => <SiteOwnerAdmin {...props} />}
+                />
+            )
+        }
+        console.log('admin to show', admintoShow)
+
         AuthGuard = (
             <Switch>
                 <Route path='/' exact component={Home} />
@@ -73,11 +91,8 @@ function App(props) {
                 <Route path='/contact-us' component={ContactUs} />
                 <Route path='/faq' component={Faq} />
                 <Route path='/terms' component={Terms} />
-
-                <Route
-                    path='/admin'
-                    render={(props) => <AdminLayout {...props} />}
-                />
+        
+               {admintoShow}
                 <Redirect to='/' />
             </Switch>
         )
