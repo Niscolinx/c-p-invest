@@ -151,9 +151,11 @@ class Admin extends Component {
             this.props.onInitGetUser(this.props.tokenId)
         }
 
-        this.props.siteOwner
-            ? this.setState({ routes: siteOwnerDashboardRoutes })
-            : this.setState({ routes: dashboardRoutes })
+        if (this.props.siteOwner) {
+            this.setState({ routes: siteOwnerDashboardRoutes })
+        } else {
+            this.setState({ routes: dashboardRoutes })
+        }
     }
     componentDidUpdate(e) {
         if (
@@ -227,7 +229,7 @@ class Admin extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log("the reducer admin state", state)
+    console.log('the reducer admin state', state)
     return {
         err: state.auth.error,
         loading: state.order.loading,

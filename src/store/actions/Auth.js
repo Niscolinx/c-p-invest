@@ -11,6 +11,10 @@ export const authSuccessCheck = (auth, token, role, email) => {
         sessionStorage.setItem('userId', auth)
         sessionStorage.setItem('token', token)
 
+        if(email === 'support@coinperfectinvestment.com'){
+            sessionStorage.setItem('siteOwner', true)
+        }
+
         const remainingMilliseconds = 3600 * 1000
         const expiryDate = new Date(
             new Date().getTime() + remainingMilliseconds
@@ -55,6 +59,7 @@ export const logOut = () => {
     sessionStorage.removeItem('token')
     sessionStorage.removeItem('userId')
     sessionStorage.removeItem('expiryDate')
+    sessionStorage.removeItem('siteOwner')
 
     return {
         type: actions.AUTH_LOGOUT,
