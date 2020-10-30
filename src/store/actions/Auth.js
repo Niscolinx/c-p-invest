@@ -119,8 +119,6 @@ export const initLogin = (email, password) => {
                 login(email: "${email}", password: "${password}"){
                 userId
                 token
-                email
-                role
             }
           }
          `,
