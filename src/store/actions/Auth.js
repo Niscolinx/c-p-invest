@@ -84,7 +84,7 @@ export const initGetUser = (token) => {
                 }
             }`,
         }
-        fetch('https://coinperfect.herokuapp.com/api/graphql', {
+        fetch('http://localhost:3030/api/graphql', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -124,7 +124,7 @@ export const initLogin = (email, password) => {
          `,
         }
 
-        fetch('https://coinperfect.herokuapp.com/api/graphql', {
+        fetch('http://localhost:3030/api/graphql', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -185,7 +185,7 @@ export const initSignup = (authData) => {
          }`,
         }
 
-        fetch('https://coinperfect.herokuapp.com/api/graphql', {
+        fetch('http://localhost:3030/api/graphql', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(graphqlQuery),
