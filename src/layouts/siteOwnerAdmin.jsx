@@ -14,7 +14,7 @@ import PlanConfirmation from '../views/PlanConfirmation'
 
 import { style } from '../variables/Variables'
 
-import { dashboardRoutes } from '../routes.js'
+import { siteOwnerDashboardRoutes } from '../routes.js'
 
 //import image from "../assets/img/sidebar-3.jpg";
 import sideBarImg from '../images/hero.jpg'
@@ -64,8 +64,8 @@ class Admin extends Component {
             autoDismiss: 15,
         })
     }
-    getdashboardRoutes = (dashboardRoutes) => {
-        return dashboardRoutes.map((prop, key) => {
+    getsiteOwnerDashboardRoutes = (siteOwnerDashboardRoutes) => {
+        return siteOwnerDashboardRoutes.map((prop, key) => {
             if (prop.layout === '/admin') {
                 return (
                     <Route
@@ -85,13 +85,13 @@ class Admin extends Component {
         })
     }
     getBrandText = (path) => {
-        for (let i = 0; i < dashboardRoutes.length; i++) {
+        for (let i = 0; i < siteOwnerDashboardRoutes.length; i++) {
             if (
                 this.props.location.pathname.indexOf(
-                    dashboardRoutes[i].layout + dashboardRoutes[i].path
+                    siteOwnerDashboardRoutes[i].layout + siteOwnerDashboardRoutes[i].path
                 ) !== -1
             ) {
-                return dashboardRoutes[i].name
+                return siteOwnerDashboardRoutes[i].name
             }
         }
         const pathRoute = path.slice(7)
@@ -171,7 +171,7 @@ class Admin extends Component {
                 <NotificationSystem ref='notificationSystem' style={style} />
                 <Sidebar
                     {...this.props}
-                    dashboardRoutes={dashboardRoutes}
+                    siteOwnerDashboardRoutes={siteOwnerDashboardRoutes}
                     image={this.state.image}
                     color={this.state.color}
                     hasImage={this.state.hasImage}
@@ -201,7 +201,7 @@ class Admin extends Component {
                             path='/admin/fund-account'
                             component={FundAccount}
                         />
-                        {this.getdashboardRoutes(dashboardRoutes)}
+                        {this.getsiteOwnerDashboardRoutes(siteOwnerDashboardRoutes)}
                     </Switch>
                     <Footer />
                     {/* <FixedPlugin

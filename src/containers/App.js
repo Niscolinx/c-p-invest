@@ -92,13 +92,14 @@ function App(props) {
                     className='liveChat__whatsapp'
                 />
             </a>
-            <Layout isAdmin={location}>{AuthGuard}</Layout>
+            <Layout isAdmin={location} siteOwner={props.siteOwner}>{AuthGuard}</Layout>
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
+        siteOwner: state.auth.siteOwner,
         auth: state.auth.tokenId,
     }
 }
