@@ -1,3 +1,4 @@
+import { error } from 'console'
 import * as actions from './actionTypes'
 
 export const authStart = () => {
@@ -31,7 +32,7 @@ export const authSuccess = (auth, token, role, email) => {
         userId: auth,
         tokenId: token,
         role,
-        email
+        email,
     }
 }
 
@@ -84,7 +85,7 @@ export const initGetUser = (token) => {
                 }
             }`,
         }
-        fetch('https://coinperfect.herokuapp.com/api/graphql', {
+        fetch('http://localhost:3030/api/graphql', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -125,7 +126,7 @@ export const initLogin = (email, password) => {
          `,
         }
 
-        fetch('https://coinperfect.herokuapp.com/api/graphql', {
+        fetch('http://localhost:3030/api/graphql', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -156,6 +157,8 @@ export const initLogin = (email, password) => {
                 )
             })
             .catch((err) => {
+                dispatch(authFailed('login', err))
+
                 console.log('error in login', err)
             })
     }
@@ -203,6 +206,7 @@ export const initSignup = (authData) => {
                 dispatch(redirect('/Auth/login', resData.data.createUser))
             })
             .catch((err) => {
+                dispatch(authFailed('signup', err))
                 console.log('error in signup', err)
             })
     }
