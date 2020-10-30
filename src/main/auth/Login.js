@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import Particles from 'react-particles-js'
-import {Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import * as orderAction from '../../store/actions/burgerIndex'
 
@@ -35,13 +35,9 @@ const Login = (props) => {
     useEffect(() => {
         if (props.err) {
             setMessage({
-                error:
-                    props.err.page === 'login'
-                        ? props.err.error
-                        : null,
+                error: props.err.page === 'login' ? props.err.error : null,
             })
         } else if (props.tokenId) {
-
             props.history.push('/admin/dashboard')
             setMessage({
                 success: 'Success',
@@ -142,10 +138,10 @@ const Login = (props) => {
                         >
                             {props.loading ? 'Loading...' : 'Login'}
                         </Button>
-                        <Link to='/forgot-password' className='form-btn__link'>Forgot Password?</Link>
-
+                        <Link to='/forgot-password' className='form-btn__link'>
+                            Forgot Password?
+                        </Link>
                     </div>
-                  
                 </form>
             </Auth>
         </>

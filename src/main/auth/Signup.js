@@ -95,7 +95,8 @@ const Signup = (props) => {
             })
 
     }
-    }, [message, props])
+    }, [props])
+
 
     const inputChangeHandler = (input, value) => {
         setState((prevState) => {
