@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Auth = (props) => {
-    console.log('the auth props', props)
     let messageCheck = false
 
     if (props.message) {
