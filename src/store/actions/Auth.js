@@ -138,6 +138,7 @@ export const initLogin = (email, password) => {
                 return res.json()
             })
             .then((resData) => {
+                console.log('the res data', resData)
                 if (resData.errors && resData.errors[0].statusCode === 422) {
                     throw new Error(
                         'Validation failed. Please make sure your input values are correct'

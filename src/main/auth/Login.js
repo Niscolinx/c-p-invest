@@ -45,8 +45,6 @@ const Login = (props) => {
         }
     }, [props])
 
-    console.log('the message in login', message)
-
     const inputChangeHandler = (input, value) => {
         setState((prevState) => {
             let isValid = true
