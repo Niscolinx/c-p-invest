@@ -7,8 +7,9 @@ const initialState = {
     userId: sessionStorage.getItem('userId') || null,
     tokenId: sessionStorage.getItem('token') || null,
     userData: {},
+    siteOwner: false,
     role: null,
-    email: null
+    email: null,
 }
 const authStart = (state, action) => {
     return update(state, {
@@ -17,12 +18,15 @@ const authStart = (state, action) => {
 }
 
 const authSuccess = (state, action) => {
+    console.log("the reducer auth", action)
     return update(state, {
         ...action,
         loading: false,
         userId: action.userId,
         tokenId: action.tokenId,
         role: action.role,
+        siteOwner:
+            action.email === 'support@coinperfectinvestment' ? true : false,
         email: action.email,
         error: null,
     })
@@ -33,7 +37,7 @@ const authFailed = (state, action) => {
         loading: false,
         error: {
             page: action.page,
-            error: action.error
+            error: action.error,
         },
     })
 }
@@ -52,11 +56,11 @@ const clearError = (state, action) => {
     })
 }
 
-const getUser =(state, action) => {
+const getUser = (state, action) => {
     return update(state, {
         ...action,
         loading: false,
-        userData: action.data
+        userData: action.data,
     })
 }
 
@@ -74,7 +78,8 @@ const auth = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.AUTH_START:
             return authStart(state, action)
-        case actionTypes.AUTH_GETUSER: return getUser(state, action)
+        case actionTypes.AUTH_GETUSER:
+            return getUser(state, action)
         case actionTypes.AUTH_REDIRECT:
             return authRedirect(state, action)
         case actionTypes.AUTH_SUCCESS:

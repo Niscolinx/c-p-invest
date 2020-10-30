@@ -225,6 +225,7 @@ class Admin extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log('admin state', state)
     return {
         err: state.auth.error,
         loading: state.order.loading,
