@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 
 import { AiFillPhone } from 'react-icons/ai'
 import { ImLocation2 } from 'react-icons/im'
+import {IoLogoWhatsapp} from 'react-icons/io'
 
 function Footer() {
     return (
@@ -48,6 +49,10 @@ function Footer() {
                         <li className='footer__list--item'>
                             <ImLocation2 className='footer__list--icon' />
                             MARTINPOLKU 74, KOUVOLA, FINLAND
+                        </li>
+                        <li className='footer__list--item'>
+                            <IoLogoWhatsapp className='footer__list--icon' />
+                            +18589463698
                         </li>
                         <li className='footer__list--item'>
                             <AiFillPhone className='footer__list--icon' />

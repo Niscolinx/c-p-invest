@@ -6,6 +6,12 @@
     font-family: $font-display;
     gap: 4rem;
 
+
+    @include respond(phone){
+        grid-column: 1 / -1;
+        padding: 3rem;
+    }
+
     &__header {
         font-weight: 400;
     }

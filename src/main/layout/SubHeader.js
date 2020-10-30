@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { CgCalendarDates } from 'react-icons/cg'
 import { MdEmail } from 'react-icons/md'
 import { AiFillPhone } from 'react-icons/ai'
+import { IoLogoWhatsapp } from 'react-icons/io'
 
 import GetCurrentDate from '../../util/getCurrentDate'
 
@@ -166,6 +167,9 @@ function SubHeader(props) {
                 <div className='subHeader__contact--text'>
                     <GetCurrentDate />
                 </div>
+
+                <IoLogoWhatsapp className='subHeader__contact--logo' />
+                <p className='subHeader__contact--text'>+18589463698</p>
 
                 <AiFillPhone className='subHeader__contact--logo' />
                 <p className='subHeader__contact--text'>+12024783100</p>
