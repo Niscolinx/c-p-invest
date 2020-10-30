@@ -85,7 +85,7 @@ const Signup = (props) => {
             setMessage({
                 error:
                     props.err.page === 'signup'
-                        ? props.err.error[0].message
+                        ? props.err.error
                         : null,
             })
         }

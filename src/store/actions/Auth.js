@@ -1,4 +1,3 @@
-import { error } from 'console'
 import * as actions from './actionTypes'
 
 export const authStart = () => {
@@ -98,14 +97,15 @@ export const initGetUser = (token) => {
             })
             .then((resData) => {
                 if (resData.errors) {
-                    dispatch(authFailed('getUser', resData.errors))
+                    dispatch(authFailed('getUser', resData.errors[0].message))
 
                     throw new Error('Failed to fetch user status.')
                 }
                 dispatch(getUser(resData.data.getUser))
             })
             .catch((err) => {
-                console.log('error in login', err)
+                console.log('error in getUser', err)
+                return dispatch(authFailed('getUser', 'Failed to fetch (500)'))
             })
     }
 }
@@ -134,6 +134,7 @@ export const initLogin = (email, password) => {
             body: JSON.stringify(graphqlQuery),
         })
             .then((res) => {
+                console.log('the first res', res)
                 return res.json()
             })
             .then((resData) => {
@@ -143,8 +144,10 @@ export const initLogin = (email, password) => {
                     )
                 }
                 if (resData.errors) {
-                    dispatch(authFailed('login', resData.errors))
-                    throw new Error('Login failed!')
+                    return dispatch(
+                        authFailed('login', resData.errors[0].message)
+                    )
+                    // throw new Error('Login failed!')
                 }
 
                 dispatch(
@@ -157,9 +160,8 @@ export const initLogin = (email, password) => {
                 )
             })
             .catch((err) => {
-                dispatch(authFailed('login', err))
-
                 console.log('error in login', err)
+                return dispatch(authFailed('login', 'Failed to fetch (500)'))
             })
     }
 }
@@ -184,7 +186,7 @@ export const initSignup = (authData) => {
          }`,
         }
 
-        fetch('https://coinperfect.herokuapp.com/api/graphql', {
+        fetch('http://localhost:3030/api/graphql', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(graphqlQuery),
@@ -199,15 +201,17 @@ export const initSignup = (authData) => {
                     )
                 }
                 if (resData.errors) {
-                    dispatch(authFailed('signup', resData.errors))
-                    throw new Error('Creating a user failed!')
+                    return dispatch(
+                        authFailed('signup', resData.errors[0].message)
+                    )
+                    // throw new Error('Creating a user failed!')
                 }
 
                 dispatch(redirect('/Auth/login', resData.data.createUser))
             })
             .catch((err) => {
-                dispatch(authFailed('signup', err))
                 console.log('error in signup', err)
+                return dispatch(authFailed('signup', 'Failed to fetch (500)'))
             })
     }
 }

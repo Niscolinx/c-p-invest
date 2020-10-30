@@ -37,7 +37,7 @@ const Login = (props) => {
             setMessage({
                 error:
                     props.err.page === 'login'
-                        ? props.err.error[0].message
+                        ? props.err.error
                         : null,
             })
         } else if (props.tokenId) {
@@ -48,6 +48,8 @@ const Login = (props) => {
             })
         }
     }, [props])
+
+    console.log('the message in login', message)
 
     const inputChangeHandler = (input, value) => {
         setState((prevState) => {
