@@ -85,7 +85,7 @@ function App(props) {
 
     return (
         <div className='rootApp'>
-            <a href='https://wa.me/+12024783100' alt='' target='_blank' rel='noopener noreferrer'>
+            <a href='https://wa.me/+18589463698' alt='' target='_blank' rel='noopener noreferrer'>
                 <img
                     src={WhatsappLivechat}
                     alt=''
