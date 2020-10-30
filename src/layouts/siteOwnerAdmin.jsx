@@ -65,7 +65,6 @@ class Admin extends Component {
     }
     getsiteOwnerDashboardRoutes = (siteOwnerDashboardRoutes) => {
         return siteOwnerDashboardRoutes.map((prop, key) => {
-            console.log('owner routes', prop)
             if (prop.layout === '/admin') {
                 return (
                     <Route

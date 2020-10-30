@@ -78,7 +78,6 @@ function App(props) {
                 />
             )
         }
-        console.log('admin to show', admintoShow)
 
         AuthGuard = (
             <Switch>
