@@ -16,7 +16,7 @@ export const authSuccessCheck = (auth, token, role, email) => {
             new Date().getTime() + remainingMilliseconds
         )
 
-        //After set this to calculate the expiration based on the sessionStorag
+        //After set this to calculate the expiration based on the sessionStorage
         sessionStorage.setItem('expiryTime', remainingMilliseconds)
         sessionStorage.setItem('expiryDate', expiryDate.toISOString())
         dispatch(authSuccess(auth, token, role, email))
