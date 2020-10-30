@@ -10,6 +10,7 @@ import Auth from './Auth'
 
 
 const Signup = (props) => {
+
     const [state, setState] = useState({
         signupForm: {
             fullname: {
@@ -165,7 +166,7 @@ const Signup = (props) => {
     }
 
     if (props.redirectToLoginPage) {
-        props.history.replace(props.redirectToLoginPage)
+        props.history.push(props.redirectToLoginPage)
     }
 
 
