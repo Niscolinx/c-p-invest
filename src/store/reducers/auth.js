@@ -26,7 +26,7 @@ const authSuccess = (state, action) => {
         tokenId: action.tokenId,
         role: action.role,
         siteOwner:
-            action.email === 'support@coinperfectinvestment' ? true : false,
+            action.email === 'support@coinperfectinvestment.com' ? true : false,
         email: action.email,
         error: null,
     })

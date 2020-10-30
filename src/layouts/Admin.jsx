@@ -169,13 +169,15 @@ class Admin extends Component {
             this.refs.mainPanel.scrollTop = 0
         }
     }
+
     render() {
+        console.log('the admin state', this.state)
         return (
             <div className='wrapper' style={{ background: '#101d2c' }}>
                 <NotificationSystem ref='notificationSystem' style={style} />
                 <Sidebar
                     {...this.props}
-                    dashboardRoutes={dashboardRoutes}
+                    dashboardRoutes={this.state.routes}
                     image={this.state.image}
                     color={this.state.color}
                     hasImage={this.state.hasImage}
@@ -225,7 +227,7 @@ class Admin extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('admin state', state)
+    console.log("the reducer admin state", state)
     return {
         err: state.auth.error,
         loading: state.order.loading,
