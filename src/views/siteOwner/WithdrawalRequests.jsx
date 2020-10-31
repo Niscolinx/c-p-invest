@@ -12,6 +12,7 @@ function WithdrawalRequests(props) {
         setWithdrawalToDate(e.target.value)
     }
     const handleSelectChange = (e) => {
+        console.log('handle select', e)
         setCurrency(e.target.value)
     }
 
