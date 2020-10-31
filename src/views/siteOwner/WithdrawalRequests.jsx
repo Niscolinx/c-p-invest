@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 function WithdrawalRequests(props) {
     return (
@@ -9,9 +8,6 @@ function WithdrawalRequests(props) {
     )
 }
 
-WithdrawalRequests.propTypes = {
-
-}
 
 export default WithdrawalRequests
 

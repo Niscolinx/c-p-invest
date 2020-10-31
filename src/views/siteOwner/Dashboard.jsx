@@ -31,7 +31,7 @@ class Dashboard extends Component {
                                 bigIcon={
                                     <i className='pe-7s-server text-warning' />
                                 }
-                                statsText='Account Balance'
+                                statsText='Total Funds Disbursed'
                                 statsValue='$0'
                                 statsIcon={<i className='fa fa-refresh' />}
                                 statsIconText='Updated now'
@@ -42,7 +42,7 @@ class Dashboard extends Component {
                                 bigIcon={
                                     <i className='pe-7s-wallet text-success' />
                                 }
-                                statsText='Total Withdrawal'
+                                statsText='Total Funds received'
                                 statsValue='$0'
                                 statsIcon={<i className='fa fa-calendar-o' />}
                                 statsIconText='Updated now'
@@ -53,7 +53,7 @@ class Dashboard extends Component {
                                 bigIcon={
                                     <i className='pe-7s-graph1 text-danger' />
                                 }
-                                statsText='Total Deposit'
+                                statsText='Pending User Withdrawals'
                                 statsValue='$0'
                                 statsIcon={<i className='fa fa-clock-o' />}
                                 statsIconText='Updated now'
@@ -62,7 +62,7 @@ class Dashboard extends Component {
                         <Col lg={3} sm={6}>
                             <StatsCard
                                 bigIcon={<i className='pe-7s-cash text-info' />}
-                                statsText='Total Earnings'
+                                statsText='Pending User Funding'
                                 statsValue='$0'
                                 statsIcon={<i className='fa fa-refresh' />}
                                 statsIconText='Updated now'
