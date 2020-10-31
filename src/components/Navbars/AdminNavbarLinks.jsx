@@ -36,9 +36,16 @@ class AdminNavbarLinks extends Component {
                 </NavItem> */}
             </Nav>
             <Nav pullRight>
+            {!this.props.siteOwner && (
                 <NavItem eventKey={1}>
-                    <Link to='/admin/fund-account' className='adminNav__fundAccount'>Fund Account</Link>
+                    <Link
+                        to='/admin/fund-account'
+                        className='adminNav__fundAccount'
+                    >
+                        Fund Account
+                    </Link>
                 </NavItem>
+            )}
                 {/* <NavDropdown
                     eventKey={2}
                     title='Dropdown'

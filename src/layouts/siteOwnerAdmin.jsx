@@ -182,6 +182,7 @@ class Admin extends Component {
                     style={{ background: '#101d2c' }}
                 >
                     <AdminNavbar
+                        siteOwner={true}
                         {...this.props}
                         brandText={this.getBrandText(
                             this.props.location.pathname
