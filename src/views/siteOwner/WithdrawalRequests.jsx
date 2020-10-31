@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 function WithdrawalRequests(props) {
     const [withdrawalFromDate, setWithdrawalFromDate] = useState('')
     const [withdrawalToDate, setWithdrawalToDate] = useState('')
-    const [currency, setCurrency] = useState('Bitcoin')
+    const [currency, setCurrency] = useState('All Currencies')
 
     const withdrawalFromDateChange = (e) => {
         setWithdrawalFromDate(e.target.value)
@@ -12,7 +12,6 @@ function WithdrawalRequests(props) {
         setWithdrawalToDate(e.target.value)
     }
     const handleSelectChange = (e) => {
-        console.log('handle select', e)
         setCurrency(e.target.value)
     }
 
@@ -27,7 +26,7 @@ function WithdrawalRequests(props) {
         <div className='withdrawalRequest'>
             <div className='withdrawalRequest-left'>
                 <form
-                    className='withdrawalRequest-left__form'
+                    className='withdrawalRequest__form'
                     onSubmit={handleSubmit}
                 >
                     <input
@@ -54,26 +53,39 @@ function WithdrawalRequests(props) {
                         value={currency}
                         className='withdrawalRequest-left__form--select'
                     >
-                        <option value='Bitcoin'>All e-currencies</option>
+                        <option value='All Currencies'>All Currencies</option>
                         <option value='Bitcoin'>Bitcoin</option>
                         <option value='Ethereum'>Ethereum</option>
                     </select>
+                    <div className='withdrawalRequest-right'>
+                        <label className='withdrawalRequest-right__label'>Amount</label>
+                        <input
+                            type='input'
+                            className='withdrawalRequest__form--input'
+                            name='withdrawalToDate'
+                            placeholder='From'
+                            id='withdrawalToDate'
+                            onChange={withdrawalToDateChange}
+                            value={withdrawalToDate}
+                        />
+                        <input
+                            type='input'
+                            className='withdrawalRequest__form--input'
+                            name='withdrawalToDate'
+                            placeholder='To'
+                            id='withdrawalToDate'
+                            onChange={withdrawalToDateChange}
+                            value={withdrawalToDate}
+                        />
+                    </div>
 
-                    <div className='withdrawalRequest-left__form--btn'>
-                        {/* <button
-                            type='submit'
-                            className='withdrawalRequest-left__form--btn-item'
-                        >
-                            Submit
-                        </button> */}
-
+                    <div className='withdrawalRequest__form--btn'>
                         <button type='submit' className='button'>
                             Proceed
                         </button>
                     </div>
                 </form>
             </div>
-            <div className='withdrawalRequest-right'></div>
             <div className='withdrawalRequest-details'></div>
         </div>
     )
