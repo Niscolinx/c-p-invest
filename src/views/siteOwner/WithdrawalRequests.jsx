@@ -1,30 +1,25 @@
 import React, { useState } from 'react'
 
 function WithdrawalRequests(props) {
-    const [amount, setAmount] = useState('')
+    const [withdrawalFromDate, setWithdrawalFromDate] = useState('')
+    const [withdrawalToDate, setWithdrawalToDate] = useState('')
     const [currency, setCurrency] = useState('Bitcoin')
-    const [file, setFile] = useState('')
-    const [imagePreview, setImagePreview] = useState(null)
-    const [planDetails, setPlanDetails] = useState({})
 
     const withdrawalFromDateChange = (e) => {
-        console.log('the from date', e.target)
-        // setAmount(e.target.value)
+        setWithdrawalFromDate(e.target.value)
     }
     const withdrawalToDateChange = (e) => {
-        console.log('the from date', e.target)
-        // setAmount(e.target.value)
+        setWithdrawalToDate(e.target.value)
     }
     const handleSelectChange = (e) => {
         setCurrency(e.target.value)
     }
 
     const handleSubmit = (e) => {
+        console.log(withdrawalFromDate, withdrawalToDate)
         e.preventDefault()
         const formData = {
-            amount,
             currency,
-            file,
         }
     }
     return (
@@ -40,7 +35,7 @@ function WithdrawalRequests(props) {
                         name='withdrawalFromDate'
                         id='withdrawalFromDate'
                         onChange={withdrawalFromDateChange}
-                        // value={amount}
+                        value={withdrawalFromDate}
                     />
                     <input
                         type='date'
@@ -48,7 +43,7 @@ function WithdrawalRequests(props) {
                         name='withdrawalToDate'
                         id='withdrawalToDate'
                         onChange={withdrawalToDateChange}
-                        // value={amount}
+                        value={withdrawalToDate}
                     />
 
                     <select
