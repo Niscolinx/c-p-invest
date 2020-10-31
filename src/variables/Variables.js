@@ -252,6 +252,10 @@ const thWithdrawalArray = ["ID", "Amount", "Status", "Method", "Date"];
 const tdWithdrawalArray = [
   // ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout", "October"]
 ];
+const thWithdrawalRequestArray = ["ID", "user", "Amount", "Status", "Method", "Date"];
+const tdWithdrawalRequestArray = [
+  // ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout", "October"]
+];
 
 //
 // //
@@ -581,6 +585,8 @@ module.exports = {
   tdInvestmentArray, // For tables (TableList view)
   thWithdrawalArray,
   tdWithdrawalArray, // For tables (TableList view)
+  thWithdrawalRequestArray,
+  tdWithdrawalRequestArray, // For tables (TableList view)
   iconsArray, // For icons (Icons view)
   dataPie,
   legendPie,

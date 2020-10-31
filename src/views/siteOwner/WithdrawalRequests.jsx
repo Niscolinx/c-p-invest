@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Grid, Row, Col, Table } from 'react-bootstrap'
 
 import Card from '../../components/Card/Card'
-import { thWithdrawalArray, tdWithdrawalArray } from '../../variables/Variables'
+import { thWithdrawalArrayArray, tdWithdrawalArrayArray } from '../../variables/Variables'
 
 function WithdrawalRequests(props) {
     const [withdrawalFromDate, setWithdrawalFromDate] = useState('')
@@ -10,6 +10,7 @@ function WithdrawalRequests(props) {
     const [fromAmount, setFromAmount] = useState('')
     const [toAmount, setToAmount] = useState('')
     const [perPage, setPerPage] = useState('10')
+    const [allRequests, setAllRequests] = useState('10')
     const [currency, setCurrency] = useState('All Currencies')
 
     const withdrawalFromDateChange = (e) => {
@@ -24,7 +25,10 @@ function WithdrawalRequests(props) {
     const handleFromAmount = (e) => {
         setFromAmount(e.target.value)
     }
-    const handleToAmount = (e) => {
+    const handleAllRequests = e => {
+        setAllRequests(e.target.value)
+    }   
+     const handleToAmount = (e) => {
         setToAmount(e.target.value)
     }
     const handlePerPage = (e) => {
@@ -45,6 +49,15 @@ function WithdrawalRequests(props) {
                     className='withdrawalRequest__form'
                     onSubmit={handleSubmit}
                 >
+                    <input
+                        type='input'
+                        className='withdrawalRequest__form--input'
+                        name='allRequest'
+                        placeholder='All Requests'
+                        id='allRequest'
+                        onChange={handleAllRequests}
+                        value={allRequests}
+                    />
                     <input
                         type='date'
                         className='withdrawalRequest-left__form--input'
@@ -131,7 +144,7 @@ function WithdrawalRequests(props) {
                                         <Table>
                                             <thead>
                                                 <tr>
-                                                    {thWithdrawalArray.map(
+                                                    {thWithdrawalArrayArray.map(
                                                         (prop, key) => {
                                                             return (
                                                                 <th key={key}>
@@ -143,7 +156,7 @@ function WithdrawalRequests(props) {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {tdWithdrawalArray.map(
+                                                {tdWithdrawalArrayArray.map(
                                                     (prop, key) => {
                                                         return (
                                                             <tr key={key}>
