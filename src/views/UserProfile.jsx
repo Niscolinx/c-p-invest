@@ -18,7 +18,7 @@ import avatar from '../assets/img/faces/face-1.jpg'
 
 const UserProfile = (props) => {
     const [fullname, setFullname] = useState('')
-    const [username, setUsername] = useState('')
+    const [username, setUsername] = useState('hello')
     const [email, setEmail] = useState('')
     const [bitcoin, setBitcoin] = useState('')
     const [ethereum, setEthereum] = useState('')
@@ -67,27 +67,30 @@ const UserProfile = (props) => {
 
 
     useEffect(() => {
-        
+        if(props.userData){
+            console.log('userData', props.userData)
+        }
     }, [])
-    // const handleSubmit = (e) => {
-    //     if (password !== confirmPassword) {
-    //         throw new Error("password does not match")
-    //     }
-    //     e.preventDefault()
-    //     const formData = {
-    //         profilePic,
-    //         fullname,
-    //         username,
-    //         password,
-    //         email,
-    //         phone,
-    //         bitcoin,
-    //     }
 
-    //     console.log("the form data", formData)
+    const handleSubmit = (e) => {
+        if (password !== confirmPassword) {
+            throw new Error("password does not match")
+        }
+        e.preventDefault()
+        const formData = {
+            profilePic,
+            fullname,
+            username,
+            password,
+            email,
+            phone,
+            bitcoin,
+        }
 
-    //     // props.onInitFundAccount(formData, props.tokenId, props.userId)
-    // }
+        console.log("the form data", formData)
+
+        // props.onInitFundAccount(formData, props.tokenId, props.userId)
+    }
 
     return (
         <div className='content'>
@@ -128,6 +131,7 @@ const UserProfile = (props) => {
                                             <FormControl
                                                 name='username'
                                                 type='text'
+                                                value={username}
                                                 onChange={handleChange}
                                             />
                                         </FormGroup>
@@ -236,7 +240,6 @@ const UserProfile = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log('userprofile state', state)
     return {
         loading: state.auth.loading,
         err: state.auth.error,
