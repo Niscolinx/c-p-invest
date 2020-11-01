@@ -6,7 +6,6 @@ import SubHeader from '../main/layout/SubHeader'
 import Footer from '../main/layout/Footer'
 
 function Layout(props) {
-    console.log('props of layout', props)
     const lastLocation = useLastLocation()
     const history = useHistory()
 

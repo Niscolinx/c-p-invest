@@ -1,5 +1,9 @@
 import * as actions from './actionTypes'
 
+const URL = 'http://localhost:3030/api/graphql'
+
+//const URL = 'https://coinperfect.herokuapp.com/api/graphql'
+
 export const authStart = () => {
     return {
         type: actions.AUTH_START,
@@ -89,7 +93,7 @@ export const initGetUser = (token) => {
                 }
             }`,
         }
-        fetch('https://coinperfect.herokuapp.com/api/graphql', {
+        fetch(URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -131,7 +135,7 @@ export const initLogin = (email, password) => {
          `,
         }
 
-        fetch('https://coinperfect.herokuapp.com/api/graphql', {
+        fetch(URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -192,7 +196,7 @@ export const initSignup = (authData) => {
          }`,
         }
 
-        fetch('https://coinperfect.herokuapp.com/api/graphql', {
+        fetch(URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(graphqlQuery),

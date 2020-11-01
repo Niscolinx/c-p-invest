@@ -230,6 +230,7 @@ const UserProfile = (props) => {
 }
 
 const mapStateToProps = (state) => {
+    console.log('userprofile state', state)
     return {
         loading: state.auth.loading,
         err: state.auth.error,
