@@ -1,5 +1,6 @@
 export {
-   initFundAccount
+   initFundAccount,
+   initGetFunds
 } from './Dashboard'
 
 export {

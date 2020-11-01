@@ -8,6 +8,7 @@ import * as orderAction from '../../store/actions/burgerIndex'
 
 class AdminNavbarLinks extends Component {
   render() {
+      console.log('siteowner', this.props.siteOwner)
     const notification = (
       <div>
         <i className="fa fa-globe" />
@@ -36,7 +37,6 @@ class AdminNavbarLinks extends Component {
                 </NavItem> */}
             </Nav>
             <Nav pullRight>
-            {!this.props.siteOwner && (
                 <NavItem eventKey={1}>
                     <Link
                         to='/admin/fund-account'
@@ -45,7 +45,6 @@ class AdminNavbarLinks extends Component {
                         Fund Account
                     </Link>
                 </NavItem>
-            )}
                 {/* <NavDropdown
                     eventKey={2}
                     title='Dropdown'

@@ -7,6 +7,7 @@ import { Card } from '../../components/Card/Card'
 import { StatsCard } from '../../components/StatsCard/StatsCard'
 import { dataPie, legendPie } from '../../variables/Variables'
 
+import * as actions from '../../store/actions/burgerIndex'
 import CrytoMarketWatch from '../../tradeviewWidgets/CryptoMarketWatch'
 
 class Dashboard extends Component {
@@ -19,6 +20,12 @@ class Dashboard extends Component {
             legend.push(json['names'][i])
         }
         return legend
+    }
+
+    componentDidMount(){
+        if(this.props.tokenId){
+            this.props.onInitGetFunds(this.props.tokenId)
+        }
     }
 
     render() {
@@ -118,7 +125,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        //onInitGetUser: (token) => dispatch(actionTypes.initGetUser(token)),
+        onInitGetFunds: (token) => dispatch(actions.initGetFunds(token)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

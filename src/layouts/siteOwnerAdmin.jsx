@@ -4,7 +4,7 @@ import NotificationSystem from 'react-notification-system'
 import { connect } from 'react-redux'
 import * as actionTypes from '../store/actions/burgerIndex'
 
-import AdminNavbar from '../components/Navbars/AdminNavbar'
+import AdminNavbar from '../components/Navbars/siteOwnerAdminNavbar'
 import Footer from '../components/Footer/Footer'
 import Sidebar from '../components/Sidebar/Sidebar'
 import PlanOrder from '../views/PlanOrder'

@@ -1,8 +1,8 @@
 import * as actions from './actionTypes'
 
-const URL = 'http://localhost:3030/api/graphql'
+const URL = 'http://localhost:3030'
 
-//const URL = 'https://coinperfect.herokuapp.com/api/graphql'
+//const URL = 'https://coinperfect.herokuapp.com'
 
 export const fundAccountStart = () => {
     return {
@@ -37,10 +37,11 @@ export const initFundAccount = (fundData, token, userId) => {
             body: formData,
         })
             .then((res) => {
+                console.log('the res', res)
                 return res.json()
             })
             .then((result) => {
-                console.log("the post data", result)
+                console.log('the post data', result)
                 const proofUrl = result.filePath
 
                 let graphqlQuery = {
@@ -63,7 +64,7 @@ export const initFundAccount = (fundData, token, userId) => {
             `,
                 }
 
-                return fetch(URL, {
+                return fetch(URL + '/api/graphql', {
                     method: 'POST',
                     body: JSON.stringify(graphqlQuery),
                     headers: {
@@ -77,7 +78,59 @@ export const initFundAccount = (fundData, token, userId) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log("data posted", resData)
+                console.log('data posted', resData)
+                if (resData.errors && resData.errors[0].status === 422) {
+                    throw new Error(
+                        "Validation failed. Make sure the email address isn't used yet!"
+                    )
+                }
+
+                if (resData.errors) {
+                    throw new Error('Creating or editing a post failed!')
+                }
+
+                dispatch(fundAccountSuccess(resData.data))
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch(fundAccountFailed(err))
+            })
+    }
+}
+export const initGetFunds = (token) => {
+    return (dispatch) => {
+        dispatch(fundAccountStart())
+
+        let graphqlQuery = {
+            query: `{
+                getFunds {
+                    getFund{
+                        amount
+                        currency
+                        createdAt
+                        updatedAt
+                        creator {
+                            fullname
+                        }
+                    }
+                }
+            }`,
+        }
+
+        return fetch(URL + '/api/graphql', {
+            method: 'POST',
+            body: JSON.stringify(graphqlQuery),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token,
+            },
+        })
+            .then((res) => {
+                console.log('started getFunds', token)
+                return res.json()
+            })
+            .then((resData) => {
+                console.log('data posted', resData)
                 if (resData.errors && resData.errors[0].status === 422) {
                     throw new Error(
                         "Validation failed. Make sure the email address isn't used yet!"
