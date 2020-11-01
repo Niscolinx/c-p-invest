@@ -147,6 +147,10 @@ class Admin extends Component {
             position: 'tr',
             autoDismiss: 15,
         })
+
+         if (this.props.tokenId) {
+             this.props.onInitGetUser(this.props.tokenId)
+         }
     }
     componentDidUpdate(e) {
         if (

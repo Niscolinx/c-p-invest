@@ -22,13 +22,12 @@ const UserProfile = (props) => {
     const [email, setEmail] = useState('')
     const [bitcoin, setBitcoin] = useState('')
     const [ethereum, setEthereum] = useState('')
+    const [profilePic, setProfilePic] = useState('')
     const [phone, setPhone] = useState('')
     const [country, setCountry] = useState('')
     const [city, setCity] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmNewPassword] = useState('')
-
-   
 
     const handleChange = (e) => {
         const name = e.target.name
@@ -66,25 +65,29 @@ const UserProfile = (props) => {
         }
     }
 
+
+    useEffect(() => {
+        
+    }, [])
     // const handleSubmit = (e) => {
+    //     if (password !== confirmPassword) {
+    //         throw new Error("password does not match")
+    //     }
     //     e.preventDefault()
     //     const formData = {
-    //         amount,
-    //         currency,
-    //         file,
+    //         profilePic,
+    //         fullname,
+    //         username,
+    //         password,
+    //         email,
+    //         phone,
+    //         bitcoin,
     //     }
 
-    //     props.onInitFundAccount(formData, props.tokenId, props.userId)
+    //     console.log("the form data", formData)
+
+    //     // props.onInitFundAccount(formData, props.tokenId, props.userId)
     // }
-    // console.log(
-    //     'the values',
-    //     fullname,
-    //     username,
-    //     password,
-    //     email,
-    //     phone,
-    //     bitcoin
-    // )
 
     return (
         <div className='content'>
@@ -95,14 +98,16 @@ const UserProfile = (props) => {
                             bgImage='https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400'
                             avatar={avatar}
                             name={props.userData ? props.userData.fullname : ''}
-                            userName={props.userData? props.userData.username : ''}
+                            userName={
+                                props.userData ? props.userData.username : ''
+                            }
                         />
                     </Col>
                     <Col md={8}>
                         <Card
                             title='Edit Profile'
                             content={
-                                <form>
+                                <form onSubmit={handleSubmit}>
                                     <Row>
                                         <FormGroup className='col-md-12 col-sm-12 col-xs-12'>
                                             <ControlLabel>
@@ -129,6 +134,7 @@ const UserProfile = (props) => {
                                         <FormGroup className='col-md-6 col-sm-12 col-xs-12'>
                                             <ControlLabel>Email</ControlLabel>
                                             <FormControl
+                                            minLength={5}
                                                 type='text'
                                                 name='email'
                                                 onChange={handleChange}
