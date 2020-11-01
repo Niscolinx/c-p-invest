@@ -1,5 +1,9 @@
 import * as actions from './actionTypes'
 
+const URL = 'http://localhost:3030/api/graphql'
+
+//const URL = 'https://coinperfect.herokuapp.com/api/graphql'
+
 export const fundAccountStart = () => {
     return {
         type: actions.FUND_ACCOUNT_START,
@@ -25,7 +29,7 @@ export const initFundAccount = (fundData, token, userId) => {
 
         formData.append('image', fundData.file['0'])
 
-        fetch('https://coinperfect.herokuapp.com/api/post-image', {
+        fetch(URL + '/api/post-image', {
             method: 'PUT',
             headers: {
                 Authorization: 'Bearer ' + token,
@@ -36,6 +40,7 @@ export const initFundAccount = (fundData, token, userId) => {
                 return res.json()
             })
             .then((result) => {
+                console.log("the post data", result)
                 const proofUrl = result.filePath
 
                 let graphqlQuery = {
@@ -58,7 +63,7 @@ export const initFundAccount = (fundData, token, userId) => {
             `,
                 }
 
-                return fetch('https://coinperfect.herokuapp.com/api/graphql', {
+                return fetch(URL, {
                     method: 'POST',
                     body: JSON.stringify(graphqlQuery),
                     headers: {
@@ -72,6 +77,7 @@ export const initFundAccount = (fundData, token, userId) => {
                 return res.json()
             })
             .then((resData) => {
+                console.log("data posted", resData)
                 if (resData.errors && resData.errors[0].status === 422) {
                     throw new Error(
                         "Validation failed. Make sure the email address isn't used yet!"

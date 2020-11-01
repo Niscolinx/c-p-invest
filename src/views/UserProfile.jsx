@@ -18,7 +18,7 @@ import avatar from '../assets/img/faces/face-1.jpg'
 
 const UserProfile = (props) => {
     const [fullname, setFullname] = useState('')
-    const [username, setUsername] = useState('hello')
+    const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [bitcoin, setBitcoin] = useState('')
     const [ethereum, setEthereum] = useState('')
@@ -65,18 +65,34 @@ const UserProfile = (props) => {
         }
     }
 
-
     useEffect(() => {
-        if(props.userData){
-            console.log('userData', props.userData)
+        if (props.userData) {
+            const fetchedBitcoin = props.userData.bitcoinAccount
+            const fetchedCreatedAt = props.userData.createdAt
+            const fetchedUpdatedAt = props.userData.updatedAt
+            const fetchedEmail = props.userData.email
+            const fetchedEthereum = props.userData.ethereumAccount
+            const fetchedFullname = props.userData.fullname
+            const fetchedRole = props.userData.role
+            const fetchedStatus = props.userData.status
+            const fetchedUsername = props.userData.username
+
+            setFullname(fetchedFullname)
+
+            setUsername(fetchedUsername)
+
+            setEmail(fetchedEmail)
+            setBitcoin(fetchedBitcoin)
+
+            setEthereum(fetchedEthereum)
         }
-    }, [])
+    }, [props])
 
     const handleSubmit = (e) => {
-        if (password !== confirmPassword) {
-            throw new Error("password does not match")
-        }
         e.preventDefault()
+        // if (password !== confirmPassword) {
+        //     throw new Error("password does not match")
+        // }
         const formData = {
             profilePic,
             fullname,
@@ -87,7 +103,7 @@ const UserProfile = (props) => {
             bitcoin,
         }
 
-        console.log("the form data", formData)
+        console.log('the form data', formData)
 
         // props.onInitFundAccount(formData, props.tokenId, props.userId)
     }
@@ -120,6 +136,7 @@ const UserProfile = (props) => {
                                                 type='text'
                                                 name='fullname'
                                                 onChange={handleChange}
+                                                value={fullname}
                                             />
                                         </FormGroup>
                                     </Row>
@@ -138,9 +155,10 @@ const UserProfile = (props) => {
                                         <FormGroup className='col-md-6 col-sm-12 col-xs-12'>
                                             <ControlLabel>Email</ControlLabel>
                                             <FormControl
-                                            minLength={5}
+                                                minLength={5}
                                                 type='text'
                                                 name='email'
+                                                value={email}
                                                 onChange={handleChange}
                                             />
                                         </FormGroup>
@@ -153,6 +171,7 @@ const UserProfile = (props) => {
                                             <FormControl
                                                 type='number'
                                                 name='phone'
+                                                value={phone}
                                                 onChange={handleChange}
                                             />
                                         </FormGroup>
@@ -161,6 +180,7 @@ const UserProfile = (props) => {
                                             <FormControl
                                                 type='text'
                                                 name='city'
+                                                value={city}
                                                 onChange={handleChange}
                                             />
                                         </FormGroup>
@@ -170,6 +190,7 @@ const UserProfile = (props) => {
                                             <FormControl
                                                 type='text'
                                                 name='country'
+                                            value={country}
                                                 onChange={handleChange}
                                             />
                                         </FormGroup>
@@ -182,6 +203,7 @@ const UserProfile = (props) => {
                                             <FormControl
                                                 type='text'
                                                 name='bitcoin'
+                                                value={bitcoin}
                                                 onChange={handleChange}
                                             />
                                         </FormGroup>
@@ -191,6 +213,7 @@ const UserProfile = (props) => {
                                             </ControlLabel>
                                             <FormControl
                                                 type='text'
+                                                value={ethereum}
                                                 name='ethereum'
                                                 onChange={handleChange}
                                             />

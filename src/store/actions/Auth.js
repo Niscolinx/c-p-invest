@@ -15,7 +15,7 @@ export const authSuccessCheck = (auth, token, role, email) => {
         sessionStorage.setItem('userId', auth)
         sessionStorage.setItem('token', token)
 
-        if(email === 'support@coinperfectinvestment.com'){
+        if (email === 'support@coinperfectinvestment.com') {
             sessionStorage.setItem('siteOwner', true)
         }
 
@@ -89,7 +89,15 @@ export const initGetUser = (token) => {
         const graphqlQuery = {
             query: `{
                 getUser {
-                   fullname username email role
+                    username
+                    email
+                    fullname
+                    ethereumAccount
+                    bitcoinAccount
+                    role
+                    status
+                    createdAt
+                    updatedAt
                 }
             }`,
         }
@@ -105,6 +113,7 @@ export const initGetUser = (token) => {
                 return res.json()
             })
             .then((resData) => {
+                console.log('user data', resData)
                 if (resData.errors) {
                     dispatch(authFailed('getUser', resData.errors[0].message))
 
