@@ -22,7 +22,7 @@ export const fundAccountFailed = (err) => {
     }
 }
 
-export const initFundAccount = (fundData, token, userId) => {
+export const initFundAccount = (fundData, token) => {
     return (dispatch) => {
         dispatch(fundAccountStart())
         const formData = new FormData()
