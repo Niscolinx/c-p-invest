@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col, Table } from 'react-bootstrap'
+import { connect } from 'react-redux'
+
+import * as orderAction from '../../store/actions/burgerIndex'
 
 import Card from '../../components/Card/Card'
 //import { thWithdrawalArray, tdWithdrawalArray } from '../../variables/Variables'
@@ -11,7 +14,12 @@ const tdWithdrawalArray = [
     ['1', 'Dakota Rice', '$36,738', 'Niger', 'Oud-Turnhout', 'October'],
 ]
 
-class TableList extends Component {
+class Members extends Component {
+    componentDidMount() {
+        if (this.props.tokenId) {
+            this.props.onInitGetUser(this.props.tokenId)
+        }
+    }
     render() {
         return (
             <div className='content'>
@@ -75,4 +83,19 @@ class TableList extends Component {
     }
 }
 
-export default TableList
+const mapStateToProps = (state) => {
+    return {
+        loading: state.user.loading,
+        err: state.auth.error,
+        tokenId: state.auth.tokenId,
+        userId: state.auth.userId,
+        userData: state.auth.userData,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onInitGetUsers: (token) => dispatch(orderAction.initGetUsers(token)),
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Members)
