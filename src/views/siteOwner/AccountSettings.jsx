@@ -27,7 +27,7 @@ const UserProfile = (props) => {
     const [country, setCountry] = useState('')
     const [city, setCity] = useState('')
     const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmNewPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
 
     const handleChange = (e) => {
         const name = e.target.name
@@ -61,7 +61,7 @@ const UserProfile = (props) => {
             setPassword(value)
         }
         if (name === 'confirmNewPassword') {
-            setConfirmNewPassword(value)
+            setConfirmPassword(value)
         }
     }
 
@@ -101,6 +101,7 @@ const UserProfile = (props) => {
             email,
             phone,
             bitcoin,
+            confirmPassword
         }
 
         console.log('the form data', formData)
