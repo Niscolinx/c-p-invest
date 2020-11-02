@@ -106,13 +106,12 @@ export const initGetFunds = (token) => {
             query: `{
                 getFunds {
                     getFund{
+                        fundNO
                         amount
                         currency
                         createdAt
                         updatedAt
-                        creator {
-                            fullname
-                        }
+                        status
                     }
                 }
             }`,
@@ -137,7 +136,7 @@ export const initGetFunds = (token) => {
                     dispatch(fundAccountFailed(resData.errors[0].message))
                 }
 
-                dispatch(fundAccountSuccess(resData.data))
+                dispatch(fundAccountSuccess(resData.data.getFunds.getFund))
             })
             .catch((err) => {
                 console.log(err)

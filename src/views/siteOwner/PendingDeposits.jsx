@@ -20,8 +20,8 @@ const PendingDeposits = (props) => {
             }
             gottenAllFunds.current = true
         } else {
-            if (props.getUsers) {
-                setAllFunds(props.getUsers)
+            if (props.getAllFunds) {
+                setAllFunds(props.getAllFunds)
             }
         }
     }, [props])
@@ -60,7 +60,7 @@ const PendingDeposits = (props) => {
                                             return (
                                                 <tr key={key}>
                                                     {Object.values(prop).map(
-                                                        (prop, key) => {
+                                                        (prop) => {
                                                             console.log(
                                                                 'prop',
                                                                 prop
@@ -93,7 +93,7 @@ const mapStateToProps = (state) => {
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
-        getFunds: state.dashboard.fundedAccount,
+        getAllFunds: state.dashboard.fundedAccount,
     }
 }
 
