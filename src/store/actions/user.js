@@ -100,9 +100,8 @@ export const initUpdateProfile = (updateProfileData, token) => {
             })
     }
 }
-export const initGetUsers = (getUsersData, token) => {
+export const initGetUsers = (token) => {
     return (dispatch) => {
-        console.log('update profile data', getUsersData)
         dispatch(getUsersStart())
 
         let graphqlQuery = {
