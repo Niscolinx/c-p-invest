@@ -24,7 +24,7 @@ export const updateProfileFailed = (err) => {
 
 export const initUpdateProfile = (updateProfileData, token) => {
     return (dispatch) => {
-        console.log('update profile data', updateProfileData)
+        console.log('update profile data', updateProfileData.email.value)
         dispatch(updateProfileStart())
 
         let graphqlQuery = {
