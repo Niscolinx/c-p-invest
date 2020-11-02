@@ -16,7 +16,6 @@ import siteOwnerWithdrawalRequest from './views/siteOwner/WithdrawalRequests'
 import Members from './views/siteOwner/Members'
 import FundUserAccount from './views/siteOwner/FundUserAccount'
 import PendingDeposits from './views/siteOwner/PendingDeposits'
-import SendNotification from './views/siteOwner/SendNotification'
 import SendPenalty from './views/siteOwner/SendPenalty'
 
 export const dashboardRoutes = [
@@ -83,20 +82,6 @@ export const siteOwnerDashboardRoutes = [
         layout: '/admin',
     },
     {
-        path: '/depositHistory',
-        name: 'Deposit History',
-        icon: 'pe-7s-note2',
-        component: siteOwnerWithdrawalHistory,
-        layout: '/admin',
-    },
-    {
-        path: '/earningsHistory',
-        name: 'Earnings History',
-        icon: 'pe-7s-refresh',
-        component: EarningsHistory,
-        layout: '/admin',
-    },
-    {
         path: '/members',
         name: 'Members',
         icon: 'pe-7s-news-paper',
@@ -104,31 +89,17 @@ export const siteOwnerDashboardRoutes = [
         layout: '/admin',
     },
     {
-        path: '/pendingDeposits',
-        name: 'Pending Deposits',
-        icon: 'pe-7s-refresh',
-        component: PendingDeposits,
-        layout: '/admin',
-    },
-    {
-        path: '/sendNotification',
-        name: 'Send Notification',
-        icon: 'pe-7s-refresh',
-        component: SendNotification,
-        layout: '/admin',
-    },
-    {
-        path: '/SendPenalty',
-        name: 'Send Penalty',
-        icon: 'pe-7s-refresh',
-        component: SendPenalty,
-        layout: '/admin',
-    },
-    {
         path: '/withdrawalRequest',
         name: 'Withdrawal Request',
         icon: 'pe-7s-refresh',
         component: siteOwnerWithdrawalRequest,
+        layout: '/admin',
+    },
+    {
+        path: '/depositHistory',
+        name: 'Deposit History',
+        icon: 'pe-7s-note2',
+        component: siteOwnerWithdrawalHistory,
         layout: '/admin',
     },
     {
@@ -146,10 +117,31 @@ export const siteOwnerDashboardRoutes = [
         layout: '/admin',
     },
     {
+        path: '/pendingDeposits',
+        name: 'Pending Deposits',
+        icon: 'pe-7s-refresh',
+        component: PendingDeposits,
+        layout: '/admin',
+    },
+    {
         path: '/fundUserAccount',
         name: 'Fund User Account',
         icon: 'pe-7s-refresh',
         component: FundUserAccount,
+        layout: '/admin',
+    },
+    {
+        path: '/earningsHistory',
+        name: 'Earnings History',
+        icon: 'pe-7s-refresh',
+        component: EarningsHistory,
+        layout: '/admin',
+    },
+    {
+        path: '/SendPenalty',
+        name: 'Send Penalty',
+        icon: 'pe-7s-refresh',
+        component: SendPenalty,
         layout: '/admin',
     },
 ]
