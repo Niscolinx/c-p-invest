@@ -27,10 +27,12 @@ const UserProfile = (props) => {
     const [country, setCountry] = useState('')
     const [city, setCity] = useState('')
     const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
+    const [confirmPassword, setConfirmNewPassword] = useState('')
 
-     const [message, setMessage] = useState('')
-     const [error, setError] = useState(false)
+    const [oldEmail, setOldEmail] = useState('')
+
+    const [message, setMessage] = useState('')
+    const [error, setError] = useState(false)
 
     const handleChange = (e) => {
         const name = e.target.name
@@ -63,12 +65,13 @@ const UserProfile = (props) => {
         if (name === 'password') {
             setPassword(value)
         }
-        if (name === 'confirmPassword') {
-            setConfirmPassword(value)
+        if (name === 'confirmNewPassword') {
+            setConfirmNewPassword(value)
         }
     }
 
     useEffect(() => {
+        console.log('userData', props.userData)
         if (props.userData) {
             const fetchedBitcoin = props.userData.bitcoinAccount
             const fetchedCreatedAt = props.userData.createdAt
@@ -85,6 +88,7 @@ const UserProfile = (props) => {
             setUsername(fetchedUsername)
 
             setEmail(fetchedEmail)
+            setOldEmail(fetchedEmail)
             setBitcoin(fetchedBitcoin)
 
             setEthereum(fetchedEthereum)
@@ -102,20 +106,18 @@ const UserProfile = (props) => {
             setError(false)
         }
         const formData = {
-            profilePic,
             fullname,
             username,
             password,
+            oldEmail,
             email,
-            phone,
             city,
             country,
-            bitcoin,
+            phone,
             ethereum,
+            bitcoin,
             confirmPassword,
         }
-
-        console.log('the form data', formData)
 
         props.onInitUpdateProfile(formData, props.tokenId)
     }
@@ -236,8 +238,8 @@ const UserProfile = (props) => {
                                             </ControlLabel>
                                             <FormControl
                                                 type='text'
-                                                value={ethereum}
                                                 name='ethereum'
+                                                value={ethereum}
                                                 onChange={handleChange}
                                             />
                                         </FormGroup>
@@ -251,9 +253,9 @@ const UserProfile = (props) => {
                                                 New Password
                                             </ControlLabel>
                                             <FormControl
-                                                type='text'
-                                                name='password'
+                                                type='password'
                                                 value={password}
+                                                name='password'
                                                 onChange={handleChange}
                                             />
                                         </FormGroup>
@@ -263,9 +265,9 @@ const UserProfile = (props) => {
                                                 Retype Password
                                             </ControlLabel>
                                             <FormControl
-                                                type='text'
-                                                name='confirmPassword'
+                                                type='password'
                                                 value={confirmPassword}
+                                                name='confirmNewPassword'
                                                 onChange={handleChange}
                                             />
                                         </FormGroup>
@@ -274,7 +276,9 @@ const UserProfile = (props) => {
                                         className='button btn__profile'
                                         type='submit'
                                     >
-                                        Update Profile
+                                        {props.loading
+                                            ? 'Loading...'
+                                            : 'Update Profile'}
                                     </button>
                                     {/* <div className='clearfix' /> */}
                                 </form>
@@ -289,7 +293,7 @@ const UserProfile = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.auth.loading,
+        loading: state.user.loading,
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
@@ -299,7 +303,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-         onInitUpdateProfile: (data, token) => dispatch(orderAction.initUpdateProfile(data,token)),
+        onInitUpdateProfile: (data, token) =>
+            dispatch(orderAction.initUpdateProfile(data, token)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)

@@ -57,6 +57,7 @@ const clearError = (state, action) => {
 }
 
 const getUser = (state, action) => {
+    console.log('the reducer auth', action.data)
     return update(state, {
         ...action,
         loading: false,

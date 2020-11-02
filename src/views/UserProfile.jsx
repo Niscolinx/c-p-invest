@@ -71,6 +71,7 @@ const UserProfile = (props) => {
     }
 
     useEffect(() => {
+        console.log('userData', props.userData)
         if (props.userData) {
             const fetchedBitcoin = props.userData.bitcoinAccount
             const fetchedCreatedAt = props.userData.createdAt
@@ -118,7 +119,6 @@ const UserProfile = (props) => {
              confirmPassword,
          }
 
-         console.log('the form data', formData)
 
          props.onInitUpdateProfile(formData, props.tokenId)
     }
@@ -256,7 +256,7 @@ const UserProfile = (props) => {
                                             <FormControl
                                                 type='password'
                                                 value={password}
-                                                name='newPassword'
+                                                name='password'
                                                 onChange={handleChange}
                                             />
                                         </FormGroup>
@@ -293,7 +293,6 @@ const UserProfile = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log('the state', state)
     return {
         loading: state.user.loading,
         err: state.auth.error,

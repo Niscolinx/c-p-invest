@@ -12,6 +12,7 @@ const updateProfileStart = (state, action) => {
     })
 }
 const updateProfileSuccess = (state, action) => {
+    console.log('the reducer', action.data)
     return update(state, {
         loading: false,
         userData: action.data,
