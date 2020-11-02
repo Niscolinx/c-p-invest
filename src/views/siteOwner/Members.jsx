@@ -27,15 +27,6 @@ const Members = (props) => {
     }, [props])
 
     console.log('the get all users', allUsers)
-    // let countUsers
-    // if (allUsers.length > 0) {
-    //     countUsers = []
-    //     for (let i = 0; i < allUsers.length; i++) {
-    //         countUsers.push({ ...user, count: 1+i })
-    //     }
-    // }
-
-    // console.log('the count', countUsers)
 
     return (
         <div className='content'>
