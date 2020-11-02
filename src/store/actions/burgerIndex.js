@@ -3,8 +3,8 @@ export {
    initGetFunds
 } from './Dashboard'
 
-// export {
-   
-// } from './user'
+export {
+   initupdateProfile
+} from './user'
 
 export { initSignup, initLogin, logOut, clearError, authSuccess, initGetUser } from './Auth'

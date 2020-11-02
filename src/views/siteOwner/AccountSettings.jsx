@@ -117,7 +117,7 @@ const UserProfile = (props) => {
 
         console.log('the form data', formData)
 
-         props.onInitUpdateSettings(formData, props.tokenId, props.userId)
+         props.onInitUpdateProfile(formData, props.tokenId)
     }
 
     return (
@@ -299,7 +299,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-         onInitUpdateSettings: (data, token, userId) => dispatch(orderAction.initUpdateSettings(data,token, userId)),
+         onInitUpdateProfile: (data, token) => dispatch(orderAction.initUpdateProfile(data,token)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)

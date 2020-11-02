@@ -6,28 +6,28 @@ const URL = 'http://localhost:3030'
 
 export const updateProfileStart = () => {
     return {
-        type: actions.FUND_ACCOUNT_START,
+        type: actions.UPDATE_PROFILE_START,
     }
 }
 export const updateProfileSuccess = (data) => {
     return {
-        type: actions.FUND_ACCOUNT__SUCCESS,
+        type: actions.UPDATE_PROFILE__SUCCESS,
         data,
     }
 }
 export const updateProfileFailed = (err) => {
     return {
-        type: actions.FUND_ACCOUNT__FAILED,
+        type: actions.UPDATE_PROFILE__FAILED,
         err,
     }
 }
 
-export const initupdateProfile = (fundData, token, userId) => {
+export const initupdateProfile = (updateProfileData, token) => {
     return (dispatch) => {
         dispatch(updateProfileStart())
         const formData = new FormData()
 
-        formData.append('image', fundData.file['0'])
+        formData.append('image', updateProfileData.file['0'])
 
         fetch(URL + '/api/post-image', {
             method: 'PUT',
@@ -46,9 +46,9 @@ export const initupdateProfile = (fundData, token, userId) => {
 
                 let graphqlQuery = {
                     query: `
-                mutation { createupdateProfile(fundData: {
-                        amount: "${fundData.amount}",
-                        currency: "${fundData.currency}",
+                mutation { createupdateProfile(updateProfileData: {
+                        amount: "${updateProfileData.amount}",
+                        currency: "${updateProfileData.currency}",
                         proofUrl: "${proofUrl}"
                     }){
                         _id
