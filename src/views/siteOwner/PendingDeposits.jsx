@@ -35,7 +35,7 @@ const PendingDeposits = (props) => {
                         <Card
                             plain
                             title='Pending Funds for Approval'
-                            category=''
+                            category='Users that want to fund their account'
                             ctTableFullWidth
                             ctTableResponsive
                             content={
@@ -51,6 +51,7 @@ const PendingDeposits = (props) => {
                                                     )
                                                 }
                                             )}
+                                           
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -71,6 +72,12 @@ const PendingDeposits = (props) => {
                                                             )
                                                         }
                                                     )}
+                                                    <button className='button'>
+                                                        approve
+                                                    </button>
+                                                    <button className='btn'>
+                                                        approve
+                                                    </button>
                                                 </tr>
                                             )
                                         })}
