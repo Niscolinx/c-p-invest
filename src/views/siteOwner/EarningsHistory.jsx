@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col, Table } from 'react-bootstrap'
 
-import Card from '../components/Card/Card'
+import Card from '../../components/Card/Card'
 import { thWithdrawalArray, tdWithdrawalArray } from '../../variables/Variables'
 
 class TableList extends Component {
