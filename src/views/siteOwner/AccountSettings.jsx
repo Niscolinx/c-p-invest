@@ -96,6 +96,7 @@ const UserProfile = (props) => {
         if (password !== confirmPassword) {
                 setMessage('Passwords do not match')
                 setError(true)
+                return
             
         } else {
             setMessage(
@@ -116,7 +117,7 @@ const UserProfile = (props) => {
 
         console.log('the form data', formData)
 
-        // props.onInitFundAccount(formData, props.tokenId, props.userId)
+         props.onInitUpdateSettings(formData, props.tokenId, props.userId)
     }
 
     return (
@@ -298,7 +299,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        // onInitUpdateSettings: (token) => dispatch(orderAction.initUpdateSettings(token)),
+         onInitUpdateSettings: (data, token, userId) => dispatch(orderAction.initUpdateSettings(data,token, userId)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)

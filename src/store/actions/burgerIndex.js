@@ -9,6 +9,6 @@ export {
     fetchedOrdersInit,
     fetchedOrderDelete,
     deleteAllOrders,
-} from './order'
+} from './user'
 
 export { initSignup, initLogin, logOut, clearError, authSuccess, initGetUser } from './Auth'
