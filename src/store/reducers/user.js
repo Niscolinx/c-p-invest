@@ -5,6 +5,7 @@ const initialState = {
     error: null,
     loading: false,
     userData: {},
+    getUsers: []
 }
 const updateProfileStart = (state, action) => {
     return update(state, {
@@ -15,7 +16,7 @@ const updateProfileSuccess = (state, action) => {
     console.log('the reducer', action.data)
     return update(state, {
         loading: false,
-        userData: action.data,
+        getUsers: action.data,
     })
 }
 const updateProfileFailed = (state, action) => {

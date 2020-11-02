@@ -86,7 +86,6 @@ export const initUpdateProfile = (updateProfileData, token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('data update profile', resData.data)
 
                 if (resData.errors) {
                     dispatch(updateProfileFailed(resData.errors[0].message))
@@ -102,12 +101,13 @@ export const initUpdateProfile = (updateProfileData, token) => {
 }
 export const initGetUsers = (token) => {
     return (dispatch) => {
+        console.log('the token of getUsers', token)
         dispatch(getUsersStart())
 
         let graphqlQuery = {
             query: `{
                 getUsers {
-                    getMember{                    
+                    getUser {                    
                         username
                         email
                         fullname
@@ -137,13 +137,13 @@ export const initGetUsers = (token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('data update profile', resData.data)
+                console.log('data getUsers', resData.data)
 
                 if (resData.errors) {
                     dispatch(getUsersFailed(resData.errors[0].message))
                 }
 
-                dispatch(getUsersSuccess(resData.data))
+                dispatch(getUsersSuccess(resData.data.getUsers.getUser))
             })
             .catch((err) => {
                 console.log(err)

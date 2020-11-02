@@ -17,9 +17,12 @@ const tdWithdrawalArray = [
 class Members extends Component {
     componentDidMount() {
         if (this.props.tokenId) {
-            this.props.onInitGetUser(this.props.tokenId)
+            this.props.onInitGetUsers(this.props.tokenId)
         }
+
+        console.log('get all users', this.props.getUsers)
     }
+
     render() {
         return (
             <div className='content'>
@@ -89,7 +92,7 @@ const mapStateToProps = (state) => {
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
-        userData: state.auth.userData,
+        getUsers: state.user.getUsers,
     }
 }
 
