@@ -93,7 +93,6 @@ const UserProfile = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-         e.preventDefault()
          if (password !== confirmPassword) {
              setMessage('Passwords do not match')
              setError(true)
@@ -103,12 +102,14 @@ const UserProfile = (props) => {
              setError(false)
          }
          const formData = {
-             profilePic,
              fullname,
              username,
              password,
              email,
+             city,
+             country,
              phone,
+             ethereum,
              bitcoin,
              confirmPassword,
          }
@@ -223,8 +224,8 @@ const UserProfile = (props) => {
                                             </ControlLabel>
                                             <FormControl
                                                 type='text'
-                                                value={ethereum}
                                                 name='ethereum'
+                                                value={ethereum}
                                                 onChange={handleChange}
                                             />
                                         </FormGroup>

@@ -29,7 +29,7 @@ export const initUpdateProfile = (updateProfileData, token) => {
 
         let graphqlQuery = {
             query: `
-                mutation { createupdateProfile(updateProfileData: {
+                mutation { createUpdateProfile(updateProfileData: {
                         username: "${updateProfileData.username.value}",
                         email: "${updateProfileData.email.value}",
                         password: "${updateProfileData.confirmPassword.value}",
@@ -40,7 +40,7 @@ export const initUpdateProfile = (updateProfileData, token) => {
                         bitcoinAccount: "${updateProfileData.bitcoin.value}",
                         ethereumAccount: "${updateProfileData.ethereum.value}"
                     }){
-                        _id
+                        
                         fullname
                         username
                         updatedAt
