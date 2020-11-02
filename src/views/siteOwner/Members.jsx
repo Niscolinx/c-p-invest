@@ -20,7 +20,10 @@ class Members extends Component {
             this.props.onInitGetUsers(this.props.tokenId)
         }
 
-        console.log('get all users', this.props.getUsers)
+        if(this.props.getUsers){
+
+            console.log('get all users', this.props.getUsers)
+        }
     }
 
     render() {
