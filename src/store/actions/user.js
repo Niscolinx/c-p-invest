@@ -4,27 +4,27 @@ const URL = 'http://localhost:3030'
 
 //const URL = 'https://coinperfect.herokuapp.com'
 
-export const fundAccountStart = () => {
+export const updateProfileStart = () => {
     return {
         type: actions.FUND_ACCOUNT_START,
     }
 }
-export const fundAccountSuccess = (data) => {
+export const updateProfileSuccess = (data) => {
     return {
         type: actions.FUND_ACCOUNT__SUCCESS,
         data,
     }
 }
-export const fundAccountFailed = (err) => {
+export const updateProfileFailed = (err) => {
     return {
         type: actions.FUND_ACCOUNT__FAILED,
         err,
     }
 }
 
-export const initFundAccount = (fundData, token, userId) => {
+export const initupdateProfile = (fundData, token, userId) => {
     return (dispatch) => {
-        dispatch(fundAccountStart())
+        dispatch(updateProfileStart())
         const formData = new FormData()
 
         formData.append('image', fundData.file['0'])
@@ -46,7 +46,7 @@ export const initFundAccount = (fundData, token, userId) => {
 
                 let graphqlQuery = {
                     query: `
-                mutation { createFundAccount(fundData: {
+                mutation { createupdateProfile(fundData: {
                         amount: "${fundData.amount}",
                         currency: "${fundData.currency}",
                         proofUrl: "${proofUrl}"
@@ -89,11 +89,11 @@ export const initFundAccount = (fundData, token, userId) => {
                     throw new Error('Creating or editing a post failed!')
                 }
 
-                dispatch(fundAccountSuccess(resData.data))
+                dispatch(updateProfileSuccess(resData.data))
             })
             .catch((err) => {
                 console.log(err)
-                dispatch(fundAccountFailed(err))
+                dispatch(updateProfileFailed(err))
             })
     }
 }
