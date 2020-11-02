@@ -8,7 +8,6 @@ import * as orderAction from '../../store/actions/burgerIndex'
 
 class AdminNavbarLinks extends Component {
   render() {
-      console.log('siteowner','the normal nav Links', this.props.siteOwner)
       const notification = (
         <div>
           <i className="fa fa-globe" />
@@ -20,11 +19,10 @@ class AdminNavbarLinks extends Component {
 
       let siteOwnerAdminLinks = (
           <>
-              {' '}
-              <Nav>
-                  {/* <NavItem eventKey={1} href='#'>
+              {/* <Nav>
+                  <NavItem eventKey={1} href='#'>
                     <p className='hidden-lg hidden-md'>Dashboard</p>
-                </NavItem> */}
+                </NavItem> 
                   <NavDropdown
                       eventKey={2}
                       title={notification}
@@ -36,8 +34,8 @@ class AdminNavbarLinks extends Component {
                   {/* <NavItem eventKey={3} href='#'>
                     <i className='fa fa-search' />
                     <p className='hidden-lg hidden-md'>Search</p>
-                </NavItem> */}
-              </Nav>
+                </NavItem>
+              </Nav> */}
               <Nav pullRight>
                   <NavItem eventKey={1}>
                       <Link

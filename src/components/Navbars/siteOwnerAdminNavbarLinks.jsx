@@ -7,16 +7,15 @@ import * as orderAction from '../../store/actions/burgerIndex'
 
 class AdminNavbarLinks extends Component {
     render() {
-              console.log('siteowner','admin nav Links', this.props.siteOwner)
 
-        const notification = (
-            <div>
-                <i className='fa fa-globe' />
-                <b className='caret' />
-                <span className='notification'>0</span>
-                <p className='hidden-lg hidden-md'>Notification</p>
-            </div>
-        )
+        // const notification = (
+        //     <div>
+        //         <i className='fa fa-globe' />
+        //         <b className='caret' />
+        //         <span className='notification'>0</span>
+        //         <p className='hidden-lg hidden-md'>Notification</p>
+        //     </div>
+        // )
         return (
             <div className='adminNavLinks'>
                 {/* <Nav>

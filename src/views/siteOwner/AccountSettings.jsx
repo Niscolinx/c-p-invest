@@ -27,7 +27,6 @@ const UserProfile = (props) => {
     const [country, setCountry] = useState('')
     const [city, setCity] = useState('')
     const [password, setPassword] = useState('')
-    const [valid, setValid] = useState(true)
     const [confirmPassword, setConfirmPassword] = useState('')
 
      const [message, setMessage] = useState('')
@@ -299,7 +298,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        // onInitGetUser: (token) => dispatch(orderAction.initGetUser(token)),
+        // onInitUpdateSettings: (token) => dispatch(orderAction.initUpdateSettings(token)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)
