@@ -29,6 +29,8 @@ const UserProfile = (props) => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmNewPassword] = useState('')
 
+    const [oldEmail, setOldEmail] = useState('')
+
       const [message, setMessage] = useState('')
       const [error, setError] = useState(false)
 
@@ -85,6 +87,7 @@ const UserProfile = (props) => {
             setUsername(fetchedUsername)
 
             setEmail(fetchedEmail)
+            setOldEmail(fetchedEmail)
             setBitcoin(fetchedBitcoin)
 
             setEthereum(fetchedEthereum)
@@ -105,6 +108,7 @@ const UserProfile = (props) => {
              fullname,
              username,
              password,
+             oldEmail,
              email,
              city,
              country,
@@ -289,6 +293,7 @@ const UserProfile = (props) => {
 }
 
 const mapStateToProps = (state) => {
+    console.log('the state', state)
     return {
         loading: state.user.loading,
         err: state.auth.error,

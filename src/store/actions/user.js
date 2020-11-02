@@ -32,6 +32,7 @@ export const initUpdateProfile = (updateProfileData, token) => {
                 mutation { createUpdateProfile(updateProfileData: {
                         username: "${updateProfileData.username}",
                         email: "${updateProfileData.email}",
+                        oldEmail: "${updateProfileData.oldEmail}",
                         password: "${updateProfileData.confirmPassword}",
                         fullname: "${updateProfileData.fullname}",
                         city: "${updateProfileData.city}",
