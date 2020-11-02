@@ -7,7 +7,8 @@ import * as orderAction from '../../store/actions/burgerIndex'
 
 class AdminNavbarLinks extends Component {
     render() {
-        console.log('siteowner', this.props.siteOwner)
+              console.log('siteowner','admin nav Links', this.props.siteOwner)
+
         const notification = (
             <div>
                 <i className='fa fa-globe' />
@@ -18,7 +19,7 @@ class AdminNavbarLinks extends Component {
         )
         return (
             <div className='adminNavLinks'>
-                <Nav>
+                {/* <Nav>
                     <NavDropdown
                         eventKey={2}
                         title={notification}
@@ -28,7 +29,7 @@ class AdminNavbarLinks extends Component {
                         <MenuItem eventKey={2.1}>No notifications</MenuItem>
                     </NavDropdown>
                 
-                </Nav>
+                </Nav> */}
                 <Nav pullRight>
                   
                    
