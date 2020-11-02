@@ -4,7 +4,7 @@ export {
 } from './Dashboard'
 
 export {
-   initupdateProfile
+   initUpdateProfile
 } from './user'
 
 export { initSignup, initLogin, logOut, clearError, authSuccess, initGetUser } from './Auth'

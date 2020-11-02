@@ -11,18 +11,18 @@ export const updateProfileStart = () => {
 }
 export const updateProfileSuccess = (data) => {
     return {
-        type: actions.UPDATE_PROFILE__SUCCESS,
+        type: actions.UPDATE_PROFILE_SUCCESS,
         data,
     }
 }
 export const updateProfileFailed = (err) => {
     return {
-        type: actions.UPDATE_PROFILE__FAILED,
+        type: actions.UPDATE_PROFILE_FAILED,
         err,
     }
 }
 
-export const initupdateProfile = (updateProfileData, token) => {
+export const initUpdateProfile = (updateProfileData, token) => {
     return (dispatch) => {
         console.log('update profile data', updateProfileData)
         dispatch(updateProfileStart())
@@ -49,15 +49,15 @@ export const initupdateProfile = (updateProfileData, token) => {
                     query: `
                 mutation { createupdateProfile(updateProfileData: {
                         username: "${updateProfileData.username.value}",
-            email: "${updateProfileData.confirmEmail.value}",
-            password: "${updateProfileData.confirmPassword.value}",
-            fullname: "${updateProfileData.fullname.value}",
-            profilePic: "${profilePicPath}",
-            city: "${updateProfileData.city.value}",
-            country: "${updateProfileData.country.value}",
-            phone: "${updateProfileData.phone.value}",
-            bitcoinAccount: "${updateProfileData.bitcoinAccount.value}",
-            ethereumAccount: "${updateProfileData.ethereumAccount.value}"
+                        email: "${updateProfileData.confirmEmail.value}",
+                        password: "${updateProfileData.confirmPassword.value}",
+                        fullname: "${updateProfileData.fullname.value}",
+                        profilePic: "${profilePicPath}",
+                        city: "${updateProfileData.city.value}",
+                        country: "${updateProfileData.country.value}",
+                        phone: "${updateProfileData.phone.value}",
+                        bitcoinAccount: "${updateProfileData.bitcoinAccount.value}",
+                        ethereumAccount: "${updateProfileData.ethereumAccount.value}"
                     }){
                         _id
                         fullname
