@@ -4,8 +4,8 @@ import update from '../utility'
 const initialState = {
     error: null,
     loading: false,
-    fundedAccount: []
-    
+    fundedAccount: [],
+    getAllFundsAccount: []
 }
 const fundAccountStart = (state, action) => {
     return update(state, {
@@ -16,6 +16,13 @@ const fundAccountSuccess = (state, action) => {
     return update(state, {
         loading: false,
         fundedAccount: action.data
+    })
+}
+
+const getFundAccountSuccess = (state, action) => {
+    return update(state, {
+        loading: false,
+        getAllFundsAccount: action.data
     })
 }
 const fundAccountFailed = (state, action) => {
@@ -29,9 +36,11 @@ const fundAccount = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.FUND_ACCOUNT_START:
             return fundAccountStart(state, action)
-        case actionTypes.FUND_ACCOUNT__SUCCESS:
+        case actionTypes.FUND_ACCOUNT_SUCCESS:
             return fundAccountSuccess(state, action)
-        case actionTypes.FUND_ACCOUNT__FAILED:
+        case actionTypes.GET_FUND_ACCOUNT_SUCCESS:
+            return getFundAccountSuccess(state, action)
+        case actionTypes.FUND_ACCOUNT_FAILED:
             return fundAccountFailed(state, action)
 
         default:

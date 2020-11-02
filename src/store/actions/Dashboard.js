@@ -11,13 +11,19 @@ export const fundAccountStart = () => {
 }
 export const fundAccountSuccess = (data) => {
     return {
-        type: actions.FUND_ACCOUNT__SUCCESS,
+        type: actions.FUND_ACCOUNT_SUCCESS,
+        data,
+    }
+}
+export const getFundAccountSuccess = (data) => {
+    return {
+        type: actions.GET_FUND_ACCOUNT_SUCCESS,
         data,
     }
 }
 export const fundAccountFailed = (err) => {
     return {
-        type: actions.FUND_ACCOUNT__FAILED,
+        type: actions.FUND_ACCOUNT_FAILED,
         err,
     }
 }
@@ -84,7 +90,7 @@ export const initFundAccount = (fundData, token) => {
                     dispatch(fundAccountFailed(resData.errors[0].message))
                 }
 
-                dispatch(fundAccountSuccess(resData.data))
+                dispatch(getFundAccountSuccess(resData.data))
             })
             .catch((err) => {
                 console.log(err)
