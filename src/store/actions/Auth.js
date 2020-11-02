@@ -95,6 +95,9 @@ export const initGetUser = (token) => {
                     ethereumAccount
                     bitcoinAccount
                     role
+                    phone 
+                    country
+                    city
                     status
                     createdAt
                     updatedAt

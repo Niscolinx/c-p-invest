@@ -74,17 +74,19 @@ const UserProfile = (props) => {
         console.log('userData', props.userData)
         if (props.userData) {
             const fetchedBitcoin = props.userData.bitcoinAccount
-            const fetchedCreatedAt = props.userData.createdAt
-            const fetchedUpdatedAt = props.userData.updatedAt
             const fetchedEmail = props.userData.email
             const fetchedEthereum = props.userData.ethereumAccount
             const fetchedFullname = props.userData.fullname
-            const fetchedRole = props.userData.role
-            const fetchedStatus = props.userData.status
             const fetchedUsername = props.userData.username
+            const fetchedCity = props.userData.city
+            const fetchedCountry = props.userData.country
+            const fetchedPhone = props.userData.phone
 
             setFullname(fetchedFullname)
 
+            setCity(fetchedCity)
+            setCountry(fetchedCountry)
+            setPhone(fetchedPhone)
             setUsername(fetchedUsername)
 
             setEmail(fetchedEmail)

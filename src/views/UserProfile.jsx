@@ -8,13 +8,13 @@ import {
     FormGroup,
 } from 'react-bootstrap'
 
-import { Card } from '../components/Card/Card'
-import UserCard from '../components/UserCard/UserCard'
+import { Card } from '../../components/Card/Card'
+import UserCard from '../../components/UserCard/UserCard'
 import { connect } from 'react-redux'
 
-import * as orderAction from '../store/actions/burgerIndex'
+import * as orderAction from '../../store/actions/burgerIndex'
 
-import avatar from '../assets/img/faces/face-1.jpg'
+import avatar from '../../assets/img/faces/face-1.jpg'
 
 const UserProfile = (props) => {
     const [fullname, setFullname] = useState('')
@@ -31,8 +31,8 @@ const UserProfile = (props) => {
 
     const [oldEmail, setOldEmail] = useState('')
 
-      const [message, setMessage] = useState('')
-      const [error, setError] = useState(false)
+    const [message, setMessage] = useState('')
+    const [error, setError] = useState(false)
 
     const handleChange = (e) => {
         const name = e.target.name
@@ -74,17 +74,19 @@ const UserProfile = (props) => {
         console.log('userData', props.userData)
         if (props.userData) {
             const fetchedBitcoin = props.userData.bitcoinAccount
-            const fetchedCreatedAt = props.userData.createdAt
-            const fetchedUpdatedAt = props.userData.updatedAt
             const fetchedEmail = props.userData.email
             const fetchedEthereum = props.userData.ethereumAccount
             const fetchedFullname = props.userData.fullname
-            const fetchedRole = props.userData.role
-            const fetchedStatus = props.userData.status
             const fetchedUsername = props.userData.username
+            const fetchedCity = props.userData.city
+            const fetchedCountry = props.userData.country
+            const fetchedPhone = props.userData.phone
 
             setFullname(fetchedFullname)
 
+            setCity(fetchedCity)
+            setCountry(fetchedCountry)
+            setPhone(fetchedPhone)
             setUsername(fetchedUsername)
 
             setEmail(fetchedEmail)
@@ -97,30 +99,29 @@ const UserProfile = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-         if (password !== confirmPassword) {
-             setMessage('Passwords do not match')
-             setError(true)
-             return
-         } else {
-             setMessage('Updated successfully')
-             setError(false)
-         }
-         const formData = {
-             fullname,
-             username,
-             password,
-             oldEmail,
-             email,
-             city,
-             country,
-             phone,
-             ethereum,
-             bitcoin,
-             confirmPassword,
-         }
+        if (password !== confirmPassword) {
+            setMessage('Passwords do not match')
+            setError(true)
+            return
+        } else {
+            setMessage('Updated successfully')
+            setError(false)
+        }
+        const formData = {
+            fullname,
+            username,
+            password,
+            oldEmail,
+            email,
+            city,
+            country,
+            phone,
+            ethereum,
+            bitcoin,
+            confirmPassword,
+        }
 
-
-         props.onInitUpdateProfile(formData, props.tokenId)
+        props.onInitUpdateProfile(formData, props.tokenId)
     }
 
     return (

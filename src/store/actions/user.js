@@ -69,7 +69,7 @@ export const initUpdateProfile = (updateProfileData, token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('data update profile', resData)
+                console.log('data update profile', resData.data)
 
                 if (resData.errors) {
                     dispatch(updateProfileFailed(resData.errors[0].message))
