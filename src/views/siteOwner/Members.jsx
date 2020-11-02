@@ -13,8 +13,8 @@ class TableList extends Component {
                         <Col md={12}>
                             <Card
                                 plain
-                                title='Your investment'
-                                category='History'
+                                title='Members'
+                                category=''
                                 ctTableFullWidth
                                 ctTableResponsive
                                 content={
