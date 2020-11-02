@@ -21,6 +21,23 @@ export const updateProfileFailed = (err) => {
         err,
     }
 }
+export const getUsersStart = () => {
+    return {
+        type: actions.UPDATE_PROFILE_START,
+    }
+}
+export const getUsersSuccess = (data) => {
+    return {
+        type: actions.UPDATE_PROFILE_SUCCESS,
+        data,
+    }
+}
+export const getUsersFailed = (err) => {
+    return {
+        type: actions.UPDATE_PROFILE_FAILED,
+        err,
+    }
+}
 
 export const initUpdateProfile = (updateProfileData, token) => {
     return (dispatch) => {
@@ -80,6 +97,58 @@ export const initUpdateProfile = (updateProfileData, token) => {
             .catch((err) => {
                 console.log(err)
                 dispatch(updateProfileFailed(err))
+            })
+    }
+}
+export const initGetUsers = (getUsersData, token) => {
+    return (dispatch) => {
+        console.log('update profile data', getUsersData)
+        dispatch(getUsersStart())
+
+        let graphqlQuery = {
+            query: `{
+                getUsers {
+                    getMember{                    
+                        username
+                        email
+                        fullname
+                        ethereumAccount
+                        bitcoinAccount
+                        role
+                        phone 
+                        country
+                        city
+                        status
+                        createdAt
+                        updatedAt
+                    }
+                }
+            }`,
+        }
+
+        return fetch(URL + '/api/graphql', {
+            method: 'POST',
+            body: JSON.stringify(graphqlQuery),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token,
+            },
+        })
+            .then((res) => {
+                return res.json()
+            })
+            .then((resData) => {
+                console.log('data update profile', resData.data)
+
+                if (resData.errors) {
+                    dispatch(getUsersFailed(resData.errors[0].message))
+                }
+
+                dispatch(getUsersSuccess(resData.data))
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch(getUsersFailed(err))
             })
     }
 }
