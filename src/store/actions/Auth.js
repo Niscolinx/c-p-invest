@@ -137,8 +137,8 @@ export const initLogin = (email, password) => {
             query: `{
                 login(email: "${email}", password: "${password}"){
                 userId
-                token,
-                role,
+                token
+                role
                 email
             }
           }

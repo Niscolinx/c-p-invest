@@ -5,6 +5,7 @@ const initialState = {
     error: null,
     loading: false,
     fundedAccount: [],
+    creatorOfFunds: '',
     getAllFundsAccount: []
 }
 const fundAccountStart = (state, action) => {

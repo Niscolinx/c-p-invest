@@ -105,8 +105,9 @@ export const initGetFunds = (token) => {
         let graphqlQuery = {
             query: `{
                 getFunds {
-                    getFund{
+                    fundData {
                         fundNO
+                        creator
                         amount
                         currency
                         createdAt
@@ -136,7 +137,7 @@ export const initGetFunds = (token) => {
                     dispatch(fundAccountFailed(resData.errors[0].message))
                 }
 
-                dispatch(fundAccountSuccess(resData.data.getFunds.getFund))
+                dispatch(fundAccountSuccess(resData.data.getFunds.fundData))
             })
             .catch((err) => {
                 console.log(err)
