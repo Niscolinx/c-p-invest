@@ -91,9 +91,9 @@ const UserProfile = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (password !== confirmPassword) {
-            throw new Error("password does not match")
-        }
+        // if (password !== confirmPassword) {
+        //     throw new Error("password does not match")
+        // }
         const formData = {
             profilePic,
             fullname,
