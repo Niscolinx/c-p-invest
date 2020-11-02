@@ -8,13 +8,13 @@ import {
     FormGroup,
 } from 'react-bootstrap'
 
-import { Card } from '../../components/Card/Card'
-import UserCard from '../../components/UserCard/UserCard'
+import { Card } from '../components/Card/Card'
+import UserCard from '../components/UserCard/UserCard'
 import { connect } from 'react-redux'
 
-import * as orderAction from '../../store/actions/burgerIndex'
+import * as orderAction from '../store/actions/burgerIndex'
 
-import avatar from '../../assets/img/faces/face-1.jpg'
+import avatar from '../assets/img/faces/face-1.jpg'
 
 const UserProfile = (props) => {
     const [fullname, setFullname] = useState('')
