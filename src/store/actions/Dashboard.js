@@ -110,9 +110,8 @@ export const initGetFunds = (token) => {
                         creator
                         amount
                         currency
-                        createdAt
-                        updatedAt
                         status
+                        updatedAt
                     }
                 }
             }`,

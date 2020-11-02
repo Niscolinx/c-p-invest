@@ -7,7 +7,7 @@ import * as actions from '../../store/actions/burgerIndex'
 import Card from '../../components/Card/Card'
 //import { thWithdrawalArray, tdWithdrawalArray } from '../../variables/Variables'
 
-const thWithdrawalArray = ['No', 'Username', 'Email', 'Status', 'Date']
+const thWithdrawalArray = ['No', 'Username','Amount', 'Currency', 'Status', 'Date']
 
 const PendingDeposits = (props) => {
     const [allFunds, setAllFunds] = useState([])
@@ -27,8 +27,6 @@ const PendingDeposits = (props) => {
     }, [props])
 
    
-    console.log('the get all users', allFunds)
-
     return (
         <div className='content'>
             <Grid fluid>
@@ -36,7 +34,7 @@ const PendingDeposits = (props) => {
                     <Col md={12}>
                         <Card
                             plain
-                            title='Members'
+                            title='Pending Funds for Approval'
                             category=''
                             ctTableFullWidth
                             ctTableResponsive
