@@ -43,7 +43,7 @@ export const initupdateProfile = (updateProfileData, token) => {
             })
             .then((result) => {
                 console.log('the post data', result)
-                const proofUrl = result.filePath
+                const profilePicPath = result.filePath
 
                 let graphqlQuery = {
                     query: `
@@ -52,6 +52,7 @@ export const initupdateProfile = (updateProfileData, token) => {
             email: "${updateProfileData.confirmEmail.value}",
             password: "${updateProfileData.confirmPassword.value}",
             fullname: "${updateProfileData.fullname.value}",
+            profilePic: "${profilePicPath}",
             city: "${updateProfileData.city.value}",
             country: "${updateProfileData.country.value}",
             phone: "${updateProfileData.phone.value}",
