@@ -24,6 +24,7 @@ export const updateProfileFailed = (err) => {
 
 export const initupdateProfile = (updateProfileData, token) => {
     return (dispatch) => {
+        console.log('update profile data', updateProfileData)
         dispatch(updateProfileStart())
         const formData = new FormData()
 
@@ -47,17 +48,20 @@ export const initupdateProfile = (updateProfileData, token) => {
                 let graphqlQuery = {
                     query: `
                 mutation { createupdateProfile(updateProfileData: {
-                        amount: "${updateProfileData.amount}",
-                        currency: "${updateProfileData.currency}",
-                        proofUrl: "${proofUrl}"
+                        username: "${updateProfileData.username.value}",
+            email: "${updateProfileData.confirmEmail.value}",
+            password: "${updateProfileData.confirmPassword.value}",
+            fullname: "${updateProfileData.fullname.value}",
+            city: "${updateProfileData.city.value}",
+            country: "${updateProfileData.country.value}",
+            phone: "${updateProfileData.phone.value}",
+            bitcoinAccount: "${updateProfileData.bitcoinAccount.value}",
+            ethereumAccount: "${updateProfileData.ethereumAccount.value}"
                     }){
                         _id
-                        amount
-                        currency
-                        proofUrl
-                        creator {
-                            username
-                        }
+                        fullname
+                        username
+                        updatedAt
                         createdAt
                     }
                 }
