@@ -113,7 +113,6 @@ class Admin extends Component {
         }
     }
     componentDidMount() {
-        console.log('the prop', this.props)
 
         this.setState({ _notificationSystem: this.refs.notificationSystem })
         var _notificationSystem = this.refs.notificationSystem
@@ -168,7 +167,6 @@ class Admin extends Component {
     }
 
     render() {
-        console.log('the admin state', this.state)
         return (
             <div className='wrapper' style={{ background: '#101d2c' }}>
                 <NotificationSystem ref='notificationSystem' style={style} />

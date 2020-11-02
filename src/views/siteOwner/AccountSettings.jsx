@@ -27,6 +27,7 @@ const UserProfile = (props) => {
     const [country, setCountry] = useState('')
     const [city, setCity] = useState('')
     const [password, setPassword] = useState('')
+    const [valid, setValid] = useState(true)
     const [confirmPassword, setConfirmPassword] = useState('')
 
     const handleChange = (e) => {
@@ -90,9 +91,9 @@ const UserProfile = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        // if (password !== confirmPassword) {
-        //     throw new Error("password does not match")
-        // }
+        if (password !== confirmPassword) {
+            throw new Error("password does not match")
+        }
         const formData = {
             profilePic,
             fullname,
@@ -101,7 +102,7 @@ const UserProfile = (props) => {
             email,
             phone,
             bitcoin,
-            confirmPassword
+            confirmPassword,
         }
 
         console.log('the form data', formData)
