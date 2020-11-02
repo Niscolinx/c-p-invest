@@ -250,7 +250,9 @@ const tdInvestmentArray = [
 ];
 const thWithdrawalArray = ["ID", "Amount", "Status", "Method", "Date"];
 const tdWithdrawalArray = [
-  // ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout", "October"]
+   ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout", "October"],
+   ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout", "October"],
+   ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout", "October"],
 ];
 const thWithdrawalRequestArray = ["ID", "user", "Amount", "Status", "Method", "Date"];
 const tdWithdrawalRequestArray = [

@@ -2,7 +2,14 @@ import React, { Component } from 'react'
 import { Grid, Row, Col, Table } from 'react-bootstrap'
 
 import Card from '../../components/Card/Card'
-import { thWithdrawalArray, tdWithdrawalArray } from '../../variables/Variables'
+//import { thWithdrawalArray, tdWithdrawalArray } from '../../variables/Variables'
+
+const thWithdrawalArray = ['ID', 'Amount', 'Status', 'Method', 'Date']
+const tdWithdrawalArray = [
+    ['1', 'Dakota Rice', '$36,738', 'Niger', 'Oud-Turnhout', 'October'],
+    ['1', 'Dakota Rice', '$36,738', 'Niger', 'Oud-Turnhout', 'October'],
+    ['1', 'Dakota Rice', '$36,738', 'Niger', 'Oud-Turnhout', 'October'],
+]
 
 class TableList extends Component {
     render() {
