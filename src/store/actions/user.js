@@ -24,21 +24,21 @@ export const updateProfileFailed = (err) => {
 
 export const initUpdateProfile = (updateProfileData, token) => {
     return (dispatch) => {
-        console.log('update profile data', updateProfileData.email)
+        console.log('update profile data', updateProfileData)
         dispatch(updateProfileStart())
 
         let graphqlQuery = {
             query: `
                 mutation { createUpdateProfile(updateProfileData: {
-                        username: "${updateProfileData.username.value}",
-                        email: "${updateProfileData.email.value}",
-                        password: "${updateProfileData.confirmPassword.value}",
-                        fullname: "${updateProfileData.fullname.value}",
-                        city: "${updateProfileData.city.value}",
-                        country: "${updateProfileData.country.value}",
-                        phone: "${updateProfileData.phone.value}",
-                        bitcoinAccount: "${updateProfileData.bitcoin.value}",
-                        ethereumAccount: "${updateProfileData.ethereum.value}"
+                        username: "${updateProfileData.username}",
+                        email: "${updateProfileData.email}",
+                        password: "${updateProfileData.confirmPassword}",
+                        fullname: "${updateProfileData.fullname}",
+                        city: "${updateProfileData.city}",
+                        country: "${updateProfileData.country}",
+                        phone: "${updateProfileData.phone}",
+                        bitcoinAccount: "${updateProfileData.bitcoin}",
+                        ethereumAccount: "${updateProfileData.ethereum}"
                     }){
                         
                         fullname
