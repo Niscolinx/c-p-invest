@@ -108,17 +108,10 @@ export const initGetUsers = (token) => {
             query: `{
                 getUsers {
                     getUser {                    
+                        userNO
                         username
                         email
-                        fullname
-                        ethereumAccount
-                        bitcoinAccount
-                        role
-                        phone 
-                        country
-                        city
                         status
-                        createdAt
                         updatedAt
                     }
                 }
