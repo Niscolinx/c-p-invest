@@ -93,7 +93,7 @@ const mapStateToProps = (state) => {
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
-        getFunds: state.dashboard.fundAccount,
+        getFunds: state.dashboard.fundedAccount,
     }
 }
 
