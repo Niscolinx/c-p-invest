@@ -19,8 +19,10 @@ const UserCard = (props) => {
                         setImagePreview(null)
                     })
             }
+            setFile(files)
+            console.log(files)
+            //Call a redux function
         }
-        setFile(e.target.files)
     }
 
     return (
@@ -65,13 +67,13 @@ const UserCard = (props) => {
                                 <img src={imagePreview} alt='...' />
                             </div>
 
-                            <button
+                            {/* <button
                                 className='button'
                                 style={{ marginTop: '1rem' }}
                                 type='submit'
                             >
                                 Select
-                            </button>
+                            </button> */}
                         </>
                     )}
                 </form>

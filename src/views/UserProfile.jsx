@@ -138,6 +138,17 @@ const UserProfile = (props) => {
                             title='Edit Profile'
                             content={
                                 <form onSubmit={handleSubmit}>
+                                    {message && (
+                                        <p
+                                            className={
+                                                error
+                                                    ? 'message message__error'
+                                                    : 'message'
+                                            }
+                                        >
+                                            {message}
+                                        </p>
+                                    )}
                                     <Row>
                                         <FormGroup className='col-md-12 col-sm-12 col-xs-12'>
                                             <ControlLabel>
@@ -201,7 +212,7 @@ const UserProfile = (props) => {
                                             <FormControl
                                                 type='text'
                                                 name='country'
-                                            value={country}
+                                                value={country}
                                                 onChange={handleChange}
                                             />
                                         </FormGroup>
@@ -262,7 +273,9 @@ const UserProfile = (props) => {
                                         className='button btn__profile'
                                         type='submit'
                                     >
-                                        Update Profile
+                                        {props.loading
+                                            ? 'Loading...'
+                                            : 'Update Profile'}
                                     </button>
                                     {/* <div className='clearfix' /> */}
                                 </form>
@@ -277,7 +290,7 @@ const UserProfile = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.auth.loading,
+        loading: state.user.loading,
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,

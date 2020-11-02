@@ -43,6 +43,12 @@ export const initUpdateProfile = (updateProfileData, token) => {
                         
                         fullname
                         username
+                        city
+                        country
+                        phone
+                        bitcoinAccount
+                        ethereumAccount
+                        email
                         updatedAt
                         createdAt
                     }
