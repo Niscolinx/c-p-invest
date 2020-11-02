@@ -116,7 +116,6 @@ export const initGetUser = (token) => {
                 if (resData.errors) {
                     dispatch(authFailed('getUser', resData.errors[0].message))
 
-                    throw new Error('Failed to fetch user status.')
                 }
                 dispatch(getUser(resData.data.getUser))
             })
@@ -156,11 +155,7 @@ export const initLogin = (email, password) => {
             })
             .then((resData) => {
                 console.log('the res data', resData)
-                if (resData.errors && resData.errors[0].statusCode === 422) {
-                    throw new Error(
-                        'Validation failed. Please make sure your input values are correct'
-                    )
-                }
+              
                 if (resData.errors) {
                     return dispatch(
                         authFailed('login', resData.errors[0].message)
@@ -213,11 +208,7 @@ export const initSignup = (authData) => {
                 return res.json()
             })
             .then((resData) => {
-                if (resData.errors && resData.errors[0].statusCode === 422) {
-                    throw new Error(
-                        'Validation failed. Please make sure your input values are correct'
-                    )
-                }
+                
                 if (resData.errors) {
                     return dispatch(
                         authFailed('signup', resData.errors[0].message)

@@ -79,14 +79,9 @@ export const initFundAccount = (fundData, token, userId) => {
             })
             .then((resData) => {
                 console.log('data posted', resData)
-                if (resData.errors && resData.errors[0].status === 422) {
-                    throw new Error(
-                        "Validation failed. Make sure the email address isn't used yet!"
-                    )
-                }
 
                 if (resData.errors) {
-                    throw new Error('Creating or editing a post failed!')
+                    dispatch(fundAccountFailed(resData.errors[0].message))
                 }
 
                 dispatch(fundAccountSuccess(resData.data))
@@ -131,14 +126,9 @@ export const initGetFunds = (token) => {
             })
             .then((resData) => {
                 console.log('data posted', resData)
-                if (resData.errors && resData.errors[0].status === 422) {
-                    throw new Error(
-                        "Validation failed. Make sure the email address isn't used yet!"
-                    )
-                }
 
                 if (resData.errors) {
-                    throw new Error('Creating or editing a post failed!')
+                    dispatch(fundAccountFailed(resData.errors[0].message))
                 }
 
                 dispatch(fundAccountSuccess(resData.data))
