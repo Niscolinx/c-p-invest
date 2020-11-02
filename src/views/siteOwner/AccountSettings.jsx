@@ -94,14 +94,11 @@ const UserProfile = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (password !== confirmPassword) {
-                setMessage('Passwords do not match')
-                setError(true)
-                return
-            
+            setMessage('Passwords do not match')
+            setError(true)
+            return
         } else {
-            setMessage(
-                'Updated successfully'
-            )
+            setMessage('Updated successfully')
             setError(false)
         }
         const formData = {
@@ -111,13 +108,16 @@ const UserProfile = (props) => {
             password,
             email,
             phone,
+            city,
+            country,
             bitcoin,
+            ethereum,
             confirmPassword,
         }
 
         console.log('the form data', formData)
 
-         props.onInitUpdateProfile(formData, props.tokenId)
+        props.onInitUpdateProfile(formData, props.tokenId)
     }
 
     return (

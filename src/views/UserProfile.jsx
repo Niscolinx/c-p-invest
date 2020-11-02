@@ -29,6 +29,9 @@ const UserProfile = (props) => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmNewPassword] = useState('')
 
+      const [message, setMessage] = useState('')
+      const [error, setError] = useState(false)
+
     const handleChange = (e) => {
         const name = e.target.name
         const value = e.target.value
@@ -90,22 +93,29 @@ const UserProfile = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        // if (password !== confirmPassword) {
-        //     throw new Error("password does not match")
-        // }
-        const formData = {
-            profilePic,
-            fullname,
-            username,
-            password,
-            email,
-            phone,
-            bitcoin,
-        }
+         e.preventDefault()
+         if (password !== confirmPassword) {
+             setMessage('Passwords do not match')
+             setError(true)
+             return
+         } else {
+             setMessage('Updated successfully')
+             setError(false)
+         }
+         const formData = {
+             profilePic,
+             fullname,
+             username,
+             password,
+             email,
+             phone,
+             bitcoin,
+             confirmPassword,
+         }
 
-        console.log('the form data', formData)
+         console.log('the form data', formData)
 
-        // props.onInitFundAccount(formData, props.tokenId, props.userId)
+         props.onInitUpdateProfile(formData, props.tokenId)
     }
 
     return (
@@ -228,7 +238,8 @@ const UserProfile = (props) => {
                                                 New Password
                                             </ControlLabel>
                                             <FormControl
-                                                type='text'
+                                                type='password'
+                                                value={password}
                                                 name='newPassword'
                                                 onChange={handleChange}
                                             />
@@ -239,7 +250,8 @@ const UserProfile = (props) => {
                                                 Retype Password
                                             </ControlLabel>
                                             <FormControl
-                                                type='text'
+                                                type='password'
+                                                value={confirmPassword}
                                                 name='confirmNewPassword'
                                                 onChange={handleChange}
                                             />
@@ -274,7 +286,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onInitGetUser: (token) => dispatch(orderAction.initGetUser(token)),
+        onInitUpdateProfile: (data, token) =>
+            dispatch(orderAction.initUpdateProfile(data, token)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)

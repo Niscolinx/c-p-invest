@@ -26,38 +26,19 @@ export const initUpdateProfile = (updateProfileData, token) => {
     return (dispatch) => {
         console.log('update profile data', updateProfileData)
         dispatch(updateProfileStart())
-        const formData = new FormData()
 
-        formData.append('image', updateProfileData.file['0'])
-
-        fetch(URL + '/api/post-image', {
-            method: 'PUT',
-            headers: {
-                Authorization: 'Bearer ' + token,
-            },
-            body: formData,
-        })
-            .then((res) => {
-                console.log('the res', res)
-                return res.json()
-            })
-            .then((result) => {
-                console.log('the post data', result)
-                const profilePicPath = result.filePath
-
-                let graphqlQuery = {
-                    query: `
+        let graphqlQuery = {
+            query: `
                 mutation { createupdateProfile(updateProfileData: {
                         username: "${updateProfileData.username.value}",
-                        email: "${updateProfileData.confirmEmail.value}",
+                        email: "${updateProfileData.email.value}",
                         password: "${updateProfileData.confirmPassword.value}",
                         fullname: "${updateProfileData.fullname.value}",
-                        profilePic: "${profilePicPath}",
                         city: "${updateProfileData.city.value}",
                         country: "${updateProfileData.country.value}",
                         phone: "${updateProfileData.phone.value}",
-                        bitcoinAccount: "${updateProfileData.bitcoinAccount.value}",
-                        ethereumAccount: "${updateProfileData.ethereumAccount.value}"
+                        bitcoinAccount: "${updateProfileData.bitcoin.value}",
+                        ethereumAccount: "${updateProfileData.ethereum.value}"
                     }){
                         _id
                         fullname
@@ -67,23 +48,21 @@ export const initUpdateProfile = (updateProfileData, token) => {
                     }
                 }
             `,
-                }
+        }
 
-                return fetch(URL + '/api/graphql', {
-                    method: 'POST',
-                    body: JSON.stringify(graphqlQuery),
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: 'Bearer ' + token,
-                    },
-                })
-            })
-
+        return fetch(URL + '/api/graphql', {
+            method: 'POST',
+            body: JSON.stringify(graphqlQuery),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token,
+            },
+        })
             .then((res) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('data posted', resData)
+                console.log('data update profile', resData)
 
                 if (resData.errors) {
                     dispatch(updateProfileFailed(resData.errors[0].message))
