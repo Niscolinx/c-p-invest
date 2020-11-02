@@ -54,17 +54,17 @@
 
         .message {
             text-align: center;
-			padding: 2rem;
-			font-size: 1.8rem;
-			background-color: #0d5c0d;
+            padding: 2rem;
+            font-size: 1.8rem;
+            background-color: #0d5c0d;
             font-family: $font-display;
             color: white;
-		}
-		
-		.message__error{
-			display: block;
-			background-color: #b32525;
-		}
+        }
+
+        .message__error {
+            display: block;
+            background-color: #b32525;
+        }
         @include respond(phone) {
             grid-column: 1 / -1;
         }

@@ -30,6 +30,9 @@ const UserProfile = (props) => {
     const [valid, setValid] = useState(true)
     const [confirmPassword, setConfirmPassword] = useState('')
 
+     const [message, setMessage] = useState('')
+     const [error, setError] = useState(false)
+
     const handleChange = (e) => {
         const name = e.target.name
         const value = e.target.value
@@ -61,7 +64,7 @@ const UserProfile = (props) => {
         if (name === 'password') {
             setPassword(value)
         }
-        if (name === 'confirmNewPassword') {
+        if (name === 'confirmPassword') {
             setConfirmPassword(value)
         }
     }
@@ -91,9 +94,16 @@ const UserProfile = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        // if (password !== confirmPassword) {
-        //     throw new Error("password does not match")
-        // }
+        if (password !== confirmPassword) {
+                setMessage('Passwords do not match')
+                setError(true)
+            
+        } else {
+            setMessage(
+                'Updated successfully'
+            )
+            setError(false)
+        }
         const formData = {
             profilePic,
             fullname,
@@ -129,6 +139,17 @@ const UserProfile = (props) => {
                             title='Edit Profile'
                             content={
                                 <form onSubmit={handleSubmit}>
+                                    {message && (
+                                        <p
+                                            className={
+                                                error
+                                                    ? 'message message__error'
+                                                    : 'message'
+                                            }
+                                        >
+                                            {message}
+                                        </p>
+                                    )}
                                     <Row>
                                         <FormGroup className='col-md-12 col-sm-12 col-xs-12'>
                                             <ControlLabel>
@@ -231,7 +252,8 @@ const UserProfile = (props) => {
                                             </ControlLabel>
                                             <FormControl
                                                 type='text'
-                                                name='newPassword'
+                                                name='password'
+                                                value={password}
                                                 onChange={handleChange}
                                             />
                                         </FormGroup>
@@ -242,7 +264,8 @@ const UserProfile = (props) => {
                                             </ControlLabel>
                                             <FormControl
                                                 type='text'
-                                                name='confirmNewPassword'
+                                                name='confirmPassword'
+                                                value={confirmPassword}
                                                 onChange={handleChange}
                                             />
                                         </FormGroup>
@@ -276,7 +299,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onInitGetUser: (token) => dispatch(orderAction.initGetUser(token)),
+        // onInitGetUser: (token) => dispatch(orderAction.initGetUser(token)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)
