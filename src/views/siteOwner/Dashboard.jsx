@@ -22,8 +22,8 @@ class Dashboard extends Component {
         return legend
     }
 
-    componentDidMount(){
-        if(this.props.tokenId){
+    componentDidMount() {
+        if (this.props.tokenId) {
             this.props.onInitGetFunds(this.props.tokenId)
         }
     }
@@ -116,7 +116,7 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
     return {
         err: state.auth.error,
-        loading: state.order.loading,
+        loading: state.user.loading,
         redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,

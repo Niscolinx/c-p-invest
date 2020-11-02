@@ -48,7 +48,6 @@ const PlanOrder = (props) => {
         // props.onInitFundAccount(formData, props.tokenId, props.userId)
     }
 
-
     return (
         <>
             <div className='fundAccount'>
@@ -120,7 +119,7 @@ const PlanOrder = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.order.loading,
+        loading: state.user.loading,
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,

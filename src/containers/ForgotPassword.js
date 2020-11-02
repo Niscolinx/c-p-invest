@@ -34,7 +34,6 @@ const Login = (props) => {
                         : null,
             })
         } else if (props.tokenId) {
-
             props.history.push('/admin/dashboard')
             setMessage({
                 success: 'Success',
@@ -79,7 +78,9 @@ const Login = (props) => {
     const handleLogin = (e) => {
         e.preventDefault()
         if (state.formIsValid) {
-            setMessage({ success: 'Your recovery link has been sent to your email'})
+            setMessage({
+                success: 'Your recovery link has been sent to your email',
+            })
         } else {
             setMessage({ error: 'Wrong Input, please check your entries' })
         }
@@ -130,7 +131,7 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.order.loading,
+        loading: state.user.loading,
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,

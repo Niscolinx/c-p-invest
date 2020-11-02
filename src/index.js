@@ -9,7 +9,7 @@ import { LastLocationProvider } from 'react-router-last-location'
 
 import App from './containers/App'
 import dashboard from './store/reducers/dashboard'
-import orderReducer from './store/reducers/order'
+import userReducer from './store/reducers/user'
 import authReducer from './store/reducers/auth'
 
 // import 'bootstrap/dist/css/bootstrap.min.css'
@@ -51,7 +51,7 @@ import './sass/main.scss'
 // }
 
 const rootReducer = {
-    order: orderReducer,
+    user: userReducer,
     dashboard: dashboard,
     auth: authReducer,
 }

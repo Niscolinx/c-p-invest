@@ -87,7 +87,8 @@ class Admin extends Component {
         for (let i = 0; i < siteOwnerDashboardRoutes.length; i++) {
             if (
                 this.props.location.pathname.indexOf(
-                    siteOwnerDashboardRoutes[i].layout + siteOwnerDashboardRoutes[i].path
+                    siteOwnerDashboardRoutes[i].layout +
+                        siteOwnerDashboardRoutes[i].path
                 ) !== -1
             ) {
                 return siteOwnerDashboardRoutes[i].name
@@ -113,7 +114,6 @@ class Admin extends Component {
         }
     }
     componentDidMount() {
-
         this.setState({ _notificationSystem: this.refs.notificationSystem })
         var _notificationSystem = this.refs.notificationSystem
         var color = Math.floor(Math.random() * 4 + 1)
@@ -147,9 +147,9 @@ class Admin extends Component {
             autoDismiss: 15,
         })
 
-         if (this.props.tokenId) {
-             this.props.onInitGetUser(this.props.tokenId)
-         }
+        if (this.props.tokenId) {
+            this.props.onInitGetUser(this.props.tokenId)
+        }
     }
     componentDidUpdate(e) {
         if (
@@ -203,7 +203,9 @@ class Admin extends Component {
                             path='/admin/fund-account'
                             component={FundAccount}
                         />
-                        {this.getsiteOwnerDashboardRoutes(siteOwnerDashboardRoutes)}
+                        {this.getsiteOwnerDashboardRoutes(
+                            siteOwnerDashboardRoutes
+                        )}
                     </Switch>
                     <Footer />
                     {/* <FixedPlugin
@@ -226,7 +228,7 @@ const mapStateToProps = (state) => {
     console.log('the reducer admin state', state)
     return {
         err: state.auth.error,
-        loading: state.order.loading,
+        loading: state.user.loading,
         siteOwner: state.auth.siteOwner,
         redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,

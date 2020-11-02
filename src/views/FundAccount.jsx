@@ -135,7 +135,7 @@ function FundAccount(props) {
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.order.loading,
+        loading: state.user.loading,
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,

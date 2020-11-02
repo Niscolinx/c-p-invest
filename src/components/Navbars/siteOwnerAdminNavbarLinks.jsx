@@ -7,7 +7,6 @@ import * as orderAction from '../../store/actions/burgerIndex'
 
 class AdminNavbarLinks extends Component {
     render() {
-
         // const notification = (
         //     <div>
         //         <i className='fa fa-globe' />
@@ -30,8 +29,6 @@ class AdminNavbarLinks extends Component {
                 
                 </Nav> */}
                 <Nav pullRight>
-                  
-                   
                     <NavItem eventKey={7} onClick={this.props.onLogOut}>
                         Log out
                     </NavItem>
@@ -44,7 +41,7 @@ class AdminNavbarLinks extends Component {
 const mapStateToProps = (state) => {
     return {
         err: state.auth.error,
-        loading: state.order.loading,
+        loading: state.user.loading,
         redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,

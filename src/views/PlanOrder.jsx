@@ -100,7 +100,6 @@ const PlanOrder = (props) => {
     }, [selectedPlan])
 
     const handleSubmit = (e) => {
-
         e.preventDefault()
         const formData = {
             amount,
@@ -113,7 +112,7 @@ const PlanOrder = (props) => {
         props.history.push('/admin/plan-confirmation/:' + selectedPlan, {
             ...formData,
             selectedPlan,
-            planDetails
+            planDetails,
         })
     }
 
@@ -216,7 +215,7 @@ const PlanOrder = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.order.loading,
+        loading: state.user.loading,
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,

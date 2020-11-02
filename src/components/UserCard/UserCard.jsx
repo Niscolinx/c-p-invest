@@ -36,7 +36,7 @@ const UserCard = (props) => {
                             src={props.avatar}
                             alt='...'
                         />
-                        <h4 className='title' style={{color: 'white'}}>
+                        <h4 className='title' style={{ color: 'white' }}>
                             {props.name}
                             <br />
                             <small>{props.userName}</small>
@@ -84,7 +84,7 @@ const UserCard = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.order.loading,
+        loading: state.user.loading,
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,

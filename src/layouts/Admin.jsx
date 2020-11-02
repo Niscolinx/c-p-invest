@@ -114,7 +114,6 @@ class Admin extends Component {
         }
     }
     componentDidMount() {
-
         this.setState({ _notificationSystem: this.refs.notificationSystem })
         var _notificationSystem = this.refs.notificationSystem
         var color = Math.floor(Math.random() * 4 + 1)
@@ -148,8 +147,8 @@ class Admin extends Component {
             autoDismiss: 15,
         })
 
-        if(this.props.tokenId){
-            this.props.onInitGetUser(this.props.tokenId) 
+        if (this.props.tokenId) {
+            this.props.onInitGetUser(this.props.tokenId)
         }
     }
     componentDidUpdate(e) {
@@ -226,7 +225,7 @@ class Admin extends Component {
 const mapStateToProps = (state) => {
     return {
         err: state.auth.error,
-        loading: state.order.loading,
+        loading: state.user.loading,
         siteOwner: state.auth.siteOwner,
         redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,

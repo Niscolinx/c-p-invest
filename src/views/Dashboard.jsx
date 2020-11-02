@@ -5,10 +5,7 @@ import { connect } from 'react-redux'
 
 import { Card } from '../components/Card/Card'
 import { StatsCard } from '../components/StatsCard/StatsCard'
-import {
-    dataPie,
-    legendPie,
-} from '../variables/Variables'
+import { dataPie, legendPie } from '../variables/Variables'
 
 import CrytoMarketWatch from '../tradeviewWidgets/CryptoMarketWatch'
 
@@ -23,8 +20,6 @@ class Dashboard extends Component {
         }
         return legend
     }
-
-
 
     render() {
         return (
@@ -114,7 +109,7 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
     return {
         err: state.auth.error,
-        loading: state.order.loading,
+        loading: state.user.loading,
         redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
