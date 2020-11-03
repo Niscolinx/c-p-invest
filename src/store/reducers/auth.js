@@ -63,7 +63,8 @@ const getUser = (state, action) => {
         ...action,
         loading: false,
         userData: action.data.user,
-        userFundAccount: action.data.userFundAccount
+        userFundAccount: action.data.userFundAccount,
+        userPendingDeposit: action.data.userPendingDeposit
     })
 }
 
