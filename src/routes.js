@@ -15,7 +15,6 @@ import EarningsHistory from './views/siteOwner/EarningsHistory'
 import siteOwnerWithdrawalRequest from './views/siteOwner/WithdrawalRequests'
 import Members from './views/siteOwner/Members'
 import FundUserAccount from './views/siteOwner/FundUserAccount'
-import PendingDeposits from './views/siteOwner/PendingDeposits'
 import SendPenalty from './views/siteOwner/SendPenalty'
 
 export const dashboardRoutes = [
@@ -114,13 +113,6 @@ export const siteOwnerDashboardRoutes = [
         name: 'Deposit History',
         icon: 'pe-7s-refresh',
         component: DepositHistory,
-        layout: '/admin',
-    },
-    {
-        path: '/pendingDeposits',
-        name: 'Pending Deposits',
-        icon: 'pe-7s-refresh',
-        component: PendingDeposits,
         layout: '/admin',
     },
     {
