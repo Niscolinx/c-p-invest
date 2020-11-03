@@ -77,11 +77,11 @@ const PendingDeposits = (props) => {
                                                             )
                                                         }
                                                     )}
-                                                    <button className='button'>
+                                                    <button className='btn1'>
                                                         approve
                                                     </button>
-                                                    <button className='btn'>
-                                                        approve
+                                                    <button className='btn1'>
+                                                        VIEW
                                                     </button>
                                                 </tr>
                                             )

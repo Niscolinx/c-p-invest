@@ -220,6 +220,26 @@
     }
 }
 
+.btn1 {
+    background-color: $color-primary;
+    text-transform: uppercase;
+    border-radius: 3px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    transition: all 0.2s;
+    font-family: $font-display;
+    margin: 0.2rem;
+
+    &:hover,
+    &:active {
+        border: none;
+        outline: none;
+        background-color: darken($color-primary-dark, 30%);
+    }
+}
+
 .button {
     background-color: $color-primary-dark;
     text-transform: uppercase;
