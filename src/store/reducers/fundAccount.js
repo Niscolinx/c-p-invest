@@ -6,7 +6,8 @@ const initialState = {
     loading: false,
     fundedAccount: [],
     idsOfFunds: [],
-    getAllFundsAccount: []
+    getAllFundsAccount: [],
+    fundAccountApprovalSuccess: false,
 }
 const fundAccountStart = (state, action) => {
     return update(state, {
@@ -34,6 +35,14 @@ const fundAccountFailed = (state, action) => {
     })
 }
 
+
+const fundAccountApprovalSuccess = (state, action) => {
+    return update(state, {
+        loading: false,
+        fundAccountApprovalSuccess: true
+    })
+}
+
 const fundAccount = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.FUND_ACCOUNT_START:
@@ -44,6 +53,8 @@ const fundAccount = (state = initialState, action) => {
             return getFundAccountSuccess(state, action)
         case actionTypes.FUND_ACCOUNT_FAILED:
             return fundAccountFailed(state, action)
+        case actionTypes.FUND_ACCOUNT_APPROVAL_SUCCESS:
+            return fundAccountApprovalSuccess(state, action)
 
         default:
             return state

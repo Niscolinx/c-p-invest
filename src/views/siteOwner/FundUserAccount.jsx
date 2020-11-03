@@ -40,15 +40,16 @@ const PendingDeposits = (props) => {
             if(id === i){
                 
                 console.log(i, 'clickinggg', id, props.idsOfFunds[i]._id)
-                return props.onInitFundApproval(props.idsOfFunds[i]._id)
+                return props.onInitFundApproval(props.idsOfFunds[i]._id, props.tokenId)
             }
 
             return
         }
     }
 
-    console.log('the ids', props.idsOfFunds, props.getAllFunds)
-
+    if(props.fundAccountApprovalSuccess){
+        console.log('the approval', props.fundAccountApprovalSuccess)
+    }
     return (
         <div className='content'>
             <Grid fluid>
@@ -122,6 +123,7 @@ const mapStateToProps = (state) => {
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
+        fundAccountApprovalSuccess: state.fundAccount.fundAccountApprovalSuccess,
         idsOfFunds: state.fundAccount.idsOfFunds,
         getAllFunds: state.fundAccount.fundedAccount,
     }
@@ -130,7 +132,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onInitGetFunds: (token) => dispatch(actions.initGetFunds(token)),
-        onInitFundApproval: (id) => dispatch(actions.initFundApproval(id)),
+        onInitFundApproval: (id, token) => dispatch(actions.initFundApproval(id, token)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PendingDeposits)

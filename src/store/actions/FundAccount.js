@@ -27,6 +27,12 @@ export const fundAccountFailed = (err) => {
         err,
     }
 }
+export const fundAccountApprovalSuccess = (data) => {
+    return {
+        type: actions.FUND_ACCOUNT_APPROVAL_SUCCESS,
+        data,
+    }
+}
 
 export const initFundAccount = (fundData, token) => {
     return (dispatch) => {
@@ -43,11 +49,9 @@ export const initFundAccount = (fundData, token) => {
             body: formData,
         })
             .then((res) => {
-                console.log('the res', res)
                 return res.json()
             })
             .then((result) => {
-                console.log('the post data', result)
                 const proofUrl = result.filePath
 
                 let graphqlQuery = {
@@ -84,8 +88,6 @@ export const initFundAccount = (fundData, token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('data posted', resData)
-
                 if (resData.errors) {
                     dispatch(fundAccountFailed(resData.errors[0].message))
                 }
@@ -130,12 +132,9 @@ export const initGetFunds = (token) => {
             },
         })
             .then((res) => {
-                console.log('started getFunds', token)
                 return res.json()
             })
             .then((resData) => {
-                console.log('data posted', resData)
-
                 if (resData.errors) {
                     dispatch(fundAccountFailed(resData.errors[0].message))
                 }
@@ -148,27 +147,24 @@ export const initGetFunds = (token) => {
             })
     }
 }
-export const initGetFunds = (token) => {
+export const initFundApproval = (id, token) => {
     return (dispatch) => {
         dispatch(fundAccountStart())
 
         let graphqlQuery = {
-            query: `{
-                getFunds {
-                    fundData {
-                        fundNO
-                        creator
+            query: `
+                mutation { createFundAccountApproval(id: ${id}){
+                        _id
                         amount
                         currency
-                        status
-                        updatedAt
-                    }
-
-                    getFund {
-                        _id
+                        proofUrl
+                        creator {
+                            username
+                        }
+                        createdAt
                     }
                 }
-            }`,
+            `,
         }
 
         return fetch(URL + '/api/graphql', {
@@ -180,17 +176,16 @@ export const initGetFunds = (token) => {
             },
         })
             .then((res) => {
-                console.log('started getFunds', token)
                 return res.json()
             })
             .then((resData) => {
-                console.log('data posted', resData)
+                console.log('data of fund approval', resData)
 
                 if (resData.errors) {
                     dispatch(fundAccountFailed(resData.errors[0].message))
                 }
 
-                dispatch(fundAccountSuccess(resData.data.getFunds))
+                dispatch(fundAccountApprovalSuccess(resData.data.createFundAccountApproval))
             })
             .catch((err) => {
                 console.log(err)
