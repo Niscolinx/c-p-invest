@@ -12,6 +12,7 @@ import AccountSettings from './views/siteOwner/AccountSettings'
 import DepositHistory from './views/siteOwner/DepositHistory'
 import siteOwnerWithdrawalHistory from './views/siteOwner/WithdrawalHistory'
 import EarningsHistory from './views/siteOwner/EarningsHistory'
+import InvestmentRequest from './views/siteOwner/InvestmentRequest'
 import siteOwnerWithdrawalRequest from './views/siteOwner/WithdrawalRequests'
 import Members from './views/siteOwner/Members'
 import FundUserAccount from './views/siteOwner/FundUserAccount'
@@ -91,6 +92,13 @@ export const siteOwnerDashboardRoutes = [
         name: 'Withdrawal Request',
         icon: 'pe-7s-refresh',
         component: siteOwnerWithdrawalRequest,
+        layout: '/admin',
+    },
+    {
+        path: '/InvestmentRequest',
+        name: 'Investment Request',
+        icon: 'pe-7s-refresh',
+        component: InvestmentRequest,
         layout: '/admin',
     },
     {

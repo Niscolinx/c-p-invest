@@ -138,7 +138,7 @@ const PlanOrder = (props) => {
                                 <i className='pe-7s-server text-warning' />
                             }
                             statsText='Account Balance'
-                            statsValue='$0'
+                            statsValue={displayUserFunds}
                             statsIcon={<i className='fa fa-refresh' />}
                             statsIconText='Updated now'
                         />
@@ -216,7 +216,7 @@ const PlanOrder = (props) => {
                         </button> */}
 
                         <button type='submit' className='button'>
-                            Proceed
+                            {props.loading ? 'Loading..' : 'Proceed'}
                         </button>
                     </div>
                 </form>
