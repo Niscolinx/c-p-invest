@@ -36,7 +36,7 @@ const PendingDeposits = (props) => {
     const handleApproval = (id) => {
         for (let i = 0; i < props.idsOfFunds.length; i++) {
             if (id === i) {
-                console.log(i, 'clickinggg', id, props.idsOfFunds[i]._id)
+                console.log(i, 'clicked', id, props.idsOfFunds[i]._id)
                 return props.onInitInvestNowApproval(
                     props.idsOfFunds[i]._id,
                     props.tokenId

@@ -39,7 +39,7 @@ const PendingDeposits = (props) => {
             
             if(id === i){
                 
-                console.log(i, 'clickinggg', id, props.idsOfFunds[i]._id)
+                console.log(i, 'clicked', id, props.idsOfFunds[i]._id)
                  return props.onInitFundApproval(props.idsOfFunds[i]._id, props.tokenId)
             }
 
