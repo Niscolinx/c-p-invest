@@ -22,7 +22,7 @@ const Dashboard = (props) => {
     }
 
     //Have to fetch the user account balance
-    const [userFunds, setUserFunds] = useState(0)
+    const [userAccountBalance, setUserAccountBalance] = useState(0)
 
     useEffect(() => {
         // let fundedAmount = userFunds
@@ -39,11 +39,15 @@ const Dashboard = (props) => {
         // }
 
         if(props.userData.hasOwnProperty('username')){
-            console.log('the user data', props.userData)
+            console.log('the user data', props.userData.accountBalance)
+
+            setUserAccountBalance(props.userData.accountBalance)
         }
     }, [props])
 
-    const displayUserFunds = `$${userFunds}`
+    console.log('userDisplay', userAccountBalance)
+
+    const displayUserFunds = `$${userAccountBalance}`
 
         return (
             <div className='content'>
