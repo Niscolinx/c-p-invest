@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import * as actions from '../../store/actions/burgerIndex'
 
 import Card from '../../components/Card/Card'
-import { prototype } from 'module'
 //import { thWithdrawalArray, tdWithdrawalArray } from '../../variables/Variables'
 
 const thWithdrawalArray = [
@@ -108,7 +107,6 @@ const PendingDeposits = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log('pending deposits', state)
     return {
         loading: state.user.loading,
         err: state.auth.error,

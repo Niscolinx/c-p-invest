@@ -17,7 +17,7 @@ const fundAccountSuccess = (state, action) => {
     return update(state, {
         loading: false,
         fundedAccount: action.data.fundData,
-        idsOfFunds: action.data.getFund._id
+        idsOfFunds: action.data.getFund
     })
 }
 
