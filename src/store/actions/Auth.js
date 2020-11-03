@@ -91,21 +91,7 @@ export const initGetUser = (token) => {
                 
                 getUser {
 
-                    user {
-                        username
-                        email
-                        fullname
-                        ethereumAccount
-                        bitcoinAccount
-                        role
-                        phone
-                        country
-                        city
-                        status
-                        createdAt
-                        updatedAt
-
-                     }
+                  
                     userFundAccount {    
                         _id 
                         amount
@@ -116,7 +102,6 @@ export const initGetUser = (token) => {
                         updatedAt
                     }
 
-                    userAccountBalance
             }
             }`,
         }
