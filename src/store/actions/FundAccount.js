@@ -38,8 +38,11 @@ export const initFundAccount = (fundData, token) => {
     return (dispatch) => {
         dispatch(fundAccountStart())
         const formData = new FormData()
+        if(fundData.file){
+            console.log('the file')
+            formData.append('image', fundData.file['0'])
+        }
 
-        formData.append('image', fundData.file['0'])
 
         fetch(URL + '/api/post-image', {
             method: 'PUT',
@@ -88,6 +91,7 @@ export const initFundAccount = (fundData, token) => {
                 return res.json()
             })
             .then((resData) => {
+                console.log('the res', resData)
                 if (resData.errors) {
                     dispatch(fundAccountFailed(resData.errors[0].message))
                 }

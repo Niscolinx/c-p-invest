@@ -22,7 +22,6 @@ function FundAccount(props) {
         const files = e.target.files
         if (files) {
             generateBase64FromImage(files[0])
-            generateBase64FromImage(files[0])
                 .then((b64) => {
                     setImagePreview(b64)
                 })
