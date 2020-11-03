@@ -190,6 +190,7 @@ export const initInvestNow = (investNowData, token) => {
                 let graphqlQuery = {
                     query: `
                 mutation { createInvestNow(investNowData: {
+                        selectedPlan: ${investNowData.selectedPlan}
                         amount: "${investNowData.amount}",
                         currency: "${investNowData.currency}",
                         proofUrl: "${proofUrl}"

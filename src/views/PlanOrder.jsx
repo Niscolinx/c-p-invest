@@ -114,6 +114,7 @@ const PlanOrder = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const formData = {
+            selectedPlan,
             amount,
             currency,
             file,
