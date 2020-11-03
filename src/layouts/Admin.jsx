@@ -148,6 +148,7 @@ class Admin extends Component {
         })
 
         if (this.props.tokenId) {
+            console.log('the get user')
             this.props.onInitGetUser(this.props.tokenId)
         }
     }
@@ -167,7 +168,6 @@ class Admin extends Component {
     }
 
     render() {
-        console.log('admin entry')
         return (
             <div className='wrapper' style={{ background: '#101d2c' }}>
                 <NotificationSystem ref='notificationSystem' style={style} />

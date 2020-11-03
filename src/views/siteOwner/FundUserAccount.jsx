@@ -92,7 +92,7 @@ const PendingDeposits = (props) => {
                                                         className='btn1'
                                                         onClick={() => handleApproval(key)}
                                                     >
-                                                        approve
+                                                        {props.fundLoading ? 'Loading...' : 'approve'}
                                                     </button>
                                                     <button className='btn1'>
                                                         view
@@ -114,6 +114,7 @@ const PendingDeposits = (props) => {
 const mapStateToProps = (state) => {
     return {
         loading: state.user.loading,
+        fundLoading: state.fundAccount.loading,
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
