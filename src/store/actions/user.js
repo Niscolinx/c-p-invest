@@ -39,6 +39,25 @@ export const getUsersFailed = (err) => {
     }
 }
 
+export const investNowStart = () => {
+    return {
+        type: actions.FUND_ACCOUNT_START,
+    }
+}
+export const fundAccountSuccess = (data) => {
+    return {
+        type: actions.FUND_ACCOUNT_SUCCESS,
+        data,
+    }
+}
+
+export const fundAccountFailed = (err) => {
+    return {
+        type: actions.FUND_ACCOUNT_FAILED,
+        err,
+    }
+}
+
 export const initUpdateProfile = (updateProfileData, token) => {
     return (dispatch) => {
         console.log('update profile data', updateProfileData)
@@ -141,6 +160,76 @@ export const initGetUsers = (token) => {
             .catch((err) => {
                 console.log(err)
                 dispatch(getUsersFailed(err))
+            })
+    }
+}
+
+export const initInvestNow = (fundData, token) => {
+    return (dispatch) => {
+        dispatch(investNowStart())
+        const formData = new FormData()
+        if (fundData.file) {
+            console.log('the file')
+            formData.append('image', fundData.file['0'])
+        }
+
+        fetch(URL + '/api/post-image', {
+            method: 'PUT',
+            headers: {
+                Authorization: 'Bearer ' + token,
+            },
+            body: formData,
+        })
+            .then((res) => {
+                return res.json()
+            })
+            .then((result) => {
+                const proofUrl = result.filePath
+
+                let graphqlQuery = {
+                    query: `
+                mutation { createFundAccount(fundData: {
+                        amount: "${fundData.amount}",
+                        currency: "${fundData.currency}",
+                        proofUrl: "${proofUrl}"
+                    }){
+                        _id
+                        amount
+                        currency
+                        proofUrl
+                        creator {
+                            username
+                        }
+                        createdAt
+                    }
+                }
+            `,
+                }
+
+                return fetch(URL + '/api/graphql', {
+                    method: 'POST',
+                    body: JSON.stringify(graphqlQuery),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: 'Bearer ' + token,
+                    },
+                })
+            })
+
+            .then((res) => {
+                return res.json()
+            })
+            .then((resData) => {
+                console.log('the res', resData)
+                if (resData.errors) {
+                    dispatch(fundAccountFailed(resData.errors[0].message))
+                }
+
+                dispatch(getFundAccountSuccess(resData.data))
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch(fundAccountFailed(err))
             })
     }
 }

@@ -118,8 +118,9 @@ const PlanOrder = (props) => {
             currency,
             file,
         }
+        console.log('the form data', formData)
 
-        // props.onInitFundAccount(formData, props.tokenId, props.userId)
+         props.onInitFundAccount(formData, props.tokenId)
 
         props.history.push('/admin/plan-confirmation/:' + selectedPlan, {
             ...formData,
@@ -237,8 +238,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onInitFundAccount: (data, token, userId) =>
-            dispatch(orderAction.initFundAccount(data, token, userId)),
+        onInitInvestNow: (data, token) =>
+            dispatch(orderAction.initInvestNow(data, token)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PlanOrder)
