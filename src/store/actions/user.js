@@ -197,12 +197,14 @@ export const initInvestNow = (investNowData, token) => {
                     }){
                         _id
                         amount
+                        selectedPlan
                         currency
                         proofUrl
                         creator {
                             username
                         }
                         createdAt
+                        updatedAt
                     }
                 }
             `,
