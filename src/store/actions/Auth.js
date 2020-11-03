@@ -116,7 +116,14 @@ export const initGetUser = (token) => {
                         createdAt
                         updatedAt
                     }
-
+                    userPendingDeposit {
+                        _id
+                        amount
+                        status
+                        planName
+                        currency
+                        proofUrl
+                    }
             }
             }`,
         }
