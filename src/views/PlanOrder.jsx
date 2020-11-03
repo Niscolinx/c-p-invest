@@ -121,7 +121,7 @@ const PlanOrder = (props) => {
         }
         console.log('the form data', formData)
 
-         props.onInitFundAccount(formData, props.tokenId)
+         props.onInitInvestNow(formData, props.tokenId)
 
         props.history.push('/admin/plan-confirmation/:' + selectedPlan, {
             ...formData,
