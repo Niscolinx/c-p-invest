@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { FormGroup, FormControl, Row, Col } from 'react-bootstrap'
 import { StatsCard } from '../components/StatsCard/StatsCard'
@@ -11,6 +11,7 @@ function FundAccount(props) {
     const [currency, setCurrency] = useState('Bitcoin')
     const [file, setFile] = useState('')
     const [imagePreview, setImagePreview] = useState(null)
+    const [userAccountBalance, setUserAccountBalance] = useState(0)
 
     const handleAmountChange = (e) => {
         setAmount(e.target.value)
@@ -43,13 +44,24 @@ function FundAccount(props) {
         props.onInitFundAccount(formData, props.tokenId, props.userId)
     }
 
+    useEffect(() => {
+        if (props.userData.hasOwnProperty('username')) {
+            console.log('the user data', props.userData.accountBalance)
+
+            setUserAccountBalance(props.userData.accountBalance)
+        }
+    }, [props])
+
+        const displayUserFunds = `$${userAccountBalance}`
+
+
     return (
         <div className='fundAccount'>
             <Row className='fundAccount__balance'>
                 <Col lg={12} sm={12}>
                     <StatsCard
                         bigIcon={<i className='pe-7s-server text-warning' />}
-                        statsText='Account Balance'
+                        statsText= {displayUserFunds}
                         statsValue='$0'
                         statsIcon={<i className='fa fa-refresh' />}
                         statsIconText='Updated now'
@@ -139,6 +151,7 @@ const mapStateToProps = (state) => {
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
+        userData: state.auth.userData,
     }
 }
 

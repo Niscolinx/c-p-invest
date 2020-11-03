@@ -12,6 +12,8 @@ const PlanOrder = (props) => {
     const [file, setFile] = useState('')
     const [imagePreview, setImagePreview] = useState(null)
     const [planDetails, setPlanDetails] = useState({})
+        const [userAccountBalance, setUserAccountBalance] = useState(0)
+
 
     const handleAmountChange = (e) => {
         setAmount(e.target.value)
@@ -98,6 +100,16 @@ const PlanOrder = (props) => {
                 break
         }
     }, [selectedPlan])
+
+    useEffect(() => {
+        if (props.userData.hasOwnProperty('username')) {
+            console.log('the user data', props.userData.accountBalance)
+
+            setUserAccountBalance(props.userData.accountBalance)
+        }
+    }, [props])
+
+    const displayUserFunds = `$${userAccountBalance}`
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -219,6 +231,7 @@ const mapStateToProps = (state) => {
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
+        userData: state.auth.userData,
     }
 }
 
