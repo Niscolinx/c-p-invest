@@ -41,19 +41,19 @@ export const getUsersFailed = (err) => {
 
 export const investNowStart = () => {
     return {
-        type: actions.FUND_ACCOUNT_START,
+        type: actions.INVEST_NOW_START,
     }
 }
 export const investNowSuccess = (data) => {
     return {
-        type: actions.FUND_ACCOUNT_SUCCESS,
+        type: actions.INVEST_NOW_SUCCESS,
         data,
     }
 }
 
 export const investNowFailed = (err) => {
     return {
-        type: actions.FUND_ACCOUNT_FAILED,
+        type: actions.INVEST_NOW_FAILED,
         err,
     }
 }
