@@ -15,7 +15,6 @@ import EarningsHistory from './views/siteOwner/EarningsHistory'
 import siteOwnerWithdrawalRequest from './views/siteOwner/WithdrawalRequests'
 import Members from './views/siteOwner/Members'
 import FundUserAccount from './views/siteOwner/FundUserAccount'
-import SendPenalty from './views/siteOwner/SendPenalty'
 
 export const dashboardRoutes = [
     {
@@ -95,6 +94,13 @@ export const siteOwnerDashboardRoutes = [
         layout: '/admin',
     },
     {
+        path: '/fundUserAccount',
+        name: 'Fund User Account',
+        icon: 'pe-7s-refresh',
+        component: FundUserAccount,
+        layout: '/admin',
+    },
+    {
         path: '/depositHistory',
         name: 'Deposit History',
         icon: 'pe-7s-note2',
@@ -115,25 +121,12 @@ export const siteOwnerDashboardRoutes = [
         component: DepositHistory,
         layout: '/admin',
     },
-    {
-        path: '/fundUserAccount',
-        name: 'Fund User Account',
-        icon: 'pe-7s-refresh',
-        component: FundUserAccount,
-        layout: '/admin',
-    },
+
     {
         path: '/earningsHistory',
         name: 'Earnings History',
         icon: 'pe-7s-refresh',
         component: EarningsHistory,
         layout: '/admin',
-    },
-    {
-        path: '/SendPenalty',
-        name: 'Send Penalty',
-        icon: 'pe-7s-refresh',
-        component: SendPenalty,
-        layout: '/admin',
-    },
+    }
 ]
