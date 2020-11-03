@@ -31,10 +31,15 @@ const investNowStart = (state, action) => {
     })
 }
 const investNowSuccess = (state, action) => {
-    console.log('the reducer', action.data)
     return update(state, {
         loading: false,
         investNow: action.data,
+    })
+}
+const investNowApprovalSuccess = (state, action) => {
+    return update(state, {
+        loading: false,
+        investNowApproved: action.data,
     })
 }
 const investNowFailed = (state, action) => {
@@ -80,6 +85,8 @@ const handleUsers = (state = initialState, action) => {
             return investNowStart(state, action)
         case actionTypes.INVEST_NOW_SUCCESS:
             return investNowSuccess(state, action)
+        case actionTypes.INVEST_NOW_APPROVAL_SUCCESS:
+            return investNowApprovalSuccess(state, action)
         case actionTypes.INVEST_NOW_FAILED:
             return investNowFailed(state, action)
         default:

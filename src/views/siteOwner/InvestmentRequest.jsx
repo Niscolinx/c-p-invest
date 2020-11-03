@@ -37,7 +37,7 @@ const PendingDeposits = (props) => {
         for (let i = 0; i < props.idsOfFunds.length; i++) {
             if (id === i) {
                 console.log(i, 'clickinggg', id, props.idsOfFunds[i]._id)
-                return props.onInitFundApproval(
+                return props.onInitInvestNowApproval(
                     props.idsOfFunds[i]._id,
                     props.tokenId
                 )
@@ -93,7 +93,7 @@ const PendingDeposits = (props) => {
                                                             handleApproval(key)
                                                         }
                                                     >
-                                                        {props.fundLoading
+                                                        {props.loading
                                                             ? 'Loading...'
                                                             : 'approve'}
                                                     </button>
@@ -115,8 +115,10 @@ const PendingDeposits = (props) => {
 }
 
 const mapStateToProps = (state) => {
+    console.log('the invest state', state)
     return {
         loading: state.user.loading,
+        investNow: state.user.investNow,
         fundLoading: state.fundAccount.loading,
         err: state.auth.error,
         tokenId: state.auth.tokenId,
@@ -131,8 +133,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onInitGetFunds: (token) => dispatch(actions.initGetFunds(token)),
-        onInitFundApproval: (id, token) =>
-            dispatch(actions.initFundApproval(id, token)),
+        onInitInvestNowApproval: (id, token) =>
+            dispatch(actions.initInvestNowApproval(id, token)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PendingDeposits)

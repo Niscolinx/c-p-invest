@@ -50,6 +50,12 @@ export const investNowSuccess = (data) => {
         data,
     }
 }
+export const investNowApprovalSuccess = (data) => {
+    return {
+        type: actions.INVEST_NOW_APPROVAL_SUCCESS,
+        data,
+    }
+}
 
 export const investNowFailed = (err) => {
     return {
@@ -166,7 +172,6 @@ export const initGetUsers = (token) => {
 
 export const initInvestNow = (investNowData, token) => {
     return (dispatch) => {
-        console.log('invest now data', investNowData)
         dispatch(investNowStart())
         const formData = new FormData()
         if (investNowData.file) {
@@ -190,14 +195,14 @@ export const initInvestNow = (investNowData, token) => {
                 let graphqlQuery = {
                     query: `
                 mutation { createInvestNow(investNowData: {
-                        selectedPlan: ${investNowData.selectedPlan}
+                        selectedPlan: "${investNowData.selectedPlan}",
                         amount: "${investNowData.amount}",
                         currency: "${investNowData.currency}",
                         proofUrl: "${proofUrl}"
                     }){
                         _id
                         amount
-                        selectedPlan
+                        planName
                         currency
                         proofUrl
                         creator {
@@ -230,6 +235,79 @@ export const initInvestNow = (investNowData, token) => {
                 }
 
                 dispatch(investNowSuccess(resData.data))
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch(investNowFailed(err))
+            })
+    }
+}
+
+export const initInvestNowApproval = (investNowData, token) => {
+    return (dispatch) => {
+        dispatch(investNowStart())
+        const formData = new FormData()
+        if (investNowData.file) {
+            console.log('the file')
+            formData.append('image', investNowData.file['0'])
+        }
+
+        fetch(URL + '/api/post-image', {
+            method: 'PUT',
+            headers: {
+                Authorization: 'Bearer ' + token,
+            },
+            body: formData,
+        })
+            .then((res) => {
+                return res.json()
+            })
+            .then((result) => {
+                const proofUrl = result.filePath
+
+                let graphqlQuery = {
+                    query: `
+                mutation { createInvestNow(investNowData: {
+                        selectedPlan: "${investNowData.selectedPlan}",
+                        amount: "${investNowData.amount}",
+                        currency: "${investNowData.currency}",
+                        proofUrl: "${proofUrl}"
+                    }){
+                        _id
+                        amount
+                        planName
+                        currency
+                        proofUrl
+                        creator {
+                            username
+                        }
+                        createdAt
+                        updatedAt
+                    }
+                }
+            `,
+                }
+
+                return fetch(URL + '/api/graphql', {
+                    method: 'POST',
+                    body: JSON.stringify(graphqlQuery),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: 'Bearer ' + token,
+                    },
+                })
+            })
+
+            .then((res) => {
+                return res.json()
+            })
+            .then((resData) => {
+                console.log('the res', resData)
+                if (resData.errors) {
+                    dispatch(investNowFailed(resData.errors[0].message))
+                }
+
+                dispatch(investNowApprovalSuccess(resData.data))
             })
             .catch((err) => {
                 console.log(err)
