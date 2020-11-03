@@ -110,7 +110,6 @@ export const initGetUser = (token) => {
                     userFundAccount {    
                         _id 
                         amount
-                        status
                         proofUrl
                         currency
                         createdAt
