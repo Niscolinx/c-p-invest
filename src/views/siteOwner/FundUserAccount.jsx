@@ -34,10 +34,24 @@ const PendingDeposits = (props) => {
     }, [props])
 
     const handleApproval = (id) => {
-        props.onInitFundsApproval(id)
+       // console.log('clickinggg', id.target)
+        //props.onInitFundsApproval(id)
     }
 
-    console.log('the ids', props.idsOfFunds, props.getAllFunds)
+    //console.log('the ids', props.idsOfFunds, props.getAllFunds)
+
+
+    let arr;
+    if(props.getAllFunds){
+        console.log('the get all funds', props.getAllFunds)
+        props.getAllFunds.map((prop, i) => {
+
+            Object.keys(prop).map((item, index) => {
+                console.log('the items', item, index)
+            })
+        
+        })
+    }
 
     return (
         <div className='content'>
@@ -85,7 +99,7 @@ const PendingDeposits = (props) => {
                                                     )}
                                                     <button
                                                         className='btn1'
-                                                        onClick={handleApproval}
+                                                        onClick={handleApproval(key)}
                                                     >
                                                         approve
                                                     </button>
