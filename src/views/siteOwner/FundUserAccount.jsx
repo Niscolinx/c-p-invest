@@ -40,10 +40,9 @@ const PendingDeposits = (props) => {
             if(id === i){
                 
                 console.log(i, 'clickinggg', id, props.idsOfFunds[i]._id)
-                return props.onInitFundApproval(props.idsOfFunds[i]._id, props.tokenId)
+                 return props.onInitFundApproval(props.idsOfFunds[i]._id, props.tokenId)
             }
 
-            return
         }
     }
 
@@ -78,15 +77,10 @@ const PendingDeposits = (props) => {
                                     </thead>
                                     <tbody>
                                         {allFunds.map((prop, key) => {
-                                            console.log('props', prop)
                                             return (
                                                 <tr key={key}>
                                                     {Object.values(prop).map(
                                                         (prop) => {
-                                                            console.log(
-                                                                'prop',
-                                                                prop
-                                                            )
                                                             return (
                                                                 <td key={key}>
                                                                     {prop}

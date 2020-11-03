@@ -149,11 +149,14 @@ export const initGetFunds = (token) => {
 }
 export const initFundApproval = (id, token) => {
     return (dispatch) => {
+        console.log('inner', typeof id)
         dispatch(fundAccountStart())
 
         let graphqlQuery = {
             query: `
-                mutation { createFundAccountApproval(id: ${id}){
+                mutation { createFundAccountApproval(PostId: {
+                    id: "${id}"
+                }){
                         _id
                         amount
                         currency
