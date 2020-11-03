@@ -113,6 +113,10 @@ export const initGetFunds = (token) => {
                         status
                         updatedAt
                     }
+
+                    getFund {
+                        _id
+                    }
                 }
             }`,
         }
@@ -136,7 +140,7 @@ export const initGetFunds = (token) => {
                     dispatch(fundAccountFailed(resData.errors[0].message))
                 }
 
-                dispatch(fundAccountSuccess(resData.data.getFunds.fundData))
+                dispatch(fundAccountSuccess(resData.data.getFunds))
             })
             .catch((err) => {
                 console.log(err)

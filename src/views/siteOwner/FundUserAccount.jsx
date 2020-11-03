@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import * as actions from '../../store/actions/burgerIndex'
 
 import Card from '../../components/Card/Card'
+import { prototype } from 'module'
 //import { thWithdrawalArray, tdWithdrawalArray } from '../../variables/Variables'
 
 const thWithdrawalArray = [
@@ -32,6 +33,12 @@ const PendingDeposits = (props) => {
             }
         }
     }, [props])
+
+    const handleApproval = (id) => {
+        props.onInitFundsApproval(id)
+    }
+
+    console.log('the ids', props.idsOfFunds, props.getAllFunds)
 
     return (
         <div className='content'>
@@ -77,11 +84,14 @@ const PendingDeposits = (props) => {
                                                             )
                                                         }
                                                     )}
-                                                    <button className='btn1'>
+                                                    <button
+                                                        className='btn1'
+                                                        onClick={handleApproval}
+                                                    >
                                                         approve
                                                     </button>
                                                     <button className='btn1'>
-                                                        VIEW
+                                                        view
                                                     </button>
                                                 </tr>
                                             )
@@ -104,7 +114,8 @@ const mapStateToProps = (state) => {
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
-        getAllFunds: state.dashboard.fundedAccount,
+        idsOfFunds: state.fundAccount.idsOfFunds,
+        getAllFunds: state.fundAccount.fundedAccount,
     }
 }
 

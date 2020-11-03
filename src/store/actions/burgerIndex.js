@@ -1,7 +1,7 @@
 export {
    initFundAccount,
    initGetFunds
-} from './Dashboard'
+} from './FundAccount'
 
 export {
    initUpdateProfile,

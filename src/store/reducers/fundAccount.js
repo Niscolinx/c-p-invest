@@ -5,7 +5,7 @@ const initialState = {
     error: null,
     loading: false,
     fundedAccount: [],
-    creatorOfFunds: '',
+    idsOfFunds: [],
     getAllFundsAccount: []
 }
 const fundAccountStart = (state, action) => {
@@ -16,7 +16,8 @@ const fundAccountStart = (state, action) => {
 const fundAccountSuccess = (state, action) => {
     return update(state, {
         loading: false,
-        fundedAccount: action.data
+        fundedAccount: action.data.fundData,
+        idsOfFunds: action.data.getFund._id
     })
 }
 

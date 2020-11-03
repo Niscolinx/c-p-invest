@@ -8,7 +8,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { LastLocationProvider } from 'react-router-last-location'
 
 import App from './containers/App'
-import dashboard from './store/reducers/dashboard'
+import fundAccount from './store/reducers/fundAccount'
 import userReducer from './store/reducers/user'
 import authReducer from './store/reducers/auth'
 
@@ -52,7 +52,7 @@ import './sass/main.scss'
 
 const rootReducer = {
     user: userReducer,
-    dashboard: dashboard,
+    fundAccount: fundAccount,
     auth: authReducer,
 }
 
