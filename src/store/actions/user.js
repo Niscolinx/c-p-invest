@@ -164,13 +164,14 @@ export const initGetUsers = (token) => {
     }
 }
 
-export const initInvestNow = (fundData, token) => {
+export const initInvestNow = (investNowData, token) => {
     return (dispatch) => {
+        console.log('invest now data', investNowData)
         dispatch(investNowStart())
         const formData = new FormData()
-        if (fundData.file) {
+        if (investNowData.file) {
             console.log('the file')
-            formData.append('image', fundData.file['0'])
+            formData.append('image', investNowData.file['0'])
         }
 
         fetch(URL + '/api/post-image', {
@@ -188,9 +189,9 @@ export const initInvestNow = (fundData, token) => {
 
                 let graphqlQuery = {
                     query: `
-                mutation { createFundAccount(fundData: {
-                        amount: "${fundData.amount}",
-                        currency: "${fundData.currency}",
+                mutation { createInvestNow(investNowData: {
+                        amount: "${investNowData.amount}",
+                        currency: "${investNowData.currency}",
                         proofUrl: "${proofUrl}"
                     }){
                         _id
