@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ChartistGraph from 'react-chartist'
 import { Grid, Row, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
@@ -10,7 +10,7 @@ import { dataPie, legendPie } from '../variables/Variables'
 import CrytoMarketWatch from '../tradeviewWidgets/CryptoMarketWatch'
 
 const Dashboard = (props) => {
-    createLegend(json) {
+   const createLegend = (json) =>{
         var legend = []
         for (var i = 0; i < json['names'].length; i++) {
             var type = 'fa fa-circle text-' + json['types'][i]
@@ -20,6 +20,26 @@ const Dashboard = (props) => {
         }
         return legend
     }
+
+    //Have to fetch the user account balance
+    const [userFunds, setUserFunds] = useState(0)
+
+    useEffect(() => {
+        let fundedAmount = userFunds
+        if(props.userFundAccount.length > 0){
+            console.log('the props of funds', props.userFundAccount)
+
+            props.userFundAccount.map(f => {
+                console.log('the inner', f.amount)
+               fundedAmount += Number(f.amount)
+            })
+
+            console.log('the fund amount', fundedAmount)
+            setUserFunds(fundedAmount)
+        }
+    }, [props])
+
+    const displayUserFunds = `$${userFunds}`
 
         return (
             <div className='content'>
@@ -31,7 +51,7 @@ const Dashboard = (props) => {
                                     <i className='pe-7s-server text-warning' />
                                 }
                                 statsText='Account Balance'
-                                statsValue='$0'
+                                statsValue= {displayUserFunds}
                                 statsIcon={<i className='fa fa-refresh' />}
                                 statsIconText='Updated now'
                             />
@@ -93,7 +113,7 @@ const Dashboard = (props) => {
                                 }
                                 legend={
                                     <div className='legend'>
-                                        {this.createLegend(legendPie)}
+                                        {createLegend(legendPie)}
                                     </div>
                                 }
                             />

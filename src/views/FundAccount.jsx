@@ -116,7 +116,7 @@ function FundAccount(props) {
                         type='submit'
                         className='fundAccount__form--btn-item'
                     >
-                        Submit
+                        {props.fundLoading ? 'Loading...' : 'Submit'}
                     </button>
                 </div>
             </form>
@@ -136,6 +136,7 @@ function FundAccount(props) {
 const mapStateToProps = (state) => {
     return {
         loading: state.user.loading,
+        fundLoading: state.fundAccount.loading,
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
