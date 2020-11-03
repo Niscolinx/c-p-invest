@@ -91,7 +91,22 @@ export const initGetUser = (token) => {
                 
                 getUser {
 
-                  
+                    user {
+                        username
+                        email
+                        fullname
+                        ethereumAccount
+                        bitcoinAccount
+                        accountBalance
+                        role
+                        phone
+                        country
+                        city
+                        status
+                        createdAt
+                        updatedAt
+
+                     }
                     userFundAccount {    
                         _id 
                         amount
@@ -117,7 +132,6 @@ export const initGetUser = (token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('the res data of auth', resData)
                 if (resData.errors) {
                     dispatch(authFailed('getUser', resData.errors[0].message))
                 }

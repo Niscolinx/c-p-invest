@@ -129,7 +129,6 @@ const Dashboard = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log('dashboard state', state)
     return {
         err: state.auth.error,
         loading: state.user.loading,
