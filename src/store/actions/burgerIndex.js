@@ -6,7 +6,8 @@ export {
 
 export {
    initUpdateProfile,
-   initGetUsers
+   initGetUsers,
+   initInvestNow
 } from './user'
 
 export { initSignup, initLogin, logOut, clearError, authSuccess, initGetUser } from './Auth'
