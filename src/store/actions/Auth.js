@@ -115,6 +115,8 @@ export const initGetUser = (token) => {
                         createdAt
                         updatedAt
                     }
+
+                    userAccountBalance
             }
             }`,
         }
@@ -130,6 +132,7 @@ export const initGetUser = (token) => {
                 return res.json()
             })
             .then((resData) => {
+                console.log('the res data of auth', resData)
                 if (resData.errors) {
                     dispatch(authFailed('getUser', resData.errors[0].message))
                 }

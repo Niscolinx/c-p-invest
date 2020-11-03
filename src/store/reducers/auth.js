@@ -8,6 +8,7 @@ const initialState = {
     tokenId: sessionStorage.getItem('token') || null,
     userData: {},
     userFundAccount: {},
+    userAccountBalance: 0,
     siteOwner: sessionStorage.getItem('siteOwner') || false,
     role: null,
     email: null,

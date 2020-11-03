@@ -25,17 +25,21 @@ const Dashboard = (props) => {
     const [userFunds, setUserFunds] = useState(0)
 
     useEffect(() => {
-        let fundedAmount = userFunds
-        if(props.userFundAccount.length > 0){
-            console.log('the props of funds', props.userFundAccount)
+        // let fundedAmount = userFunds
+        // if(props.userFundAccount.length > 0){
+        //     console.log('the props of funds', props.userFundAccount)
 
-            props.userFundAccount.map(f => {
-                console.log('the inner', f.amount)
-               fundedAmount += Number(f.amount)
-            })
+        //     props.userFundAccount.map(f => {
+        //         console.log('the inner', f.amount)
+        //        fundedAmount += Number(f.amount)
+        //     })
 
-            console.log('the fund amount', fundedAmount)
-            setUserFunds(fundedAmount)
+        //     console.log('the fund amount', fundedAmount)
+        //     setUserFunds(fundedAmount)
+        // }
+
+        if(props.userData.hasOwnProperty('username')){
+            console.log('the user data', props.userData)
         }
     }, [props])
 
@@ -131,6 +135,7 @@ const mapStateToProps = (state) => {
         loading: state.user.loading,
         redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,
+        userData: state.auth.userData,
         userFundAccount: state.auth.userFundAccount,
         userId: state.auth.userId,
     }
