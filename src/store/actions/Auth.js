@@ -123,6 +123,8 @@ export const initGetUser = (token) => {
                         planName
                         currency
                         proofUrl
+                        createdAt
+                        updatedAt
                     }
             }
             }`,
