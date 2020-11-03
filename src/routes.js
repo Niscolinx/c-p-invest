@@ -101,19 +101,13 @@ export const siteOwnerDashboardRoutes = [
         layout: '/admin',
     },
     {
-        path: '/depositHistory',
+        path: '/withdrawalHistory',
         name: 'Withdrawal History',
         icon: 'pe-7s-note2',
         component: siteOwnerWithdrawalHistory,
         layout: '/admin',
     },
-    {
-        path: '/WithdrawalHistory',
-        name: 'Withdrawal History',
-        icon: 'pe-7s-refresh',
-        component: WithdrawalHistory,
-        layout: '/admin',
-    },
+ 
     {
         path: '/depositHistory',
         name: 'Deposit History',
