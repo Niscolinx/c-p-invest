@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import ChartistGraph from 'react-chartist'
 import { Grid, Row, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
@@ -9,7 +9,7 @@ import { dataPie, legendPie } from '../variables/Variables'
 
 import CrytoMarketWatch from '../tradeviewWidgets/CryptoMarketWatch'
 
-class Dashboard extends Component {
+const Dashboard = (props) => {
     createLegend(json) {
         var legend = []
         for (var i = 0; i < json['names'].length; i++) {
@@ -21,7 +21,6 @@ class Dashboard extends Component {
         return legend
     }
 
-    render() {
         return (
             <div className='content'>
                 <Grid fluid>
@@ -103,15 +102,16 @@ class Dashboard extends Component {
                 </Grid>
             </div>
         )
-    }
 }
 
 const mapStateToProps = (state) => {
+    console.log('dashboard state', state)
     return {
         err: state.auth.error,
         loading: state.user.loading,
         redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,
+        userFundAccount: state.auth.userFundAccount,
         userId: state.auth.userId,
     }
 }

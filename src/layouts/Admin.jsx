@@ -148,7 +148,7 @@ class Admin extends Component {
         })
 
         if (this.props.tokenId) {
-            console.log('the get user', this.props.userFundAcccount)
+            console.log('the get user')
             this.props.onInitGetUser(this.props.tokenId)
         }
     }
@@ -229,7 +229,6 @@ const mapStateToProps = (state) => {
         siteOwner: state.auth.siteOwner,
         redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,
-        userFundAcccount: state.auth.userFundAcccount,
         userId: state.auth.userId,
     }
 }
