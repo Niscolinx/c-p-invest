@@ -1,6 +1,7 @@
 export {
    initFundAccount,
-   initGetFunds
+   initGetFunds,
+   initFundApproval
 } from './FundAccount'
 
 export {

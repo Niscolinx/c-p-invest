@@ -34,24 +34,20 @@ const PendingDeposits = (props) => {
     }, [props])
 
     const handleApproval = (id) => {
-       // console.log('clickinggg', id.target)
-        //props.onInitFundsApproval(id)
+
+        for(let i = 0; i < props.idsOfFunds.length; i++){
+            
+            if(id === i){
+                
+                console.log(i, 'clickinggg', id, props.idsOfFunds[i]._id)
+                return props.onInitFundApproval(props.idsOfFunds[i]._id)
+            }
+
+            return
+        }
     }
 
-    //console.log('the ids', props.idsOfFunds, props.getAllFunds)
-
-
-    let arr;
-    if(props.getAllFunds){
-        console.log('the get all funds', props.getAllFunds)
-        props.getAllFunds.map((prop, i) => {
-
-            Object.keys(prop).map((item, index) => {
-                console.log('the items', item, index)
-            })
-        
-        })
-    }
+    console.log('the ids', props.idsOfFunds, props.getAllFunds)
 
     return (
         <div className='content'>
@@ -99,7 +95,7 @@ const PendingDeposits = (props) => {
                                                     )}
                                                     <button
                                                         className='btn1'
-                                                        onClick={handleApproval(key)}
+                                                        onClick={() => handleApproval(key)}
                                                     >
                                                         approve
                                                     </button>
@@ -134,6 +130,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onInitGetFunds: (token) => dispatch(actions.initGetFunds(token)),
+        onInitFundApproval: (id) => dispatch(actions.initFundApproval(id)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PendingDeposits)

@@ -148,3 +148,53 @@ export const initGetFunds = (token) => {
             })
     }
 }
+export const initGetFunds = (token) => {
+    return (dispatch) => {
+        dispatch(fundAccountStart())
+
+        let graphqlQuery = {
+            query: `{
+                getFunds {
+                    fundData {
+                        fundNO
+                        creator
+                        amount
+                        currency
+                        status
+                        updatedAt
+                    }
+
+                    getFund {
+                        _id
+                    }
+                }
+            }`,
+        }
+
+        return fetch(URL + '/api/graphql', {
+            method: 'POST',
+            body: JSON.stringify(graphqlQuery),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token,
+            },
+        })
+            .then((res) => {
+                console.log('started getFunds', token)
+                return res.json()
+            })
+            .then((resData) => {
+                console.log('data posted', resData)
+
+                if (resData.errors) {
+                    dispatch(fundAccountFailed(resData.errors[0].message))
+                }
+
+                dispatch(fundAccountSuccess(resData.data.getFunds))
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch(fundAccountFailed(err))
+            })
+    }
+}
