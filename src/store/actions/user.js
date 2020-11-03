@@ -44,14 +44,14 @@ export const investNowStart = () => {
         type: actions.FUND_ACCOUNT_START,
     }
 }
-export const fundAccountSuccess = (data) => {
+export const investNowSuccess = (data) => {
     return {
         type: actions.FUND_ACCOUNT_SUCCESS,
         data,
     }
 }
 
-export const fundAccountFailed = (err) => {
+export const investNowFailed = (err) => {
     return {
         type: actions.FUND_ACCOUNT_FAILED,
         err,
@@ -222,14 +222,14 @@ export const initInvestNow = (fundData, token) => {
             .then((resData) => {
                 console.log('the res', resData)
                 if (resData.errors) {
-                    dispatch(fundAccountFailed(resData.errors[0].message))
+                    dispatch(investNowFailed(resData.errors[0].message))
                 }
 
-                dispatch(getFundAccountSuccess(resData.data))
+                dispatch(investNowSuccess(resData.data))
             })
             .catch((err) => {
                 console.log(err)
-                dispatch(fundAccountFailed(err))
+                dispatch(investNowFailed(err))
             })
     }
 }

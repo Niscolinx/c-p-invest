@@ -91,7 +91,6 @@ export const initFundAccount = (fundData, token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('the res', resData)
                 if (resData.errors) {
                     dispatch(fundAccountFailed(resData.errors[0].message))
                 }
@@ -186,7 +185,6 @@ export const initFundApproval = (id, token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('data of fund approval', resData)
 
                 if (resData.errors) {
                     dispatch(fundAccountFailed(resData.errors[0].message))
