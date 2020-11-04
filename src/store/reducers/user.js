@@ -6,7 +6,8 @@ const initialState = {
     loading: false,
     userData: {},
     getUsers: [],
-    investNow: []
+    investNow: [],
+    withdrawNow: []
 }
 const updateProfileStart = (state, action) => {
     return update(state, {
