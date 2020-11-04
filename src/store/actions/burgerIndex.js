@@ -9,6 +9,7 @@ export {
    initGetUsers,
    initInvestNow,
    initInvestNowApproval,
+   initWithdrawNowApproval,
    initWithdrawNow
 } from './user'
 

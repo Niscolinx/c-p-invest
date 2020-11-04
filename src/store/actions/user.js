@@ -383,7 +383,7 @@ export const initInvestNowApproval = (id, token) => {
             })
     }
 }
-export const initwithdrawNowApproval = (id, token) => {
+export const initWithdrawNowApproval = (id, token) => {
     return (dispatch) => {
         dispatch(withdrawNowStart())
 
@@ -395,7 +395,6 @@ export const initwithdrawNowApproval = (id, token) => {
                         _id
                         amount
                         currency
-                        proofUrl
                         creator {
                             username
                         }
