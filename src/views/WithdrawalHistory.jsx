@@ -1,71 +1,111 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Grid, Row, Col, Table } from 'react-bootstrap'
+import { connect } from 'react-redux'
+
+import * as orderAction from '../store/actions/burgerIndex'
 
 import Card from '../components/Card/Card'
-import { thWithdrawalArray, tdWithdrawalArray } from '../variables/Variables'
+//import { thWithdrawalArray, tdWithdrawalArray } from '../../variables/Variables'
 
-class TableList extends Component {
-    render() {
-        return (
-            <div className='content'>
-                <Grid fluid>
-                    <Row>
-                        <Col md={12}>
-                            <Card
-                                plain
-                                title='Your investment'
-                                category='History'
-                                ctTableFullWidth
-                                ctTableResponsive
-                                content={
-                                    <Table>
-                                        <thead>
-                                            <tr>
-                                                {thWithdrawalArray.map(
-                                                    (prop, key) => {
-                                                        return (
-                                                            <th key={key}>
-                                                                {prop}
-                                                            </th>
-                                                        )
-                                                    }
-                                                )}
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {tdWithdrawalArray.map(
+const thInvestmentHistoryArray = [
+    'No',
+    'planName',
+    'amount',
+    'Currency',
+    'Date',
+]
+
+const Members = (props) => {
+    const [getWithdrawalHistory, setWithdrawalHistory] = useState([])
+
+    const gottenWithdrawalHistory = useRef()
+    useEffect(() => {
+        if (!gottenWithdrawalHistory.current) {
+            if (props.tokenId) {
+                props.onInitGetUserHistory(props.tokenId)
+            }
+            gottenWithdrawalHistory.current = true
+        } else {
+            if (props.getUserWithdrawalHistory) {
+                setWithdrawalHistory(props.getUserWithdrawalHistory)
+            }
+        }
+    }, [props])
+
+    console.log('the get all users', getWithdrawalHistory)
+
+    return (
+        <div className='content'>
+            <Grid fluid>
+                <Row>
+                    <Col md={12}>
+                        <Card
+                            plain
+                            title='Your Investment'
+                            category='History'
+                            ctTableFullWidth
+                            ctTableResponsive
+                            content={
+                                <Table>
+                                    <thead>
+                                        <tr>
+                                            {thInvestmentHistoryArray.map(
                                                 (prop, key) => {
                                                     return (
-                                                        <tr key={key}>
-                                                            {prop.map(
-                                                                (prop, key) => {
-                                                                    return (
-                                                                        <td
-                                                                            key={
-                                                                                key
-                                                                            }
-                                                                        >
-                                                                            {
-                                                                                prop
-                                                                            }
-                                                                        </td>
-                                                                    )
-                                                                }
-                                                            )}
-                                                        </tr>
+                                                        <th key={key}>
+                                                            {prop}
+                                                        </th>
                                                     )
                                                 }
                                             )}
-                                        </tbody>
-                                    </Table>
-                                }
-                            />
-                        </Col>
-                    </Row>
-                </Grid>
-            </div>
-        )
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {getWithdrawalHistory.map((prop, key) => {
+                                            return (
+                                                <tr key={key}>
+                                                    {Object.values(prop).map(
+                                                        (prop, key) => {
+                                                            console.log(
+                                                                'prop',
+                                                                prop
+                                                            )
+                                                            return (
+                                                                <td key={key}>
+                                                                    {prop}
+                                                                </td>
+                                                            )
+                                                        }
+                                                    )}
+                                                </tr>
+                                            )
+                                        })}
+                                    </tbody>
+                                </Table>
+                            }
+                        />
+                    </Col>
+                </Row>
+            </Grid>
+        </div>
+    )
+}
+
+const mapStateToProps = (state) => {
+    console.log('the state of investment history', state)
+    return {
+        loading: state.user.loading,
+        err: state.auth.error,
+        tokenId: state.auth.tokenId,
+        userId: state.auth.userId,
+        getUserWithdrawalHistory: state.user.getUserWithdrawalHistory,
     }
 }
 
-export default TableList
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onInitGetUserHistory: (token) =>
+            dispatch(orderAction.initGetUserHistory(token)),
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Members)

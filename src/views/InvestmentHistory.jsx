@@ -7,7 +7,7 @@ import * as orderAction from '../store/actions/burgerIndex'
 import Card from '../components/Card/Card'
 //import { thWithdrawalArray, tdWithdrawalArray } from '../../variables/Variables'
 
-const thInvestmentHistoryArray = ['No', 'planName', 'Email', 'Status', 'Date']
+const thInvestmentHistoryArray = ['No', 'planName', 'amount', 'Currency', 'Date']
 
 const Members = (props) => {
     const [getDepositHistory, setDepositHistory] = useState([])
@@ -92,7 +92,6 @@ const mapStateToProps = (state) => {
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
-        getUserWithdrawalHistory: state.user.getUserWithdrawalHistory,
         getUserDepositHistory: state.user.getUserDepositHistory,
     }
 }
