@@ -9,8 +9,8 @@ import * as orderAction from '../store/actions/burgerIndex'
 function FundAccount(props) {
     const [amount, setAmount] = useState('')
     const [currency, setCurrency] = useState('Bitcoin')
-    const [file, setFile] = useState('')
-    const [imagePreview, setImagePreview] = useState(null)
+    //const [file, setFile] = useState('')
+    //const [imagePreview, setImagePreview] = useState(null)
     const [userAccountBalance, setUserAccountBalance] = useState(0)
 
     const handleAmountChange = (e) => {
@@ -19,19 +19,19 @@ function FundAccount(props) {
     const handleSelectChange = (e) => {
         setCurrency(e.target.value)
     }
-    const handleFileChange = (e) => {
-        const files = e.target.files
-        if (files) {
-            generateBase64FromImage(files[0])
-                .then((b64) => {
-                    setImagePreview(b64)
-                })
-                .catch((e) => {
-                    setImagePreview(null)
-                })
-        }
-        setFile(e.target.files)
-    }
+    // const handleFileChange = (e) => {
+    //     const files = e.target.files
+    //     if (files) {
+    //         generateBase64FromImage(files[0])
+    //             .then((b64) => {
+    //                 setImagePreview(b64)
+    //             })
+    //             .catch((e) => {
+    //                 setImagePreview(null)
+    //             })
+    //     }
+    //     setFile(e.target.files)
+    // }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -94,8 +94,7 @@ function FundAccount(props) {
                     <FormControl.Static>
                         INSTRUCTIONS: Transfer the equivalent amount in bitcoin
                         or ethereum(depending on your selection) to the above
-                        wallet address. After payment upload the payment proof
-                        below.
+                        wallet address.
                     </FormControl.Static>
                 </FormGroup>
 
