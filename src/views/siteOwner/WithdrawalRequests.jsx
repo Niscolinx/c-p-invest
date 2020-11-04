@@ -16,38 +16,38 @@ function WithdrawalRequests(props) {
     const [allRequests, setAllRequests] = useState('All Requests')
     const [currency, setCurrency] = useState('All Currencies')
 
-    const withdrawalFromDateChange = (e) => {
-        setWithdrawalFromDate(e.target.value)
-    }
-    const withdrawalToDateChange = (e) => {
-        setWithdrawalToDate(e.target.value)
-    }
-    const handleSelectChange = (e) => {
-        setCurrency(e.target.value)
-    }
-    const handleFromAmount = (e) => {
-        setFromAmount(e.target.value)
-    }
-    const handleAllRequests = (e) => {
-        setAllRequests(e.target.value)
-    }
-    const handleToAmount = (e) => {
-        setToAmount(e.target.value)
-    }
-    const handlePerPage = (e) => {
-        setPerPage(e.target.value)
-    }
+    // const withdrawalFromDateChange = (e) => {
+    //     setWithdrawalFromDate(e.target.value)
+    // }
+    // const withdrawalToDateChange = (e) => {
+    //     setWithdrawalToDate(e.target.value)
+    // }
+    // const handleSelectChange = (e) => {
+    //     setCurrency(e.target.value)
+    // }
+    // const handleFromAmount = (e) => {
+    //     setFromAmount(e.target.value)
+    // }
+    // const handleAllRequests = (e) => {
+    //     setAllRequests(e.target.value)
+    // }
+    // const handleToAmount = (e) => {
+    //     setToAmount(e.target.value)
+    // }
+    // const handlePerPage = (e) => {
+    //     setPerPage(e.target.value)
+    // }
 
-    const handleSubmit = (e) => {
-        console.log(withdrawalFromDate, withdrawalToDate)
-        e.preventDefault()
-        const formData = {
-            currency,
-        }
-    }
+    // const handleSubmit = (e) => {
+    //     console.log(withdrawalFromDate, withdrawalToDate)
+    //     e.preventDefault()
+    //     const formData = {
+    //         currency,
+    //     }
+    // }
     return (
         <div className='withdrawalRequest'>
-            <form className='withdrawalRequest__form' onSubmit={handleSubmit}>
+            {/* <form className='withdrawalRequest__form' onSubmit={handleSubmit}>
                 <div className='withdrawalRequest__form--left'>
                     <select
                         name='select'
@@ -125,7 +125,7 @@ function WithdrawalRequests(props) {
                         Go
                     </button>
                 </div>
-            </form>
+            </form> */}
             <div className='withdrawalRequest-details'>
                 <div className='content'>
                     <Grid fluid>
