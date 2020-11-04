@@ -43,7 +43,6 @@ export const initFundAccount = (fundData, token) => {
         //     formData.append('image', fundData.file['0'])
         // }
 
-
         // fetch(URL + '/api/post-image', {
         //     method: 'PUT',
         //     headers: {
@@ -57,8 +56,8 @@ export const initFundAccount = (fundData, token) => {
         //     .then((result) => {
         //         const proofUrl = result.filePath
 
-                let graphqlQuery = {
-                    query: `
+        let graphqlQuery = {
+            query: `
                 mutation { createFundAccount(fundData: {
                         amount: "${fundData.amount}",
                         currency: "${fundData.currency}",
@@ -73,17 +72,16 @@ export const initFundAccount = (fundData, token) => {
                     }
                 }
             `,
-                }
+        }
 
-                return fetch(URL + '/api/graphql', {
-                    method: 'POST',
-                    body: JSON.stringify(graphqlQuery),
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: 'Bearer ' + token,
-                    },
-                })
-
+        return fetch(URL + '/api/graphql', {
+            method: 'POST',
+            body: JSON.stringify(graphqlQuery),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token,
+            },
+        })
             .then((res) => {
                 return res.json()
             })
@@ -107,6 +105,25 @@ export const initGetFunds = (token) => {
         let graphqlQuery = {
             query: `{
                 getFunds {
+                    getPendingDeposit {
+                        _id
+                    }
+                    getPendingWithdrawal {
+                        _id
+                    }
+
+                    getFund {
+                        _id
+                    }
+
+                    getAllUsersDeposit {
+                        _id
+                    }
+
+                    getAllUsersWithdrawal {
+                        _id
+                    }
+
                     fundData {
                         fundNO
                         creator
@@ -114,10 +131,6 @@ export const initGetFunds = (token) => {
                         currency
                         status
                         updatedAt
-                    }
-
-                    getFund {
-                        _id
                     }
 
                     thePendingDeposit {
@@ -130,9 +143,6 @@ export const initGetFunds = (token) => {
                         updatedAt
                     }
 
-                    getPendingDeposit {
-                        _id
-                    }
                     thePendingWithdrawal {
                         fundNO
                         creator
@@ -142,9 +152,21 @@ export const initGetFunds = (token) => {
                         updatedAt
                     }
 
-                    getPendingWithdrawal {
-                        _id
+                    theAllUsersDeposit {
+                        fundNO
+                        creator
+                        planName
+                        currency
+                        updatedAt
                     }
+
+                    theAllUsersWithdrawal{
+                        fundNO
+                        creator
+                        currency
+                        updatedAt
+                    }
+
                 }
             }`,
         }
@@ -207,12 +229,15 @@ export const initFundApproval = (id, token) => {
                 return res.json()
             })
             .then((resData) => {
-
                 if (resData.errors) {
                     dispatch(fundAccountFailed(resData.errors[0].message))
                 }
 
-                dispatch(fundAccountApprovalSuccess(resData.data.createFundAccountApproval))
+                dispatch(
+                    fundAccountApprovalSuccess(
+                        resData.data.createFundAccountApproval
+                    )
+                )
             })
             .catch((err) => {
                 console.log(err)
