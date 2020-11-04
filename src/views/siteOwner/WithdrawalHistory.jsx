@@ -7,7 +7,7 @@ import * as actions from '../../store/actions/burgerIndex'
 import Card from '../../components/Card/Card'
 //import { thWithdrawalArray, tdWithdrawalArray } from '../../variables/Variables'
 
-const thWithdrawalArray = [
+const thWithdrawalHistoryArray = [
     'No',
     'Username',
     'Amount',
@@ -16,37 +16,23 @@ const thWithdrawalArray = [
     'Date',
 ]
 
-const PendingWithdrawals = (props) => {
-    const [userPendingWithdrawal, setUserPendingWithdrawal] = useState([])
+const AllUsersWithdrawalHistory = (props) => {
+    const [allUsersWithdrawal, setAllUsersWithdrawal] = useState([])
 
-    const gottenUserPendingWithdrawal = useRef()
+    const gottenAllUsersWithdrawal = useRef()
     useEffect(() => {
-        if (!gottenUserPendingWithdrawal.current) {
+        if (!gottenAllUsersWithdrawal.current) {
             if (props.tokenId) {
                 props.onInitGetFunds(props.tokenId)
             }
-            gottenUserPendingWithdrawal.current = true
+            gottenAllUsersWithdrawal.current = true
         } else {
-            if (props.pendingWithdrawal) {
-                setUserPendingWithdrawal(props.pendingWithdrawal)
+            if (props.allUsersWithdrawal) {
+                setAllUsersWithdrawal(props.allUsersWithdrawal)
             }
         }
     }, [props])
 
-    const handleApproval = (id) => {
-        for (let i = 0; i < props.idsOfPendingWithdrawals.length; i++) {
-            if (id === i) {
-                return props.onInitWithdrawNowApproval(
-                    props.idsOfPendingWithdrawals[i]._id,
-                    props.tokenId
-                )
-            }
-        }
-    }
-
-    // if (props.investNowApprovalSuccess) {
-    //     console.log('the approval', props.investNowApprovalSuccess)
-    // }
     return (
         <div className='content'>
             <Grid fluid>
@@ -62,7 +48,7 @@ const PendingWithdrawals = (props) => {
                                 <Table>
                                     <thead>
                                         <tr>
-                                            {thWithdrawalArray.map(
+                                            {thWithdrawalHistoryArray.map(
                                                 (prop, key) => {
                                                     return (
                                                         <th key={key}>
@@ -74,7 +60,7 @@ const PendingWithdrawals = (props) => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {userPendingWithdrawal.map(
+                                        {allUsersWithdrawal.map(
                                             (prop, key) => {
                                                 return (
                                                     <tr key={key}>
@@ -87,18 +73,7 @@ const PendingWithdrawals = (props) => {
                                                                 </td>
                                                             )
                                                         })}
-                                                        <button
-                                                            className='btn1'
-                                                            onClick={() =>
-                                                                handleApproval(
-                                                                    key
-                                                                )
-                                                            }
-                                                        >
-                                                            {props.loading
-                                                                ? 'Loading...'
-                                                                : 'approve'}
-                                                        </button>
+                                                       
                                                         {/* <button className='btn1'>
                                                         view
                                                     </button> */}
@@ -119,15 +94,9 @@ const PendingWithdrawals = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.user.loading,
-        fundLoading: state.fundAccount.loading,
-        err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
-        withdrawNowApprovalSuccess:
-            state.fundAccount.fundAccountApprovalSuccess,
-        idsOfPendingWithdrawals: state.fundAccount.idsOfPendingWithdrawals,
-        pendingWithdrawal: state.fundAccount.pendingWithdrawal,
+        allUsersWithdrawal: state.fundAccount.allUsersWithdrawal,
     }
 }
 
@@ -136,4 +105,4 @@ const mapDispatchToProps = (dispatch) => {
         onInitGetFunds: (token) => dispatch(actions.initGetFunds(token)),
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(PendingWithdrawals)
+export default connect(mapStateToProps, mapDispatchToProps)(AllUsersWithdrawalHistory)
