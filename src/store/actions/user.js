@@ -217,16 +217,13 @@ export const initWithdrawNow = (withdrawNowData, token) => {
                 let graphqlQuery = {
                     query: `
                 mutation { createwithdrawNow(withdrawNowData: {
-                        selectedPlan: "${withdrawNowData.selectedPlan}",
+                        password: "${withdrawNowData.password}",
                         amount: "${withdrawNowData.amount}",
                         currency: "${withdrawNowData.currency}",
-                        proofUrl: "${proofUrl}"
                     }){
                         _id
                         amount
-                        planName
                         currency
-                        proofUrl
                         creator {
                             username
                         }
@@ -383,6 +380,57 @@ export const initInvestNowApproval = (id, token) => {
             .catch((err) => {
                 console.log(err)
                 dispatch(investNowFailed(err))
+            })
+    }
+}
+export const initwithdrawNowApproval = (id, token) => {
+    return (dispatch) => {
+        dispatch(withdrawNowStart())
+
+        let graphqlQuery = {
+            query: `
+                mutation { createWithdrawNowApproval(PostId: {
+                    id: "${id}"
+                }){
+                        _id
+                        amount
+                        currency
+                        proofUrl
+                        creator {
+                            username
+                        }
+                        updatedAt
+                    }
+                },
+            `,
+        }
+
+        return fetch(URL + '/api/graphql', {
+            method: 'POST',
+            body: JSON.stringify(graphqlQuery),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token,
+            },
+        })
+            .then((res) => {
+                return res.json()
+            })
+            .then((resData) => {
+                console.log('the res', resData)
+                if (resData.errors) {
+                    dispatch(withdrawNowFailed(resData.errors[0].message))
+                }
+
+                dispatch(
+                    withdrawNowApprovalSuccess(
+                        resData.data.createwithdrawNowApproval
+                    )
+                )
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch(withdrawNowFailed(err))
             })
     }
 }
