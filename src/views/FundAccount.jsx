@@ -38,7 +38,6 @@ function FundAccount(props) {
         const formData = {
             amount,
             currency,
-            file,
         }
 
         props.onInitFundAccount(formData, props.tokenId, props.userId)
