@@ -111,7 +111,6 @@ export const initGetUser = (token) => {
                         _id 
                         amount
                         status
-                        proofUrl
                         currency
                         createdAt
                         updatedAt
@@ -122,7 +121,6 @@ export const initGetUser = (token) => {
                         status
                         planName
                         currency
-                        proofUrl
                         createdAt
                         updatedAt
                     }

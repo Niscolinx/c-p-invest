@@ -37,25 +37,25 @@ export const fundAccountApprovalSuccess = (data) => {
 export const initFundAccount = (fundData, token) => {
     return (dispatch) => {
         dispatch(fundAccountStart())
-        const formData = new FormData()
-        if(fundData.file){
-            console.log('the file')
-            formData.append('image', fundData.file['0'])
-        }
+        // const formData = new FormData()
+        // if(fundData.file){
+        //     console.log('the file')
+        //     formData.append('image', fundData.file['0'])
+        // }
 
 
-        fetch(URL + '/api/post-image', {
-            method: 'PUT',
-            headers: {
-                Authorization: 'Bearer ' + token,
-            },
-            body: formData,
-        })
-            .then((res) => {
-                return res.json()
-            })
-            .then((result) => {
-                const proofUrl = result.filePath
+        // fetch(URL + '/api/post-image', {
+        //     method: 'PUT',
+        //     headers: {
+        //         Authorization: 'Bearer ' + token,
+        //     },
+        //     body: formData,
+        // })
+        //     .then((res) => {
+        //         return res.json()
+        //     })
+        //     .then((result) => {
+        //         const proofUrl = result.filePath
 
                 let graphqlQuery = {
                     query: `
@@ -85,7 +85,6 @@ export const initFundAccount = (fundData, token) => {
                         Authorization: 'Bearer ' + token,
                     },
                 })
-            })
 
             .then((res) => {
                 return res.json()
