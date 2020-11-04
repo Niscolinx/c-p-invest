@@ -48,19 +48,26 @@ const investNowFailed = (state, action) => {
         error: action.err,
     })
 }
-const investNowStart = (state, action) => {
+const withdrawNowStart = (state, action) => {
     return update(state, {
         loading: true,
     })
 }
-const investNowSuccess = (state, action) => {
+const withdrawNowSuccess = (state, action) => {
     return update(state, {
         loading: false,
-        investNow: action.data,
+        withdrawNow: action.data,
     })
 }
 
-const investNowFailed = (state, action) => {
+const withdrawNowApprovalSuccess = (state, action) => {
+    return update(state, {
+        loading: false,
+        withdrawNowApprovalSuccess: true,
+    })
+}
+
+const withdrawNowFailed = (state, action) => {
     return update(state, {
         loading: false,
         error: action.err,
@@ -99,6 +106,14 @@ const handleUsers = (state = initialState, action) => {
             return getUsersSuccess(state, action)
         case actionTypes.GET_USERS_FAILED:
             return getUsersFailed(state, action)
+        case actionTypes.INVEST_NOW_START:
+            return withdrawNowStart(state, action)
+        case actionTypes.INVEST_NOW_SUCCESS:
+            return withdrawNowSuccess(state, action)
+        case actionTypes.INVEST_NOW_APPROVAL_SUCCESS:
+            return withdrawNowApprovalSuccess(state, action)
+        case actionTypes.INVEST_NOW_FAILED:
+            return withdrawNowFailed(state, action)
         case actionTypes.INVEST_NOW_START:
             return investNowStart(state, action)
         case actionTypes.INVEST_NOW_SUCCESS:

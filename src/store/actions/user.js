@@ -75,6 +75,13 @@ export const withdrawNowSuccess = (data) => {
     }
 }
 
+export const withdrawNowApprovalSuccess = (data) => {
+    return {
+        type: actions.WITHDRAW_NOW_APPROVAL_SUCCESS,
+        data,
+    }
+}
+
 export const withdrawNowFailed = (err) => {
     return {
         type: actions.WITHDRAW_NOW_FAILED,
