@@ -251,6 +251,10 @@ export const initInvestNowApproval = (id, token) => {
                         _id
                         amount
                         currency
+                        proofUrl
+                        creator {
+                            username
+                        }
                         updatedAt
                     }
                 },
