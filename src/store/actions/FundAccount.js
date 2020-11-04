@@ -122,6 +122,20 @@ export const initGetFunds = (token) => {
                     getFund {
                         _id
                     }
+
+                    thePendingDeposit {
+                        fundNO
+                        creator
+                        amount
+                        planName
+                        currency
+                        status
+                        updatedAt
+                    }
+
+                    getPendingDeposit {
+                        _id
+                    }
                 }
             }`,
         }
