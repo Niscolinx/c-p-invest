@@ -24,7 +24,6 @@ const PendingDeposits = (props) => {
     useEffect(() => {
         if (!gottenUserPendingDeposit.current) {
             if (props.tokenId) {
-                console.log("the get funds of investment")
                 props.onInitGetFunds(props.tokenId)
             }
             gottenUserPendingDeposit.current = true

@@ -5,7 +5,8 @@ const initialState = {
     error: null,
     loading: false,
     userData: {},
-    getUsers: []
+    getUsers: [],
+    investNow: []
 }
 const updateProfileStart = (state, action) => {
     return update(state, {
