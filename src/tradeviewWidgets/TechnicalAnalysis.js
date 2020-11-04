@@ -24,8 +24,8 @@ export default class TechnicalAnalysis extends Component {
     }
     render() {
         return (
-            <div class='tradingview-widget-container' ref={this._ref}>
-                <div class='tradingview-widget-container__widget'></div>
+            <div className='tradingview-widget-container' ref={this._ref}>
+                <div className='tradingview-widget-container__widget'></div>
             </div>
         )
     }
