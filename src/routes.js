@@ -40,19 +40,19 @@ export const dashboardRoutes = [
         component: PlansDashboard,
         layout: '/admin',
     },
+    {
+        path: '/withdraw',
+        name: 'Withdraw',
+        icon: 'pe-7s-news-paper',
+        component: Withdraw,
+        layout: '/admin',
+    },
 
     {
         path: '/investmentHistory',
         name: 'Investment History',
         icon: 'pe-7s-refresh',
         component: InvestmentHistory,
-        layout: '/admin',
-    },
-    {
-        path: '/withdraw',
-        name: 'Withdraw',
-        icon: 'pe-7s-news-paper',
-        component: Withdraw,
         layout: '/admin',
     },
     {
