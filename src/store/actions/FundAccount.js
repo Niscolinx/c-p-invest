@@ -62,12 +62,10 @@ export const initFundAccount = (fundData, token) => {
                 mutation { createFundAccount(fundData: {
                         amount: "${fundData.amount}",
                         currency: "${fundData.currency}",
-                        proofUrl: "${proofUrl}"
                     }){
                         _id
                         amount
                         currency
-                        proofUrl
                         creator {
                             username
                         }
@@ -188,7 +186,6 @@ export const initFundApproval = (id, token) => {
                         _id
                         amount
                         currency
-                        proofUrl
                         creator {
                             username
                         }

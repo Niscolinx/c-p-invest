@@ -342,7 +342,6 @@ export const initInvestNow = (investNowData, token) => {
                         amount
                         planName
                         currency
-                        proofUrl
                         creator {
                             username
                         }
@@ -391,7 +390,6 @@ export const initInvestNowApproval = (id, token) => {
                         _id
                         amount
                         currency
-                        proofUrl
                         creator {
                             username
                         }
