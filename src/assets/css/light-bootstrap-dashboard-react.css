@@ -2927,6 +2927,7 @@ body > .navbar-collapse[data-color="purple"]:after {
   .navbar-fixed-top {
     -webkit-backface-visibility: hidden; }
   #bodyClick {
+    display: none;
     height: 100%;
     width: 100%;
     position: fixed;
