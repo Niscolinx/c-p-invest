@@ -190,6 +190,49 @@ export const initGetUsers = (token) => {
             })
     }
 }
+export const initGetUserHistory = (token) => {
+    return (dispatch) => {
+        dispatch(getUsersStart())
+
+        let graphqlQuery = {
+            query: `{
+                getUsers {
+                    getUser {                    
+                        userNO
+                        username
+                        email
+                        status
+                        updatedAt
+                    }
+                }
+            }`,
+        }
+
+        return fetch(URL + '/api/graphql', {
+            method: 'POST',
+            body: JSON.stringify(graphqlQuery),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token,
+            },
+        })
+            .then((res) => {
+                return res.json()
+            })
+            .then((resData) => {
+                if (resData.errors) {
+                    dispatch(getUsersFailed(resData.errors[0].message))
+                }
+
+                dispatch(getUsersSuccess(resData.data.getUsers.getUser))
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch(getUsersFailed(err))
+            })
+    }
+}
+
 
 export const initWithdrawNow = (withdrawNowData, token) => {
     return (dispatch) => {
