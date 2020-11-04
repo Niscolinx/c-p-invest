@@ -174,7 +174,7 @@ export const initGetUserHistory = (token) => {
                 getUserHistory {
                     getDepositHistory {                    
                         historyNO
-                        status
+                        planName
                         amount
                         currency
                         updatedAt
@@ -182,7 +182,7 @@ export const initGetUserHistory = (token) => {
 
                     getWithdrawalHistory {
                         historyNO
-                        status
+                        planName
                         amount
                         currency
                         updatedAt
