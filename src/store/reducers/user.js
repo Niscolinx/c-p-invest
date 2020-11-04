@@ -39,7 +39,7 @@ const investNowSuccess = (state, action) => {
 const investNowApprovalSuccess = (state, action) => {
     return update(state, {
         loading: false,
-        investNowApproved: action.data,
+        investNowApproved: true,
     })
 }
 const investNowFailed = (state, action) => {
