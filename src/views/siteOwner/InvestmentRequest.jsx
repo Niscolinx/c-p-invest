@@ -7,10 +7,11 @@ import * as actions from '../../store/actions/burgerIndex'
 import Card from '../../components/Card/Card'
 //import { thWithdrawalArray, tdWithdrawalArray } from '../../variables/Variables'
 
-const thWithdrawalArray = [
+const thInvestmentRequestArray = [
     'No',
     'Username',
     'Amount',
+    'Plan',
     'Currency',
     'Status',
     'Date',
@@ -62,7 +63,7 @@ const PendingDeposits = (props) => {
                                 <Table>
                                     <thead>
                                         <tr>
-                                            {thWithdrawalArray.map(
+                                            {thInvestmentRequestArray.map(
                                                 (prop, key) => {
                                                     return (
                                                         <th key={key}>
@@ -96,9 +97,9 @@ const PendingDeposits = (props) => {
                                                             ? 'Loading...'
                                                             : 'approve'}
                                                     </button>
-                                                    <button className='btn1'>
+                                                    {/* <button className='btn1'>
                                                         view
-                                                    </button>
+                                                    </button> */}
                                                 </tr>
                                             )
                                         })}

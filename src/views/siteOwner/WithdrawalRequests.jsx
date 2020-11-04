@@ -11,7 +11,6 @@ const thWithdrawalArray = [
     'No',
     'Username',
     'Amount',
-    'Plan',
     'Currency',
     'Status',
     'Date',
@@ -97,9 +96,9 @@ const PendingWithdrawals = (props) => {
                                                             ? 'Loading...'
                                                             : 'approve'}
                                                     </button>
-                                                    <button className='btn1'>
+                                                    {/* <button className='btn1'>
                                                         view
-                                                    </button>
+                                                    </button> */}
                                                 </tr>
                                             )
                                         })}
