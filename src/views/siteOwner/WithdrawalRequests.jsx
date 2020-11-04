@@ -55,7 +55,7 @@ const PendingWithdrawals = (props) => {
                     <Col md={12}>
                         <Card
                             plain
-                            title='Pending Investments'
+                            title='Withdrawal Requests'
                             category='Users that want to purchase a plan'
                             ctTableFullWidth
                             ctTableResponsive
