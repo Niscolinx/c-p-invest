@@ -9,6 +9,8 @@ const initialState = {
     getAllFundsAccount: [],
     pendingDeposit: [],
     idsOfPendingDeposits: [],
+    pendingWithdrawal: [],
+    idsOfPendingWithdrawals: [],
     fundAccountApprovalSuccess: false,
 }
 const fundAccountStart = (state, action) => {
@@ -22,7 +24,9 @@ const fundAccountSuccess = (state, action) => {
         fundedAccount: action.data.fundData,
         idsOfFunds: action.data.getFund,
         idsOfPendingDeposits: action.data.getPendingDeposit,
-        pendingDeposit: action.data.thePendingDeposit
+        idsOfPendingWithdrawals: action.data.getPendingWithdrawal,
+        pendingDeposit: action.data.thePendingDeposit,
+        pendingWithdrawal: action.data.thePendingWithdrawal
     })
 }
 
