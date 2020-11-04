@@ -38,18 +38,18 @@ export const getUsersFailed = (err) => {
         err,
     }
 }
-export const getUsersStart = () => {
+export const getUserHistoryStart = () => {
     return {
         type: actions.UPDATE_PROFILE_START,
     }
 }
-export const getUsersSuccess = (data) => {
+export const getUserHistorySuccess = (data) => {
     return {
         type: actions.UPDATE_PROFILE_SUCCESS,
         data,
     }
 }
-export const getUsersFailed = (err) => {
+export const getUserHistoryFailed = (err) => {
     return {
         type: actions.UPDATE_PROFILE_FAILED,
         err,
@@ -167,7 +167,7 @@ export const initUpdateProfile = (updateProfileData, token) => {
 }
 export const initGetUserHistory = (token) => {
     return (dispatch) => {
-        dispatch(getUsersStart())
+        dispatch(getUserHistoryStart())
 
         let graphqlQuery = {
             query: `{
@@ -205,14 +205,14 @@ export const initGetUserHistory = (token) => {
             .then((resData) => {
                 console.log('the history res', resData)
                 if (resData.errors) {
-                    dispatch(getUsersFailed(resData.errors[0].message))
+                    dispatch(getUserHistoryFailed(resData.errors[0].message))
                 }
 
-                dispatch(getUsersSuccess(resData.data.getUsers.getUser))
+                dispatch(getUserHistorySuccess(resData.data.getUsers.getUser))
             })
             .catch((err) => {
                 console.log(err)
-                dispatch(getUsersFailed(err))
+                dispatch(getUserHistoryFailed(err))
             })
     }
 }
