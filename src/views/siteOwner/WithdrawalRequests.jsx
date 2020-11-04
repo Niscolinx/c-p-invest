@@ -1,195 +1,137 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Grid, Row, Col, Table } from 'react-bootstrap'
+import { connect } from 'react-redux'
+
+import * as actions from '../../store/actions/burgerIndex'
 
 import Card from '../../components/Card/Card'
-import {
-    thWithdrawalRequestArray,
-    tdWithdrawalRequestArray,
-} from '../../variables/Variables'
+//import { thWithdrawalArray, tdWithdrawalArray } from '../../variables/Variables'
 
-function WithdrawalRequests(props) {
-    // const [withdrawalFromDate, setWithdrawalFromDate] = useState('')
-    // const [withdrawalToDate, setWithdrawalToDate] = useState('')
-    // const [fromAmount, setFromAmount] = useState('')
-    // const [toAmount, setToAmount] = useState('')
-    // const [perPage, setPerPage] = useState('10')
-    // const [allRequests, setAllRequests] = useState('All Requests')
-    // const [currency, setCurrency] = useState('All Currencies')
+const thWithdrawalArray = [
+    'No',
+    'Username',
+    'Amount',
+    'Plan',
+    'Currency',
+    'Status',
+    'Date',
+]
 
-    // const withdrawalFromDateChange = (e) => {
-    //     setWithdrawalFromDate(e.target.value)
-    // }
-    // const withdrawalToDateChange = (e) => {
-    //     setWithdrawalToDate(e.target.value)
-    // }
-    // const handleSelectChange = (e) => {
-    //     setCurrency(e.target.value)
-    // }
-    // const handleFromAmount = (e) => {
-    //     setFromAmount(e.target.value)
-    // }
-    // const handleAllRequests = (e) => {
-    //     setAllRequests(e.target.value)
-    // }
-    // const handleToAmount = (e) => {
-    //     setToAmount(e.target.value)
-    // }
-    // const handlePerPage = (e) => {
-    //     setPerPage(e.target.value)
-    // }
+const PendingWithdrawals = (props) => {
+    const [userPendingWithdrawal, setUserPendingWithdrawal] = useState([])
 
-    // const handleSubmit = (e) => {
-    //     console.log(withdrawalFromDate, withdrawalToDate)
-    //     e.preventDefault()
-    //     const formData = {
-    //         currency,
-    //     }
+    const gottenUserPendingWithdrawal = useRef()
+    useEffect(() => {
+        if (!gottenUserPendingWithdrawal.current) {
+            if (props.tokenId) {
+                props.onInitGetFunds(props.tokenId)
+            }
+            gottenUserPendingWithdrawal.current = true
+        } else {
+            if (props.pendingWithdrawal) {
+                setUserPendingWithdrawal(props.pendingWithdrawal)
+            }
+        }
+    }, [props])
+
+    const handleApproval = (id) => {
+        for (let i = 0; i < props.idsOfPendingWithdrawals.length; i++) {
+            if (id === i) {
+                return props.onInitWithdrawNowApproval(
+                    props.idsOfPendingWithdrawals[i]._id,
+                    props.tokenId
+                )
+            }
+        }
+    }
+
+    // if (props.investNowApprovalSuccess) {
+    //     console.log('the approval', props.investNowApprovalSuccess)
     // }
     return (
-        <div className='withdrawalRequest'>
-            {/* <form className='withdrawalRequest__form' onSubmit={handleSubmit}>
-                <div className='withdrawalRequest__form--left'>
-                    <select
-                        name='select'
-                        id='select'
-                        onChange={handleAllRequests}
-                        value={allRequests}
-                        className='withdrawalRequest__form--select'
-                    >
-                        <option value='All Requests'>All Requests</option>
-                        <option value='Pending'>Pending</option>
-                        <option value='Approved'>Approved</option>
-                    </select>
-                    <input
-                        type='date'
-                        className='withdrawalRequest__form--input'
-                        name='withdrawalFromDate'
-                        id='withdrawalFromDate'
-                        onChange={withdrawalFromDateChange}
-                        value={withdrawalFromDate}
-                    />
-                    <input
-                        type='date'
-                        className='withdrawalRequest__form--input'
-                        name='withdrawalToDate'
-                        id='withdrawalToDate'
-                        onChange={withdrawalToDateChange}
-                        value={withdrawalToDate}
-                    />
-
-                    <input
-                        type='input'
-                        className='withdrawalRequest__form--input'
-                        name='perPage'
-                        placeholder='per page'
-                        id='perPage'
-                        onChange={handlePerPage}
-                        value={perPage}
-                    />
-                </div>
-                <div className='withdrawalRequest__form--right'>
-                    <label className='withdrawalRequest__form--label'>Amount</label>
-                    <input
-                        type='number'
-                        className='withdrawalRequest__form--input'
-                        name='fromAmount'
-                        placeholder='From 0.00'
-                        id='fromAmount'
-                        onChange={handleFromAmount}
-                        value={fromAmount}
-                    />
-                    <input
-                        type='number'
-                        className='withdrawalRequest__form--input'
-                        name='toAmount'
-                        placeholder='To 0.00'
-                        id='toAmount'
-                        onChange={handleToAmount}
-                        value={toAmount}
-                    />
-                    <select
-                        name='select'
-                        id='select'
-                        onChange={handleSelectChange}
-                        value={currency}
-                        className='withdrawalRequest__form--select'
-                    >
-                        <option value='All Currencies'>All Currencies</option>
-                        <option value='Bitcoin'>Bitcoin</option>
-                        <option value='Ethereum'>Ethereum</option>
-                    </select>
-                </div>
-
-                <div className='withdrawalRequest__form--btn'>
-                    <button type='submit' className='button'>
-                        Go
-                    </button>
-                </div>
-            </form> */}
-            <div className='withdrawalRequest-details'>
-                <div className='content'>
-                    <Grid fluid>
-                        <Row>
-                            <Col md={12}>
-                                <Card
-                                    plain
-                                    title='Withdrawal Requests'
-                                    category='All Users'
-                                    ctTableFullWidth
-                                    ctTableResponsive
-                                    content={
-                                        <Table>
-                                            <thead>
-                                                <tr>
-                                                    {thWithdrawalRequestArray.map(
-                                                        (prop, key) => {
+        <div className='content'>
+            <Grid fluid>
+                <Row>
+                    <Col md={12}>
+                        <Card
+                            plain
+                            title='Pending Investments'
+                            category='Users that want to purchase a plan'
+                            ctTableFullWidth
+                            ctTableResponsive
+                            content={
+                                <Table>
+                                    <thead>
+                                        <tr>
+                                            {thWithdrawalArray.map(
+                                                (prop, key) => {
+                                                    return (
+                                                        <th key={key}>
+                                                            {prop}
+                                                        </th>
+                                                    )
+                                                }
+                                            )}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {userPendingWithdrawal.map((prop, key) => {
+                                            return (
+                                                <tr key={key}>
+                                                    {Object.values(prop).map(
+                                                        (prop) => {
                                                             return (
-                                                                <th key={key}>
+                                                                <td key={key}>
                                                                     {prop}
-                                                                </th>
+                                                                </td>
                                                             )
                                                         }
                                                     )}
+                                                    <button
+                                                        className='btn1'
+                                                        onClick={() =>
+                                                            handleApproval(key)
+                                                        }
+                                                    >
+                                                        {props.loading
+                                                            ? 'Loading...'
+                                                            : 'approve'}
+                                                    </button>
+                                                    <button className='btn1'>
+                                                        view
+                                                    </button>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                {tdWithdrawalRequestArray.map(
-                                                    (prop, key) => {
-                                                        return (
-                                                            <tr key={key}>
-                                                                {prop.map(
-                                                                    (
-                                                                        prop,
-                                                                        key
-                                                                    ) => {
-                                                                        return (
-                                                                            <td
-                                                                                key={
-                                                                                    key
-                                                                                }
-                                                                            >
-                                                                                {
-                                                                                    prop
-                                                                                }
-                                                                            </td>
-                                                                        )
-                                                                    }
-                                                                )}
-                                                            </tr>
-                                                        )
-                                                    }
-                                                )}
-                                            </tbody>
-                                        </Table>
-                                    }
-                                />
-                            </Col>
-                        </Row>
-                    </Grid>
-                </div>
-            </div>
+                                            )
+                                        })}
+                                    </tbody>
+                                </Table>
+                            }
+                        />
+                    </Col>
+                </Row>
+            </Grid>
         </div>
     )
 }
 
-export default WithdrawalRequests
+const mapStateToProps = (state) => {
+    return {
+        loading: state.user.loading,
+        fundLoading: state.fundAccount.loading,
+        err: state.auth.error,
+        tokenId: state.auth.tokenId,
+        userId: state.auth.userId,
+        withdrawNowApprovalSuccess: state.fundAccount.fundAccountApprovalSuccess,
+        idsOfPendingWithdrawals: state.fundAccount.idsOfPendingWithdrawals,
+        pendingWithdrawal: state.fundAccount.pendingWithdrawal,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onInitGetFunds: (token) => dispatch(actions.initGetFunds(token)),
+        onInitWithdrawNowApproval: (id, token) =>
+            dispatch(actions.initWithdrawNowApproval(id, token)),
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(PendingWithdrawals)
