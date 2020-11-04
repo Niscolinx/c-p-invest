@@ -11,6 +11,10 @@ const initialState = {
     idsOfPendingDeposits: [],
     pendingWithdrawal: [],
     idsOfPendingWithdrawals: [],
+    idsOfAllUsersDeposit: [],
+    idsOfAllUsersWithdrawal: [],
+    allUsersDeposit: [],
+    allUsersWithdrawal: [],
     fundAccountApprovalSuccess: false,
 }
 const fundAccountStart = (state, action) => {
@@ -28,7 +32,9 @@ const fundAccountSuccess = (state, action) => {
         idsOfAllUsersDeposit: action.data.getAllUsersDeposit,
         idsOfAllUsersWithdrawal: action.data.getAllUsersWithdrawal,
         pendingDeposit: action.data.thePendingDeposit,
-        pendingWithdrawal: action.data.thePendingWithdrawal
+        pendingWithdrawal: action.data.thePendingWithdrawal,
+        allUsersDeposit: action.data.theAllUsersDeposit,
+        allUsersWithdrawal: action.data.theAllUsersWithdrawal
     })
 }
 
