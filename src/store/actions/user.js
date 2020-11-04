@@ -251,11 +251,7 @@ export const initInvestNowApproval = (id, token) => {
                         _id
                         amount
                         currency
-                        proofUrl
-                        creator {
-                            username
-                        }
-                        createdAt
+                        updatedAt
                     }
                 },
             `,
@@ -273,6 +269,7 @@ export const initInvestNowApproval = (id, token) => {
                 return res.json()
             })
             .then((resData) => {
+                console.log('the res', resData)
                 if (resData.errors) {
                     dispatch(investNowFailed(resData.errors[0].message))
                 }
