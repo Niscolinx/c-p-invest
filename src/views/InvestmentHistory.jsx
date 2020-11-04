@@ -7,7 +7,13 @@ import * as orderAction from '../store/actions/burgerIndex'
 import Card from '../components/Card/Card'
 //import { thWithdrawalArray, tdWithdrawalArray } from '../../variables/Variables'
 
-const thInvestmentHistoryArray = ['No', 'planName', 'amount', 'Currency', 'Date']
+const thInvestmentHistoryArray = [
+    'No',
+    'planName',
+    'amount',
+    'Currency',
+    'Date',
+]
 
 const Members = (props) => {
     const [getDepositHistory, setDepositHistory] = useState([])
@@ -25,8 +31,6 @@ const Members = (props) => {
             }
         }
     }, [props])
-
-    console.log('the get all users', getDepositHistory)
 
     return (
         <div className='content'>
@@ -60,10 +64,6 @@ const Members = (props) => {
                                                 <tr key={key}>
                                                     {Object.values(prop).map(
                                                         (prop, key) => {
-                                                            console.log(
-                                                                'prop',
-                                                                prop
-                                                            )
                                                             return (
                                                                 <td key={key}>
                                                                     {prop}
@@ -86,7 +86,6 @@ const Members = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log('the state of investment history', state)
     return {
         loading: state.user.loading,
         err: state.auth.error,
@@ -98,7 +97,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onInitGetUserHistory: (token) => dispatch(orderAction.initGetUserHistory(token)),
+        onInitGetUserHistory: (token) =>
+            dispatch(orderAction.initGetUserHistory(token)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Members)

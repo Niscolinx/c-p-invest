@@ -32,8 +32,6 @@ const Members = (props) => {
         }
     }, [props])
 
-    console.log('the get all users', getWithdrawalHistory)
-
     return (
         <div className='content'>
             <Grid fluid>
@@ -61,25 +59,23 @@ const Members = (props) => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {getWithdrawalHistory.map((prop, key) => {
-                                            return (
-                                                <tr key={key}>
-                                                    {Object.values(prop).map(
-                                                        (prop, key) => {
-                                                            console.log(
-                                                                'prop',
-                                                                prop
-                                                            )
+                                        {getWithdrawalHistory.map(
+                                            (prop, key) => {
+                                                return (
+                                                    <tr key={key}>
+                                                        {Object.values(
+                                                            prop
+                                                        ).map((prop, key) => {
                                                             return (
                                                                 <td key={key}>
                                                                     {prop}
                                                                 </td>
                                                             )
-                                                        }
-                                                    )}
-                                                </tr>
-                                            )
-                                        })}
+                                                        })}
+                                                    </tr>
+                                                )
+                                            }
+                                        )}
                                     </tbody>
                                 </Table>
                             }
@@ -92,7 +88,6 @@ const Members = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log('the state of investment history', state)
     return {
         loading: state.user.loading,
         err: state.auth.error,
