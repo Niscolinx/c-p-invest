@@ -141,7 +141,6 @@ export const initGetUser = (token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('the get user data', resData)
                 if (resData.errors) {
                     dispatch(authFailed('getUser', resData.errors[0].message))
                 }
@@ -178,11 +177,9 @@ export const initLogin = (email, password) => {
             body: JSON.stringify(graphqlQuery),
         })
             .then((res) => {
-                console.log('the first res', res)
                 return res.json()
             })
             .then((resData) => {
-                console.log('the res data', resData)
 
                 if (resData.errors) {
                     return dispatch(
