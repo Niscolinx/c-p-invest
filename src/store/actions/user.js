@@ -312,24 +312,24 @@ export const initWithdrawNow = (withdrawNowData, token) => {
 export const initInvestNow = (investNowData, token) => {
     return (dispatch) => {
         dispatch(investNowStart())
-        const formData = new FormData()
-        if (investNowData.file) {
-            console.log('the file')
-            formData.append('image', investNowData.file['0'])
-        }
+        //const formData = new FormData()
+        // if (investNowData.file) {
+        //     console.log('the file')
+        //     formData.append('image', investNowData.file['0'])
+        // }
 
-        fetch(URL + '/api/post-image', {
-            method: 'PUT',
-            headers: {
-                Authorization: 'Bearer ' + token,
-            },
-            body: formData,
-        })
-            .then((res) => {
-                return res.json()
-            })
-            .then((result) => {
-                const proofUrl = result.filePath
+        // fetch(URL + '/api/post-image', {
+        //     method: 'PUT',
+        //     headers: {
+        //         Authorization: 'Bearer ' + token,
+        //     },
+        //     body: formData,
+        // })
+        //     .then((res) => {
+        //         return res.json()
+        //     })
+        //     .then((result) => {
+        //         const proofUrl = result.filePath
 
                 let graphqlQuery = {
                     query: `
@@ -337,7 +337,6 @@ export const initInvestNow = (investNowData, token) => {
                         selectedPlan: "${investNowData.selectedPlan}",
                         amount: "${investNowData.amount}",
                         currency: "${investNowData.currency}",
-                        proofUrl: "${proofUrl}"
                     }){
                         _id
                         amount
@@ -362,7 +361,6 @@ export const initInvestNow = (investNowData, token) => {
                         Authorization: 'Bearer ' + token,
                     },
                 })
-            })
 
             .then((res) => {
                 return res.json()

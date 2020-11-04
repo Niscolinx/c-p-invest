@@ -9,8 +9,8 @@ import * as orderAction from '../store/actions/burgerIndex'
 const PlanOrder = (props) => {
     const [amount, setAmount] = useState('')
     const [currency, setCurrency] = useState('Bitcoin')
-    const [file, setFile] = useState('')
-    const [imagePreview, setImagePreview] = useState(null)
+    //const [file, setFile] = useState('')
+    //const [imagePreview, setImagePreview] = useState(null)
     const [planDetails, setPlanDetails] = useState({})
     const [userAccountBalance, setUserAccountBalance] = useState(0)
 
@@ -20,20 +20,20 @@ const PlanOrder = (props) => {
     const handleSelectChange = (e) => {
         setCurrency(e.target.value)
     }
-    const handleFileChange = (e) => {
-        const files = e.target.files
-        if (files) {
-            generateBase64FromImage(files[0])
-            generateBase64FromImage(files[0])
-                .then((b64) => {
-                    setImagePreview(b64)
-                })
-                .catch((e) => {
-                    setImagePreview(null)
-                })
-        }
-        setFile(e.target.files)
-    }
+    // const handleFileChange = (e) => {
+    //     const files = e.target.files
+    //     if (files) {
+    //         generateBase64FromImage(files[0])
+    //         generateBase64FromImage(files[0])
+    //             .then((b64) => {
+    //                 setImagePreview(b64)
+    //             })
+    //             .catch((e) => {
+    //                 setImagePreview(null)
+    //             })
+    //     }
+    //     setFile(e.target.files)
+    // }
 
     const selectedPlan = props.match.params.id.split(':')[1]
 
@@ -116,7 +116,6 @@ const PlanOrder = (props) => {
             selectedPlan,
             amount,
             currency,
-            file,
         }
         console.log('the form data', formData)
 
@@ -180,12 +179,11 @@ const PlanOrder = (props) => {
                         <FormControl.Static>
                             INSTRUCTIONS: Transfer the equivalent amount in
                             bitcoin or ethereum(depending on your selection) to
-                            the above wallet address. After payment upload the
-                            payment proof below.
+                            the above wallet address.
                         </FormControl.Static>
                     </FormGroup>
 
-                    <div>
+                    {/* <div>
                         <label className='fundAccount__controlLabel'>
                             Proof of Payment (Image or PDF)
                         </label>
@@ -207,7 +205,7 @@ const PlanOrder = (props) => {
                                 </div>
                             </>
                         )}
-                    </div>
+                    </div> */}
                     <div className='fundAccount__form--btn'>
                         {/* <button
                             type='submit'
