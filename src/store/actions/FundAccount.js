@@ -167,7 +167,6 @@ export const initGetFunds = (token) => {
 }
 export const initFundApproval = (id, token) => {
     return (dispatch) => {
-        console.log('inner', typeof id, id)
         dispatch(fundAccountStart())
 
         let graphqlQuery = {

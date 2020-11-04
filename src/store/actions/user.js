@@ -243,75 +243,54 @@ export const initInvestNow = (investNowData, token) => {
     }
 }
 
-export const initInvestNowApproval = (investNowData, token) => {
-    return (dispatch) => {
-        dispatch(investNowStart())
-        const formData = new FormData()
-        if (investNowData.file) {
-            console.log('the file')
-            formData.append('image', investNowData.file['0'])
-        }
+export const initInvestNowApproval = (id, token) => {
+return (dispatch) => {
+    console.log('inner', typeof id, id)
+    dispatch(investNowStart())
 
-        fetch(URL + '/api/post-image', {
-            method: 'PUT',
-            headers: {
-                Authorization: 'Bearer ' + token,
-            },
-            body: formData,
-        })
-            .then((res) => {
-                return res.json()
-            })
-            .then((result) => {
-                const proofUrl = result.filePath
-
-                let graphqlQuery = {
-                    query: `
-                mutation { createInvestNow(investNowData: {
-                        selectedPlan: "${investNowData.selectedPlan}",
-                        amount: "${investNowData.amount}",
-                        currency: "${investNowData.currency}",
-                        proofUrl: "${proofUrl}"
-                    }){
+    let graphqlQuery = {
+        query: `
+                mutation { createinvestNowApproval(PostId: {
+                    id: "${id}"
+                }){
                         _id
                         amount
-                        planName
                         currency
                         proofUrl
                         creator {
                             username
                         }
                         createdAt
-                        updatedAt
                     }
                 }
             `,
-                }
-
-                return fetch(URL + '/api/graphql', {
-                    method: 'POST',
-                    body: JSON.stringify(graphqlQuery),
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: 'Bearer ' + token,
-                    },
-                })
-            })
-
-            .then((res) => {
-                return res.json()
-            })
-            .then((resData) => {
-                console.log('the res', resData)
-                if (resData.errors) {
-                    dispatch(investNowFailed(resData.errors[0].message))
-                }
-
-                dispatch(investNowApprovalSuccess(resData.data))
-            })
-            .catch((err) => {
-                console.log(err)
-                dispatch(investNowFailed(err))
-            })
     }
+
+    return fetch(URL + '/api/graphql', {
+        method: 'POST',
+        body: JSON.stringify(graphqlQuery),
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + token,
+        },
+    })
+        .then((res) => {
+            return res.json()
+        })
+        .then((resData) => {
+            if (resData.errors) {
+                dispatch(investNowFailed(resData.errors[0].message))
+            }
+
+            dispatch(
+                investNowApprovalSuccess(
+                    resData.data.createinvestNowApproval
+                )
+            )
+        })
+        .catch((err) => {
+            console.log(err)
+            dispatch(investNowFailed(err))
+        })
+}
 }

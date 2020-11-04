@@ -133,7 +133,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onInitGetFunds: (token) => dispatch(actions.initGetFunds(token)),
         onInitInvestNowApproval: (id, token) =>
             dispatch(actions.initInvestNowApproval(id, token)),
     }
