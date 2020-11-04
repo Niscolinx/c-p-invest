@@ -26,6 +26,23 @@ const updateProfileFailed = (state, action) => {
         error: action.err,
     })
 }
+const getUserHistoryStart = (state, action) => {
+    return update(state, {
+        loading: true,
+    })
+}
+const getUserHistorySuccess = (state, action) => {
+    return update(state, {
+        loading: false,
+        getUsers: action.data,
+    })
+}
+const getUserHistoryFailed = (state, action) => {
+    return update(state, {
+        loading: false,
+        error: action.err,
+    })
+}
 const investNowStart = (state, action) => {
     return update(state, {
         loading: true,
@@ -95,6 +112,12 @@ const getUsersSuccess = (state, action) => {
 
 const handleUsers = (state = initialState, action) => {
     switch (action.type) {
+        case actionTypes.USER_HISTORY_START:
+            return getUserHistoryStart(state, action)
+        case actionTypes.USER_HISTORY_SUCCESS:
+            return getUserHistorySuccess(state, action)
+        case actionTypes.USER_HISTORY_FAILED:
+            return getUserHistoryFailed(state, action)
         case actionTypes.UPDATE_PROFILE_START:
             return updateProfileStart(state, action)
         case actionTypes.UPDATE_PROFILE_SUCCESS:

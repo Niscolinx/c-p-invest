@@ -40,18 +40,18 @@ export const getUsersFailed = (err) => {
 }
 export const getUserHistoryStart = () => {
     return {
-        type: actions.UPDATE_PROFILE_START,
+        type: actions.USER_HISTORY_START,
     }
 }
 export const getUserHistorySuccess = (data) => {
     return {
-        type: actions.UPDATE_PROFILE_SUCCESS,
+        type: actions.USER_HISTORY_SUCCESS,
         data,
     }
 }
 export const getUserHistoryFailed = (err) => {
     return {
-        type: actions.UPDATE_PROFILE_FAILED,
+        type: actions.USER_HISTORY_FAILED,
         err,
     }
 }
