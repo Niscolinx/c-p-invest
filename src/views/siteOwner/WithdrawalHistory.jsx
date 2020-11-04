@@ -134,8 +134,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onInitGetFunds: (token) => dispatch(actions.initGetFunds(token)),
-        onInitWithdrawNowApproval: (id, token) =>
-            dispatch(actions.initWithdrawNowApproval(id, token)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PendingWithdrawals)
