@@ -65,19 +65,19 @@ export const investNowFailed = (err) => {
 }
 export const withdrawNowStart = () => {
     return {
-        type: actions.INVEST_NOW_START,
+        type: actions.WITHDRAW_NOW_START,
     }
 }
 export const withdrawNowSuccess = (data) => {
     return {
-        type: actions.INVEST_NOW_SUCCESS,
+        type: actions.WITHDRAW_NOW_SUCCESS,
         data,
     }
 }
 
 export const withdrawNowFailed = (err) => {
     return {
-        type: actions.INVEST_NOW_FAILED,
+        type: actions.WITHDRAW_NOW_FAILED,
         err,
     }
 }

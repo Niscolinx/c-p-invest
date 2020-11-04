@@ -48,6 +48,24 @@ const investNowFailed = (state, action) => {
         error: action.err,
     })
 }
+const investNowStart = (state, action) => {
+    return update(state, {
+        loading: true,
+    })
+}
+const investNowSuccess = (state, action) => {
+    return update(state, {
+        loading: false,
+        investNow: action.data,
+    })
+}
+
+const investNowFailed = (state, action) => {
+    return update(state, {
+        loading: false,
+        error: action.err,
+    })
+}
 const getUsersFailed = (state, action) => {
     return update(state, {
         loading: false,
