@@ -14,7 +14,6 @@ const updateProfileStart = (state, action) => {
     })
 }
 const updateProfileSuccess = (state, action) => {
-    console.log('the reducer', action.data)
     return update(state, {
         loading: false,
         getUsers: action.data,
@@ -32,7 +31,6 @@ const investNowStart = (state, action) => {
     })
 }
 const investNowSuccess = (state, action) => {
-    console.log('the reducer invest', action)
     return update(state, {
         loading: false,
         investNow: action.data,
