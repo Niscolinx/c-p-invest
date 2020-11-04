@@ -16,7 +16,7 @@ const Members = (props) => {
     useEffect(() => {
         if (!gottenAllUsers.current) {
             if (props.tokenId) {
-                props.onInitGetUsers(props.tokenId)
+                props.onInitGetUserHistory(props.tokenId)
             }
             gottenAllUsers.current = true
         } else {
@@ -56,7 +56,6 @@ const Members = (props) => {
                                     </thead>
                                     <tbody>
                                         {allUsers.map((prop, key) => {
-                                            console.log('props', prop)
                                             return (
                                                 <tr key={key}>
                                                     {Object.values(prop).map(
@@ -87,18 +86,18 @@ const Members = (props) => {
 }
 
 const mapStateToProps = (state) => {
+    console.log('the state of investment history', state)
     return {
         loading: state.user.loading,
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
-        getUsers: state.user.getUsers,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onInitGetUsers: (token) => dispatch(orderAction.initGetUsers(token)),
+        onInitGetUserHistory: (token) => dispatch(orderAction.initGetUserHistory(token)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Members)
