@@ -11,15 +11,15 @@ const PlanOrder = (props) => {
     const [currency, setCurrency] = useState('Bitcoin')
     const [message, setMessage] = useState('')
     const [error, setError] = useState(false)
-    let [accountBalance] = useState('0')
+    const [userAccountBalance, setUserAccountBalance] = useState(0)
 
-     useEffect(() => {
-         if (props.userData.hasOwnProperty('username')) {
-             console.log('the user data', props.userData.accountBalance)
+    useEffect(() => {
+        if (props.userData.hasOwnProperty('username')) {
+            console.log('the user data', props.userData.accountBalance)
 
-             setUserAccountBalance(props.userData.accountBalance)
-         }
-     }, [props])
+            setUserAccountBalance(props.userData.accountBalance)
+        }
+    }, [props])
 
     const handleAmountChange = (e) => {
         setAmount(e.target.value)
@@ -34,10 +34,9 @@ const PlanOrder = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        accountBalance = Number(accountBalance)
         amount = Number(amount)
 
-        if (amount < 1 || accountBalance < amount) {
+        if (amount > userAccountBalance) {
             setMessage('Insufficiant Balance')
             setError(true)
         } else {
@@ -45,14 +44,19 @@ const PlanOrder = (props) => {
                 'Withdrawal sent, Your withdrawal will reflect in your account after we have confirmed it, thanks!! '
             )
             setError(false)
-        }
-        // const formData = {
-        //     amount,
-        //     currency,
-        // }
+             const formData = {
+                 amount,
+                 currency,
+                 password
+             }
+             console.log('the form data', formData)
 
-        // props.onInitFundAccount(formData, props.tokenId, props.userId)
+             props.onInitWithdrawNow(formData, props.tokenId)
+        }
+    
     }
+
+    const displayAccountBalance = `$${userAccountBalance}`
 
     return (
         <>
@@ -64,7 +68,7 @@ const PlanOrder = (props) => {
                                 <i className='pe-7s-server text-warning' />
                             }
                             statsText='Account Balance'
-                            statsValue={'$' + accountBalance}
+                            statsValue={displayAccountBalance}
                             statsIcon={<i className='fa fa-refresh' />}
                             statsIconText='Updated now'
                         />
@@ -124,7 +128,7 @@ const PlanOrder = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    return {        
+    return {
         tokenId: state.auth.tokenId,
         userData: state.auth.userData,
         userId: state.auth.userId,
