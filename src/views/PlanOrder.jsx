@@ -12,8 +12,7 @@ const PlanOrder = (props) => {
     const [file, setFile] = useState('')
     const [imagePreview, setImagePreview] = useState(null)
     const [planDetails, setPlanDetails] = useState({})
-        const [userAccountBalance, setUserAccountBalance] = useState(0)
-
+    const [userAccountBalance, setUserAccountBalance] = useState(0)
 
     const handleAmountChange = (e) => {
         setAmount(e.target.value)
@@ -121,7 +120,7 @@ const PlanOrder = (props) => {
         }
         console.log('the form data', formData)
 
-         props.onInitInvestNow(formData, props.tokenId)
+        props.onInitInvestNow(formData, props.tokenId)
 
         props.history.push('/admin/plan-confirmation/:' + selectedPlan, {
             ...formData,
