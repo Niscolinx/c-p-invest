@@ -46,8 +46,8 @@ const PendingDeposits = (props) => {
         }
     }
 
-    if (props.fundAccountApprovalSuccess) {
-        console.log('the approval', props.fundAccountApprovalSuccess)
+    if (props.investNowApprovalSuccess) {
+        console.log('the approval', props.investNowApprovalSuccess)
     }
     return (
         <div className='content'>
@@ -124,7 +124,7 @@ const mapStateToProps = (state) => {
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
-        fundAccountApprovalSuccess:
+        investNowApprovalSuccess:
             state.fundAccount.fundAccountApprovalSuccess,
         idsOfPendingDeposits: state.fundAccount.idsOfPendingDeposits,
         pendingDeposit: state.fundAccount.pendingDeposit,
