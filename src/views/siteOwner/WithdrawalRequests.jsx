@@ -8,13 +8,13 @@ import {
 } from '../../variables/Variables'
 
 function WithdrawalRequests(props) {
-    const [withdrawalFromDate, setWithdrawalFromDate] = useState('')
-    const [withdrawalToDate, setWithdrawalToDate] = useState('')
-    const [fromAmount, setFromAmount] = useState('')
-    const [toAmount, setToAmount] = useState('')
-    const [perPage, setPerPage] = useState('10')
-    const [allRequests, setAllRequests] = useState('All Requests')
-    const [currency, setCurrency] = useState('All Currencies')
+    // const [withdrawalFromDate, setWithdrawalFromDate] = useState('')
+    // const [withdrawalToDate, setWithdrawalToDate] = useState('')
+    // const [fromAmount, setFromAmount] = useState('')
+    // const [toAmount, setToAmount] = useState('')
+    // const [perPage, setPerPage] = useState('10')
+    // const [allRequests, setAllRequests] = useState('All Requests')
+    // const [currency, setCurrency] = useState('All Currencies')
 
     // const withdrawalFromDateChange = (e) => {
     //     setWithdrawalFromDate(e.target.value)
