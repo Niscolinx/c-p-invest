@@ -111,7 +111,6 @@ export const initUpdateProfile = (updateProfileData, token) => {
                 return res.json()
             })
             .then((resData) => {
-
                 if (resData.errors) {
                     dispatch(updateProfileFailed(resData.errors[0].message))
                 }
@@ -244,12 +243,12 @@ export const initInvestNow = (investNowData, token) => {
 }
 
 export const initInvestNowApproval = (id, token) => {
-return (dispatch) => {
-    console.log('inner', typeof id, id)
-    dispatch(investNowStart())
+    return (dispatch) => {
+        console.log('inner', typeof id, id)
+        dispatch(investNowStart())
 
-    let graphqlQuery = {
-        query: `
+        let graphqlQuery = {
+            query: `
                 mutation { createInvestNowApproval(PostId: {
                     id: "${id}"
                 }){
@@ -262,35 +261,36 @@ return (dispatch) => {
                         }
                         createdAt
                     }
-                }
+                },
             `,
-    }
+        }
 
-    return fetch(URL + '/api/graphql', {
-        method: 'POST',
-        body: JSON.stringify(graphqlQuery),
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + token,
-        },
-    })
-        .then((res) => {
-            return res.json()
+        return fetch(URL + '/api/graphql', {
+            method: 'POST',
+            body: JSON.stringify(graphqlQuery),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token,
+            },
         })
-        .then((resData) => {
-            if (resData.errors) {
-                dispatch(investNowFailed(resData.errors[0].message))
-            }
+            .then((res) => {
+                return res.json()
+            })
+            .then((resData) => {
+                console.log('the invest now', resData)
+                if (resData.errors) {
+                    dispatch(investNowFailed(resData.errors[0].message))
+                }
 
-            dispatch(
-                investNowApprovalSuccess(
-                    resData.data.createinvestNowApproval
+                dispatch(
+                    investNowApprovalSuccess(
+                        resData.data.createinvestNowApproval
+                    )
                 )
-            )
-        })
-        .catch((err) => {
-            console.log(err)
-            dispatch(investNowFailed(err))
-        })
-}
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch(investNowFailed(err))
+            })
+    }
 }

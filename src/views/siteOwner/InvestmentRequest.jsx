@@ -38,7 +38,6 @@ const PendingDeposits = (props) => {
     const handleApproval = (id) => {
         for (let i = 0; i < props.idsOfPendingDeposits.length; i++) {
             if (id === i) {
-                console.log(i, 'clicked', id, props.idsOfPendingDeposits[i]._id)
                 return props.onInitInvestNowApproval(
                     props.idsOfPendingDeposits[i]._id,
                     props.tokenId
@@ -47,9 +46,9 @@ const PendingDeposits = (props) => {
         }
     }
 
-    if (props.investNowApprovalSuccess) {
-        console.log('the approval', props.investNowApprovalSuccess)
-    }
+    // if (props.investNowApprovalSuccess) {
+    //     console.log('the approval', props.investNowApprovalSuccess)
+    // }
     return (
         <div className='content'>
             <Grid fluid>
