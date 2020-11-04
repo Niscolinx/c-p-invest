@@ -279,7 +279,7 @@ export const initInvestNowApproval = (id, token) => {
 
                 dispatch(
                     investNowApprovalSuccess(
-                        resData.data.createinvestNowApproval
+                        resData.data.createInvestNowApproval
                     )
                 )
             })
