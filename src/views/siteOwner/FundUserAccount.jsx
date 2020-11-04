@@ -94,9 +94,9 @@ const PendingDeposits = (props) => {
                                                     >
                                                         {props.fundLoading ? 'Loading...' : 'approve'}
                                                     </button>
-                                                    <button className='btn1'>
+                                                    {/* <button className='btn1'>
                                                         view
-                                                    </button>
+                                                    </button> */}
                                                 </tr>
                                             )
                                         })}
