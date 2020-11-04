@@ -118,7 +118,6 @@ const mapStateToProps = (state) => {
     console.log('the invest state', state)
     return {
         loading: state.user.loading,
-        investNow: state.user.investNow,
         fundLoading: state.fundAccount.loading,
         err: state.auth.error,
         tokenId: state.auth.tokenId,
@@ -127,7 +126,6 @@ const mapStateToProps = (state) => {
             state.fundAccount.fundAccountApprovalSuccess,
         idsOfPendingDeposits: state.fundAccount.idsOfPendingDeposits,
         pendingDeposit: state.fundAccount.pendingDeposit,
-        investmentRequest: state.user.investNow
     }
 }
 
