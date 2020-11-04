@@ -125,7 +125,6 @@ export const initUpdateProfile = (updateProfileData, token) => {
 }
 export const initGetUsers = (token) => {
     return (dispatch) => {
-        console.log('the token of getUsers', token)
         dispatch(getUsersStart())
 
         let graphqlQuery = {
@@ -274,7 +273,6 @@ export const initInvestNowApproval = (id, token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('the invest now', resData)
                 if (resData.errors) {
                     dispatch(investNowFailed(resData.errors[0].message))
                 }
