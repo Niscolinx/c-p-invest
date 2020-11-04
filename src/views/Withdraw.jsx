@@ -137,8 +137,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onInitFundAccount: (data, token, userId) =>
-            dispatch(orderAction.initFundAccount(data, token, userId)),
+        onInitWithdrawNow: (data, token) =>
+            dispatch(orderAction.initWionInitWithdrawNow(data, token)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PlanOrder)
