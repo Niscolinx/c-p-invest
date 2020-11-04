@@ -10,7 +10,8 @@ export {
    initInvestNow,
    initInvestNowApproval,
    initWithdrawNowApproval,
-   initWithdrawNow
+   initWithdrawNow,
+   initGetUserHistory
 } from './user'
 
 export { initSignup, initLogin, logOut, clearError, authSuccess, initGetUser } from './Auth'

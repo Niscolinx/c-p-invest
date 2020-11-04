@@ -7,7 +7,9 @@ const initialState = {
     userData: {},
     getUsers: [],
     investNow: [],
-    withdrawNow: []
+    withdrawNow: [],
+    getUserDepositHistory: [],
+    getUserWithdrawalHistory: []
 }
 const updateProfileStart = (state, action) => {
     return update(state, {
@@ -32,9 +34,11 @@ const getUserHistoryStart = (state, action) => {
     })
 }
 const getUserHistorySuccess = (state, action) => {
+    console.log('reducer history', action.data)
     return update(state, {
         loading: false,
-        getUsers: action.data,
+        getUserDepositHistory: action.data.getUserDepositHistory,
+        getUserWithdrawalHistory: action.data.getUserWithdrawalHistory,
     })
 }
 const getUserHistoryFailed = (state, action) => {
