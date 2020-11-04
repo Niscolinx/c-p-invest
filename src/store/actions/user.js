@@ -154,7 +154,6 @@ export const initGetUsers = (token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('data getUsers', resData.data)
 
                 if (resData.errors) {
                     dispatch(getUsersFailed(resData.errors[0].message))
@@ -228,7 +227,6 @@ export const initInvestNow = (investNowData, token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('the res', resData)
                 if (resData.errors) {
                     dispatch(investNowFailed(resData.errors[0].message))
                 }
@@ -244,7 +242,6 @@ export const initInvestNow = (investNowData, token) => {
 
 export const initInvestNowApproval = (id, token) => {
     return (dispatch) => {
-        console.log('inner', typeof id, id)
         dispatch(investNowStart())
 
         let graphqlQuery = {
