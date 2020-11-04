@@ -7,6 +7,8 @@ const initialState = {
     fundedAccount: [],
     idsOfFunds: [],
     getAllFundsAccount: [],
+    pendingDeposit: [],
+    idsOfPendingDeposits: [],
     fundAccountApprovalSuccess: false,
 }
 const fundAccountStart = (state, action) => {

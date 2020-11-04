@@ -24,6 +24,7 @@ const PendingDeposits = (props) => {
     useEffect(() => {
         if (!gottenUserPendingDeposit.current) {
             if (props.tokenId) {
+                console.log("the get funds of investment")
                 props.onInitGetFunds(props.tokenId)
             }
             gottenUserPendingDeposit.current = true
@@ -128,11 +129,13 @@ const mapStateToProps = (state) => {
             state.fundAccount.fundAccountApprovalSuccess,
         idsOfPendingDeposits: state.fundAccount.idsOfPendingDeposits,
         pendingDeposit: state.fundAccount.pendingDeposit,
+        investmentRequest: state.user.investNow
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        onInitGetFunds: (token) => dispatch(actions.initGetFunds(token)),
         onInitInvestNowApproval: (id, token) =>
             dispatch(actions.initInvestNowApproval(id, token)),
     }

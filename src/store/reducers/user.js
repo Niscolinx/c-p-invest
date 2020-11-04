@@ -31,6 +31,7 @@ const investNowStart = (state, action) => {
     })
 }
 const investNowSuccess = (state, action) => {
+    console.log('the reducer invest', action)
     return update(state, {
         loading: false,
         investNow: action.data,

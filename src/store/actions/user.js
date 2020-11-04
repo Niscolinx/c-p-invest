@@ -250,7 +250,7 @@ return (dispatch) => {
 
     let graphqlQuery = {
         query: `
-                mutation { createinvestNowApproval(PostId: {
+                mutation { createInvestNowApproval(PostId: {
                     id: "${id}"
                 }){
                         _id
