@@ -15,10 +15,13 @@ const fundAccountStart = (state, action) => {
     })
 }
 const fundAccountSuccess = (state, action) => {
+    console.log('reducer state', action.data)
     return update(state, {
         loading: false,
         fundedAccount: action.data.fundData,
-        idsOfFunds: action.data.getFund
+        idsOfFunds: action.data.getFund,
+        idsOfPendingDeposits: action.data.getPendingDeposit,
+        pendingDeposit: action.data.pendingDeposit
     })
 }
 
