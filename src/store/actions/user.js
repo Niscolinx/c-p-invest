@@ -196,9 +196,17 @@ export const initGetUserHistory = (token) => {
 
         let graphqlQuery = {
             query: `{
-                getUsers {
-                    getUser {                    
-                        userNO
+                getUserHistory {
+                    getDepositHistory {                    
+                        historyNO
+                        username
+                        email
+                        status
+                        updatedAt
+                    }
+
+                    getWithdrawalHistory {
+                        historyNO
                         username
                         email
                         status
@@ -220,6 +228,7 @@ export const initGetUserHistory = (token) => {
                 return res.json()
             })
             .then((resData) => {
+                console.log('the history res', resData)
                 if (resData.errors) {
                     dispatch(getUsersFailed(resData.errors[0].message))
                 }
