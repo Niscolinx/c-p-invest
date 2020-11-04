@@ -63,6 +63,24 @@ export const investNowFailed = (err) => {
         err,
     }
 }
+export const withdrawNowStart = () => {
+    return {
+        type: actions.INVEST_NOW_START,
+    }
+}
+export const withdrawNowSuccess = (data) => {
+    return {
+        type: actions.INVEST_NOW_SUCCESS,
+        data,
+    }
+}
+
+export const withdrawNowFailed = (err) => {
+    return {
+        type: actions.INVEST_NOW_FAILED,
+        err,
+    }
+}
 
 export const initUpdateProfile = (updateProfileData, token) => {
     return (dispatch) => {
@@ -167,6 +185,77 @@ export const initGetUsers = (token) => {
     }
 }
 
+export const initWithdrawNow = (withdrawNowData, token) => {
+    return (dispatch) => {
+        dispatch(withdrawNowStart())
+        const formData = new FormData()
+        if (withdrawNowData.file) {
+            console.log('the file')
+            formData.append('image', withdrawNowData.file['0'])
+        }
+
+        fetch(URL + '/api/post-image', {
+            method: 'PUT',
+            headers: {
+                Authorization: 'Bearer ' + token,
+            },
+            body: formData,
+        })
+            .then((res) => {
+                return res.json()
+            })
+            .then((result) => {
+                const proofUrl = result.filePath
+
+                let graphqlQuery = {
+                    query: `
+                mutation { createwithdrawNow(withdrawNowData: {
+                        selectedPlan: "${withdrawNowData.selectedPlan}",
+                        amount: "${withdrawNowData.amount}",
+                        currency: "${withdrawNowData.currency}",
+                        proofUrl: "${proofUrl}"
+                    }){
+                        _id
+                        amount
+                        planName
+                        currency
+                        proofUrl
+                        creator {
+                            username
+                        }
+                        createdAt
+                        updatedAt
+                    }
+                }
+            `,
+                }
+
+                return fetch(URL + '/api/graphql', {
+                    method: 'POST',
+                    body: JSON.stringify(graphqlQuery),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: 'Bearer ' + token,
+                    },
+                })
+            })
+
+            .then((res) => {
+                return res.json()
+            })
+            .then((resData) => {
+                if (resData.errors) {
+                    dispatch(withdrawNowFailed(resData.errors[0].message))
+                }
+
+                dispatch(withdrawNowSuccess(resData.data))
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch(withdrawNowFailed(err))
+            })
+    }
+}
 export const initInvestNow = (investNowData, token) => {
     return (dispatch) => {
         dispatch(investNowStart())

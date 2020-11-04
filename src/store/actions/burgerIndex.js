@@ -8,7 +8,8 @@ export {
    initUpdateProfile,
    initGetUsers,
    initInvestNow,
-   initInvestNowApproval
+   initInvestNowApproval,
+   initWithdrawNow
 } from './user'
 
 export { initSignup, initLogin, logOut, clearError, authSuccess, initGetUser } from './Auth'
