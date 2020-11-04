@@ -178,7 +178,6 @@ export const initGetUsers = (token) => {
                 return res.json()
             })
             .then((resData) => {
-
                 if (resData.errors) {
                     dispatch(getUsersFailed(resData.errors[0].message))
                 }
@@ -195,27 +194,9 @@ export const initGetUsers = (token) => {
 export const initWithdrawNow = (withdrawNowData, token) => {
     return (dispatch) => {
         dispatch(withdrawNowStart())
-        const formData = new FormData()
-        if (withdrawNowData.file) {
-            console.log('the file')
-            formData.append('image', withdrawNowData.file['0'])
-        }
 
-        fetch(URL + '/api/post-image', {
-            method: 'PUT',
-            headers: {
-                Authorization: 'Bearer ' + token,
-            },
-            body: formData,
-        })
-            .then((res) => {
-                return res.json()
-            })
-            .then((result) => {
-                const proofUrl = result.filePath
-
-                let graphqlQuery = {
-                    query: `
+        let graphqlQuery = {
+            query: `
                 mutation { createwithdrawNow(withdrawNowData: {
                         password: "${withdrawNowData.password}",
                         amount: "${withdrawNowData.amount}",
@@ -232,18 +213,16 @@ export const initWithdrawNow = (withdrawNowData, token) => {
                     }
                 }
             `,
-                }
+        }
 
-                return fetch(URL + '/api/graphql', {
-                    method: 'POST',
-                    body: JSON.stringify(graphqlQuery),
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: 'Bearer ' + token,
-                    },
-                })
-            })
-
+        return fetch(URL + '/api/graphql', {
+            method: 'POST',
+            body: JSON.stringify(graphqlQuery),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token,
+            },
+        })
             .then((res) => {
                 return res.json()
             })

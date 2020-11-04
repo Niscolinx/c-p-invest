@@ -106,13 +106,13 @@ const handleUsers = (state = initialState, action) => {
             return getUsersSuccess(state, action)
         case actionTypes.GET_USERS_FAILED:
             return getUsersFailed(state, action)
-        case actionTypes.INVEST_NOW_START:
+        case actionTypes.WITHDRAW_NOW_START:
             return withdrawNowStart(state, action)
-        case actionTypes.INVEST_NOW_SUCCESS:
+        case actionTypes.WITHDRAW_NOW_SUCCESS:
             return withdrawNowSuccess(state, action)
-        case actionTypes.INVEST_NOW_APPROVAL_SUCCESS:
+        case actionTypes.WITHDRAW_NOW_APPROVAL_SUCCESS:
             return withdrawNowApprovalSuccess(state, action)
-        case actionTypes.INVEST_NOW_FAILED:
+        case actionTypes.WITHDRAW_NOW_FAILED:
             return withdrawNowFailed(state, action)
         case actionTypes.INVEST_NOW_START:
             return investNowStart(state, action)
