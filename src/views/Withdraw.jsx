@@ -111,7 +111,6 @@ const PlanOrder = (props) => {
                         value={currency}
                         className='fundAccount__form--select'
                     >
-                        <option value='Bitcoin'>Select Payment Method</option>
                         <option value='Bitcoin'>Bitcoin</option>
                         <option value='Ethereum'>Ethereum</option>
                     </select>
