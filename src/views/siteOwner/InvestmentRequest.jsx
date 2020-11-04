@@ -115,7 +115,6 @@ const PendingDeposits = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log('the invest state', state)
     return {
         loading: state.user.loading,
         fundLoading: state.fundAccount.loading,
