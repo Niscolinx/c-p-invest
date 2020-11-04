@@ -99,7 +99,7 @@ function FundAccount(props) {
                     </FormControl.Static>
                 </FormGroup>
 
-                <div>
+                {/* <div>
                     <label className='fundAccount__controlLabel'>
                         Proof of Payment (Image or PDF)
                     </label>
@@ -121,7 +121,7 @@ function FundAccount(props) {
                             </div>
                         </>
                     )}
-                </div>
+                </div> */}
                 <div className='fundAccount__form--btn'>
                     <button
                         type='submit'

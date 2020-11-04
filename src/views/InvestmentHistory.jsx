@@ -9,7 +9,6 @@ import Card from '../components/Card/Card'
 
 const thInvestmentHistoryArray = [
     'No',
-    'planName',
     'amount',
     'Currency',
     'Date',

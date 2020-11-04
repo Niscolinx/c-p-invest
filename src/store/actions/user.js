@@ -182,7 +182,6 @@ export const initGetUserHistory = (token) => {
 
                     getWithdrawalHistory {
                         historyNO
-                        planName
                         amount
                         currency
                         updatedAt
