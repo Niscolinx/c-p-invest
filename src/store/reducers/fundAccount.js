@@ -21,7 +21,7 @@ const fundAccountSuccess = (state, action) => {
         fundedAccount: action.data.fundData,
         idsOfFunds: action.data.getFund,
         idsOfPendingDeposits: action.data.getPendingDeposit,
-        pendingDeposit: action.data.pendingDeposit
+        pendingDeposit: action.data.thePendingDeposit
     })
 }
 

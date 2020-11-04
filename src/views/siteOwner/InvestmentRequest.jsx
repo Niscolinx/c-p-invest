@@ -18,28 +18,28 @@ const thWithdrawalArray = [
 ]
 
 const PendingDeposits = (props) => {
-    const [allFunds, setAllFunds] = useState([])
+    const [userPendingDeposit, setUserPendingDeposit] = useState([])
 
-    const gottenAllFunds = useRef()
+    const gottenUserPendingDeposit = useRef()
     useEffect(() => {
-        if (!gottenAllFunds.current) {
+        if (!gottenUserPendingDeposit.current) {
             if (props.tokenId) {
                 props.onInitGetFunds(props.tokenId)
             }
-            gottenAllFunds.current = true
+            gottenUserPendingDeposit.current = true
         } else {
-            if (props.getAllFunds) {
-                setAllFunds(props.getAllFunds)
+            if (props.pendingDeposit) {
+                setUserPendingDeposit(props.pendingDeposit)
             }
         }
     }, [props])
 
     const handleApproval = (id) => {
-        for (let i = 0; i < props.idsOfFunds.length; i++) {
+        for (let i = 0; i < props.idsOfPendingDeposits.length; i++) {
             if (id === i) {
-                console.log(i, 'clicked', id, props.idsOfFunds[i]._id)
+                console.log(i, 'clicked', id, props.idsOfPendingDeposits[i]._id)
                 return props.onInitInvestNowApproval(
-                    props.idsOfFunds[i]._id,
+                    props.idsOfPendingDeposits[i]._id,
                     props.tokenId
                 )
             }
@@ -76,7 +76,7 @@ const PendingDeposits = (props) => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {allFunds.map((prop, key) => {
+                                        {userPendingDeposit.map((prop, key) => {
                                             return (
                                                 <tr key={key}>
                                                     {Object.values(prop).map(
@@ -126,8 +126,8 @@ const mapStateToProps = (state) => {
         userId: state.auth.userId,
         fundAccountApprovalSuccess:
             state.fundAccount.fundAccountApprovalSuccess,
-        idsOfFunds: state.fundAccount.idsOfFunds,
-        getAllFunds: state.fundAccount.fundedAccount,
+        idsOfPendingDeposits: state.fundAccount.idsOfPendingDeposits,
+        pendingDeposit: state.fundAccount.pendingDeposit,
     }
 }
 
