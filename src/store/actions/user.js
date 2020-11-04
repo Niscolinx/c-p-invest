@@ -174,17 +174,17 @@ export const initGetUserHistory = (token) => {
                 getUserHistory {
                     getDepositHistory {                    
                         historyNO
-                        username
-                        email
                         status
+                        amount
+                        currency
                         updatedAt
                     }
 
                     getWithdrawalHistory {
                         historyNO
-                        username
-                        email
                         status
+                        amount
+                        currency
                         updatedAt
                     }
                 }
