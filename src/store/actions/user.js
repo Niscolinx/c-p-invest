@@ -38,6 +38,23 @@ export const getUsersFailed = (err) => {
         err,
     }
 }
+export const getUsersStart = () => {
+    return {
+        type: actions.UPDATE_PROFILE_START,
+    }
+}
+export const getUsersSuccess = (data) => {
+    return {
+        type: actions.UPDATE_PROFILE_SUCCESS,
+        data,
+    }
+}
+export const getUsersFailed = (err) => {
+    return {
+        type: actions.UPDATE_PROFILE_FAILED,
+        err,
+    }
+}
 
 export const investNowStart = () => {
     return {
@@ -148,48 +165,6 @@ export const initUpdateProfile = (updateProfileData, token) => {
             })
     }
 }
-export const initGetUsers = (token) => {
-    return (dispatch) => {
-        dispatch(getUsersStart())
-
-        let graphqlQuery = {
-            query: `{
-                getUsers {
-                    getUser {                    
-                        userNO
-                        username
-                        email
-                        status
-                        updatedAt
-                    }
-                }
-            }`,
-        }
-
-        return fetch(URL + '/api/graphql', {
-            method: 'POST',
-            body: JSON.stringify(graphqlQuery),
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: 'Bearer ' + token,
-            },
-        })
-            .then((res) => {
-                return res.json()
-            })
-            .then((resData) => {
-                if (resData.errors) {
-                    dispatch(getUsersFailed(resData.errors[0].message))
-                }
-
-                dispatch(getUsersSuccess(resData.data.getUsers.getUser))
-            })
-            .catch((err) => {
-                console.log(err)
-                dispatch(getUsersFailed(err))
-            })
-    }
-}
 export const initGetUserHistory = (token) => {
     return (dispatch) => {
         dispatch(getUsersStart())
@@ -241,7 +216,48 @@ export const initGetUserHistory = (token) => {
             })
     }
 }
+export const initGetUsers = (token) => {
+    return (dispatch) => {
+        dispatch(getUsersStart())
 
+        let graphqlQuery = {
+            query: `{
+                getUsers {
+                    getUser {                    
+                        userNO
+                        username
+                        email
+                        status
+                        updatedAt
+                    }
+                }
+            }`,
+        }
+
+        return fetch(URL + '/api/graphql', {
+            method: 'POST',
+            body: JSON.stringify(graphqlQuery),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token,
+            },
+        })
+            .then((res) => {
+                return res.json()
+            })
+            .then((resData) => {
+                if (resData.errors) {
+                    dispatch(getUsersFailed(resData.errors[0].message))
+                }
+
+                dispatch(getUsersSuccess(resData.data.getUsers.getUser))
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch(getUsersFailed(err))
+            })
+    }
+}
 
 export const initWithdrawNow = (withdrawNowData, token) => {
     return (dispatch) => {
