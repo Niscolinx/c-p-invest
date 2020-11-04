@@ -12,7 +12,6 @@ const thWithdrawalHistoryArray = [
     'Username',
     'Amount',
     'Currency',
-    'Status',
     'Date',
 ]
 

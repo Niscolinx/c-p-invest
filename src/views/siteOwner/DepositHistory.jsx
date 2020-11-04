@@ -12,7 +12,7 @@ const thDepositHistoryArray = [
     'Username',
     'Amount',
     'Currency',
-    'Status',
+    'Plan',
     'Date',
 ]
 
