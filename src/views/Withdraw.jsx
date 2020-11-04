@@ -138,7 +138,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onInitWithdrawNow: (data, token) =>
-            dispatch(orderAction.initWionInitWithdrawNow(data, token)),
+            dispatch(orderAction.initWithdrawNow(data, token)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PlanOrder)
