@@ -13,7 +13,13 @@ const PlanOrder = (props) => {
     const [error, setError] = useState(false)
     let [accountBalance] = useState('0')
 
-    useEffect(() => {}, [amount])
+     useEffect(() => {
+         if (props.userData.hasOwnProperty('username')) {
+             console.log('the user data', props.userData.accountBalance)
+
+             setUserAccountBalance(props.userData.accountBalance)
+         }
+     }, [props])
 
     const handleAmountChange = (e) => {
         setAmount(e.target.value)
@@ -118,10 +124,9 @@ const PlanOrder = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    return {
-        loading: state.user.loading,
-        err: state.auth.error,
+    return {        
         tokenId: state.auth.tokenId,
+        userData: state.auth.userData,
         userId: state.auth.userId,
     }
 }
