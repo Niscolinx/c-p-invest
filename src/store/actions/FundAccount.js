@@ -152,6 +152,7 @@ export const initGetFunds = (token) => {
                 return res.json()
             })
             .then((resData) => {
+                console.log('the res data of getFund', resData)
                 if (resData.errors) {
                     dispatch(fundAccountFailed(resData.errors[0].message))
                 }
