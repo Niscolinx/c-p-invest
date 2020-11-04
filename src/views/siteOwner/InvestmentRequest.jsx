@@ -11,7 +11,6 @@ const thWithdrawalArray = [
     'No',
     'Username',
     'Amount',
-    'Plan',
     'Currency',
     'Status',
     'Date',
