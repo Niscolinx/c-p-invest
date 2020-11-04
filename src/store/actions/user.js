@@ -248,6 +248,7 @@ export const initWithdrawNow = (withdrawNowData, token) => {
                 return res.json()
             })
             .then((resData) => {
+                console.log('the resData of withdraw', resData)
                 if (resData.errors) {
                     dispatch(withdrawNowFailed(resData.errors[0].message))
                 }
@@ -366,7 +367,6 @@ export const initInvestNowApproval = (id, token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('the res', resData)
                 if (resData.errors) {
                     dispatch(investNowFailed(resData.errors[0].message))
                 }
@@ -416,7 +416,7 @@ export const initWithdrawNowApproval = (id, token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('the res', resData)
+                console.log('the res of withdraw', resData)
                 if (resData.errors) {
                     dispatch(withdrawNowFailed(resData.errors[0].message))
                 }
