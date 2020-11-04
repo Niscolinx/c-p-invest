@@ -7,26 +7,26 @@ import * as orderAction from '../store/actions/burgerIndex'
 import Card from '../components/Card/Card'
 //import { thWithdrawalArray, tdWithdrawalArray } from '../../variables/Variables'
 
-const thWithdrawalArray = ['No', 'Username', 'Email', 'Status', 'Date']
+const thInvestmentHistoryArray = ['No', 'planName', 'Email', 'Status', 'Date']
 
 const Members = (props) => {
-    const [allUsers, setAllUsers] = useState([])
+    const [getDepositHistory, setDepositHistory] = useState([])
 
-    const gottenAllUsers = useRef()
+    const gottenDepositHistory = useRef()
     useEffect(() => {
-        if (!gottenAllUsers.current) {
+        if (!gottenDepositHistory.current) {
             if (props.tokenId) {
                 props.onInitGetUserHistory(props.tokenId)
             }
-            gottenAllUsers.current = true
+            gottenDepositHistory.current = true
         } else {
-            if (props.getUsers) {
-                setAllUsers(props.getUsers)
+            if (props.getUserDepositHistory) {
+                setDepositHistory(props.getUserDepositHistory)
             }
         }
     }, [props])
 
-    console.log('the get all users', allUsers)
+    console.log('the get all users', getDepositHistory)
 
     return (
         <div className='content'>
@@ -43,7 +43,7 @@ const Members = (props) => {
                                 <Table>
                                     <thead>
                                         <tr>
-                                            {thWithdrawalArray.map(
+                                            {thInvestmentHistoryArray.map(
                                                 (prop, key) => {
                                                     return (
                                                         <th key={key}>
@@ -55,7 +55,7 @@ const Members = (props) => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {allUsers.map((prop, key) => {
+                                        {getDepositHistory.map((prop, key) => {
                                             return (
                                                 <tr key={key}>
                                                     {Object.values(prop).map(
@@ -92,6 +92,8 @@ const mapStateToProps = (state) => {
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
+        getUserWithdrawalHistory: state.user.getUserWithdrawalHistory,
+        getUserDepositHistory: state.user.getUserDepositHistory,
     }
 }
 

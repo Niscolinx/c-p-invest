@@ -208,7 +208,7 @@ export const initGetUserHistory = (token) => {
                     dispatch(getUserHistoryFailed(resData.errors[0].message))
                 }
 
-                dispatch(getUserHistorySuccess(resData.data.getUsers.getUser))
+                dispatch(getUserHistorySuccess(resData.data.getUserHistory))
             })
             .catch((err) => {
                 console.log(err)

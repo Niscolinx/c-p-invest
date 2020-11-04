@@ -37,8 +37,8 @@ const getUserHistorySuccess = (state, action) => {
     console.log('reducer history', action.data)
     return update(state, {
         loading: false,
-        getUserDepositHistory: action.data.getUserDepositHistory,
-        getUserWithdrawalHistory: action.data.getUserWithdrawalHistory,
+        getUserDepositHistory: action.data.getDepositHistory,
+        getUserWithdrawalHistory: action.data.getWithdrawalHistory,
     })
 }
 const getUserHistoryFailed = (state, action) => {
