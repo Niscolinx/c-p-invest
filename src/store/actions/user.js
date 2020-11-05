@@ -21,6 +21,11 @@ export const updateProfileFailed = (err) => {
         err,
     }
 }
+export const getAdminSuccess = () => {
+    return {
+        type: actions.GET_ADMIN_SUCCESS,
+    }
+}
 export const getUsersStart = () => {
     return {
         type: actions.UPDATE_PROFILE_START,
@@ -249,6 +254,46 @@ export const initGetUsers = (token) => {
                 }
 
                 dispatch(getUsersSuccess(resData.data.getUsers.getUser))
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch(getUsersFailed(err))
+            })
+    }
+}
+export const initGetAdmin= (token) => {
+    return (dispatch) => {
+        dispatch(getUsersStart())
+
+        let graphqlQuery = {
+            query: `{
+                getAdmin {
+                    bitcoinAccount
+                    ethereumAccount
+                    username
+                    updatedAt
+                }
+            }`,
+        }
+
+        return fetch(URL + '/api/graphql', {
+            method: 'POST',
+            body: JSON.stringify(graphqlQuery),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token,
+            },
+        })
+            .then((res) => {
+                return res.json()
+            })
+            .then((resData) => {
+                console.log('get admin', resData)
+                if (resData.errors) {
+                    dispatch(getUsersFailed(resData.errors[0].message))
+                }
+
+                dispatch(getAdminSuccess(resData.data.getAdmin))
             })
             .catch((err) => {
                 console.log(err)
