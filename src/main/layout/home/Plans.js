@@ -53,7 +53,7 @@ function Plans() {
                 </div>
                 <div className='plan'>
                     <div className='plan__icon'>
-                        <h1 className='heading-1 plan__icon-percent'>30%</h1>
+                        <h1 className='heading-1 plan__icon-percent'>50%</h1>
                         <h1 className='heading-1 plan__icon-text'>Plan 2</h1>
                     </div>
 
@@ -96,7 +96,7 @@ function Plans() {
 
                 <div className='plan'>
                     <div className='plan__icon'>
-                        <h1 className='heading-1 plan__icon-percent'>50%</h1>
+                        <h1 className='heading-1 plan__icon-percent'>75%</h1>
                         <h1 className='heading-1 plan__icon-text'>Plan 3</h1>
                     </div>
 
@@ -138,7 +138,7 @@ function Plans() {
                 </div>
                 <div className='plan'>
                     <div className='plan__icon'>
-                        <h1 className='heading-1 plan__icon-percent'>80%</h1>
+                        <h1 className='heading-1 plan__icon-percent'>100%</h1>
                         <h1 className='heading-1 plan__icon-text'>Plan 4</h1>
                     </div>
 

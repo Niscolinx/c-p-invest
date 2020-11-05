@@ -39,18 +39,18 @@ const PlanOrder = (props) => {
 
     useEffect(() => {
         switch (selectedPlan) {
-            case 'ruby':
+            case 'Plan 1':
                 setPlanDetails({
-                    name: 'ruby',
+                    name: 'Plan 1',
                     percent: 20,
                     hours: 24,
                     minimum: 20,
                     maximum: 499,
                 })
                 break
-            case 'sapphire':
+            case 'Plan 2':
                 setPlanDetails({
-                    name: 'sapphire',
+                    name: 'Plan 2',
                     percent: 30,
                     hours: 24,
                     minimum: 500,
@@ -61,7 +61,7 @@ const PlanOrder = (props) => {
                 setPlanDetails({
                     name: 'coral',
                     percent: 50,
-                    hours: 24,
+                    hours: 48,
                     minimum: 999,
                     maximum: 1000000,
                 })
@@ -70,7 +70,7 @@ const PlanOrder = (props) => {
                 setPlanDetails({
                     name: 'emerald',
                     percent: 80,
-                    hours: 48,
+                    Days: 7,
                     minimum: 2000,
                     maximum: 1000000,
                 })

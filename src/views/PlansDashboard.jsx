@@ -80,7 +80,7 @@ function PlansDashboard() {
                     <div className='plan-dashboard'>
                         <div className='plan-dashboard__icon'>
                             <h1 className='heading-1 plan-dashboard__icon-percent'>
-                                30%
+                                50%
                             </h1>
                             <h1 className='heading-1 plan-dashboard__icon-text'>
                                 Plan 2
@@ -145,7 +145,7 @@ function PlansDashboard() {
                     <div className='plan-dashboard'>
                         <div className='plan-dashboard__icon'>
                             <h1 className='heading-1 plan-dashboard__icon-percent'>
-                                50%
+                                75%
                             </h1>
                             <h1 className='heading-1 plan-dashboard__icon-text'>
                                 Plan 3
@@ -209,7 +209,7 @@ function PlansDashboard() {
                     <div className='plan-dashboard'>
                         <div className='plan-dashboard__icon'>
                             <h1 className='heading-1 plan-dashboard__icon-percent'>
-                                80%
+                                100%
                             </h1>
                             <h1 className='heading-1 plan-dashboard__icon-text'>
                                 Plan 4
