@@ -15,6 +15,8 @@ const PlanOrder = (props) => {
     const [userAccountBalance, setUserAccountBalance] = useState(0)
     const [message, setMessage] = useState('')
     const [error, setError] = useState(false)
+    const [adminBitcoinAddress, setAdminBitcoinAddress] = useState('')
+    const [adminEthereumAddress, setAdminEthereumAddress] = useState('')
 
     const handleAmountChange = (e) => {
         setAmount(e.target.value)
@@ -90,6 +92,11 @@ const PlanOrder = (props) => {
 
             setUserAccountBalance(props.userData.accountBalance)
         }
+
+        if(props.adminData){
+            setAdminBitcoinAddress(props.adminData.bitcoinAddress)
+            setAdminEthereumAddress(props.adminData.ethereumAddress)
+        }
     }, [props])
 
     const displayUserFunds = `$${userAccountBalance}`
@@ -129,6 +136,8 @@ const PlanOrder = (props) => {
                         ...formData,
                         selectedPlan,
                         planDetails,
+                        adminBitcoinAddress,
+                        adminEthereumAddress
                     }
                 )
             }
@@ -242,6 +251,7 @@ const PlanOrder = (props) => {
 
 const mapStateToProps = (state) => {
     return {
+        adminData: state.user.adminData,
         loading: state.user.loading,
         err: state.auth.error,
         tokenId: state.auth.tokenId,

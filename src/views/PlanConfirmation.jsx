@@ -1,8 +1,7 @@
 import React from 'react'
-import { connect } from 'react-redux'
-
 
 function PlanConfirmation(props) {
+    console.log('the props of plan confirmation', props)
     const { amount, currency } = props.location.state
     let {
         name,
@@ -21,9 +20,11 @@ function PlanConfirmation(props) {
 
     let walletAddress
     if (currency === 'Bitcoin') {
-        walletAddress = '15Tn9NSE3Qpk7x6s3YKe55UupLKsMXz4hm'
+       // walletAddress = '15Tn9NSE3Qpk7x6s3YKe55UupLKsMXz4hm'
+       walletAddress = props.adminBitcoinAddress
     } else if (currency === 'Ethereum') {
-        walletAddress = '0x417C5138c862767A77990D39D5E094c0CF9b2B40'
+       // walletAddress = '0x417C5138c862767A77990D39D5E094c0CF9b2B40'
+       walletAddress = props.adminEthereumAddress
     }
 
     return (
@@ -67,11 +68,4 @@ function PlanConfirmation(props) {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        loading: state.user.loading,
-        adminData: state.user.adminData
-    }
-}
-
-export default connect(mapStateToProps)(PlanConfirmation)
+export default PlanConfirmation

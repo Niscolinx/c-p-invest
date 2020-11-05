@@ -268,8 +268,8 @@ export const initGetAdmin= (token) => {
         let graphqlQuery = {
             query: `{
                 getAdmin {
-                    bitcoinAccount
-                    ethereumAccount
+                    bitcoinAddress
+                    ethereumAddress
                     username
                     updatedAt
                 }
