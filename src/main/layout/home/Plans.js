@@ -17,20 +17,37 @@ function Plans() {
 
                     <ul className='plan__list'>
                         <li className='plan__list-item'>
-                            AFTER{' '}
-                            <span className='plan__list-item--span'>1</span> DAY
+                            After{' '}
+                            <span className='plan__list-item--span'>24</span>{' '}
+                            Hours
+                        </li>
+                        <li className='plan__list-item'>
+                            <span className='plan__list-item--span'>20%</span>{' '}
+                            Services Uptime
+                        </li>
+                        <li className='plan__list-item'>
+                            <span className='plan__list-item--span'>
+                                Instant
+                            </span>{' '}
+                            Trading
                         </li>
                         <li className='plan__list-item'>
                             minimum -{' '}
-                            <span className='plan__list-item--span'>$20</span>
+                            <span className='plan__list-item--span'>$30</span>
                         </li>
                         <li className='plan__list-item'>
                             maximum -{' '}
-                            <span className='plan__list-item--span'>$499</span>
+                            <span className='plan__list-item--span'>$199</span>
                         </li>
                         <li className='plan__list-item'>
                             Principal Return -{' '}
                             <span className='plan__list-item--span'>YES</span>
+                        </li>
+                        <li className='plan__list-item'>
+                            <span className='plan__list-item--span'>
+                                Instant
+                            </span>
+                            Withdraw Type
                         </li>
                     </ul>
                 </div>
