@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { FormGroup, FormControl, Row, Col } from 'react-bootstrap'
 import { StatsCard } from '../components/StatsCard/StatsCard'
 
-import { generateBase64FromImage } from '../util/image'
+//import { generateBase64FromImage } from '../util/image'
 import * as orderAction from '../store/actions/burgerIndex'
 
 function FundAccount(props) {
@@ -152,7 +152,7 @@ function FundAccount(props) {
                 <div className='fundAccount__form--btn'>
                     <button
                         type='submit'
-                        className='fundAccount__form--btn-item'
+                        className='button'
                     >
                         {props.fundLoading ? 'Loading...' : 'Submit'}
                     </button>
