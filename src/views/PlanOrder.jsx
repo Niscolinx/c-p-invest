@@ -7,12 +7,14 @@ import { StatsCard } from '../components/StatsCard/StatsCard'
 import * as orderAction from '../store/actions/burgerIndex'
 
 const PlanOrder = (props) => {
-    const [amount, setAmount] = useState('')
+    let [amount, setAmount] = useState('')
     const [currency, setCurrency] = useState('Bitcoin')
     //const [file, setFile] = useState('')
     //const [imagePreview, setImagePreview] = useState(null)
     const [planDetails, setPlanDetails] = useState({})
     const [userAccountBalance, setUserAccountBalance] = useState(0)
+    const [message, setMessage] = useState('')
+    const [error, setError] = useState(false)
 
     const handleAmountChange = (e) => {
         setAmount(e.target.value)
@@ -70,7 +72,7 @@ const PlanOrder = (props) => {
                 setPlanDetails({
                     name: 'Plan 4',
                     percent: 100,
-                    Days: 7,
+                    days: 7,
                     minimum: 2500,
                     maximum: 10000,
                 })
@@ -101,13 +103,32 @@ const PlanOrder = (props) => {
         }
         console.log('the form data', formData)
 
-        props.onInitInvestNow(formData, props.tokenId)
+        amount = Number(amount)
 
-        props.history.push('/admin/plan-confirmation/:' + selectedPlan, {
-            ...formData,
-            selectedPlan,
-            planDetails,
-        })
+        if (amount === '' || amount === 0) {
+            setMessage('Please enter a value')
+            setError(true)
+        }
+
+        if (amount > userAccountBalance) {
+            setMessage('Insufficiant Balance')
+            setError(true)
+        } else {
+            setMessage(
+                'Withdrawal sent, Your withdrawal will reflect in your account after we have confirmed it, thanks!! '
+            )
+            setError(false)
+
+            console.log('the form data', formData)
+
+            props.onInitInvestNow(formData, props.tokenId)
+
+            props.history.push('/admin/plan-confirmation/:' + selectedPlan, {
+                ...formData,
+                selectedPlan,
+                planDetails,
+            })
+        }
     }
 
     return (
@@ -136,6 +157,15 @@ const PlanOrder = (props) => {
                     </h3>
                 </div>
                 <form className='fundAccount__form' onSubmit={handleSubmit}>
+                    {message && (
+                        <p
+                            className={
+                                error ? 'message message__error' : 'message'
+                            }
+                        >
+                            {message}
+                        </p>
+                    )}
                     <input
                         type='number'
                         className='fundAccount__form--input'

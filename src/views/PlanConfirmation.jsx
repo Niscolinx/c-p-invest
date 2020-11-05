@@ -2,13 +2,20 @@ import React from 'react'
 
 function PlanConfirmation(props) {
     const { amount, currency } = props.location.state
-    const {
+    let {
         name,
         percent,
         hours,
         minimum,
         maximum,
     } = props.location.state.planDetails
+
+    let duration = 'hours'
+    if(name === 'Plan 4'){
+        hours = 7
+        duration = 'days'
+    }
+
 
     let walletAddress
     if (currency === 'Bitcoin') {
@@ -29,7 +36,7 @@ function PlanConfirmation(props) {
                     {name}
                 </p>
                 <p className='deposit__info--left'>Profit</p>
-                <p className='deposit__info--right'>{`${percent}% for ${hours} hours`}</p>
+                <p className='deposit__info--right'>{`${percent}% for ${hours} ${duration}`}</p>
                 <p className='deposit__info--left'>Principal Return</p>
                 <p className='deposit__info--right'>Yes</p>
                 <p className='deposit__info--left'>Principal Withdraw</p>
