@@ -19,7 +19,7 @@ function PlansDashboard() {
                                 20%
                             </h1>
                             <h1 className='heading-1 plan-dashboard__icon-text'>
-                                Plan-dashboard 1
+                                Plan 1
                             </h1>
                         </div>
 
@@ -83,7 +83,7 @@ function PlansDashboard() {
                                 30%
                             </h1>
                             <h1 className='heading-1 plan-dashboard__icon-text'>
-                                Plan-dashboard 2
+                                Plan 2
                             </h1>
                         </div>
 
@@ -148,7 +148,7 @@ function PlansDashboard() {
                                 50%
                             </h1>
                             <h1 className='heading-1 plan-dashboard__icon-text'>
-                                Plan-dashboard 3
+                                Plan 3
                             </h1>
                         </div>
 
@@ -212,7 +212,7 @@ function PlansDashboard() {
                                 80%
                             </h1>
                             <h1 className='heading-1 plan-dashboard__icon-text'>
-                                Plan-dashboard 4
+                                Plan 4
                             </h1>
                         </div>
 
