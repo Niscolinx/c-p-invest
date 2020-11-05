@@ -36,7 +36,7 @@ export const authSuccessCheck = (auth, token, role, email) => {
 export const getActivitiesSuccess = (data) => {
     return {
         type: actions.GET_ACTIVITIES,
-        data
+        data,
     }
 }
 export const authSuccess = (auth, token, role, email) => {
@@ -184,7 +184,6 @@ export const initLogin = (email, password) => {
                 return res.json()
             })
             .then((resData) => {
-
                 if (resData.errors) {
                     return dispatch(
                         authFailed('login', resData.errors[0].message)
@@ -260,8 +259,9 @@ export const initActivities = (token) => {
         let graphqlQuery = {
             query: `{
                 getActivities {
-                    onlineDays
-
+                    activity {
+                        onlineDays
+                    }
                     
                 }
             }`,
@@ -284,7 +284,7 @@ export const initActivities = (token) => {
                     dispatch(authFailed(resData.errors[0].message))
                 }
 
-                dispatch(getActivitiesSuccess(resData.data.getUsers.getUser))
+                dispatch(getActivitiesSuccess(resData.data.getActivities))
             })
             .catch((err) => {
                 console.log(err)

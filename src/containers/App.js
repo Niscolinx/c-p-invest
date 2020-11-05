@@ -32,6 +32,7 @@ function App(props) {
         if (token) {
             props.onCheckState(token, userId)
         }
+        props.onInitActivities()
     }, [props])
 
     const AsyncLogin = asyncComponent(() => {
