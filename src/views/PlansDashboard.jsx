@@ -19,26 +19,62 @@ function PlansDashboard() {
                                 20%
                             </h1>
                             <h1 className='heading-1 plan-dashboard__icon-text'>
-                                Ruby
+                                Plan-dashboard 1
                             </h1>
                         </div>
 
                         <ul className='plan-dashboard__list'>
                             <li className='plan-dashboard__list-item'>
-                                AFTER <span className='plan-dashboard__list-item--span'>1</span> DAY
+                                After{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    24
+                                </span>{' '}
+                                Hours
                             </li>
                             <li className='plan-dashboard__list-item'>
-                                minimum - <span className='plan-dashboard__list-item--span'>$20</span>
+                                <span className='plan-dashboard__list-item--span'>
+                                    20%
+                                </span>{' '}
+                                Services Uptime
                             </li>
                             <li className='plan-dashboard__list-item'>
-                                maximum - <span className='plan-dashboard__list-item--span'>$499</span>
+                                <span className='plan-dashboard__list-item--span'>
+                                    24/7
+                                </span>{' '}
+                                Support
                             </li>
                             <li className='plan-dashboard__list-item'>
-                                Principal Return - <span className='plan-dashboard__list-item--span'>YES</span>
+                                minimum -{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    $30
+                                </span>
+                            </li>
+                            <li className='plan-dashboard__list-item'>
+                                maximum -{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    $199
+                                </span>
+                            </li>
+                            <li className='plan-dashboard__list-item'>
+                                Trading -{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    INSTANT
+                                </span>
+                            </li>
+                            <li className='plan-dashboard__list-item'>
+                                Withdrawal Type -{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    INSTANT
+                                </span>
                             </li>
                         </ul>
                         <button className='button'>
-                            <Link to='/admin/plan-order/:ruby' className='plan-dashboard__button'>Deposit Now</Link>
+                            <Link
+                                to='/admin/plan-order/:diamond'
+                                className='plan-dashboard__button'
+                            >
+                                Deposit Now
+                            </Link>
                         </button>
                     </div>
                     <div className='plan-dashboard'>
@@ -47,26 +83,62 @@ function PlansDashboard() {
                                 30%
                             </h1>
                             <h1 className='heading-1 plan-dashboard__icon-text'>
-                                Sapphire
+                                Plan-dashboard 2
                             </h1>
                         </div>
 
-                       <ul className='plan-dashboard__list'>
+                        <ul className='plan-dashboard__list'>
                             <li className='plan-dashboard__list-item'>
-                                AFTER <span className='plan-dashboard__list-item--span'>1</span> DAY
+                                After{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    24
+                                </span>{' '}
+                                Hours
                             </li>
                             <li className='plan-dashboard__list-item'>
-                                minimum - <span className='plan-dashboard__list-item--span'>$500</span>
+                                <span className='plan-dashboard__list-item--span'>
+                                    50%
+                                </span>{' '}
+                                Services Uptime
                             </li>
                             <li className='plan-dashboard__list-item'>
-                                maximum - <span className='plan-dashboard__list-item--span'>$999</span>
+                                <span className='plan-dashboard__list-item--span'>
+                                    24/7
+                                </span>{' '}
+                                Support
                             </li>
                             <li className='plan-dashboard__list-item'>
-                                Principal Return - <span className='plan-dashboard__list-item--span'>YES</span>
+                                minimum -{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    $200
+                                </span>
+                            </li>
+                            <li className='plan-dashboard__list-item'>
+                                maximum -{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    $800
+                                </span>
+                            </li>
+                            <li className='plan-dashboard__list-item'>
+                                Trading -{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    INSTANT
+                                </span>
+                            </li>
+                            <li className='plan-dashboard__list-item'>
+                                Withdrawal Type -{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    INSTANT
+                                </span>
                             </li>
                         </ul>
-                       <button className='button'>
-                            <Link to='/admin/plan-order/:sapphire' className='plan-dashboard__button'>Deposit Now</Link>
+                        <button className='button'>
+                            <Link
+                                to='/admin/plan-order/:diamond'
+                                className='plan-dashboard__button'
+                            >
+                                Deposit Now
+                            </Link>
                         </button>
                     </div>
 
@@ -76,26 +148,62 @@ function PlansDashboard() {
                                 50%
                             </h1>
                             <h1 className='heading-1 plan-dashboard__icon-text'>
-                                Coral
+                                Plan-dashboard 3
                             </h1>
                         </div>
 
-                       <ul className='plan-dashboard__list'>
+                        <ul className='plan-dashboard__list'>
                             <li className='plan-dashboard__list-item'>
-                                AFTER <span className='plan-dashboard__list-item--span'>2</span> DAYS
+                                After{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    48
+                                </span>{' '}
+                                Hours
                             </li>
                             <li className='plan-dashboard__list-item'>
-                                minimum - <span className='plan-dashboard__list-item--span'>$1000</span>
+                                <span className='plan-dashboard__list-item--span'>
+                                    75%
+                                </span>{' '}
+                                Services Uptime
                             </li>
                             <li className='plan-dashboard__list-item'>
-                                maximum - <span className='plan-dashboard__list-item--span'>$1000000</span>
+                                <span className='plan-dashboard__list-item--span'>
+                                    24/7
+                                </span>{' '}
+                                Support
                             </li>
                             <li className='plan-dashboard__list-item'>
-                                Principal Return - <span className='plan-dashboard__list-item--span'>YES</span>
+                                minimum -{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    $850
+                                </span>
+                            </li>
+                            <li className='plan-dashboard__list-item'>
+                                maximum -{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    $2000
+                                </span>
+                            </li>
+                            <li className='plan-dashboard__list-item'>
+                                Trading -{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    INSTANT
+                                </span>
+                            </li>
+                            <li className='plan-dashboard__list-item'>
+                                Withdrawal Type -{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    INSTANT
+                                </span>
                             </li>
                         </ul>
-                       <button className='button'>
-                            <Link to='/admin/plan-order/:coral' className='plan-dashboard__button'> Deposit Now</Link>
+                        <button className='button'>
+                            <Link
+                                to='/admin/plan-order/:diamond'
+                                className='plan-dashboard__button'
+                            >
+                                Deposit Now
+                            </Link>
                         </button>
                     </div>
                     <div className='plan-dashboard'>
@@ -104,82 +212,62 @@ function PlansDashboard() {
                                 80%
                             </h1>
                             <h1 className='heading-1 plan-dashboard__icon-text'>
-                                Emerald
+                                Plan-dashboard 4
                             </h1>
                         </div>
 
-                       <ul className='plan-dashboard__list'>
+                        <ul className='plan-dashboard__list'>
                             <li className='plan-dashboard__list-item'>
-                                AFTER <span className='plan-dashboard__list-item--span'>2</span> DAYS
+                                After{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    7
+                                </span>{' '}
+                                Days
                             </li>
                             <li className='plan-dashboard__list-item'>
-                                minimum - <span className='plan-dashboard__list-item--span'>$2000</span>
+                                <span className='plan-dashboard__list-item--span'>
+                                    100%
+                                </span>{' '}
+                                Services Uptime
                             </li>
                             <li className='plan-dashboard__list-item'>
-                                maximum - <span className='plan-dashboard__list-item--span'>$1000000</span>
+                                <span className='plan-dashboard__list-item--span'>
+                                    24/7
+                                </span>{' '}
+                                Support
                             </li>
                             <li className='plan-dashboard__list-item'>
-                                Principal Return - <span className='plan-dashboard__list-item--span'>YES</span>
-                            </li>
-                        </ul>
-                       <button className='button'>
-                            <Link to='/admin/plan-order/:emerald' className='plan-dashboard__button'>Deposit Now</Link>
-                        </button>
-                    </div>
-                    <div className='plan-dashboard'>
-                        <div className='plan-dashboard__icon'>
-                            <h1 className='heading-1 plan-dashboard__icon-percent'>
-                                150%
-                            </h1>
-                            <h1 className='heading-1 plan-dashboard__icon-text'>
-                                Gold
-                            </h1>
-                        </div>
-
-                       <ul className='plan-dashboard__list'>
-                            <li className='plan-dashboard__list-item'>
-                                AFTER <span className='plan-dashboard__list-item--span'>3</span> DAYS
+                                minimum -{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    $2500
+                                </span>
                             </li>
                             <li className='plan-dashboard__list-item'>
-                                minimum - <span className='plan-dashboard__list-item--span'>$4000</span>
+                                maximum -{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    $10000
+                                </span>
                             </li>
                             <li className='plan-dashboard__list-item'>
-                                maximum - <span className='plan-dashboard__list-item--span'>$1000000</span>
+                                Trading -{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    INSTANT
+                                </span>
                             </li>
                             <li className='plan-dashboard__list-item'>
-                                Principal Return - <span className='plan-dashboard__list-item--span'>YES</span>
-                            </li>
-                        </ul>
-                       <button className='button'>
-                            <Link to='/admin/plan-order/:gold' className='plan-dashboard__button'>Deposit Now</Link>
-                        </button>
-                    </div>
-                    <div className='plan-dashboard'>
-                        <div className='plan-dashboard__icon'>
-                            <h1 className='heading-1 plan-dashboard__icon-percent'>
-                                200%
-                            </h1>
-                            <h1 className='heading-1 plan-dashboard__icon-text'>
-                                Diamond
-                            </h1>
-                        </div>
-
-                       <ul className='plan-dashboard__list'>
-                            <li className='plan-dashboard__list-item'>
-                                AFTER <span className='plan-dashboard__list-item--span'>4</span> DAYS
-                            </li>
-                            <li className='plan-dashboard__list-item'>
-                                minimum - <span className='plan-dashboard__list-item--span'>$6000</span>
-                            </li>
-                            <li className='plan-dashboard__list-item'>
-                                maximum - <span className='plan-dashboard__list-item--span'>$1000000</span>
-                            </li>
-                            <li className='plan-dashboard__list-item'>
-                                Principal Return - <span className='plan-dashboard__list-item--span'>YES</span>
+                                Withdrawal Type -{' '}
+                                <span className='plan-dashboard__list-item--span'>
+                                    INSTANT
+                                </span>
                             </li>
                         </ul>
-                       <button className='button'>
-                            <Link to='/admin/plan-order/:diamond' className='plan-dashboard__button'>Deposit Now</Link>
+                        <button className='button'>
+                            <Link
+                                to='/admin/plan-order/:diamond'
+                                className='plan-dashboard__button'
+                            >
+                                Deposit Now
+                            </Link>
                         </button>
                     </div>
                 </div>
