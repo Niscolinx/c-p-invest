@@ -94,8 +94,8 @@ const PlanOrder = (props) => {
         }
 
         if(props.adminData){
-            setAdminBitcoinAddress(props.adminData.bitcoinAddress)
-            setAdminEthereumAddress(props.adminData.ethereumAddress)
+            setAdminBitcoinAddress(props.adminData.bitcoinAccount)
+            setAdminEthereumAddress(props.adminData.ethereumAccount)
         }
     }, [props])
 

@@ -1,8 +1,8 @@
 import * as actions from './actionTypes'
 
-//const URL = 'http://localhost:3030'
+const URL = 'http://localhost:3030'
 
-const URL = 'https://coinperfect.herokuapp.com'
+//const URL = 'https://coinperfect.herokuapp.com'
 
 export const updateProfileStart = () => {
     return {
@@ -268,8 +268,8 @@ export const initGetAdmin= (token) => {
         let graphqlQuery = {
             query: `{
                 getAdmin {
-                    bitcoinAddress
-                    ethereumAddress
+                    bitcoinAccount
+                    ethereumAccount
                     username
                     updatedAt
                 }
