@@ -26,12 +26,6 @@ function Plans() {
                             Services Uptime
                         </li>
                         <li className='plan__list-item'>
-                            <span className='plan__list-item--span'>
-                                Instant
-                            </span>{' '}
-                            Trading
-                        </li>
-                        <li className='plan__list-item'>
                             minimum -{' '}
                             <span className='plan__list-item--span'>$30</span>
                         </li>
@@ -46,6 +40,12 @@ function Plans() {
                         <li className='plan__list-item'>
                             <span className='plan__list-item--span'>
                                 Instant
+                            </span>{' '}
+                            Trading
+                        </li>
+                        <li className='plan__list-item'>
+                            <span className='plan__list-item--span'>
+                                Instant{' '}
                             </span>
                             Withdraw Type
                         </li>
