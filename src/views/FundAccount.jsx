@@ -52,7 +52,7 @@ function FundAccount(props) {
              return setError(true)
          } else {
              setMessage(
-                 'Withdrawal sent, Your withdrawal will reflect in your account after we have confirmed it, thanks!! '
+                 'Funding sent, Your balance will reflect in your account after we have confirmed it, thanks!! '
              )
              setError(false)
 

@@ -113,7 +113,7 @@ const PlanOrder = (props) => {
            return setError(true)
         } else {
             setMessage(
-                'Withdrawal sent, Your withdrawal will reflect in your account after we have confirmed it, thanks!! '
+                'Order Successful!! '
             )
             setError(false)
 
