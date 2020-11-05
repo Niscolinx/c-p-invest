@@ -11,6 +11,13 @@ const initialState = {
     getUserDepositHistory: [],
     getUserWithdrawalHistory: []
 }
+
+const getAdminSuccess = (state, action) => {
+    return update(state, {
+        loading: false,
+        adminData: action.data
+    })
+}
 const updateProfileStart = (state, action) => {
     return update(state, {
         loading: true,
@@ -116,6 +123,8 @@ const getUsersSuccess = (state, action) => {
 
 const handleUsers = (state = initialState, action) => {
     switch (action.type) {
+        case actionTypes.GET_ADMIN_SUCCESS:
+            return getAdminSuccess(state, action)
         case actionTypes.USER_HISTORY_START:
             return getUserHistoryStart(state, action)
         case actionTypes.USER_HISTORY_SUCCESS:

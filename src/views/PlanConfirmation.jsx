@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 
 function PlanConfirmation(props) {
     const { amount, currency } = props.location.state
@@ -65,4 +67,11 @@ function PlanConfirmation(props) {
     )
 }
 
-export default PlanConfirmation
+const mapStateToProps = (state) => {
+    return {
+        loading: state.user.loading,
+        adminData: state.user.adminData
+    }
+}
+
+export default connect(mapStateToProps)(PlanConfirmation)
