@@ -33,6 +33,12 @@ export const authSuccessCheck = (auth, token, role, email) => {
     }
 }
 
+export const getActivitiesSuccess = (data) => {
+    return {
+        type: actions.GET_ACTIVITIES,
+        data
+    }
+}
 export const authSuccess = (auth, token, role, email) => {
     return {
         type: actions.AUTH_SUCCESS,
@@ -243,6 +249,46 @@ export const initSignup = (authData) => {
             .catch((err) => {
                 console.log('error in signup', err)
                 return dispatch(authFailed('signup', 'Failed to fetch (500)'))
+            })
+    }
+}
+
+export const initActivities = (token) => {
+    return (dispatch) => {
+        dispatch(authStart())
+
+        let graphqlQuery = {
+            query: `{
+                getActivities {
+                    onlineDays
+
+                    
+                }
+            }`,
+        }
+
+        return fetch(URL + '/api/graphql', {
+            method: 'POST',
+            body: JSON.stringify(graphqlQuery),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token,
+            },
+        })
+            .then((res) => {
+                return res.json()
+            })
+            .then((resData) => {
+                console.log('the res of getActivities', resData)
+                if (resData.errors) {
+                    dispatch(authFailed(resData.errors[0].message))
+                }
+
+                dispatch(getActivitiesSuccess(resData.data.getUsers.getUser))
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch(authFailed(err))
             })
     }
 }

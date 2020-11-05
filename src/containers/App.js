@@ -44,7 +44,7 @@ function App(props) {
 
     let AuthGuard = (
         <Switch>
-            <Route path='/' exact component={Home} />
+            <Route path='/' exact component={Home} activities={props.Activities}/>
             <Route
                 path='/Auth/login'
                 render={(props) => <LoginPage {...props} />}
@@ -115,6 +115,7 @@ const mapStateToProps = (state) => {
     return {
         siteOwner: state.auth.siteOwner,
         auth: state.auth.tokenId,
+        Activities: state.auth.activities
     }
 }
 
@@ -122,6 +123,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         onCheckState: (tokenId, userId) =>
             dispatch(actions.authSuccess(tokenId, userId)),
+        onInitActivities: () => dispatch(actions.initActivities())
     }
 }
 
