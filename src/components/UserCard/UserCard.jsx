@@ -4,26 +4,26 @@ import * as orderAction from '../../store/actions/burgerIndex'
 import { generateBase64FromImage } from '../../util/image'
 
 const UserCard = (props) => {
-    const [file, setFile] = useState('')
-    const [imagePreview, setImagePreview] = useState(null)
+    //const [file, setFile] = useState('')
+    //const [imagePreview, setImagePreview] = useState(null)
 
-    const handleFileChange = (e) => {
-        const files = e.target.files
-        if (files) {
-            if (files) {
-                generateBase64FromImage(files[0])
-                    .then((b64) => {
-                        setImagePreview(b64)
-                    })
-                    .catch((e) => {
-                        setImagePreview(null)
-                    })
-            }
-            setFile(files)
-            console.log(files)
-            //Call a redux function
-        }
-    }
+    // const handleFileChange = (e) => {
+    //     const files = e.target.files
+    //     if (files) {
+    //         if (files) {
+    //             generateBase64FromImage(files[0])
+    //                 .then((b64) => {
+    //                     setImagePreview(b64)
+    //                 })
+    //                 .catch((e) => {
+    //                     setImagePreview(null)
+    //                 })
+    //         }
+    //         setFile(files)
+    //         console.log(files)
+    //         //Call a redux function
+    //     }
+    // }
 
     return (
         <div className='card card-user'>
@@ -76,9 +76,9 @@ const UserCard = (props) => {
                             </button> *
                         </>
                     )}
-                </form> *
+                </form> 
+                            <hr />*/}
             </div>
-            <hr />/}
             {/* <div className="text-center">{props.socials}</div> */}
         </div>
     )
