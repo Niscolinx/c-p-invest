@@ -70,7 +70,7 @@ function PlansDashboard() {
                         </ul>
                         <button className='button'>
                             <Link
-                                to='/admin/plan-order/:diamond'
+                                to='/admin/plan-order/:plan 1'
                                 className='plan-dashboard__button'
                             >
                                 Deposit Now
@@ -134,7 +134,7 @@ function PlansDashboard() {
                         </ul>
                         <button className='button'>
                             <Link
-                                to='/admin/plan-order/:diamond'
+                                to='/admin/plan-order/:Plan 2'
                                 className='plan-dashboard__button'
                             >
                                 Deposit Now
@@ -199,7 +199,7 @@ function PlansDashboard() {
                         </ul>
                         <button className='button'>
                             <Link
-                                to='/admin/plan-order/:diamond'
+                                to='/admin/plan-order/:Plan 3'
                                 className='plan-dashboard__button'
                             >
                                 Deposit Now
@@ -263,7 +263,7 @@ function PlansDashboard() {
                         </ul>
                         <button className='button'>
                             <Link
-                                to='/admin/plan-order/:diamond'
+                                to='/admin/plan-order/:Plan 4'
                                 className='plan-dashboard__button'
                             >
                                 Deposit Now
