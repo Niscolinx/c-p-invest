@@ -101,16 +101,17 @@ const PlanOrder = (props) => {
             amount,
             currency,
         }
-        console.log('the form data', formData)
+        console.log('the form amount', amount)
 
-        amount = Number(amount)
-
-        if (amount === '' || amount === 0) {
+        if (amount === '' || amount === '0') {
+            console.log('the amount error 1', amount)
             setMessage('Please enter a value')
             setError(true)
         }
 
         if (amount > userAccountBalance) {
+            console.log('the amount error 2', amount)
+
             setMessage('Insufficiant Balance')
             setError(true)
         } else {
@@ -119,17 +120,24 @@ const PlanOrder = (props) => {
             )
             setError(false)
 
-            console.log('the form data', formData)
+            if (!error) {
+                console.log('the form data sent', formData)
+                amount = Number(amount)
 
-            props.onInitInvestNow(formData, props.tokenId)
+                props.onInitInvestNow(formData, props.tokenId)
 
-            props.history.push('/admin/plan-confirmation/:' + selectedPlan, {
-                ...formData,
-                selectedPlan,
-                planDetails,
-            })
+                props.history.push(
+                    '/admin/plan-confirmation/:' + selectedPlan,
+                    {
+                        ...formData,
+                        selectedPlan,
+                        planDetails,
+                    }
+                )
+            }
         }
     }
+    console.log('error', error)
 
     return (
         <>
