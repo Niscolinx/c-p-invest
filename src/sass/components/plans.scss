@@ -10,7 +10,7 @@
 
 .plans {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     gap: 4rem;
     padding: 2rem 0;
     color: $color-primary;
@@ -35,15 +35,15 @@
     }
 
     &__icon {
-        font-size: 3.5rem;
         border-radius: 20%;
         box-shadow: 5px 6px 20px 17px #01070e96;
         text-align: center;
         border: 3px solid $color-primary;
         padding: 3rem;
-
+        
         &-percent,
         &-text {
+            font-size: 3rem;
             text-align: center;
             color: $color-primary-dark;
             font-weight: 400;
