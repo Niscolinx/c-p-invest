@@ -1,7 +1,6 @@
 import React from 'react'
 
 function PlanConfirmation(props) {
-    console.log('the props of plan confirmation', props)
     const { amount, currency } = props.location.state
     let {
         name,
@@ -21,10 +20,10 @@ function PlanConfirmation(props) {
     let walletAddress
     if (currency === 'Bitcoin') {
        // walletAddress = '15Tn9NSE3Qpk7x6s3YKe55UupLKsMXz4hm'
-       walletAddress = props.adminBitcoinAddress
+       walletAddress = props.location.state.adminBitcoinAddress
     } else if (currency === 'Ethereum') {
        // walletAddress = '0x417C5138c862767A77990D39D5E094c0CF9b2B40'
-       walletAddress = props.adminEthereumAddress
+       walletAddress = props.location.state.adminEthereumAddress
     }
 
     return (

@@ -88,7 +88,6 @@ const PlanOrder = (props) => {
 
     useEffect(() => {
         if (props.userData.hasOwnProperty('username')) {
-            console.log('the user data', props.userData.accountBalance)
 
             setUserAccountBalance(props.userData.accountBalance)
         }
@@ -125,7 +124,6 @@ const PlanOrder = (props) => {
             setError(false)
 
             if (!error) {
-                console.log('the form data sent', formData)
                 amount = Number(amount)
 
                 props.onInitInvestNow(formData, props.tokenId)

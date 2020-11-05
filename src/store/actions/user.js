@@ -21,9 +21,10 @@ export const updateProfileFailed = (err) => {
         err,
     }
 }
-export const getAdminSuccess = () => {
+export const getAdminSuccess = (data) => {
     return {
         type: actions.GET_ADMIN_SUCCESS,
+        data
     }
 }
 export const getUsersStart = () => {
@@ -288,7 +289,6 @@ export const initGetAdmin= (token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('get admin', resData)
                 if (resData.errors) {
                     dispatch(getUsersFailed(resData.errors[0].message))
                 }
