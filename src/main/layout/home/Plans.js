@@ -38,16 +38,16 @@ function Plans() {
                             <span className='plan__list-item--span'>YES</span>
                         </li>
                         <li className='plan__list-item'>
+                            Trading -{' '}
                             <span className='plan__list-item--span'>
                                 Instant
-                            </span>{' '}
-                            Trading
+                            </span>
                         </li>
                         <li className='plan__list-item'>
+                            Withdraw Type -{' '}
                             <span className='plan__list-item--span'>
-                                Instant{' '}
+                                Instant
                             </span>
-                            Withdraw Type
                         </li>
                     </ul>
                 </div>
