@@ -101,19 +101,16 @@ const PlanOrder = (props) => {
             amount,
             currency,
         }
-        console.log('the form amount', amount)
 
         if (amount === '' || amount === '0') {
-            console.log('the amount error 1', amount)
             setMessage('Please enter a value')
-            setError(true)
+           return setError(true)
         }
 
         if (amount > userAccountBalance) {
-            console.log('the amount error 2', amount)
 
             setMessage('Insufficiant Balance')
-            setError(true)
+           return setError(true)
         } else {
             setMessage(
                 'Withdrawal sent, Your withdrawal will reflect in your account after we have confirmed it, thanks!! '
@@ -137,7 +134,6 @@ const PlanOrder = (props) => {
             }
         }
     }
-    console.log('error', error)
 
     return (
         <>

@@ -7,11 +7,13 @@ import { generateBase64FromImage } from '../util/image'
 import * as orderAction from '../store/actions/burgerIndex'
 
 function FundAccount(props) {
-    const [amount, setAmount] = useState('')
+    let [amount, setAmount] = useState('')
     const [currency, setCurrency] = useState('Bitcoin')
     //const [file, setFile] = useState('')
     //const [imagePreview, setImagePreview] = useState(null)
     const [userAccountBalance, setUserAccountBalance] = useState(0)
+    const [message, setMessage] = useState('')
+    const [error, setError] = useState(false)
 
     const handleAmountChange = (e) => {
         setAmount(e.target.value)
@@ -40,7 +42,29 @@ function FundAccount(props) {
             currency,
         }
 
-        props.onInitFundAccount(formData, props.tokenId, props.userId)
+         if (amount === '' || amount === '0') {
+             setMessage('Please enter a value')
+             return setError(true)
+         }
+
+         if (amount > userAccountBalance) {
+             setMessage('Insufficiant Balance')
+             return setError(true)
+         } else {
+             setMessage(
+                 'Withdrawal sent, Your withdrawal will reflect in your account after we have confirmed it, thanks!! '
+             )
+             setError(false)
+
+             if (!error) {
+                 console.log('the form data sent', formData)
+                 amount = Number(amount)
+
+                 props.onInitFundAccount(formData, props.tokenId, props.userId)
+
+                 
+             }
+         }
     }
 
     useEffect(() => {
@@ -60,7 +84,7 @@ function FundAccount(props) {
                 <Col lg={12} sm={12}>
                     <StatsCard
                         bigIcon={<i className='pe-7s-server text-warning' />}
-                        statsText= 'Account Balance'
+                        statsText='Account Balance'
                         statsValue={displayUserFunds}
                         statsIcon={<i className='fa fa-refresh' />}
                         statsIconText='Updated now'
@@ -68,6 +92,11 @@ function FundAccount(props) {
                 </Col>
             </Row>
             <form className='fundAccount__form' onSubmit={handleSubmit}>
+                {message && (
+                    <p className={error ? 'message message__error' : 'message'}>
+                        {message}
+                    </p>
+                )}
                 <input
                     type='number'
                     className='fundAccount__form--input'
