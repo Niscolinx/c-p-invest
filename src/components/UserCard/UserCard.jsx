@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import * as orderAction from '../../store/actions/burgerIndex'
-import { generateBase64FromImage } from '../../util/image'
+//import { generateBase64FromImage } from '../../util/image'
 
 const UserCard = (props) => {
     //const [file, setFile] = useState('')
