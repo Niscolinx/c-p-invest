@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Row, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { StatsCard } from '../components/StatsCard/StatsCard'
 
-import { generateBase64FromImage } from '../util/image'
+// import { generateBase64FromImage } from '../util/image'
 import * as orderAction from '../store/actions/burgerIndex'
 
 const PlanOrder = (props) => {

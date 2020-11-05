@@ -46,7 +46,7 @@ const UserCard = (props) => {
                     </a>
                 </div>
                 {/* <p className="description text-center">{props.description}</p> */}
-                <form
+                {/* <form
                     style={{
                         display: 'grid',
                         justifyContent: 'center',
@@ -73,12 +73,12 @@ const UserCard = (props) => {
                                 type='submit'
                             >
                                 Select
-                            </button> */}
+                            </button> *
                         </>
                     )}
-                </form>
+                </form> *
             </div>
-            <hr />
+            <hr />/}
             {/* <div className="text-center">{props.socials}</div> */}
         </div>
     )
