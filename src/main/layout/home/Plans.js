@@ -40,13 +40,13 @@ function Plans() {
                         <li className='plan__list-item'>
                             Trading -{' '}
                             <span className='plan__list-item--span'>
-                                Instant
+                                INSTANT
                             </span>
                         </li>
                         <li className='plan__list-item'>
-                            Withdraw Type -{' '}
+                            Withdrawal Type -{' '}
                             <span className='plan__list-item--span'>
-                                Instant
+                                INSTANT
                             </span>
                         </li>
                     </ul>
@@ -59,20 +59,37 @@ function Plans() {
 
                     <ul className='plan__list'>
                         <li className='plan__list-item'>
-                            AFTER{' '}
-                            <span className='plan__list-item--span'>1</span> DAY
+                            After{' '}
+                            <span className='plan__list-item--span'>24</span>{' '}
+                            Hours
+                        </li>
+                        <li className='plan__list-item'>
+                            <span className='plan__list-item--span'>20%</span>{' '}
+                            Services Uptime
                         </li>
                         <li className='plan__list-item'>
                             minimum -{' '}
-                            <span className='plan__list-item--span'>$500</span>
+                            <span className='plan__list-item--span'>$30</span>
                         </li>
                         <li className='plan__list-item'>
                             maximum -{' '}
-                            <span className='plan__list-item--span'>$999</span>
+                            <span className='plan__list-item--span'>$199</span>
                         </li>
                         <li className='plan__list-item'>
                             Principal Return -{' '}
                             <span className='plan__list-item--span'>YES</span>
+                        </li>
+                        <li className='plan__list-item'>
+                            Trading -{' '}
+                            <span className='plan__list-item--span'>
+                                INSTANT
+                            </span>
+                        </li>
+                        <li className='plan__list-item'>
+                            Withdrawal Type -{' '}
+                            <span className='plan__list-item--span'>
+                                INSTANT
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -85,23 +102,37 @@ function Plans() {
 
                     <ul className='plan__list'>
                         <li className='plan__list-item'>
-                            AFTER{' '}
-                            <span className='plan__list-item--span'>2</span>{' '}
-                            DAYS
+                            After{' '}
+                            <span className='plan__list-item--span'>24</span>{' '}
+                            Hours
+                        </li>
+                        <li className='plan__list-item'>
+                            <span className='plan__list-item--span'>20%</span>{' '}
+                            Services Uptime
                         </li>
                         <li className='plan__list-item'>
                             minimum -{' '}
-                            <span className='plan__list-item--span'>$1000</span>
+                            <span className='plan__list-item--span'>$30</span>
                         </li>
                         <li className='plan__list-item'>
                             maximum -{' '}
-                            <span className='plan__list-item--span'>
-                                $1000000
-                            </span>
+                            <span className='plan__list-item--span'>$199</span>
                         </li>
                         <li className='plan__list-item'>
                             Principal Return -{' '}
                             <span className='plan__list-item--span'>YES</span>
+                        </li>
+                        <li className='plan__list-item'>
+                            Trading -{' '}
+                            <span className='plan__list-item--span'>
+                                INSTANT
+                            </span>
+                        </li>
+                        <li className='plan__list-item'>
+                            Withdrawal Type -{' '}
+                            <span className='plan__list-item--span'>
+                                INSTANT
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -113,23 +144,37 @@ function Plans() {
 
                     <ul className='plan__list'>
                         <li className='plan__list-item'>
-                            AFTER{' '}
-                            <span className='plan__list-item--span'>2</span>{' '}
-                            DAYS
+                            After{' '}
+                            <span className='plan__list-item--span'>24</span>{' '}
+                            Hours
+                        </li>
+                        <li className='plan__list-item'>
+                            <span className='plan__list-item--span'>20%</span>{' '}
+                            Services Uptime
                         </li>
                         <li className='plan__list-item'>
                             minimum -{' '}
-                            <span className='plan__list-item--span'>$2000</span>
+                            <span className='plan__list-item--span'>$30</span>
                         </li>
                         <li className='plan__list-item'>
                             maximum -{' '}
-                            <span className='plan__list-item--span'>
-                                $1000000
-                            </span>
+                            <span className='plan__list-item--span'>$199</span>
                         </li>
                         <li className='plan__list-item'>
                             Principal Return -{' '}
                             <span className='plan__list-item--span'>YES</span>
+                        </li>
+                        <li className='plan__list-item'>
+                            Trading -{' '}
+                            <span className='plan__list-item--span'>
+                                INSTANT
+                            </span>
+                        </li>
+                        <li className='plan__list-item'>
+                            Withdrawal Type -{' '}
+                            <span className='plan__list-item--span'>
+                                INSTANT
+                            </span>
                         </li>
                     </ul>
                 </div>
