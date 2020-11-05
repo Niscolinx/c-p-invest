@@ -17,7 +17,7 @@ function Plans() {
                                 20%
                             </h1>
                             <h1 className='heading-1 plan__icon-text'>
-                                Ruby
+                                Plan 1
                             </h1>
                         </div>
 
@@ -42,7 +42,7 @@ function Plans() {
                                 30%
                             </h1>
                             <h1 className='heading-1 plan__icon-text'>
-                                Sapphire
+                                Plan 2
                             </h1>
                         </div>
 
@@ -69,7 +69,7 @@ function Plans() {
                                 50%
                             </h1>
                             <h1 className='heading-1 plan__icon-text'>
-                                Coral
+                                Plan 3
                             </h1>
                         </div>
 
@@ -95,7 +95,7 @@ function Plans() {
                                 80%
                             </h1>
                             <h1 className='heading-1 plan__icon-text'>
-                                Emerald
+                                Plan 4
                             </h1>
                         </div>
 
