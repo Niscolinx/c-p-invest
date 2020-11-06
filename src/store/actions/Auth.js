@@ -1,8 +1,8 @@
 import * as actions from './actionTypes'
 
-//const URL = 'http://localhost:3030/api/graphql'
+const URL = 'http://localhost:3030/api/graphql'
 
-const URL = 'https://coinperfect.herokuapp.com/api/graphql'
+//const URL = 'https://coinperfect.herokuapp.com/api/graphql'
 
 export const authStart = () => {
     return {
