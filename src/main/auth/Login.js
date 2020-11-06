@@ -148,8 +148,8 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-       // loading: state.auth.loading,
-       loading:false,
+       loading: state.auth.loading,
+      // loading:false,
         err: state.auth.error,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
