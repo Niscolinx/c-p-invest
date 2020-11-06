@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-
 import { CgCalendarDates } from 'react-icons/cg'
 import { RiBaseStationLine } from 'react-icons/ri'
 import {
@@ -12,7 +11,12 @@ import {
 } from 'react-icons/bs'
 import { ImDownload, ImUpload } from 'react-icons/im'
 
-const Activities = () => {
+const Activities = (props) => {
+    
+
+    if(props.activities){
+        console.log('the props of activities', props.activities)
+    }
     return (
         <>
             <div className='activities'>
@@ -61,4 +65,11 @@ const Activities = () => {
     )
 }
 
-export default Activities
+const mapStateToProps = (state) => {
+    console.log('the state of Activities', state)
+    return {
+        activities: state.auth.activities,
+    }
+}
+
+export default connect(mapStateToProps)(Activities)

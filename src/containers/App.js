@@ -135,13 +135,9 @@ function App(props) {
 }
 
 const mapStateToProps = (state) => {
-    console.log('the state of App', state)
     return {
         siteOwner: state.auth.siteOwner,
         auth: state.auth.tokenId,
-        activities: state.auth.activities,
-        latestDeposits: state.auth.latestDeposits,
-        latestWithdrawals: state.auth.latestWithdrawals,
     }
 }
 
