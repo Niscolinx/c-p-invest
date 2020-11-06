@@ -78,8 +78,21 @@ const authLogOut = (state, action) => {
     })
 }
 
+const getActivitiesSuccess = (state, action) => {
+    console.log('the action data', action.data)
+    return update(state, {
+        ...action,
+        loading: false,
+        error: null,
+        latestDeposits: action.data.theAllUsersDeposit,
+        latestWithdrawals: action.data.theAllUsersDeposit,
+        activities: action.data.updatedActivities  
+    })
+}
 const auth = (state = initialState, action) => {
     switch (action.type) {
+        case actionTypes.GET_ACTIVITIES:
+            return getActivitiesSuccess(state, action)
         case actionTypes.AUTH_START:
             return authStart(state, action)
         case actionTypes.AUTH_GETUSER:

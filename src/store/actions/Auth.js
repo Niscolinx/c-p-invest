@@ -252,6 +252,7 @@ export const initSignup = (authData) => {
     }
 }
 
+
 export const initActivities = (token) => {
     return (dispatch) => {
         dispatch(authStart())
@@ -259,10 +260,30 @@ export const initActivities = (token) => {
         let graphqlQuery = {
             query: `{
                 getActivities {
-                    activity {
+                    updatedActivities {
                         onlineDays
+                        totalMembers
+                        totalPaidOut
+                        totalInvestments
+                        newestMember
+                        lastDepositName
+                        lastDepositAmount
+                        lastWithdrawalName
+                        lastWithdrawalAmount
                     }
-                    
+               
+                    theAllUsersDeposit {
+                        creator
+                        amount
+                        currency
+                        updatedAt
+                    }
+                    theAllUsersWithdrawal {
+                        creator
+                        amount
+                        currency
+                        updatedAt
+                    }
                 }
             }`,
         }
