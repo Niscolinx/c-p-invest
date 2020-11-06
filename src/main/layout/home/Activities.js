@@ -32,7 +32,7 @@ const Activities = (props) => {
             setTotalPaidOut(activity.totalPaidOut)
             setTotalInvestments(activity.totalInvestments)
             setNewestMember(activity.newestMember)
-            setLastDepositName(activity.lastDepositAmount)
+            setLastDepositName(activity.lastDepositName)
             setLastDepositAmount(activity.lastDepositAmount)
             setLastWithdrawalAmount(activity.lastWithdrawalAmount)
             setLastWithdrawalName(activity.lastWithdrawalName)
@@ -79,7 +79,7 @@ const Activities = (props) => {
                         className='heading-4__dark'
                         style={{ textTransform: 'uppercase' }}
                     >
-                        ${lastDepositAmount} {lastDepositName}
+                        ${lastDepositAmount} ({lastDepositName})
                     </h3>
                 </div>
                 <div className='activity'>
@@ -89,7 +89,7 @@ const Activities = (props) => {
                         className='heading-4__dark'
                         style={{ textTransform: 'uppercase' }}
                     >
-                        ${lastWithdrawalAmount} {lastWithdrawalName}
+                        ${lastWithdrawalAmount} ({lastWithdrawalName})
                     </h3>
                 </div>
             </div>
@@ -98,7 +98,6 @@ const Activities = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log('the state of Activities', state)
     return {
         activities: state.auth.activities,
     }
