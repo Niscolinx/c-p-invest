@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import { CgCalendarDates } from 'react-icons/cg'
@@ -12,10 +12,29 @@ import {
 import { ImDownload, ImUpload } from 'react-icons/im'
 
 const Activities = (props) => {
-    
+    const [onlineDays, setOnlineDays] = useState(4005)
+    const [totalMembers, setTotalMembers] = useState(642, 424)
+    const [totalPaidOut, setTotalPaidOut] = useState(202, 542, 420)
+    const [totalInvestments, setTotalInvestments] = useState(342, 322, 523)
+    const [newestMember, setNewestMember] = useState('Lawson2')
+    const [lastDepositName, setLastDepositName] = useState('Micheal04')
+    const [lastDepositAmount, setLastDepositAmount] = useState('3,224')
+    const [lastWithdrawalAmount, setLastWithdrawalAmount] = useState('9,032')
+    const [lastWithdrawalName, setLastWithdrawalName] = useState('Johnson')
 
-    if(props.activities){
+    if (props.activities) {
+        const activity = props.activities
         console.log('the props of activities', props.activities)
+
+        setOnlineDays(activity.onlineDays)
+        setTotalMembers(activity.totalMembers)
+        setTotalPaidOut(activity.totalPaidOut)
+        setTotalInvestments(activity.totalInvestments)
+        setNewestMember(activity.newestMember)
+        setLastDepositName(activity.lastDepositAmount)
+        setLastDepositAmount(activity.lastDepositAmount)
+        setLastWithdrawalAmount(activity.lastWithdrawalAmount)
+        setLastWithdrawalName(activity.lastWithdrawalName)
     }
     return (
         <>
@@ -28,37 +47,47 @@ const Activities = (props) => {
                 <div className='activity'>
                     <RiBaseStationLine className='activity__icon' />
                     <h2 className='heading-4__light'>Online days</h2>
-                    <h3 className='heading-4__dark'>4005</h3>
+                    <h3 className='heading-4__dark'>{onlineDays}</h3>
                 </div>
                 <div className='activity'>
                     <BsPeopleFill className='activity__icon' />
                     <h2 className='heading-4__light'>Total members</h2>
-                    <h3 className='heading-4__dark'>679,579</h3>
+                    <h3 className='heading-4__dark'>{totalMembers}</h3>
                 </div>
                 <div className='activity'>
                     <BsFillPersonCheckFill className='activity__icon' />
                     <h2 className='heading-4__light'>Newest Member</h2>
-                    <h3 className='heading-4__dark'>LAWSON23</h3>
+                    <h3 className='heading-4__dark'>{newestMember}</h3>
                 </div>
                 <div className='activity'>
                     <BsFillPersonDashFill className='activity__icon' />
                     <h2 className='heading-4__light'>Total paid out</h2>
-                    <h3 className='heading-4__dark'>$213,879,015+</h3>
+                    <h3 className='heading-4__dark'>${totalPaidOut}+</h3>
                 </div>
                 <div className='activity'>
                     <BsFillPersonPlusFill className='activity__icon' />
                     <h2 className='heading-4__light'>Total Investments</h2>
-                    <h3 className='heading-4__dark'>$355,406,804+</h3>
+                    <h3 className='heading-4__dark'>${totalInvestments}+</h3>
                 </div>
                 <div className='activity'>
                     <ImDownload className='activity__icon' />
                     <h2 className='heading-4__light'>Last Deposit</h2>
-                    <h3 className='heading-4__dark'>$57 (Francis1)</h3>
+                    <h3
+                        className='heading-4__dark'
+                        style={{ textTransform: 'uppercase' }}
+                    >
+                        ${lastDepositAmount} {lastDepositName}
+                    </h3>
                 </div>
                 <div className='activity'>
                     <ImUpload className='activity__icon' />
                     <h2 className='heading-4__light'>Last withdrawal</h2>
-                    <h3 className='heading-4__dark'>$4821 (MICHEAL12)</h3>
+                    <h3
+                        className='heading-4__dark'
+                        style={{ textTransform: 'uppercase' }}
+                    >
+                        ${lastWithdrawalAmount} {lastWithdrawalName}
+                    </h3>
                 </div>
             </div>
         </>
