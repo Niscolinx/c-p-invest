@@ -45,7 +45,7 @@ function App(props) {
 
     let AuthGuard = (
         <Switch>
-            <Route path='/' exact component={Home} activities={props.Activities}/>
+            <Route path='/' exact component={Home} activities={props.Activities} latestDeposits={props.latestDeposits} latestWithdrawals={props.latestWithdrawals}/>
             <Route
                 path='/Auth/login'
                 render={(props) => <LoginPage {...props} />}
@@ -116,7 +116,9 @@ const mapStateToProps = (state) => {
     return {
         siteOwner: state.auth.siteOwner,
         auth: state.auth.tokenId,
-        Activities: state.auth.activities
+        Activities: state.auth.activities,
+        latestDeposits: state.auth.latestDeposits,
+        latestWithdrawals: state.auth.latestWithdrawals
     }
 }
 

@@ -29,7 +29,8 @@ const whyChooseUsStyle = {
     backgroundPosition: 'cover',
 }
 
-function Layout() {
+function Layout(props) {
+    console.log('props of home', props.activities, props.latestDeposits, props.latestWithdrawals)
     return (
         <>
             <Particles
