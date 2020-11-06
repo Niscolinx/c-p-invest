@@ -19,13 +19,24 @@ function Transactions(props) {
 
     console.log('the transaction', latestDeposits, latestWithdrawals)
 
-    return (
-        <>
-            <div className='transactions'>
-                <h4 className='heading-4 transactions__heading mb-sm'>
-                    Latest Deposits
-                </h4>
-                <div className='transactions__col'>
+    const theLatestDeposits = latestDeposits.map((key, d) => {
+        return (
+            <div className='transactions__col' key={key}>
+                <img
+                    src={BitcoinGif}
+                    alt=''
+                    className='transactions__currency'
+                />
+                <p className='transactions__amount'>${d.amount}</p>
+
+                <p className='transactions__date'>{d.updatedAt}</p>
+        <h4 className='transactions__name'>{d.username}</h4>
+            </div>
+        )
+    })
+
+
+    let toRender = (  <div className='transactions__col'>
                     <img
                         src={BitcoinGif}
                         alt=''
@@ -112,7 +123,19 @@ function Transactions(props) {
 
                     <p className='transactions__date'>Oct-26-2020</p>
                     <h4 className='transactions__name'>AslanLion</h4>
-                </div>
+                </div>)
+
+    if(latestDeposits){
+
+        toRender = theLatestDeposits
+    }
+    return (
+        <>
+            <div className='transactions'>
+                <h4 className='heading-4 transactions__heading mb-sm'>
+                    Latest Deposits
+                </h4>
+              
             </div>
             <div className='transactions'>
                 <h4 className='heading-4 transactions__heading mb-sm'>
