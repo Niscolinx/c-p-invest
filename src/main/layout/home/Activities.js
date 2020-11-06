@@ -25,7 +25,6 @@ const Activities = (props) => {
     useEffect(() => {
         if (props.activities) {
             const activity = props.activities
-            console.log('the props of activities', props.activities)
 
             setOnlineDays(activity.onlineDays)
             setTotalMembers(activity.totalMembers)

@@ -1,7 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
+import EthereumGif from '../../../images/ethereum.png'
 import BitcoinGif from '../../../images/bitcoin-gif.gif'
 
-function Transactions() {
+function Transactions(props) {
+    const [lastestDeposits, setLatestDeposits] = useState([])
+    const [lastestWithdrawals, setLatestWithdrawals] = useState([])
+
+    useEffect(() => {
+        if (props.lastestDeposits) {
+            console.log('the deposits', props.latestDeposits)
+            setLatestDeposits(props.latestDeposits)
+        }
+
+        if(props.lastestWithdrawals){
+            console.log('the withdrawals', props.lastestWithdrawals)
+            setLatestWithdrawals(props.lastestWithdrawals)
+        }
+    }, [props])
+
+    console.log('the transaction', lastestDeposits, lastestWithdrawals)
+    console.log('the transs', props.latestDeposits, props.latestWithdrawals)
+
     return (
         <>
             <div className='transactions'>
@@ -205,4 +225,12 @@ function Transactions() {
     )
 }
 
-export default Transactions
+const mapStateToProps = (state) => {
+    console.log('the transaction state', state)
+    return {
+        lastestWithdrawals: state.auth.lastestWithdrawals,
+        lastestDeposits: state.auth.lastestDeposits,
+    }
+}
+
+export default connect(mapStateToProps)(Transactions)
