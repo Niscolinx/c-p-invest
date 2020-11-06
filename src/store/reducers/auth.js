@@ -23,7 +23,6 @@ const authStart = (state, action) => {
 }
 
 const authSuccess = (state, action) => {
-    console.log("the reducer auth", action)
     return update(state, {
         ...action,
         loading: false,
@@ -82,13 +81,12 @@ const authLogOut = (state, action) => {
 }
 
 const getActivitiesSuccess = (state, action) => {
-    console.log('reducer state', action.data.updatedActivities)
     return update(state, {
         ...action,
         loading: false,
         error: null,
         latestDeposits: action.data.theAllUsersDeposit,
-        latestWithdrawals: action.data.theAllUsersDeposit,
+        latestWithdrawals: action.data.theAllUsersWithdrawals,
         activities: action.data.updatedActivities  
     })
 }
