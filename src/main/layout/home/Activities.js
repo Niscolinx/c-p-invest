@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 
 import { CgCalendarDates } from 'react-icons/cg'
 import { RiBaseStationLine } from 'react-icons/ri'

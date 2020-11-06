@@ -79,7 +79,7 @@ const authLogOut = (state, action) => {
 }
 
 const getActivitiesSuccess = (state, action) => {
-    console.log('the action data', action.data)
+    console.log('reducer state', action.data.updatedActivities)
     return update(state, {
         ...action,
         loading: false,

@@ -30,7 +30,7 @@ const whyChooseUsStyle = {
 }
 
 function Layout(props) {
-    console.log('props of home', props.activities, props.latestDeposits, props.latestWithdrawals)
+    console.log('props of home',props, props.activities, props.latestDeposits, props.latestWithdrawals)
     return (
         <>
             <Particles

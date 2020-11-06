@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import {
     Switch,
     Route,
@@ -26,13 +26,18 @@ import SignupPage from '../main/auth/Signup'
 function App(props) {
     const location = useLocation()
 
+    const ref = useRef()
     useEffect(() => {
         const token = localStorage.getItem('token')
         const userId = localStorage.getItem('userId')
-        if (token) {
-            props.onCheckState(token, userId)
+        if (!ref.current) {
+            if (token) {
+                props.onCheckState(token, userId)
+            } else {
+                props.onInitActivities()
+            }
         }
-        props.onInitActivities()
+        ref.current = true
     }, [props])
 
     const AsyncLogin = asyncComponent(() => {
@@ -43,9 +48,19 @@ function App(props) {
         return import('./AboutUs')
     })
 
+  
     let AuthGuard = (
         <Switch>
-            <Route path='/' exact component={Home} activities={props.Activities} latestDeposits={props.latestDeposits} latestWithdrawals={props.latestWithdrawals}/>
+            <Route
+                path='/'
+                exact
+                component={Home}
+                render={(props) => (
+                    <Home
+                        {...props}
+                    />
+                )}
+            />
             <Route
                 path='/Auth/login'
                 render={(props) => <LoginPage {...props} />}
@@ -71,7 +86,7 @@ function App(props) {
             />
         )
 
-        if(props.siteOwner){
+        if (props.siteOwner) {
             admintoShow = (
                 <Route
                     path='/admin'
@@ -91,8 +106,8 @@ function App(props) {
                 <Route path='/contact-us' component={ContactUs} />
                 <Route path='/faq' component={Faq} />
                 <Route path='/terms' component={Terms} />
-        
-               {admintoShow}
+
+                {admintoShow}
                 <Redirect to='/' />
             </Switch>
         )
@@ -100,25 +115,33 @@ function App(props) {
 
     return (
         <div className='rootApp'>
-            <a href='https://wa.me/+18589463698' alt='' target='_blank' rel='noopener noreferrer'>
+            <a
+                href='https://wa.me/+18589463698'
+                alt=''
+                target='_blank'
+                rel='noopener noreferrer'
+            >
                 <img
                     src={WhatsappLivechat}
                     alt=''
                     className='liveChat__whatsapp'
                 />
             </a>
-            <Layout isAdmin={location} siteOwner={props.siteOwner}>{AuthGuard}</Layout>
+            <Layout isAdmin={location} siteOwner={props.siteOwner}>
+                {AuthGuard}
+            </Layout>
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
+    console.log('the state of App', state)
     return {
         siteOwner: state.auth.siteOwner,
         auth: state.auth.tokenId,
-        Activities: state.auth.activities,
+        activities: state.auth.activities,
         latestDeposits: state.auth.latestDeposits,
-        latestWithdrawals: state.auth.latestWithdrawals
+        latestWithdrawals: state.auth.latestWithdrawals,
     }
 }
 
@@ -126,7 +149,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         onCheckState: (tokenId, userId) =>
             dispatch(actions.authSuccess(tokenId, userId)),
-        onInitActivities: () => dispatch(actions.initActivities())
+        onInitActivities: () => dispatch(actions.initActivities()),
     }
 }
 
