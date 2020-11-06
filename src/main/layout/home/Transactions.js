@@ -4,23 +4,20 @@ import EthereumGif from '../../../images/ethereum.png'
 import BitcoinGif from '../../../images/bitcoin-gif.gif'
 
 function Transactions(props) {
-    const [lastestDeposits, setLatestDeposits] = useState([])
-    const [lastestWithdrawals, setLatestWithdrawals] = useState([])
+    const [latestDeposits, setLatestDeposits] = useState([])
+    const [latestWithdrawals, setLatestWithdrawals] = useState([])
 
     useEffect(() => {
-        if (props.lastestDeposits) {
-            console.log('the deposits', props.latestDeposits)
+        if (props.latestDeposits) {
             setLatestDeposits(props.latestDeposits)
         }
 
-        if(props.lastestWithdrawals){
-            console.log('the withdrawals', props.lastestWithdrawals)
-            setLatestWithdrawals(props.lastestWithdrawals)
+        if(props.latestWithdrawals){
+            setLatestWithdrawals(props.latestWithdrawals)
         }
     }, [props])
 
-    console.log('the transaction', lastestDeposits, lastestWithdrawals)
-    console.log('the transs', props.latestDeposits, props.latestWithdrawals)
+    console.log('the transaction', latestDeposits, latestWithdrawals)
 
     return (
         <>
@@ -226,10 +223,9 @@ function Transactions(props) {
 }
 
 const mapStateToProps = (state) => {
-    console.log('the transaction state', state)
     return {
-        lastestWithdrawals: state.auth.lastestWithdrawals,
-        lastestDeposits: state.auth.lastestDeposits,
+        latestWithdrawals: state.auth.latestWithdrawals,
+        latestDeposits: state.auth.latestDeposits,
     }
 }
 
