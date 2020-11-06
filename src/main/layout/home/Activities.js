@@ -27,7 +27,7 @@ const Activities = () => {
                 <div className='activity'>
                     <BsPeopleFill className='activity__icon' />
                     <h2 className='heading-4__light'>Total members</h2>
-                    <h3 className='heading-4__dark'>73,579,864</h3>
+                    <h3 className='heading-4__dark'>679,579</h3>
                 </div>
                 <div className='activity'>
                     <BsFillPersonCheckFill className='activity__icon' />
