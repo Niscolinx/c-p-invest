@@ -22,20 +22,23 @@ const Activities = (props) => {
     const [lastWithdrawalAmount, setLastWithdrawalAmount] = useState('9,032')
     const [lastWithdrawalName, setLastWithdrawalName] = useState('Johnson')
 
-    if (props.activities) {
-        const activity = props.activities
-        console.log('the props of activities', props.activities)
+    useEffect(() => {
+        if (props.activities) {
+            const activity = props.activities
+            console.log('the props of activities', props.activities)
 
-        setOnlineDays(activity.onlineDays)
-        setTotalMembers(activity.totalMembers)
-        setTotalPaidOut(activity.totalPaidOut)
-        setTotalInvestments(activity.totalInvestments)
-        setNewestMember(activity.newestMember)
-        setLastDepositName(activity.lastDepositAmount)
-        setLastDepositAmount(activity.lastDepositAmount)
-        setLastWithdrawalAmount(activity.lastWithdrawalAmount)
-        setLastWithdrawalName(activity.lastWithdrawalName)
-    }
+            setOnlineDays(activity.onlineDays)
+            setTotalMembers(activity.totalMembers)
+            setTotalPaidOut(activity.totalPaidOut)
+            setTotalInvestments(activity.totalInvestments)
+            setNewestMember(activity.newestMember)
+            setLastDepositName(activity.lastDepositAmount)
+            setLastDepositAmount(activity.lastDepositAmount)
+            setLastWithdrawalAmount(activity.lastWithdrawalAmount)
+            setLastWithdrawalName(activity.lastWithdrawalName)
+        }
+    }, [props.activities])
+
     return (
         <>
             <div className='activities'>
