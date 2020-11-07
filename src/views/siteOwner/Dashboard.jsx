@@ -74,7 +74,7 @@ const Dashboard = (props) => {
                     <Col lg={3} sm={6}>
                         <StatsCard
                             bigIcon={<i className='pe-7s-graph1 text-danger' />}
-                            statsText='Pending Withdrawal Request'
+                            statsText='Withdrawal Requests'
                             statsValue= {displayWithdrawalsCount}
                             statsIcon={<i className='fa fa-clock-o' />}
                             statsIconText='Updated now'
@@ -83,7 +83,7 @@ const Dashboard = (props) => {
                     <Col lg={3} sm={6}>
                         <StatsCard
                             bigIcon={<i className='pe-7s-cash text-info' />}
-                            statsText='Pending Investment Request'
+                            statsText='Investment Requests'
                             statsValue= {displayDepositsCount}
                             statsIcon={<i className='fa fa-refresh' />}
                             statsIconText='Updated now'
