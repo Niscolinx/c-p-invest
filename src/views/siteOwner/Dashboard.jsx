@@ -120,6 +120,7 @@ const mapStateToProps = (state) => {
         redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
+        totalReceivedAmount: state.auth.totalReceivedAmount
     }
 }
 

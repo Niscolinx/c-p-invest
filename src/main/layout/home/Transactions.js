@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-//import EthereumGif from '../../../images/ethereum.png'
+import EthereumGif from '../../../images/ethereum.png'
 import BitcoinGif from '../../../images/bitcoin-gif.gif'
 
 function Transactions(props) {
@@ -22,7 +22,7 @@ function Transactions(props) {
         return (
             <div className='transactions__col' key={key}>
                 <img
-                    src={BitcoinGif}
+                    src={d.currency === 'Ethereum' ? EthereumGif : BitcoinGif}
                     alt=''
                     className='transactions__currency'
                 />
@@ -39,7 +39,7 @@ function Transactions(props) {
         return (
             <div className='transactions__col' key={key}>
                 <img
-                    src={BitcoinGif}
+                    src={d.currency === 'Ethereum' ? EthereumGif : BitcoinGif}
                     alt=''
                     className='transactions__currency'
                 />

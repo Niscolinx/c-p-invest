@@ -130,6 +130,8 @@ export const initGetUser = (token) => {
                         createdAt
                         updatedAt
                     }
+                    totalDisbursedAmount
+                    totalReceivedAmount
             }
             }`,
         }
@@ -145,6 +147,7 @@ export const initGetUser = (token) => {
                 return res.json()
             })
             .then((resData) => {
+                console.log('the getUser', resData)
                 if (resData.errors) {
                     dispatch(authFailed('getUser', resData.errors[0].message))
                 }
@@ -300,7 +303,6 @@ export const initActivities = (token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('the res of getActivities', resData)
                 if (resData.errors) {
                     dispatch(authFailed(resData.errors[0].message))
                 }
