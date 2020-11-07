@@ -132,6 +132,8 @@ export const initGetUser = (token) => {
                     }
                     totalDisbursedAmount
                     totalReceivedAmount
+                    pendingWithdrawalsCount
+                    pendingDepositsCount
             }
             }`,
         }

@@ -68,7 +68,9 @@ const getUser = (state, action) => {
         userFundAccount: action.data.userFundAccount,
         userPendingDeposit: action.data.userPendingDeposit,
         totalReceivedAmount: action.data.totalReceivedAmount,
-        totalDisbursedAmount: action.data.totalDisbursedAmount
+        totalDisbursedAmount: action.data.totalDisbursedAmount,
+        pendingDepositsCount: action.data.pendingDepositsCount,
+        pendingWithdrawalsCount: action.data.pendingWithdrawalsCount
     })
 }
 

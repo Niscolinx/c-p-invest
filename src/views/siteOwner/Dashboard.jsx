@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import ChartistGraph from 'react-chartist'
 import { Grid, Row, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
@@ -10,8 +10,13 @@ import { dataPie, legendPie } from '../../variables/Variables'
 import * as actions from '../../store/actions/burgerIndex'
 import CrytoMarketWatch from '../../tradeviewWidgets/CryptoMarketWatch'
 
-class Dashboard extends Component {
-    createLegend(json) {
+const Dashboard = (props) => {
+    const [totalReceivedAmount, setTotalReceivedAmount] = useState(0)
+    const [totalDisbursedAmount, setTotalDisbursedAmount] = useState(0)
+    const [pendingWithdrawalsCount, setPendingWithdrawalsCount] = useState(0)
+    const [pendingDepositsCount, setPendingDepositsCount] = useState(0)
+
+    const createLegend = (json) => {
         var legend = []
         for (var i = 0; i < json['names'].length; i++) {
             var type = 'fa fa-circle text-' + json['types'][i]
@@ -22,95 +27,100 @@ class Dashboard extends Component {
         return legend
     }
 
-    componentDidMount() {
-        if (this.props.tokenId) {
-            this.props.onInitGetFunds(this.props.tokenId)
+    useEffect(() => {
+        if (props.tokenId) {
+            props.onInitGetFunds(props.tokenId)
         }
-    }
 
-    render() {
-        return (
-            <div className='content'>
-                <Grid fluid>
-                    <Row>
-                        <Col lg={3} sm={6}>
-                            <StatsCard
-                                bigIcon={
-                                    <i className='pe-7s-server text-warning' />
-                                }
-                                statsText='Total Funds Disbursed'
-                                statsValue='$0'
-                                statsIcon={<i className='fa fa-refresh' />}
-                                statsIconText='Updated now'
-                            />
-                        </Col>
-                        <Col lg={3} sm={6}>
-                            <StatsCard
-                                bigIcon={
-                                    <i className='pe-7s-wallet text-success' />
-                                }
-                                statsText='Total Funds received'
-                                statsValue='$0'
-                                statsIcon={<i className='fa fa-calendar-o' />}
-                                statsIconText='Updated now'
-                            />
-                        </Col>
-                        <Col lg={3} sm={6}>
-                            <StatsCard
-                                bigIcon={
-                                    <i className='pe-7s-graph1 text-danger' />
-                                }
-                                statsText='Pending User Withdrawals'
-                                statsValue='$0'
-                                statsIcon={<i className='fa fa-clock-o' />}
-                                statsIconText='Updated now'
-                            />
-                        </Col>
-                        <Col lg={3} sm={6}>
-                            <StatsCard
-                                bigIcon={<i className='pe-7s-cash text-info' />}
-                                statsText='Pending User Funding'
-                                statsValue='$0'
-                                statsIcon={<i className='fa fa-refresh' />}
-                                statsIconText='Updated now'
-                            />
-                        </Col>
-                    </Row>
-                    <Row style={{ marginTop: '4rem' }}>
-                        <Col md={8}>
-                            <div style={{ height: '70vh' }}>
-                                <CrytoMarketWatch />
-                            </div>
-                        </Col>
-                        <Col md={4}>
-                            <Card
-                                statsIcon='fa fa-clock-o'
-                                title='Transactions'
-                                category='investment activities'
-                                stats='Updated now'
-                                content={
-                                    <div
-                                        id='chartPreferences'
-                                        className='ct-chart ct-perfect-fourth'
-                                    >
-                                        <ChartistGraph
-                                            data={dataPie}
-                                            type='Pie'
-                                        />
-                                    </div>
-                                }
-                                legend={
-                                    <div className='legend'>
-                                        {this.createLegend(legendPie)}
-                                    </div>
-                                }
-                            />
-                        </Col>
-                    </Row>
-                </Grid>
-            </div>
-        )
-    }
+        if (props.totalDisbursedAmount) {
+            setTotalDisbursedAmount(props.totalDisbursedAmount)
+            setTotalReceivedAmount(props.setTotalReceivedAmount)
+            setPendingDepositsCount(props.pendingDepositsCount)
+            setPendingWithdrawalsCount(props.pendingWithdrawalsCount)
+        }
+    }, [props])
+
+    const displayDisbursed =  `$${totalDisbursedAmount}`
+    const displayReceived = `$${totalReceivedAmount}`
+    const displayWithdrawalsCount = pendingWithdrawalsCount
+    const displayDepositsCount = pendingDepositsCount
+
+    return (
+        <div className='content'>
+            <Grid fluid>
+                <Row>
+                    <Col lg={3} sm={6}>
+                        <StatsCard
+                            bigIcon={
+                                <i className='pe-7s-server text-warning' />
+                            }
+                            statsText='Total Funds Disbursed'
+                            statsValue= {displayDisbursed}
+                            statsIcon={<i className='fa fa-refresh' />}
+                            statsIconText='Updated now'
+                        />
+                    </Col>
+                    <Col lg={3} sm={6}>
+                        <StatsCard
+                            bigIcon={
+                                <i className='pe-7s-wallet text-success' />
+                            }
+                            statsText='Total Funds received'
+                            statsValue={displayReceived}
+                            statsIcon={<i className='fa fa-calendar-o' />}
+                            statsIconText='Updated now'
+                        />
+                    </Col>
+                    <Col lg={3} sm={6}>
+                        <StatsCard
+                            bigIcon={<i className='pe-7s-graph1 text-danger' />}
+                            statsText='Pending User Withdrawals'
+                            statsValue= {displayWithdrawalsCount}
+                            statsIcon={<i className='fa fa-clock-o' />}
+                            statsIconText='Updated now'
+                        />
+                    </Col>
+                    <Col lg={3} sm={6}>
+                        <StatsCard
+                            bigIcon={<i className='pe-7s-cash text-info' />}
+                            statsText='Pending User Funding'
+                            statsValue= {displayDepositsCount}
+                            statsIcon={<i className='fa fa-refresh' />}
+                            statsIconText='Updated now'
+                        />
+                    </Col>
+                </Row>
+                <Row style={{ marginTop: '4rem' }}>
+                    <Col md={8}>
+                        <div style={{ height: '70vh' }}>
+                            <CrytoMarketWatch />
+                        </div>
+                    </Col>
+                    <Col md={4}>
+                        <Card
+                            statsIcon='fa fa-clock-o'
+                            title='Transactions'
+                            category='investment activities'
+                            stats='Updated now'
+                            content={
+                                <div
+                                    id='chartPreferences'
+                                    className='ct-chart ct-perfect-fourth'
+                                >
+                                    <ChartistGraph data={dataPie} type='Pie' />
+                                </div>
+                            }
+                            legend={
+                                <div className='legend'>
+                                    {createLegend(legendPie)}
+                                </div>
+                            }
+                        />
+                    </Col>
+                </Row>
+            </Grid>
+        </div>
+    )
 }
 
 const mapStateToProps = (state) => {
@@ -120,7 +130,10 @@ const mapStateToProps = (state) => {
         redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,
         userId: state.auth.userId,
-        totalReceivedAmount: state.auth.totalReceivedAmount
+        totalReceivedAmount: state.auth.totalReceivedAmount,
+        totalDisbursedAmount: state.auth.totalDisbursedAmount,
+        pendingDepositsCount: state.auth.pendingDepositsCount,
+        pendingWithdrawalsCount: state.auth.pendingWithdrawalsCount,
     }
 }
 
