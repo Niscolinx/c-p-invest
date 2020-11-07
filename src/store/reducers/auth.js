@@ -86,7 +86,7 @@ const getActivitiesSuccess = (state, action) => {
         loading: false,
         error: null,
         latestDeposits: action.data.theAllUsersDeposit,
-        latestWithdrawals: action.data.theAllUsersWithdrawals,
+        latestWithdrawals: action.data.theAllUsersWithdrawal,
         activities: action.data.updatedActivities  
     })
 }

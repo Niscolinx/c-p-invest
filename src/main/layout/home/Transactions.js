@@ -17,8 +17,8 @@ function Transactions(props) {
         }
     }, [props])
 
-
-    const theLatestDeposits = latestDeposits.map((d, key) => {
+    const theLatestDeposits = latestDeposits.splice(0, 10).map((d, key) => {
+        const splitDate = d.updatedAt.split(',')[0]
         return (
             <div className='transactions__col' key={key}>
                 <img
@@ -28,12 +28,14 @@ function Transactions(props) {
                 />
                 <p className='transactions__amount'>${d.amount}</p>
 
-                <p className='transactions__date'>{d.updatedAt}</p>
+                <p className='transactions__date'>{splitDate}</p>
                 <h4 className='transactions__name'>{d.creator}</h4>
             </div>
         )
     })
-    const theLatestWithdrawals = latestWithdrawals.map((d, key) => {
+    const theLatestWithdrawals = latestWithdrawals.splice(0, 10).map((d, key) => {
+        const splitDate = d.updatedAt.split(',')[0]
+
         return (
             <div className='transactions__col' key={key}>
                 <img
@@ -43,7 +45,7 @@ function Transactions(props) {
                 />
                 <p className='transactions__amount'>${d.amount}</p>
 
-                <p className='transactions__date'>{d.updatedAt}</p>
+                <p className='transactions__date'>{splitDate}</p>
                 <h4 className='transactions__name'>{d.creator}</h4>
             </div>
         )
@@ -154,7 +156,7 @@ function Transactions(props) {
                 <h4 className='heading-4 transactions__heading mb-sm'>
                     Latest Withdrawals
                 </h4>
-               {theLatestWithdrawals}
+                {theLatestWithdrawals}
             </div>
         </>
     )
