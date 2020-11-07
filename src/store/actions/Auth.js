@@ -134,6 +134,9 @@ export const initGetUser = (token) => {
                     totalReceivedAmount
                     pendingWithdrawalsCount
                     pendingDepositsCount
+                    totalUserDeposits
+                    totalUserWithdrawals
+                    fundAccountCount
             }
             }`,
         }
