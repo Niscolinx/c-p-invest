@@ -70,7 +70,10 @@ const getUser = (state, action) => {
         totalReceivedAmount: action.data.totalReceivedAmount,
         totalDisbursedAmount: action.data.totalDisbursedAmount,
         pendingDepositsCount: action.data.pendingDepositsCount,
-        pendingWithdrawalsCount: action.data.pendingWithdrawalsCount
+        pendingWithdrawalsCount: action.data.pendingWithdrawalsCount,
+        totalUserDeposits: action.data.totalUserDeposits,
+        totalUserWithdrawals: action.data.totalUserWithdrawals,
+        fundAccountCount: action.data.fundAccountCount,
     })
 }
 
@@ -91,7 +94,7 @@ const getActivitiesSuccess = (state, action) => {
         error: null,
         latestDeposits: action.data.theAllUsersDeposit,
         latestWithdrawals: action.data.theAllUsersWithdrawal,
-        activities: action.data.updatedActivities  
+        activities: action.data.updatedActivities,
     })
 }
 const auth = (state = initialState, action) => {

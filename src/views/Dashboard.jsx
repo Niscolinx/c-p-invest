@@ -23,15 +23,28 @@ const Dashboard = (props) => {
 
     //Have to fetch the user account balance
     const [userAccountBalance, setUserAccountBalance] = useState(0)
+    const [totalUserDeposits, setTotalUserDeposits] = useState(0)
+    const [totalUserWithdrawals, setTotalUserWithdrawals] = useState(0)
+    const [fundAccountCount, setFundAccountCount] = useState(0)
+   
 
     useEffect(() => {
         if(props.userData.hasOwnProperty('username')){
             setUserAccountBalance(props.userData.accountBalance)
         }
+
+        if(props.totalUserDeposits){
+            setTotalUserDeposits(props.totalUserDeposits)
+            setTotalUserWithdrawals(props.totalUserWithdrawals)
+            setFundAccountCount(props.fundAccountCount)
+        }
     }, [props])
 
 
     const displayUserFunds = `$${userAccountBalance}`
+    const displayUserDeposits = `$${totalUserDeposits}`
+    const displayUserWithdrawals = `$${totalUserWithdrawals}`
+    const displayFundAccountCount = `$${fundAccountCount}`
 
         return (
             <div className='content'>
@@ -54,7 +67,7 @@ const Dashboard = (props) => {
                                     <i className='pe-7s-wallet text-success' />
                                 }
                                 statsText='Total Withdrawal'
-                                statsValue='$0'
+                                statsValue={displayUserWithdrawals}
                                 statsIcon={<i className='fa fa-calendar-o' />}
                                 statsIconText='Updated now'
                             />
@@ -65,7 +78,7 @@ const Dashboard = (props) => {
                                     <i className='pe-7s-graph1 text-danger' />
                                 }
                                 statsText='Total Deposit'
-                                statsValue='$0'
+                                statsValue={displayUserDeposits}
                                 statsIcon={<i className='fa fa-clock-o' />}
                                 statsIconText='Updated now'
                             />
@@ -73,8 +86,8 @@ const Dashboard = (props) => {
                         <Col lg={3} sm={6}>
                             <StatsCard
                                 bigIcon={<i className='pe-7s-cash text-info' />}
-                                statsText='Total Earnings'
-                                statsValue='$0'
+                                statsText='Funds Approved'
+                                statsValue={displayFundAccountCount}
                                 statsIcon={<i className='fa fa-refresh' />}
                                 statsIconText='Updated now'
                             />
@@ -125,6 +138,9 @@ const mapStateToProps = (state) => {
         userData: state.auth.userData,
         userFundAccount: state.auth.userFundAccount,
         userId: state.auth.userId,
+        totalUserDeposits: state.auth.totalUserDeposits,
+        totalUserWithdrawals: state.auth.totalUserWithdrawals,
+        fundAccountCount: state.auth.fundAccountCount,
     }
 }
 
