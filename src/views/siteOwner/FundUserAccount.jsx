@@ -39,16 +39,13 @@ const PendingDeposits = (props) => {
             
             if(id === i){
                 
-                console.log(i, 'clicked', id, props.idsOfFunds[i]._id)
                  return props.onInitFundApproval(props.idsOfFunds[i]._id, props.tokenId)
             }
 
         }
     }
 
-    if(props.fundAccountApprovalSuccess){
-        console.log('the approval', props.fundAccountApprovalSuccess)
-    }
+
     return (
         <div className='content'>
             <Grid fluid>

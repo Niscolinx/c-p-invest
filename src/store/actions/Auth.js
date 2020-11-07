@@ -152,7 +152,6 @@ export const initGetUser = (token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('the getUser', resData)
                 if (resData.errors) {
                     dispatch(authFailed('getUser', resData.errors[0].message))
                 }

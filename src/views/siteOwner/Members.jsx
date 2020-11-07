@@ -26,7 +26,6 @@ const Members = (props) => {
         }
     }, [props])
 
-    console.log('the get all users', allUsers)
 
     return (
         <div className='content'>
@@ -56,11 +55,9 @@ const Members = (props) => {
                                     </thead>
                                     <tbody>
                                         {allUsers.map((prop, key) => {
-                                            console.log('props', prop)
                                             return (
                                                 <tr key={key}>
                                                     {Object.values(prop).map((prop, key) => {
-                                                        console.log('prop', prop)
                                                         return (
                                                             <td key={key}>
                                                                 {prop}

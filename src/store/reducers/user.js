@@ -113,7 +113,6 @@ const getUsersStart = (state, action) => {
     })
 }
 const getUsersSuccess = (state, action) => {
-    console.log('the reducer', action.data)
     return update(state, {
         loading: false,
         userData: action.data,

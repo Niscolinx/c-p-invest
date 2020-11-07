@@ -148,7 +148,6 @@ class Admin extends Component {
         })
 
         if (this.props.tokenId) {
-            console.log('the get user')
             this.props.onInitGetUser(this.props.tokenId)
             this.props.onInitGetAdmin(this.props.tokenId)
         }

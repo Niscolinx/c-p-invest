@@ -114,7 +114,6 @@ export const withdrawNowFailed = (err) => {
 
 export const initUpdateProfile = (updateProfileData, token) => {
     return (dispatch) => {
-        console.log('update profile data', updateProfileData)
         dispatch(updateProfileStart())
 
         let graphqlQuery = {
@@ -304,7 +303,6 @@ export const initGetAdmin= (token) => {
 
 export const initWithdrawNow = (withdrawNowData, token) => {
     return (dispatch) => {
-        console.log('the withdrawal data', withdrawNowData)
         dispatch(withdrawNowStart())
 
         let graphqlQuery = {
@@ -339,7 +337,6 @@ export const initWithdrawNow = (withdrawNowData, token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('the resData of withdraw', resData)
                 if (resData.errors) {
                     dispatch(withdrawNowFailed(resData.errors[0].message))
                 }
@@ -503,7 +500,6 @@ export const initWithdrawNowApproval = (id, token) => {
                 return res.json()
             })
             .then((resData) => {
-                console.log('the res of withdraw', resData)
                 if (resData.errors) {
                     dispatch(withdrawNowFailed(resData.errors[0].message))
                 }

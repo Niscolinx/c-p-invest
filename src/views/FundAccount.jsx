@@ -57,7 +57,6 @@ function FundAccount(props) {
              setError(false)
 
              if (!error) {
-                 console.log('the form data sent', formData)
                  amount = Number(amount)
 
                  props.onInitFundAccount(formData, props.tokenId, props.userId)
@@ -69,7 +68,6 @@ function FundAccount(props) {
 
     useEffect(() => {
         if (props.userData.hasOwnProperty('username')) {
-            console.log('the user data', props.userData.accountBalance)
 
             setUserAccountBalance(props.userData.accountBalance)
         }

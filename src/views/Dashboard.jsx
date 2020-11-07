@@ -44,7 +44,6 @@ const Dashboard = (props) => {
     const displayUserFunds = `$${userAccountBalance}`
     const displayUserDeposits = `$${totalUserDeposits}`
     const displayUserWithdrawals = `$${totalUserWithdrawals}`
-    const displayFundAccountCount = `$${fundAccountCount}`
 
         return (
             <div className='content'>
@@ -87,7 +86,7 @@ const Dashboard = (props) => {
                             <StatsCard
                                 bigIcon={<i className='pe-7s-cash text-info' />}
                                 statsText='Funds Approved'
-                                statsValue={displayFundAccountCount}
+                                statsValue={fundAccountCount}
                                 statsIcon={<i className='fa fa-refresh' />}
                                 statsIconText='Updated now'
                             />

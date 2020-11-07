@@ -22,7 +22,7 @@ const UserProfile = (props) => {
     const [email, setEmail] = useState('')
     const [bitcoin, setBitcoin] = useState('')
     const [ethereum, setEthereum] = useState('')
-    const [profilePic, setProfilePic] = useState('')
+   // const [profilePic, setProfilePic] = useState('')
     const [phone, setPhone] = useState('')
     const [country, setCountry] = useState('')
     const [city, setCity] = useState('')
@@ -71,7 +71,6 @@ const UserProfile = (props) => {
     }
 
     useEffect(() => {
-        console.log('userData', props.userData)
         if (props.userData) {
             const fetchedBitcoin = props.userData.bitcoinAccount
             const fetchedEmail = props.userData.email
