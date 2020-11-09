@@ -26,7 +26,7 @@ const Dashboard = (props) => {
     const [totalUserDeposits, setTotalUserDeposits] = useState(0)
     const [totalUserWithdrawals, setTotalUserWithdrawals] = useState(0)
     const [fundAccountCount, setFundAccountCount] = useState(0)
-   console.log(fundAccountCount) 
+    
     useEffect(() => {
         if(props.userData.hasOwnProperty('username')){
             setUserAccountBalance(props.userData.accountBalance)
