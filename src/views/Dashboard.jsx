@@ -40,8 +40,6 @@ const Dashboard = (props) => {
     }, [props])
 
 
-    console.log(props.totalUserDeposits)
-
     const displayUserFunds = `$${userAccountBalance}`
     const displayUserDeposits = `$${totalUserDeposits}`
     const displayUserWithdrawals = `$${totalUserWithdrawals}`
