@@ -39,7 +39,6 @@ const Dashboard = (props) => {
         }
     }, [props])
 
-
     const displayUserFunds = `$${userAccountBalance}`
     const displayUserDeposits = `$${totalUserDeposits}`
     const displayUserWithdrawals = `$${totalUserWithdrawals}`
