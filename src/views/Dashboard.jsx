@@ -130,7 +130,6 @@ const mapStateToProps = (state) => {
     return {
         err: state.auth.error,
         loading: state.user.loading,
-        redirectToLoginPage: state.auth.redirect,
         tokenId: state.auth.tokenId,
         userData: state.auth.userData,
         userFundAccount: state.auth.userFundAccount,
